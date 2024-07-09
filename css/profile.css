@@ -37,7 +37,16 @@ td{
     font-size: 12px;
 }
 
-
+#surveyTable tr{
+    border: 1px solid #bbb;
+}
+#surveyTable th{
+    font-size: 14px;
+    background-color: #0080005c;
+}
+#surveyTable td{
+    font-size: 12px;
+}
 .uploads {
     margin-top: 20px;
 }

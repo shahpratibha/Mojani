@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $occupation = $_POST["occupation"];
     $contact_no = $_POST["contact_no"];
 
-    $stmt = $pdo->prepare("INSERT INTO users (username, email, password, occupation, contact_no) VALUES (?, ?, ?, ?, ?)");
+    $stmt = $pdo->prepare("INSERT INTO admin_users (username, email, password, occupation, contact_no) VALUES (?, ?, ?, ?, ?)");
     $stmt->execute([$username, $email, $password, $occupation, $contact_no]);
     // Redirect to index.php after successful registration
     header("Location: admin.php");
