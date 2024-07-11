@@ -68,6 +68,7 @@ if (!$uploads_result) {
     <p><strong>Email:</strong> <?php echo htmlspecialchars($user['email']); ?></p>
     <p><strong>Contact No:</strong> <?php echo htmlspecialchars($user['contact_no']); ?></p>
     <p><strong>Occupation:</strong> <?php echo htmlspecialchars($user['occupation']); ?></p>
+    <a href="logout.php" class="btn btn-danger">Logout</a> <!-- Add logout button -->
 </div>
 
 <div class="uploads col-sm-8">

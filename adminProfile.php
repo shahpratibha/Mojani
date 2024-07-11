@@ -72,24 +72,45 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="css/profile.css">
     <style>
-        .table-container {
-            height: 300px;
-            overflow-y: auto;
-            position: relative;
-        }
-        .table-container table {
-            width: 100%;
-        }
-        .table-container thead th {
-            position: sticky;
-            top: 0;
-            background-color: white;
-            z-index: 2;
-        }
-        .pagination {
+    
+    .table-container {
+    height: 300px;
+    /* overflow-y: auto; */
+    position: relative;
+}
+
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-container thead,
+.table-container tbody {
+    display: block;
+}
+
+.table-container thead {
+    background-color: white;
+    z-index: 2;
+    position: sticky;
+    top: 0;
+}
+
+.table-container tbody {
+    height: 250px; /* Adjust this value to fit within the container height */
+    overflow-y: auto;
+    scrollbar-width:thin ;
+}
+
+.table-container th,
+.table-container td {
+    width: 10%; /* Adjust based on the number of columns */
+    box-sizing: border-box;
+}
+.pagination {
             display: flex;
             justify-content: center;
-            margin-top: 10px;
+            margin-top: 15px;
         }
         .pagination .page-item .page-link {
             margin: 0 5px;
@@ -98,8 +119,7 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
         }
         .pagination .active .page-link {
             font-weight: bold;
-        }
-        
+        }      
     </style>
 </head>
 <body>
@@ -125,7 +145,7 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
         </div>
     </div>
     <div class="row">
-        <div class="uploads">
+        <!-- <div class="uploads">
             <h2>Survey Data</h2>
             <div class="table-container">
                 <table class="table table-bordered" id="surveyTable">
@@ -176,7 +196,60 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
                     </li>
                 </ul>
             </nav>
-        </div>
+        </div> -->
+        <div class="uploads">
+    <h2>Survey Data</h2>
+    <div class="table-container">
+        <table class="table table-bordered" id="surveyTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>District</th>
+                    <th>Taluka</th>
+                    <th>Village</th>
+                    <th>Survey Number</th>
+                    <th>Survey Map</th>
+                    <th>Village Map</th>
+                    <th>PDF 7/12</th>
+                    <th>Timestamp</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($survey_data as $survey) : ?>
+                    <tr>
+                        <td><?php echo htmlspecialchars($survey['id']); ?></td>
+                        <td><?php echo htmlspecialchars($survey['username']); ?></td>
+                        <td><?php echo htmlspecialchars($survey['district']); ?></td>
+                        <td><?php echo htmlspecialchars($survey['taluka']); ?></td>
+                        <td><?php echo htmlspecialchars($survey['village']); ?></td>
+                        <td><?php echo htmlspecialchars($survey['survey_number']); ?></td>
+                        <td><?php echo htmlspecialchars($survey['survey_map_filename']); ?></td>
+                        <td><?php echo htmlspecialchars($survey['village_map_filename']); ?></td>
+                        <td><?php echo htmlspecialchars($survey['pdf_7_12_filename']); ?></td>
+                        <td><?php echo htmlspecialchars($survey['timestamp']); ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous" onclick="prevPage()">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <span id="pageNumbers"></span>
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next" onclick="nextPage()">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
     </div>
 </div>
 <script>
