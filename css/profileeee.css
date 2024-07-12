@@ -30,15 +30,8 @@ body {
 
 
 
-.table-container {
-    height: 700px;
-    position: relative;
-    overflow-y: auto;
-}
-.table{
-    height: 700px;
-    width: 600px;
-}
+
+
 .btn-danger {
     background-color: #dc3545;
     border: none;
@@ -82,7 +75,7 @@ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 .card h2 {
     color: black;
-    font-size: 1.5em;
+
 }
 .text{
     color: black;
@@ -124,9 +117,6 @@ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 .bg-light {
 background-color: gray;
 }
-.tabledata{
-    height: 900px;
-}
 
 #uploadTable th{
 font-size: 35px;
@@ -139,8 +129,8 @@ background-color: transparent;
 }
 #uploadTable td{
 font-size: 30px;
-overflow-y: auto;
-max-height: 700px; 
+
+
 
 }
 .profile-img {
@@ -165,4 +155,22 @@ color: rgba(var(--bs-success-rgb), var(--bs-text-opacity)) !important;
     align-items: center;
     justify-content: space-between;
 
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: -129px;
+}
+
+.pagination .page-item .page-link {
+    margin: 0 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 50px;
+    color: #0080005c;
+    border: 2px solid #0080005c;
+}
+
+.pagination .active .page-link {
+    font-weight: bold;
 }
