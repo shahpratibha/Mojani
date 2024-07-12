@@ -1,0 +1,168 @@
+body {
+    padding: 0 15px;
+    overflow-x: hidden;
+   font-family: 'Times New Roman', Times, serif;
+   
+}
+.profile, .counts, .uploads {
+    margin: 20px;
+}
+
+.profile h2, .counts h2, .uploads h2 {
+    margin-bottom: 10px;
+}
+.uploads {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.uploads h2 {
+    color: green;
+}
+
+.uploads table {
+    width: 100%;
+    border-collapse: collapse;
+    /* table-layout: fixed;  */
+}
+
+
+
+.table-container {
+    height: 700px;
+    position: relative;
+    overflow-y: auto;
+}
+.table{
+    height: 700px;
+    width: 600px;
+}
+.btn-danger {
+    background-color: #dc3545;
+    border: none;
+}
+.fa-user {
+    font-size: 60px;
+}
+
+.btn {
+    font-size: 30px;
+}
+
+
+.table-container thead {
+    background-color: white;
+    z-index: 2;
+    position: sticky;
+    top: 0;
+}
+
+.table-container th,
+.table-container td {
+    width: 10%;
+    box-sizing: border-box;
+}
+
+
+.card {
+width: 100%;
+margin-top: 81px;
+position: sticky;
+
+border: 4px solid #0080005c;
+border-radius: 15px;
+margin-bottom: 20px;
+
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+.card-body {
+    padding: 20px;
+}
+.card h2 {
+    color: black;
+    font-size: 1.5em;
+}
+.text{
+    color: black;
+    font-size: 30px;
+}
+
+
+.fa-user{
+    font-size: 60px;
+}
+.btn{
+    font-size: 30px;
+}
+
+
+.card-title1 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+.card-body1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.card-container1 {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /
+}
+.card1 {
+    flex: 1;
+    margin: 10px; 
+    border: 4px solid #0080005c;
+    background-color: #d3d3d3;
+
+}
+.text1{
+    font-size: 35px;
+}
+.bg-light {
+background-color: gray;
+}
+.tabledata{
+    height: 900px;
+}
+
+#uploadTable th{
+font-size: 35px;
+background-color: #0080005c;
+}
+a {
+color: #28a745;
+text-decoration: none;
+background-color: transparent;
+}
+#uploadTable td{
+font-size: 30px;
+overflow-y: auto;
+max-height: 700px; 
+
+}
+.profile-img {
+    width: 13%;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: -45px;
+    margin-left: -49px;
+}
+.text-success {
+--bs-text-opacity: 1;
+font-size: 32px;
+margin-left: 6%;
+color: rgba(var(--bs-success-rgb), var(--bs-text-opacity)) !important;
+}
+.table-responsive {
+    overflow-x: auto;
+    
+}
+.profile-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}

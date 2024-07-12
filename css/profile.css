@@ -1,5 +1,6 @@
 body {
     font-family:'Times New Roman', Times, serif;
+    overflow: hidden !important;
 }
 .profile, .counts, .uploads {
     margin: 20px;
@@ -90,3 +91,6 @@ td{
 .uploads h2{
     color: green;
 }
+
+
+
