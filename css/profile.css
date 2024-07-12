@@ -116,9 +116,9 @@ a{
     border-radius: 5px;
 }
 
-body {
+/* body {
     padding: 0 15px;
-}
+} */
 
 .table-container {
     height: 600px;
@@ -271,4 +271,9 @@ body {
 }
 .card-body h2{
     font-size: 30px;
+}
+
+.download-icon {
+    float: right;
+    color: blue;
 }
