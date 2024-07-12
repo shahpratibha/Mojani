@@ -1,5 +1,6 @@
 body {
     font-family: 'Times New Roman', Times, serif;
+    overflow: hidden;
 }
 
 .profile, .counts, .uploads {
@@ -24,6 +25,7 @@ body {
 .uploads table {
     width: 100%;
     border-collapse: collapse;
+    /* table-layout: fixed;  */
 }
 
 .uploads table, .uploads th, .uploads td, #surveyTable tr {
@@ -112,4 +114,161 @@ a{
     font-weight: bold;
     border: #0080005c;
     border-radius: 5px;
+}
+
+body {
+    padding: 0 15px;
+}
+
+.table-container {
+    height: 600px;
+    position: relative;
+    overflow-y: auto;
+}
+.table{
+    height: 700px;
+    width: 600px;
+}
+
+.table-container thead {
+    background-color: white;
+    z-index: 2;
+    position: sticky;
+    top: 0;
+}
+
+.table-container th,
+.table-container td {
+    width: 10%;
+    box-sizing: border-box;
+}
+
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.pagination .page-item .page-link {
+    margin: 0 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 50px;
+    color: #0080005c;
+    border: 2px solid #0080005c;
+}
+
+.pagination .active .page-link {
+    font-weight: bold;
+}
+
+
+
+.table-container thead {
+    background-color: white;
+    position: sticky;
+    top: 0;
+}
+
+.card {
+    width: 100%;
+    border: 4px solid #0080005c;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    font-size: 50px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card h2 {
+    color: black;
+    font-size: 1.5em;
+}
+
+.text {
+    color: black;
+    font-size: 30px;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border: none;
+}
+
+.fa-user {
+    font-size: 60px;
+}
+
+.btn {
+    font-size: 30px;
+}
+
+
+.card-title1 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.card-body1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.card-container1 {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;/
+}
+
+.card1 {
+    flex: 1;
+    margin: 10px;
+    /* border: 4px solid #0080005c; */
+    background-color: #d3d3d3;
+    box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.6);
+}
+
+.text1 {
+    font-size: 35px;
+}
+
+.bg-light {
+    background-color: gray;
+}
+
+.tabledata {
+    height: 900px;
+    width: 100%;
+}
+
+#surveyTable th {
+    font-size: 30px;
+    background-color: #0080005c;
+}
+
+#surveyTable td {
+    font-size: 30px;
+}
+
+.company-logo {
+    height: 80px;
+    width: auto;
+}
+
+.profile-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.fa-power-off {
+    font-size: 40px;
+}
+.card-body h2{
+    font-size: 30px;
 }

@@ -109,39 +109,88 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Admin Profile</title>
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="css/profile.css">
+
+    <style>
+       
+    </style>
 </head>
+
 <body>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-4">
-                <div class="profile">
-                    <h2>Logged-in User Profile</h2>
-                    <p><strong>Full Name:</strong> <?php echo htmlspecialchars($logged_user['username']); ?></p>
-                    <p><strong>Email:</strong> <?php echo htmlspecialchars($logged_user['email']); ?></p>
-                    <p><strong>Contact No:</strong> <?php echo htmlspecialchars($logged_user['contact_no']); ?></p>
-                    <p><strong>Occupation:</strong> <?php echo htmlspecialchars($logged_user['occupation']); ?></p>
-                    <a href="logout.php" class="btn btn-danger">Logout</a>
+            <div class="col-12 mb-3 mt-4">
+                <div class="card profile-card">
+                <div class="card-body">
+                <div class="card-body d-flex justify-content-between align-items-center">
+                            <img src="image/geopulse_logo-removebg-preview.png" alt="Company Logo" class="company-logo ms-5">
+
+                            <a href="logout.php" class="btn mb-4"><i class="fas fa-power-off" style="color: red;"></i></a>
+
+                        </div>
+                        <h2 class="text-success mt-3 text-center pb-5 fw-bold">User Profile</h2>
+
+                        <div class="profile-row">
+                            <p class="text text-center text-start"><strong class="ms-5">Full Name:</strong> <?php echo htmlspecialchars($logged_user['username']); ?></p>
+                            <p class="text text-center text-start"><strong class="ms-5">Email:</strong> <?php echo htmlspecialchars($logged_user['email']); ?></p>
+                        </div>
+
+
+                        <div class="profile-row">
+                            <p class="text text-center"><strong class="ms-5">Contact No:</strong> <?php echo htmlspecialchars($logged_user['contact_no']); ?></p>
+                            <p class="text text-center"><strong class="ms-5">Occupation:</strong> <?php echo htmlspecialchars($logged_user['occupation']); ?></p>
+                        </div>
+                </div>
                 </div>
             </div>
-            <div class="col-sm-8">
-                <div class="counts">
-                    <h2>Dashboard Statistics</h2>
-                    <p><strong>Total Users:</strong> <?php echo $total_users; ?></p>
-                    <p><strong>Total Users who Uploaded Files:</strong> <?php echo $total_user_uploads; ?></p>
-                    <p><strong>Total Admins who Uploaded Files:</strong> <?php echo $total_admin_uploads; ?></p>
+            <div class="col-12 mb-3">
+                <div class=" card stats-card counts">
+                <div class="card-body">
+                <div class="d-flex justify-content-center align-items-center mb-3 mt-4">
+                            <i class="fas fa-chart-bar text-success"></i>
+                        </div>
+
+                     <h2 class="text-success mt-4  text-center fw-bold">Dashboard </h2>
+               
+                     <div class="card-container1 mt-4 mb-4">
+                            <div class="card1">
+                                <div class="card-body1 text-center">
+                                    <i class="fas fa-users fa-2x me-3 text-success mt-5"></i>
+                                    <h5 class="card-title1 mt-4 ms-2 text1">Total Users</h5>
+                                    <p class="card-body1 mt-4 "><?php echo $total_users; ?></p>
+                                </div>
+                            </div>
+                            <div class="card1">
+                                <div class="card-body1 text-center">
+                                    <i class="fas fa-upload fa-2x me-3 text-success mt-5"></i>
+                                    <h5 class="card-title1 mt-4 ms-2 text1">Users Uploaded </h5>
+                                    <p class="card-body1 mt-4 "><?php echo $total_user_uploads; ?></p>
+                                </div>
+                            </div>
+                            <div class="card1">
+                                <div class="card-body1 text-center">
+                                    <i class="fas fa-user-shield fa-2x me-3 text-success mt-5"></i>
+                                    <h5 class="card-title1 mt-4 ms-2 text1">Admins Uploaded</h5>
+                                    <p class="card-body1 mt-4 "><?php echo $total_admin_uploads; ?></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="uploads">
-                <h2>Users Survey Data</h2>
+            <div class="uploads col-12 tabledata">
+            <h2 class="text-center text-success fw-bold">Survey Data</h2>
+
                 <div class="table-container">
                     <table class="table table-bordered" id="surveyTable">
                         <thead>
@@ -209,7 +258,7 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
                     </table>
                 </div>
                 <nav aria-label="Page navigation">
-                    <ul class="pagination">
+                    <ul class="pagination justify-content-center">
                         <li class="page-item">
                             <a class="page-link" href="#" aria-label="Previous" onclick="prevPage()">
                                 <span aria-hidden="true">&laquo;</span>
@@ -284,6 +333,7 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
         });
     </script>
 </body>
+
 </html>
 
 <?php
