@@ -1,4 +1,6 @@
 body {
+    font-family:'Times New Roman', Times, serif;
+    overflow: hidden !important;
     font-family: 'Times New Roman', Times, serif;
     overflow: hidden;
 }
@@ -93,6 +95,8 @@ tr {
     margin-top: 15px;
     color: green;
 }
+
+
 
 .pagination .page-item .page-link {
     margin: 0 5px;
