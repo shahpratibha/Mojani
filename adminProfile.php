@@ -32,6 +32,51 @@ if (!$logged_user) {
     die("Logged-in user not found.");
 }
 
+// Handle file upload
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['uploadFile'])) {
+    $survey_id = $_POST['survey_id'];
+    $username = $_POST['username']; // This should be the survey_data username
+    $admin_username = $_SESSION['username'];
+    $file = $_FILES['uploadFile'];
+
+    // File upload path
+    $target_dir = "uploads/";
+    $target_file = $target_dir . basename($file["name"]);
+    $uploadOk = 1;
+
+    // Check if file already exists
+    if (file_exists($target_file)) {
+        echo "Sorry, file already exists.";
+        $uploadOk = 0;
+    }
+
+    // Allow certain file formats (optional)
+    $fileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+    if ($fileType != "pdf") {
+        echo "Sorry, only PDF files are allowed.";
+        $uploadOk = 0;
+    }
+
+    // Check if $uploadOk is set to 0 by an error
+    if ($uploadOk == 0) {
+        echo "Sorry, your file was not uploaded.";
+    } else {
+        if (move_uploaded_file($file["tmp_name"], $target_file)) {
+            // Insert file data into the admin_uploads table
+            $insert_sql = "INSERT INTO public.admin_uploads (survey_id, user_name, admin_username, file_path) VALUES ($1, $2, $3, $4)";
+            $insert_result = pg_query_params($conn, $insert_sql, array($survey_id, $username, $admin_username, $target_file));
+
+            if (!$insert_result) {
+                die("Error in SQL query: " . pg_last_error());
+            } else {
+                echo "The file " . basename($file["name"]) . " has been uploaded.";
+            }
+        } else {
+            echo "Sorry, there was an error uploading your file.";
+        }
+    }
+}
+
 // Fetch survey data
 $survey_data_sql = "SELECT * FROM public.survey_data";
 $survey_data_result = pg_query($conn, $survey_data_sql);
@@ -57,7 +102,7 @@ $total_user_uploads_result = pg_query($conn, $total_user_uploads_sql);
 $total_user_uploads = pg_fetch_result($total_user_uploads_result, 0, 'total_user_uploads');
 
 // Count total number of admin users who uploaded files
-$total_admin_uploads_sql = "SELECT COUNT(DISTINCT username) as total_admin_uploads FROM public.survey_data";
+$total_admin_uploads_sql = "SELECT COUNT(DISTINCT admin_username) as total_admin_uploads FROM public.admin_uploads";
 $total_admin_uploads_result = pg_query($conn, $total_admin_uploads_sql);
 $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_admin_uploads');
 ?>
@@ -75,162 +120,7 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
     <link rel="stylesheet" href="css/profile.css">
 
     <style>
-        body {
-            padding: 0 15px;
-        }
-
-        .table-container {
-            height: 310px;
-            position: relative;
-            overflow-y: auto;
-
-        }
-
-        .table-container thead {
-            background-color: white;
-            z-index: 2;
-            position: sticky;
-            top: 0;
-        }
-
-        .table-container th,
-        .table-container td {
-            width: 10%;
-            box-sizing: border-box;
-        }
-
-        .table-container {
-            height: 300px;
-            position: relative;
-        }
-
-        .pagination {
-            display: flex;
-            justify-content: center;
-            margin-top: 15px;
-        }
-
-        .pagination .page-item .page-link {
-            margin: 0 5px;
-            padding: 5px 10px;
-            cursor: pointer;
-        }
-
-        .pagination .active .page-link {
-            font-weight: bold;
-        }
-
-        .table-container {
-            height: 700px;
-            overflow-y: auto;
-        }
-
-        .table-container thead {
-            background-color: white;
-            position: sticky;
-            top: 0;
-        }
-
-        .card {
-            width: 100%;
-            border: 4px solid #0080005c;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            font-size: 50px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .card-body {
-            padding: 20px;
-        }
-
-        .card h2 {
-            color: black;
-            font-size: 1.5em;
-        }
-
-        .text {
-            color: black;
-            font-size: 30px;
-        }
-
-        .btn-danger {
-            background-color: #dc3545;
-            border: none;
-        }
-
-        .fa-user {
-            font-size: 60px;
-        }
-
-        .btn {
-            font-size: 30px;
-        }
-
-
-        .card-title1 {
-            font-size: 1.25rem;
-            font-weight: 600;
-        }
-
-        .card-body1 {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .card-container1 {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;/
-        }
-
-        .card1 {
-            flex: 1;
-            margin: 10px;
-            /* border: 4px solid #0080005c; */
-            background-color: #d3d3d3;
-            box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.6);
-        }
-
-        .text1 {
-            font-size: 35px;
-        }
-
-        .bg-light {
-            background-color: gray;
-        }
-
-        .tabledata {
-            height: 900px;
-        }
-
-        #surveyTable th {
-            font-size: 40px;
-            background-color: #0080005c;
-        }
-
-        #surveyTable td {
-            font-size: 40px;
-        }
-
-        .company-logo {
-            height: 80px;
-            width: auto;
-        }
-
-        .profile-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-        }
-
-        .fa-power-off {
-            font-size: 40px;
-        }
-        .card-body h2{
-            font-size: 3px;
-        }
+       
     </style>
 </head>
 
@@ -239,14 +129,13 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
         <div class="row">
             <div class="col-12 mb-3 mt-4">
                 <div class="card profile-card">
-                    <div class="card-body">
-                        <div class="card-body d-flex justify-content-between align-items-center">
+                <div class="card-body">
+                <div class="card-body d-flex justify-content-between align-items-center">
                             <img src="image/geopulse_logo-removebg-preview.png" alt="Company Logo" class="company-logo ms-5">
 
                             <a href="logout.php" class="btn mb-4"><i class="fas fa-power-off" style="color: red;"></i></a>
 
                         </div>
-
                         <h2 class="text-success mt-3 text-center pb-5 fw-bold">User Profile</h2>
 
                         <div class="profile-row">
@@ -254,22 +143,24 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
                             <p class="text text-center text-start"><strong class="ms-5">Email:</strong> <?php echo htmlspecialchars($logged_user['email']); ?></p>
                         </div>
 
+
                         <div class="profile-row">
                             <p class="text text-center"><strong class="ms-5">Contact No:</strong> <?php echo htmlspecialchars($logged_user['contact_no']); ?></p>
                             <p class="text text-center"><strong class="ms-5">Occupation:</strong> <?php echo htmlspecialchars($logged_user['occupation']); ?></p>
                         </div>
-                    </div>
+                </div>
                 </div>
             </div>
             <div class="col-12 mb-3">
-                <div class="card stats-card">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-center align-items-center mb-3 mt-4">
+                <div class=" card stats-card counts">
+                <div class="card-body">
+                <div class="d-flex justify-content-center align-items-center mb-3 mt-4">
                             <i class="fas fa-chart-bar text-success"></i>
                         </div>
-                        <h2 class="text-success mt-4  text-center fw-bold">Dashboard </h2>
 
-                        <div class="card-container1 mt-4 mb-4">
+                     <h2 class="text-success mt-4  text-center fw-bold">Dashboard </h2>
+               
+                     <div class="card-container1 mt-4 mb-4">
                             <div class="card1">
                                 <div class="card-body1 text-center">
                                     <i class="fas fa-users fa-2x me-3 text-success mt-5"></i>
@@ -296,11 +187,10 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
                 </div>
             </div>
         </div>
-
-
         <div class="row">
-            <div class="col-12 tabledata">
-                <h1 class="text-center text-success">Survey Data</h1>
+            <div class="uploads col-12 tabledata">
+            <h2 class="text-center text-success fw-bold">Survey Data</h2>
+
                 <div class="table-container">
                     <table class="table table-bordered" id="surveyTable">
                         <thead>
@@ -314,7 +204,10 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
                                 <th>Survey Map</th>
                                 <th>Village Map</th>
                                 <th>PDF 7/12</th>
-                                <th>Timestamp</th>
+                                <th>Date & Time</th>
+                                <th>Upload File</th>
+                                <th>Uploaded File Name</th>
+                                <th>Uploaded Date</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -326,10 +219,39 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
                                     <td><?php echo htmlspecialchars($survey['taluka']); ?></td>
                                     <td><?php echo htmlspecialchars($survey['village']); ?></td>
                                     <td><?php echo htmlspecialchars($survey['survey_number']); ?></td>
-                                    <td><?php echo htmlspecialchars($survey['survey_map_filename']); ?></td>
-                                    <td><?php echo htmlspecialchars($survey['village_map_filename']); ?></td>
-                                    <td><?php echo htmlspecialchars($survey['pdf_7_12_filename']); ?></td>
+                                    <td><a href="uploads/<?php echo htmlspecialchars($survey['survey_map_filename']); ?>" download><?php echo htmlspecialchars($survey['survey_map_filename']); ?></a></td>
+                                    <td><a href="uploads/<?php echo htmlspecialchars($survey['village_map_filename']); ?>" download><?php echo htmlspecialchars($survey['village_map_filename']); ?></a></td>
+                                    <td><a href="uploads/<?php echo htmlspecialchars($survey['pdf_7_12_filename']); ?>" download><?php echo htmlspecialchars($survey['pdf_7_12_filename']); ?></a></td>
                                     <td><?php echo htmlspecialchars($survey['timestamp']); ?></td>
+                                    <td>
+                                        <form method="POST" enctype="multipart/form-data">
+                                            <input type="hidden" name="survey_id" value="<?php echo htmlspecialchars($survey['id']); ?>" />
+                                            <input type="hidden" name="username" value="<?php echo htmlspecialchars($survey['username']); ?>" />
+                                            <input type="file" name="uploadFile" />
+                                            <button type="submit" class="btnn">Upload</button>
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <?php
+                                        $upload_query = "SELECT file_path, upload_time FROM public.admin_uploads WHERE survey_id = $1 AND admin_username = $2";
+                                        $upload_result = pg_query_params($conn, $upload_query, array($survey['id'], $logged_in_user));
+                                        if ($upload_result) {
+                                            while ($upload_row = pg_fetch_assoc($upload_result)) {
+                                                echo htmlspecialchars(basename($upload_row['file_path']));
+                                            }
+                                        }
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <?php
+                                        if ($upload_result) {
+                                            pg_result_seek($upload_result, 0); // Reset result pointer to the beginning
+                                            while ($upload_row = pg_fetch_assoc($upload_result)) {
+                                                echo htmlspecialchars($upload_row['upload_time']);
+                                            }
+                                        }
+                                        ?>
+                                    </td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
@@ -354,7 +276,7 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
         </div>
     </div>
     <script>
-        const rowsPerPage = 10;
+        const rowsPerPage = 5;
         let currentPage = 1;
         const table = document.getElementById("surveyTable");
         const rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
