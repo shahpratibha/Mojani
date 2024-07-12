@@ -10,16 +10,20 @@ body {
 .uploads table {
     width: 100%;
     border-collapse: collapse;
+    table-layout: fixed; /* Ensures columns have a fixed width */
 }
 .uploads table, .uploads th, .uploads td {
     border: 1px solid #ddd;
 }
 .uploads th, .uploads td {
+    border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
 }
 .uploads{
     width: 80%;
+    /* margin: auto;
+    text-align: center; */
     margin: auto;
     text-align: center;
 }
@@ -40,13 +44,13 @@ td{
 #surveyTable tr{
     border: 1px solid #bbb;
 }
-#surveyTable th{
+/* #surveyTable th{
     font-size: 14px;
     background-color: #0080005c;
 }
 #surveyTable td{
     font-size: 12px;
-}
+} */
 .uploads {
     margin-top: 20px;
 }
@@ -98,4 +102,15 @@ td{
 }
 .uploads h2{
     color: green;
+}
+
+
+.btn-logout {
+    background-color: #ff4b5c;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+}
+.btn-logout:hover {
+    background-color: #ff2b3c;
 }
