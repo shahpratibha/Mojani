@@ -1,63 +1,54 @@
 body {
-    font-family:'Times New Roman', Times, serif;
+    font-family: 'Times New Roman', Times, serif;
 }
+
 .profile, .counts, .uploads {
     margin: 20px;
 }
+
 .profile h2, .counts h2, .uploads h2 {
     margin-bottom: 10px;
 }
+
+.uploads {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.uploads h2 {
+    color: green;
+}
+
 .uploads table {
     width: 100%;
     border-collapse: collapse;
 }
-.uploads table, .uploads th, .uploads td {
+
+.uploads table, .uploads th, .uploads td, #surveyTable tr {
     border: 1px solid #ddd;
 }
-.uploads th, .uploads td {
+
+.uploads th, .uploads td, #surveyTable th, #surveyTable td {
     padding: 8px;
     text-align: left;
 }
-.uploads{
-    width: 80%;
-    margin: auto;
-    text-align: center;
-}
-.uploads h2{
-    color: green;
-}
-tr{
-    border: 1px solid #bbb;
-}
-th{
+
+#surveyTable th, .uploads th {
     font-size: 14px;
     background-color: #0080005c;
+    font-weight: bold;
 }
-td{
+
+#surveyTable td, .uploads td {
     font-size: 12px;
 }
 
-#surveyTable tr{
+tr {
     border: 1px solid #bbb;
 }
-#surveyTable th{
-    font-size: 14px;
-    background-color: #0080005c;
-}
-#surveyTable td{
-    font-size: 12px;
-}
-.uploads {
-    margin-top: 20px;
-}
 
-.uploads table, .uploads th, .uploads td {
-    border: 1px solid #ddd;
-}
-.uploads th, .uploads td {
-    padding: 8px;
-    text-align: left;
-}
 .modal {
     display: none;
     position: fixed;
@@ -69,33 +60,56 @@ td{
     overflow: auto;
     background-color: rgba(0,0,0,0.8);
 }
+
 .modal-content {
     background-color: #fefefe;
     margin: 5% auto;
-    /* padding: 20px; */
     border: 1px solid #888;
     width: 80%;
     height: 70%;
     max-width: 800px;
     position: relative;
 }
+
 .close {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
+
 .close:hover,
 .close:focus {
-    color:red;
+    color: red;
     text-decoration: none;
     cursor: pointer;
 }
-.uploads{
-    width: 80%;
-    margin: auto;
-    text-align: center;
-}
-.uploads h2{
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
     color: green;
+}
+
+.pagination .page-item .page-link {
+    margin: 0 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.pagination .active .page-link {
+    font-weight: bold;
+}
+a{
+    color: green;
+}
+
+.btnn{
+    font-size: 12px;
+    padding: 5px;
+    background-color: #0080005c;
+    font-weight: bold;
+    border: #0080005c;
+    border-radius: 5px;
 }

@@ -32,6 +32,51 @@ if (!$logged_user) {
     die("Logged-in user not found.");
 }
 
+// Handle file upload
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['uploadFile'])) {
+    $survey_id = $_POST['survey_id'];
+    $username = $_POST['username']; // This should be the survey_data username
+    $admin_username = $_SESSION['username'];
+    $file = $_FILES['uploadFile'];
+
+    // File upload path
+    $target_dir = "uploads/";
+    $target_file = $target_dir . basename($file["name"]);
+    $uploadOk = 1;
+
+    // Check if file already exists
+    if (file_exists($target_file)) {
+        echo "Sorry, file already exists.";
+        $uploadOk = 0;
+    }
+
+    // Allow certain file formats (optional)
+    $fileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+    if ($fileType != "pdf") {
+        echo "Sorry, only PDF files are allowed.";
+        $uploadOk = 0;
+    }
+
+    // Check if $uploadOk is set to 0 by an error
+    if ($uploadOk == 0) {
+        echo "Sorry, your file was not uploaded.";
+    } else {
+        if (move_uploaded_file($file["tmp_name"], $target_file)) {
+            // Insert file data into the admin_uploads table
+            $insert_sql = "INSERT INTO public.admin_uploads (survey_id, user_name, admin_username, file_path) VALUES ($1, $2, $3, $4)";
+            $insert_result = pg_query_params($conn, $insert_sql, array($survey_id, $username, $admin_username, $target_file));
+
+            if (!$insert_result) {
+                die("Error in SQL query: " . pg_last_error());
+            } else {
+                echo "The file " . basename($file["name"]) . " has been uploaded.";
+            }
+        } else {
+            echo "Sorry, there was an error uploading your file.";
+        }
+    }
+}
+
 // Fetch survey data
 $survey_data_sql = "SELECT * FROM public.survey_data";
 $survey_data_result = pg_query($conn, $survey_data_sql);
@@ -57,7 +102,7 @@ $total_user_uploads_result = pg_query($conn, $total_user_uploads_sql);
 $total_user_uploads = pg_fetch_result($total_user_uploads_result, 0, 'total_user_uploads');
 
 // Count total number of admin users who uploaded files
-$total_admin_uploads_sql = "SELECT COUNT(DISTINCT username) as total_admin_uploads FROM public.survey_data";
+$total_admin_uploads_sql = "SELECT COUNT(DISTINCT admin_username) as total_admin_uploads FROM public.admin_uploads";
 $total_admin_uploads_result = pg_query($conn, $total_admin_uploads_sql);
 $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_admin_uploads');
 ?>
@@ -71,244 +116,173 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="css/profile.css">
-    <style>
-    
-    .table-container {
-    height: 300px;
-    /* overflow-y: auto; */
-    position: relative;
-}
-
-.table-container table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.table-container thead,
-.table-container tbody {
-    display: block;
-}
-
-.table-container thead {
-    background-color: white;
-    z-index: 2;
-    position: sticky;
-    top: 0;
-}
-
-.table-container tbody {
-    height: 250px; /* Adjust this value to fit within the container height */
-    overflow-y: auto;
-    scrollbar-width:thin ;
-}
-
-.table-container th,
-.table-container td {
-    width: 10%; /* Adjust based on the number of columns */
-    box-sizing: border-box;
-}
-.pagination {
-            display: flex;
-            justify-content: center;
-            margin-top: 15px;
-        }
-        .pagination .page-item .page-link {
-            margin: 0 5px;
-            padding: 5px 10px;
-            cursor: pointer;
-        }
-        .pagination .active .page-link {
-            font-weight: bold;
-        }      
-    </style>
 </head>
 <body>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-4">
-            <div class="profile">
-                <h2>Logged-in User Profile</h2>
-                <p><strong>Full Name:</strong> <?php echo htmlspecialchars($logged_user['username']); ?></p>
-                <p><strong>Email:</strong> <?php echo htmlspecialchars($logged_user['email']); ?></p>
-                <p><strong>Contact No:</strong> <?php echo htmlspecialchars($logged_user['contact_no']); ?></p>
-                <p><strong>Occupation:</strong> <?php echo htmlspecialchars($logged_user['occupation']); ?></p>
-                <a href="logout.php" class="btn btn-danger">Logout</a> <!-- Add logout button -->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="profile">
+                    <h2>Logged-in User Profile</h2>
+                    <p><strong>Full Name:</strong> <?php echo htmlspecialchars($logged_user['username']); ?></p>
+                    <p><strong>Email:</strong> <?php echo htmlspecialchars($logged_user['email']); ?></p>
+                    <p><strong>Contact No:</strong> <?php echo htmlspecialchars($logged_user['contact_no']); ?></p>
+                    <p><strong>Occupation:</strong> <?php echo htmlspecialchars($logged_user['occupation']); ?></p>
+                    <a href="logout.php" class="btn btn-danger">Logout</a>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="counts">
+                    <h2>Dashboard Statistics</h2>
+                    <p><strong>Total Users:</strong> <?php echo $total_users; ?></p>
+                    <p><strong>Total Users who Uploaded Files:</strong> <?php echo $total_user_uploads; ?></p>
+                    <p><strong>Total Admins who Uploaded Files:</strong> <?php echo $total_admin_uploads; ?></p>
+                </div>
             </div>
         </div>
-        <div class="col-sm-8">
-            <div class="counts">
-                <h2>Dashboard Statistics</h2>
-                <p><strong>Total Users:</strong> <?php echo $total_users; ?></p>
-                <p><strong>Total Users who Uploaded Files:</strong> <?php echo $total_user_uploads; ?></p>
-                <p><strong>Total Admins who Uploaded Files:</strong> <?php echo $total_admin_uploads; ?></p>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <!-- <div class="uploads">
-            <h2>Survey Data</h2>
-            <div class="table-container">
-                <table class="table table-bordered" id="surveyTable">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Username</th>
-                            <th>District</th>
-                            <th>Taluka</th>
-                            <th>Village</th>
-                            <th>Survey Number</th>
-                            <th>Survey Map</th>
-                            <th>Village Map</th>
-                            <th>PDF 7/12</th>
-                            <th>Timestamp</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($survey_data as $survey) : ?>
+        <div class="row">
+            <div class="uploads">
+                <h2>Users Survey Data</h2>
+                <div class="table-container">
+                    <table class="table table-bordered" id="surveyTable">
+                        <thead>
                             <tr>
-                                <td><?php echo htmlspecialchars($survey['id']); ?></td>
-                                <td><?php echo htmlspecialchars($survey['username']); ?></td>
-                                <td><?php echo htmlspecialchars($survey['district']); ?></td>
-                                <td><?php echo htmlspecialchars($survey['taluka']); ?></td>
-                                <td><?php echo htmlspecialchars($survey['village']); ?></td>
-                                <td><?php echo htmlspecialchars($survey['survey_number']); ?></td>
-                                <td><?php echo htmlspecialchars($survey['survey_map_filename']); ?></td>
-                                <td><?php echo htmlspecialchars($survey['village_map_filename']); ?></td>
-                                <td><?php echo htmlspecialchars($survey['pdf_7_12_filename']); ?></td>
-                                <td><?php echo htmlspecialchars($survey['timestamp']); ?></td>
+                                <th>ID</th>
+                                <th>Username</th>
+                                <th>District</th>
+                                <th>Taluka</th>
+                                <th>Village</th>
+                                <th>Survey Number</th>
+                                <th>Survey Map</th>
+                                <th>Village Map</th>
+                                <th>PDF 7/12</th>
+                                <th>Date & Time</th>
+                                <th>Upload File</th>
+                                <th>Uploaded File Name</th>
+                                <th>Uploaded Date</th>
                             </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($survey_data as $survey) : ?>
+                                <tr>
+                                    <td><?php echo htmlspecialchars($survey['id']); ?></td>
+                                    <td><?php echo htmlspecialchars($survey['username']); ?></td>
+                                    <td><?php echo htmlspecialchars($survey['district']); ?></td>
+                                    <td><?php echo htmlspecialchars($survey['taluka']); ?></td>
+                                    <td><?php echo htmlspecialchars($survey['village']); ?></td>
+                                    <td><?php echo htmlspecialchars($survey['survey_number']); ?></td>
+                                    <td><a href="uploads/<?php echo htmlspecialchars($survey['survey_map_filename']); ?>" download><?php echo htmlspecialchars($survey['survey_map_filename']); ?></a></td>
+                                    <td><a href="uploads/<?php echo htmlspecialchars($survey['village_map_filename']); ?>" download><?php echo htmlspecialchars($survey['village_map_filename']); ?></a></td>
+                                    <td><a href="uploads/<?php echo htmlspecialchars($survey['pdf_7_12_filename']); ?>" download><?php echo htmlspecialchars($survey['pdf_7_12_filename']); ?></a></td>
+                                    <td><?php echo htmlspecialchars($survey['timestamp']); ?></td>
+                                    <td>
+                                        <form method="POST" enctype="multipart/form-data">
+                                            <input type="hidden" name="survey_id" value="<?php echo htmlspecialchars($survey['id']); ?>" />
+                                            <input type="hidden" name="username" value="<?php echo htmlspecialchars($survey['username']); ?>" />
+                                            <input type="file" name="uploadFile" />
+                                            <button type="submit" class="btnn">Upload</button>
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <?php
+                                        $upload_query = "SELECT file_path, upload_time FROM public.admin_uploads WHERE survey_id = $1 AND admin_username = $2";
+                                        $upload_result = pg_query_params($conn, $upload_query, array($survey['id'], $logged_in_user));
+                                        if ($upload_result) {
+                                            while ($upload_row = pg_fetch_assoc($upload_result)) {
+                                                echo htmlspecialchars(basename($upload_row['file_path']));
+                                            }
+                                        }
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <?php
+                                        if ($upload_result) {
+                                            pg_result_seek($upload_result, 0); // Reset result pointer to the beginning
+                                            while ($upload_row = pg_fetch_assoc($upload_result)) {
+                                                echo htmlspecialchars($upload_row['upload_time']);
+                                            }
+                                        }
+                                        ?>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous" onclick="prevPage()">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <span id="pageNumbers"></span>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next" onclick="nextPage()">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
-            <nav aria-label="Page navigation">
-                <ul class="pagination">
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous" onclick="prevPage()">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <span id="pageNumbers"></span>
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next" onclick="nextPage()">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div> -->
-        <div class="uploads">
-    <h2>Survey Data</h2>
-    <div class="table-container">
-        <table class="table table-bordered" id="surveyTable">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Username</th>
-                    <th>District</th>
-                    <th>Taluka</th>
-                    <th>Village</th>
-                    <th>Survey Number</th>
-                    <th>Survey Map</th>
-                    <th>Village Map</th>
-                    <th>PDF 7/12</th>
-                    <th>Timestamp</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($survey_data as $survey) : ?>
-                    <tr>
-                        <td><?php echo htmlspecialchars($survey['id']); ?></td>
-                        <td><?php echo htmlspecialchars($survey['username']); ?></td>
-                        <td><?php echo htmlspecialchars($survey['district']); ?></td>
-                        <td><?php echo htmlspecialchars($survey['taluka']); ?></td>
-                        <td><?php echo htmlspecialchars($survey['village']); ?></td>
-                        <td><?php echo htmlspecialchars($survey['survey_number']); ?></td>
-                        <td><?php echo htmlspecialchars($survey['survey_map_filename']); ?></td>
-                        <td><?php echo htmlspecialchars($survey['village_map_filename']); ?></td>
-                        <td><?php echo htmlspecialchars($survey['pdf_7_12_filename']); ?></td>
-                        <td><?php echo htmlspecialchars($survey['timestamp']); ?></td>
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+        </div>
     </div>
-    <nav aria-label="Page navigation">
-        <ul class="pagination">
-            <li class="page-item">
-                <a class="page-link" href="#" aria-label="Previous" onclick="prevPage()">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-            </li>
-            <span id="pageNumbers"></span>
-            <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next" onclick="nextPage()">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-</div>
+    <script>
+        const rowsPerPage = 5;
+        let currentPage = 1;
+        const table = document.getElementById("surveyTable");
+        const rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+        const totalRows = rows.length;
+        const totalPages = Math.ceil(totalRows / rowsPerPage);
+        const pageNumbers = document.getElementById("pageNumbers");
 
-    </div>
-</div>
-<script>
-    const rowsPerPage = 10;
-    let currentPage = 1;
-    const table = document.getElementById("surveyTable");
-    const rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
-    const totalRows = rows.length;
-    const totalPages = Math.ceil(totalRows / rowsPerPage);
-    const pageNumbers = document.getElementById("pageNumbers");
+        function showPage(page) {
+            for (let i = 0; i < totalRows; i++) {
+                rows[i].style.display = "none";
+            }
+            const start = (page - 1) * rowsPerPage;
+            const end = start + rowsPerPage;
+            for (let i = start; i < end && i < totalRows; i++) {
+                rows[i].style.display = "";
+            }
+            document.getElementById("prevBtn").classList.toggle('disabled', page === 1);
+            document.getElementById("nextBtn").classList.toggle('disabled', page === totalPages);
 
-    function showPage(page) {
-        for (let i = 0; i < totalRows; i++) {
-            rows[i].style.display = "none";
+            updatePageNumbers();
         }
-        const start = (page - 1) * rowsPerPage;
-        const end = start + rowsPerPage;
-        for (let i = start; i < end && i < totalRows; i++) {
-            rows[i].style.display = "";
+
+        function prevPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                showPage(currentPage);
+            }
         }
-        document.getElementById("prevBtn").classList.toggle('disabled', page === 1);
-        document.getElementById("nextBtn").classList.toggle('disabled', page === totalPages);
 
-        updatePageNumbers();
-    }
+        function nextPage() {
+            if (currentPage < totalPages) {
+                currentPage++;
+                showPage(currentPage);
+            }
+        }
 
-    function prevPage() {
-        if (currentPage > 1) {
-            currentPage--;
+        function updatePageNumbers() {
+            pageNumbers.innerHTML = "";
+            for (let i = 1; i <= totalPages; i++) {
+                const li = document.createElement("li");
+                li.className = "page-item" + (i === currentPage ? " active" : "");
+                li.innerHTML = `<a class="page-link" href="#" onclick="goToPage(${i})">${i}</a>`;
+                pageNumbers.appendChild(li);
+            }
+        }
+
+        function goToPage(page) {
+            currentPage = page;
             showPage(currentPage);
         }
-    }
 
-    function nextPage() {
-        if (currentPage < totalPages) {
-            currentPage++;
+        document.addEventListener("DOMContentLoaded", () => {
             showPage(currentPage);
-        }
-    }
-
-    function updatePageNumbers() {
-        pageNumbers.innerHTML = "";
-        for (let i = 1; i <= totalPages; i++) {
-            const li = document.createElement("li");
-            li.className = "page-item" + (i === currentPage ? " active" : "");
-            li.innerHTML = `<a class="page-link" href="#" onclick="goToPage(${i})">${i}</a>`;
-            pageNumbers.appendChild(li);
-        }
-    }
-
-    function goToPage(page) {
-        currentPage = page;
-        showPage(currentPage);
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-        showPage(currentPage);
-    });
-</script>
+        });
+    </script>
 </body>
 </html>
 
