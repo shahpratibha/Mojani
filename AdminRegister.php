@@ -14,7 +14,7 @@
         
         <div class="right-section">
             <div class="login-container">
-                <form class="login-form" action="register_process.php" method="post">
+                <form class="login-form" action="Adminregister_process.php" method="post">
                 <h2 class="login-title"><img src="image\geopulse logo.png" class="logo" alt="" style=""> </br> Geopulse</h2>
                     <div class="form-control">
                         <i class="fas fa-user icon"></i>
