@@ -50,7 +50,7 @@ if (!$uploads_result) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
 
     </script>
-    <link rel="stylesheet" href="css/profile.css">
+  <!-- <link rel="stylesheet" href="css/profile.css">   -->
     <link rel="stylesheet" href=css/profileeee.css>
    
   
@@ -74,37 +74,34 @@ if (!$uploads_result) {
 <body>
 <div class="container-fluid">
         <div class="row">
-        <div class="col-mb-3 mt-4">
-        <div class="card profile-card">
-                <div class="card-body">
-                <div class="card-body d-flex justify-content-between align-items-center">
-                <img src="https://geopulsea.com/image/transparent_logo.png" alt=alt="Profile Image" class="profile-img">
-                 
-                <a href="logout.php" class="btn mb-4"><i class="fas fa-power-off" style="color: red;"></i></a>
-               
-    </div>
-    <h2 class="text-success mt-3 text-center pb-5 fw-bold">User Profile</h2>
-            <div class="profile-row"> <p class="text text-center text-start"><strong class="ms-5">Full Name:</strong> <?php echo htmlspecialchars($user['username']); ?></p>
-                                      <p class="text text-center text-start"><strong class="ms-5">Email:</strong> <?php echo htmlspecialchars($user['email']); ?></p>
-    </div>
-           <div class="profile-row">  <p class="text text-center text-start"><strong class="ms-5">Contact No:</strong> <?php echo htmlspecialchars($user['contact_no']); ?></p>
-    
-                <p class="text text-center text-start"><strong>Occupation:</strong class="ms-5"> <?php echo htmlspecialchars($user['occupation']); ?></p>
-    </div>
-              
-                    <button type="button" class="btn btn-outline-primary  mt-3 text-center">back</button>
-                
-             
-            
+        <div class="row">
+            <div class="col-md-3 mt-4">
+                <button type="button" class="btn btn-primary" id="showProfileBtn"> User Profile</button>
+                <div class="card profile-card" id="profileCard" style="display: none;">
+                    <div class="card-body">
+                        <div class="card-body d-flex justify-content-between align-items-center">
+                            <img src="https://geopulsea.com/image/transparent_logo.png" alt="Profile Image" class="profile-img">
+                            <a href="logout.php" class="btn mb-4"><i class="fas fa-power-off" style="color: red;"></i></a>
+                        </div>
+                        <h2 class="text-success mt-3 text-center pb-5 fw-bold">User Profile</h2>
+                        <div class="profile-row">
+                            <p class="text text-center text-start"><strong class="ms-5">Full Name:</strong> <?php echo htmlspecialchars($user['username']); ?></p>
+                            <p class="text text-center text-start"><strong class="ms-5">Email:</strong> <?php echo htmlspecialchars($user['email']); ?></p>
+                        </div>
+                        <div class="profile-row">
+                            <p class="text text-center text-start"><strong class="ms-5">Contact No:</strong> <?php echo htmlspecialchars($user['contact_no']); ?></p>
+                            <p class="text text-center text-start"><strong class="ms-5">Occupation:</strong> <?php echo htmlspecialchars($user['occupation']); ?></p>
+                        </div>
+                        <button type="button" class="btn btn-outline-primary mt-3 text-center">Back</button>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-    </div>
-
+        
 <div class="row">
         <div class="uploads col-12 tabledata">
-            <h2 class="text-center text-success mt-5">Upload History</h2>
-            <div class="table-container">
+            <h2 class="text-center text-success mt-5">Upload law</h2>
+            <div class="table-container ">
                 <table class="table table-bordered" id="uploadTable">
                     <thead>
                         <tr>
@@ -112,9 +109,9 @@ if (!$uploads_result) {
                     <th>District</th>
                     <th>Taluka</th>
                     <th>Village</th>
-                    <th>Survey Map PDF</th>
-                    <th>Village Map PDF</th>
-                    <th>7/12 PDF</th>
+                    <th>Survey Map Pdf</th>
+                    <th>Village Map Pdf</th>
+                    <th>7/12 Pdf</th>
                     <th>Upload Date</th>
                     <th>Download File</th>
                         </tr>
@@ -265,6 +262,15 @@ if (!$uploads_result) {
 
         document.addEventListener("DOMContentLoaded", () => {
             showPage(currentPage);
+        });
+
+        document.getElementById('showProfileBtn').addEventListener('click', function() {
+            var profileCard = document.getElementById('profileCard');
+            if (profileCard.style.display === 'none') {
+                profileCard.style.display = 'block';
+            } else {
+                profileCard.style.display = 'none';
+            }
         });
     </script>
 </body>
