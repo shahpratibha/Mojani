@@ -127,26 +127,26 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
 
 <body>
     <div class="container-fluid d-block d-lg-none">
+
+        <!-- Header Row -->
+<div class="header-row d-flex justify-content-between align-items-center mt-4">
+    <img src="image/geopulse_logo-removebg-preview.png" alt="Company Logo" class="company-logo ">
+    <button type="button" class="btn btn-primary admin fw-bold" id="toggleButton">Show Profile</button>
+    <a href="logout.php" class="btn"><i class="fas fa-power-off" style="color: red;"></i></a>
+</div>
+
         <div class="row">
             <div class="col-12 mb-3 mt-4">
-                <div class="card profile-card">
+                <div class="card profile-card mt-4 ms-4">
                 <div class="card-body">
-                <div class="card-body d-flex justify-content-between align-items-center">
-                            <img src="image/geopulse_logo-removebg-preview.png" alt="Company Logo" class="company-logo ms-5">
-
-                            <a href="logout.php" class="btn mb-4"><i class="fas fa-power-off" style="color: red;"></i></a>
-
-                        </div>
-                        <h2 class="font mt-3 text-center pb-5 fw-bold">User Profile</h2>
-
                         <div class="profile-row">
-                            <p class="text text-center text-start"><strong class="ms-5">Full Name:</strong> <?php echo htmlspecialchars($logged_user['username']); ?></p>
+                            <p class="text text-center text-start"><strong class="ms-2">Full Name:</strong> <?php echo htmlspecialchars($logged_user['username']); ?></p>
                             <p class="text text-center text-start"><strong class="ms-5">Email:</strong> <?php echo htmlspecialchars($logged_user['email']); ?></p>
                         </div>
 
 
                         <div class="profile-row">
-                            <p class="text text-center"><strong class="ms-5">Contact No:</strong> <?php echo htmlspecialchars($logged_user['contact_no']); ?></p>
+                            <p class="text text-center"><strong class="">Contact No:</strong> <?php echo htmlspecialchars($logged_user['contact_no']); ?></p>
                             <p class="text text-center"><strong class="ms-5">Occupation:</strong> <?php echo htmlspecialchars($logged_user['occupation']); ?></p>
                         </div>
                 </div>
@@ -156,7 +156,8 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
                 <div class=" card stats-card counts">
                 <div class="card-body">
                 <div class="d-flex justify-content-center align-items-center mb-3 mt-4">
-                            <i class="fa-solid fa-gauge "></i>
+                            <!-- <i class="fa-solid fa-gauge "></i> -->
+                            <img src="./image/Dashboard.svg" alt="Total Users" class="card-icon ">
                         </div>
 
                      <h2 class="font mt-4  text-center fw-bold">Dashboard </h2>
@@ -164,21 +165,23 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
                      <div class="card-container1 mt-4 mb-4">
                             <div class="card1">
                                 <div class="card-body1 text-center">
-                                    <i class="fas fa-users fa-2x me-3 mt-5"></i>
+                                <img src="./image/Users.svg" alt="Total Users" class="card-icon mt-4">
+                                    <!-- <i class="fas fa-users fa-2x me-3 mt-5"></i> -->
                                     <h5 class="card-title1 mt-4 ms-2 text1">Total Users</h5>
                                     <p class="card-body1 mt-4 "><?php echo $total_users; ?></p>
                                 </div>
                             </div>
                             <div class="card1">
                                 <div class="card-body1 text-center">
-                                    <i class="fas fa-upload fa-2x me-3  mt-5"></i>
+                                <img src="./image/Upload.svg" alt="Total Users" class="card-icon mt-4">
+                                    <!-- <i class="fas fa-upload fa-2x me-3  mt-5"></i> -->
                                     <h5 class="card-title1 mt-4 ms-2 text1">Users Uploaded </h5>
-                                    <p class="card-body1 mt-4 "><?php echo $total_user_uploads; ?></p>
-                                </div>
+                                    <p class="card-body1 mt-4 "><?php echo $total_user_uploads; ?>                               </div>
                             </div>
                             <div class="card1">
                                 <div class="card-body1 text-center">
-                                    <i class="fas fa-user-shield fa-2x me-3 mt-5"></i>
+                                <img src="./image/Admin.svg" alt="Total Users" class="card-icon mt-4">
+                                    <!-- <i class="fas fa-user-shield fa-2x me-3 mt-5"></i> -->
                                     <h5 class="card-title1 mt-4 ms-2 text1">Admins Uploaded</h5>
                                     <p class="card-body1 mt-4 "><?php echo $total_admin_uploads; ?></p>
                                 </div>
@@ -190,7 +193,7 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
         </div>
         <div class="row">
             <div class="uploads col-12 tabledata">
-            <h2 class="font text-center fw-bold">Survey Data</h2>
+            <h2 class="font text-center fw-bold">Recent Activity</h2>
 
                 <div class="table-container">
                     <table class="table table-bordered" id="surveyTable">
@@ -278,38 +281,40 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
     </div>
 
 
-    <!-- laptop view -->
+
+     <!-- laptop view -->
 
     <div class="container d-none d-lg-block">
         <div class="row">
-            <div class="col-12  col-md-6 mb-3 mt-4">
-                <div class="card profile-card">
-                <div class="card-bodyl-lg">
-                <div class="card-body d-flex justify-content-between align-items-center">
+        <div class="card-body d-flex justify-content-between align-items-center">
                             <img src="image/geopulse_logo-removebg-preview.png" alt="Company Logo" class="company-logo-lg ">
 
                             <a href="logout.php" class="btn mb-4"><i class="fas fa-power-off off-lg" style="color: red;"></i></a>
 
                         </div>
 
-                        <h2 class="font text-center pb-5 fw-bold heading-lg">User Profile</h2>
-                        <div class="profile-row">
-                            <p class="text text-center text-start"><strong class="ms-5">Full Name:</strong> <?php echo htmlspecialchars($logged_user['username']); ?></p>
-                            <p class="text text-center text-start"><strong class="ms-5">Email:</strong> <?php echo htmlspecialchars($logged_user['email']); ?></p>
-                        </div>
+            <div class="col-12  col-md-3">
+                <div class="card profile-card-lg">
+                <div class="card-bodyl-lg">
+
+                        <h2 class="font text-center pb-1 fw-bold heading-lg">User Profile</h2>
+                        <!-- <div class="profile-row"> -->
+                            <p class="text-lg text-center text-start"><strong class="">Full Name:</strong> <?php echo htmlspecialchars($logged_user['username']); ?></p>
+                            <p class="text-lg text-center text-start"><strong class="">Email:</strong> <?php echo htmlspecialchars($logged_user['email']); ?></p>
+                        <!-- </div> -->
                         
-                        <div class="profile-row">
-                            <p class="text text-center"><strong class="ms-5">Contact No:</strong> <?php echo htmlspecialchars($logged_user['contact_no']); ?></p>
-                            <p class="text text-center"><strong class="ms-5">Occupation:</strong> <?php echo htmlspecialchars($logged_user['occupation']); ?></p>  
-                        </div>   
+                        <!-- <div class="profile-row"> -->
+                            <p class="text-lg text-center"><strong class="">Contact No:</strong> <?php echo htmlspecialchars($logged_user['contact_no']); ?></p>
+                            <p class="text-lg text-center"><strong class="">Occupation:</strong> <?php echo htmlspecialchars($logged_user['occupation']); ?></p>  
+                        <!-- </div>    -->
                 </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 mb-3">
-                <div class=" card stats-card counts">
+            <div class="col-12 col-md-9 mb-3">
+                <div class=" card-dashboard stats-card counts">
                 <div class="card-body">
                 <div class="d-flex justify-content-center align-items-center mb-3 mt-4">
-                            <i class="fa-solid fa-gauge "></i>
+                            <i class="fa-solid fa-gauge"></i>
                         </div>
 
                      <h2 class="font mt-4  text-center fw-bold">Dashboard </h2>
@@ -366,7 +371,7 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($survey_data as $survey) : ?>
+                        <?php foreach ($survey_data as $survey) : ?>
                                 <tr>
                                     <td><?php echo htmlspecialchars($survey['id']); ?></td>
                                     <td><?php echo htmlspecialchars($survey['username']); ?></td>
@@ -400,7 +405,7 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
                                     <td>
                                         <?php
                                         if ($upload_result) {
-                                            pg_result_seek($upload_result, 0); // Reset result pointer to the beginning
+                                            pg_result_seek($upload_result, 0);
                                             while ($upload_row = pg_fetch_assoc($upload_result)) {
                                                 echo htmlspecialchars($upload_row['upload_time']);
                                             }
@@ -429,13 +434,14 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
                 </nav>
             </div>
         </div>
-    </div>
+    </div> 
 
     
 
 
+   
     <script>
-        const rowsPerPage = 5;
+        const rowsPerPage = 8;
         let currentPage = 1;
         const table = document.getElementById("surveyTable");
         const rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
@@ -491,6 +497,19 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
             showPage(currentPage);
         });
     </script>
+
+<script>
+    document.getElementById('toggleButton').addEventListener('click', function() {
+        var profileCard = document.querySelector('.profile-card');
+        if (profileCard.style.display === 'none' || profileCard.style.display === '') {
+            profileCard.style.display = 'block';
+            this.textContent = 'Hide Profile';
+        } else {
+            profileCard.style.display = 'none';
+            this.textContent = 'Show  Profile';
+        }
+    });
+</script>
 </body>
 
 </html>

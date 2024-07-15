@@ -1,8 +1,5 @@
 body {
     font-family:'Times New Roman', Times, serif;
-    overflow: hidden !important;
-    font-family: 'Times New Roman', Times, serif;
-    /* overflow: hidden; */
 }
 
 .profile, .counts, .uploads {
@@ -39,7 +36,8 @@ body {
 
 #surveyTable th, .uploads th {
     font-size: 14px;
-    background-color: darkblue;
+    /* background-color: darkblue; */
+    background-color: #E9E9F7;
     font-weight: bold;
 }
 
@@ -123,7 +121,7 @@ a{
 } */
 
 .table-container {
-    height: 600px;
+    height: 1000px;
     position: relative;
     overflow-y: auto;
 }
@@ -174,12 +172,12 @@ a{
 }
 
 .card {
-    width: 100%;
-    border: 4px solid darkblue;
+    width: 96%;
+    /* border: 4px solid darkblue; */
     border-radius: 15px;
     margin-bottom: 20px;
     font-size: 50px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
 
 .card-body {
@@ -226,7 +224,7 @@ a{
     flex: 1;
     margin: 10px;
     /* border: 4px solid #0080005c; */
-    background-color: #d3d3d3;
+    background-color: #E9E9F7;
     box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.6);
 }
 
@@ -245,8 +243,9 @@ a{
 
 #surveyTable th {
     font-size: 30px;
-    background-color: darkblue;
-    color: #ffff;
+    /* background-color: darkblue; */
+    background-color: #E9E9F7;
+    color: darkblue;
 }
 
 #surveyTable td {
@@ -256,6 +255,17 @@ a{
 .company-logo {
     height: 80px;
     width: auto;
+}
+
+.profile-card {
+    display: none; 
+}
+.profile-card {
+    display: none;
+    width: 96%;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
 
 .profile-row {
@@ -287,6 +297,51 @@ a{
     color: darkblue;
 }
 
+.admin {
+    display: inline-block;
+    margin-top: 15px;
+    margin-left: 35%;
+    padding: 10px 20px;
+     background-color: #E9E9F7;
+    color: darkblue;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    cursor: pointer;
+    font-size: 30px;
+    transition: all 0.3s ease;
+}
+
+.admin:hover {
+    background-color: #E9E9F7;
+    color: darkblue;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+.admin:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.download-icon {
+    float: right;
+    color: blue;
+}
+.header-row {
+    display: flex;
+    align-items: center;
+}
+.header-row .btn {
+    margin-left: 10px;
+}
+.dashboard-icon,
+.card-icon {
+    width: 90px; 
+    height: auto;
+}
+
 /* Styles for tablets (768px to 1024px) */
 
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -301,12 +356,17 @@ a{
     .off-lg{
         font-size: 26px;
     }
+    
     .heading-lg{
         font-size: 10PX;
         margin-top: 10PX;
     }
+   
+    .text-lg{
+        color: black;
+        font-size: 15px;
+    }
+    
 }
-.download-icon {
-    float: right;
-    color: blue;
-}
+
+
