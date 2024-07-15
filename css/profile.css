@@ -1,4 +1,6 @@
 body {
+    font-family:'Times New Roman', Times, serif;
+    overflow: hidden !important;
     font-family: 'Times New Roman', Times, serif;
     /* overflow: hidden; */
 }
@@ -92,6 +94,8 @@ tr {
     color: green;
 }
 
+
+
 .pagination .page-item .page-link {
     margin: 0 5px;
     padding: 5px 10px;
@@ -114,9 +118,9 @@ a{
     border-radius: 5px;
 }
 
-body {
+/* body {
     padding: 0 15px;
-}
+} */
 
 .table-container {
     height: 600px;
@@ -302,4 +306,7 @@ body {
         margin-top: 10PX;
     }
 }
-
+.download-icon {
+    float: right;
+    color: blue;
+}

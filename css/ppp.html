@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card Toggle</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        .profile-card {
+            display: none; /* Hide the profile card initially */
+        }
+        .profile-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        .btn-outline-primary {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <!-- Button to toggle the profile card -->
+                <button id="toggleProfileCardBtn" class="btn btn-primary mb-3">Show Profile</button>
+                
+                <!-- Profile Card -->
+                <div class="card profile-card" id="profileCard">
+                    <div class="card-header">
+                        <img src="https://geopulsea.com/image/transparent_logo.png" alt="Profile Image" class="profile-img">
+                        <a href="logout.php" class="btn mb-4"><i class="fas fa-power-off" style="color: red;"></i></a>
+                    </div>
+                    <div class="card-body">
+                        <p class="text text-center"><strong class="ms-5">Full Name:</strong> <?php echo htmlspecialchars($user['username']); ?></p>
+                        <p class="text text-center"><strong class="ms-5">Email:</strong> <?php echo htmlspecialchars($user['email']); ?></p>
+                        <p class="text text-center"><strong class="ms-5">Contact No:</strong> <?php echo htmlspecialchars($user['contact_no']); ?></p>
+                        <p class="text text-center"><strong class="ms-5">Occupation:</strong> <?php echo htmlspecialchars($user['occupation']); ?></p>
+                        <button type="button" class="btn btn-outline-primary mt-3 text-center">Back</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('toggleProfileCardBtn').addEventListener('click', function() {
+            var profileCard = document.getElementById('profileCard');
+            if (profileCard.style.display === 'none' || profileCard.style.display === '') {
+                profileCard.style.display = 'block';
+                this.textContent = '';
+            } else {
+                profileCard.style.display = 'none';
+                this.textContent = 'Show Profile';
+            }
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

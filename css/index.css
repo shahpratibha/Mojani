@@ -13,7 +13,7 @@ body{
     display: none;
 }
 .dropdown-menu .dropdown-item:hover {
-    background-color:blue;
+    background-color:#0080005c;
     color: white; 
 }
 
@@ -58,7 +58,7 @@ body{
 
 .form-control input:focus {
     outline: none;
-    border: 2px solid blue;
+    border: 2px solid #0080005c;
 }
 
 .form-control input:invalid:not(:focus):not(:placeholder-shown) {
@@ -82,7 +82,7 @@ body{
   .draggable {
     width: 100px;
     height: 100px;
-    background-color: #007BFF;
+    background-color: #0080005c;
     color: white;
     text-align: center;
     line-height: 100px;
@@ -214,7 +214,7 @@ li{
     z-index: 9999;
     top: 0;
     color: black;
-    width: 4dvw;
+    /* width: 4dvw; */
     height: 7dvh;
 }
 
@@ -226,7 +226,9 @@ li{
 }
 #navbarDropdown{
     font:1rem;
-    color: rgb(0, 255, 251);
+    /* color: rgb(0, 255, 251); */
+    color: green;
+    font-weight: bolder;
     text-transform: uppercase;
     text-shadow: #fff;
 } */
@@ -250,10 +252,172 @@ li{
     }
 
 
+    /* Styles specifically for devices with a minimum width of 320px */
+@media (min-width: 320px) and (max-width: 479px) {
+    .Geo img {
+        position: absolute;
+        z-index: 9999;
+        top: 0px;
+        left: -3%;
+        color: black;
+        /* width: 4dvw; */
+        height: 7dvh;
+    }
+    .menu-bar img {
+        z-index: 999;
+        position: absolute;
+        top: 1.250%;
+        left: 11%;
+        height: 30px;
+        width: 30px;
+        border: none;
+        background-color: transparent;
+    }
+    .toggle-text-left {
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        font-size: 12px;
+        left: 10px;
+        color: green;
+        transform: translateY(-50%);
+    }
+    .toggle-handle {
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 51px;
+        height: 30px;
+        font-size: -3px;
+        background-color: #fff;
+        border-radius: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s, background-color 0.3s;
+    }
+    .toggle-text-right {
+        position: absolute;
+        top: 48%;
+        left: 41%;
+        font-size: 13px;
+        right: 10px;
+        transform: translateY(-50%);
+    }
+    .toggle-label {
+        display: block;
+        position: absolute;
+        width: 171%;
+        height: 100%;
+        background-color: green;
+        color: white;
+        top: 6px;
+        left: 84%;
+        z-index: 1;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    #navbarDropdown {
+        font: 1rem;
+        color: rgb(0, 255, 251);
+        text-transform: uppercase;
+        text-shadow: #fff;
+        font-size: 13px;
+        margin-right: 29px;
+    }
+    .leaflet-touch .leaflet-control-layers, .leaflet-touch .leaflet-bar {
+        /* border: 2px solid rgba(0, 0, 0, 0.2); */
+        background-clip: padding-box;
+        border: 2px solid green !important;
+    }
+    .h5, h5 {
+        font-size: 16px;
+    }
+    .modal-title {
+        margin-bottom: -4px;
+    }
+    button, input, optgroup, select, textarea {
+        margin: 0;
+        font-family: inherit;
+        /* font-size: 10px; */
+        /* top: -4px; */
+        line-height: inherit;
+    }
+    .h5, h5 {
+        font-size: 1rem !important;
+        margin-top: -17px !important;
+    }
+    .btn-close .custom-close-btn{
+        font-size: 10px !important;
+        margin-top: -15px !important;
+        
+    }
+    .btn-close {
+        margin-top: -13px !important;
+    font-size: 10px !important;
+    }
+    .modal-title {
+        margin-bottom: -7px;
+        line-height: var(--bs-modal-title-line-height);
+    }
+    .modal-body {
+        position: relative;
+        flex: 1 1 auto;
+        padding: 6px;
+        top: -12px;
+
+        font-family: sans-serif;
+        font-size: 14px;
+        /* padding: var(--bs-modal-padding); */
+    }
+    .fw-bold {
+        /* font-weight: 700 !important; */
+        font-size: 10px !important;
+    }
+     .btn-outline-success{
+        font-size: 10px !important;
+        font-family: sans-serif;
+       
+    }
+    .form-control {
+        display: block;
+        width: 100%;
+        font-size: 10px !important;
+        font-weight: 400;
+        line-height: 1.5;
+        color: var(--bs-body-color);
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background-color: var(--bs-body-bg);
+        background-clip: padding-box;
+        border: var(--bs-border-width) solid var(--bs-border-color);
+        border-radius: var(--bs-border-radius);
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    }
+    .modal-content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 99%;
+        height: 350px !important;
+        color: var(--bs-modal-color);
+        pointer-events: auto;
+        background-color: var(--bs-modal-bg);
+        background-clip: padding-box;
+        border: var(--bs-modal-border-width) solid var(--bs-modal-border-color);
+        border-radius: var(--bs-modal-border-radius);
+        outline: 0;
+    }
+    .form-control option {
+        padding: 2px; 
+        line-height: 1.2 !important; 
+        font-size: 14px !important; 
+    }
+    #input1{
+        height: 50%;
+    }
+}
 
 
-
-
-   
 
 
