@@ -75,30 +75,38 @@ if (!$uploads_result) {
     </script>
 </head>
 <body>
-<div class="container-fluid">
+<div class="container-fluid ">
 
         
         <div class="row justify-content-center">
             <div class="col-md-6">
-                 <!-- Button to toggle the profile card -->
-                 <button id="toggleProfileCardBtn" class="user">User Profile</button>
-                
+                <div class="profile">
+                   <img src="https://geopulsea.com/image/transparent_logo.png" alt="Profile Image" class="profile-img">
                
+               
+                 <!-- Button to toggle the profile card -->
+                 <button id="toggleProfileCardBtn" class="user">Profile</button>
+                 <a href="logout.php" class="btn"><i class="fas fa-power-off" style="color: red;"></i></a>
+    </div>
+                
+              
                 <div class="card profile-card" id="profileCard">
                     <div class="card-header">
                      
-                            <img src="https://geopulsea.com/image/transparent_logo.png" alt="Profile Image" class="profile-img">
-                            <a href="logout.php" class="btn mb-4"><i class="fas fa-power-off" style="color: red;"></i></a>
+                          
+                
                         </div>
                        
-                            <div class="card-body">
-                            <p class="text text-center "><strong class="ms-5">Full Name:</strong> <?php echo htmlspecialchars($user['username']); ?></p>
-                            <p class="text text-center "><strong class="ms-5">Email:</strong> <?php echo htmlspecialchars($user['email']); ?></p>
-                       
-                            <p class="text  text-center "><strong class="ms-5">Contact No:</strong> <?php echo htmlspecialchars($user['contact_no']); ?></p>
-                            <p class="text text-center "><strong class="ms-5">Occupation:</strong> <?php echo htmlspecialchars($user['occupation']); ?></p>
-                
-                        <button type="button" class="btn btn-outline-primary mt-3 text-center"> Back</button>
+                            <div class=" profile-row">
+                            <p class="text text-start   "><strong class="ms-5">Full Name:</strong> <?php echo htmlspecialchars($user['username']); ?></p>
+                            <p class="text text-start   "><strong class="ms-5">Email:</strong> <?php echo htmlspecialchars($user['email']); ?></p>
+    </div>   
+    <div class="profile-row">
+                            <p class="text   text-start "><strong class="ms-5">Contact No:</strong> <?php echo htmlspecialchars($user['contact_no']); ?></p>
+                            <p class="text  text-start "><strong class="ms-5">Occupation:</strong> <?php echo htmlspecialchars($user['occupation']); ?></p>
+    </div>
+                        <i style="font-size:24px" class="fa">&#xf0a8;</i>
+
                     </div>
                 </div>
             </div>
@@ -108,7 +116,7 @@ if (!$uploads_result) {
         
 <div class="row">
         <div class="uploads col-12 tabledata">
-            <h2 class="text-center text-success mt-5">Upload log</h2>
+            <h2 class="text-center text-success mt-5 underlined">Upload log</h2>
             <div class="table-responsive-x">
                 <table class="table table-bordered" id="uploadTable">
                     <thead>
@@ -268,10 +276,10 @@ if (!$uploads_result) {
             var profileCard = document.getElementById('profileCard');
             if (profileCard.style.display === 'none' || profileCard.style.display === '') {
                 profileCard.style.display = 'block';
-                this.textContent = 'View Profile';
+                this.textContent = 'Profile';
             } else {
                 profileCard.style.display = 'none';
-                this.textContent = 'User Profile';
+                this.textContent = 'Profile';
             }
         });
        
