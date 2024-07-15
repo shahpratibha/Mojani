@@ -268,7 +268,7 @@ if (!$uploads_result) {
             var profileCard = document.getElementById('profileCard');
             if (profileCard.style.display === 'none' || profileCard.style.display === '') {
                 profileCard.style.display = 'block';
-                this.textContent = 'Hide Profile';
+                this.textContent = 'View Profile';
             } else {
                 profileCard.style.display = 'none';
                 this.textContent = 'User Profile';
