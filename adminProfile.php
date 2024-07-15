@@ -125,7 +125,7 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid d-block d-lg-none">
         <div class="row">
             <div class="col-12 mb-3 mt-4">
                 <div class="card profile-card">
@@ -136,7 +136,7 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
                             <a href="logout.php" class="btn mb-4"><i class="fas fa-power-off" style="color: red;"></i></a>
 
                         </div>
-                        <h2 class="text-success mt-3 text-center pb-5 fw-bold">User Profile</h2>
+                        <h2 class="font mt-3 text-center pb-5 fw-bold">User Profile</h2>
 
                         <div class="profile-row">
                             <p class="text text-center text-start"><strong class="ms-5">Full Name:</strong> <?php echo htmlspecialchars($logged_user['username']); ?></p>
@@ -155,29 +155,29 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
                 <div class=" card stats-card counts">
                 <div class="card-body">
                 <div class="d-flex justify-content-center align-items-center mb-3 mt-4">
-                            <i class="fas fa-chart-bar text-success"></i>
+                            <i class="fa-solid fa-gauge "></i>
                         </div>
 
-                     <h2 class="text-success mt-4  text-center fw-bold">Dashboard </h2>
+                     <h2 class="font mt-4  text-center fw-bold">Dashboard </h2>
                
                      <div class="card-container1 mt-4 mb-4">
                             <div class="card1">
                                 <div class="card-body1 text-center">
-                                    <i class="fas fa-users fa-2x me-3 text-success mt-5"></i>
+                                    <i class="fas fa-users fa-2x me-3 mt-5"></i>
                                     <h5 class="card-title1 mt-4 ms-2 text1">Total Users</h5>
                                     <p class="card-body1 mt-4 "><?php echo $total_users; ?></p>
                                 </div>
                             </div>
                             <div class="card1">
                                 <div class="card-body1 text-center">
-                                    <i class="fas fa-upload fa-2x me-3 text-success mt-5"></i>
+                                    <i class="fas fa-upload fa-2x me-3  mt-5"></i>
                                     <h5 class="card-title1 mt-4 ms-2 text1">Users Uploaded </h5>
                                     <p class="card-body1 mt-4 "><?php echo $total_user_uploads; ?></p>
                                 </div>
                             </div>
                             <div class="card1">
                                 <div class="card-body1 text-center">
-                                    <i class="fas fa-user-shield fa-2x me-3 text-success mt-5"></i>
+                                    <i class="fas fa-user-shield fa-2x me-3 mt-5"></i>
                                     <h5 class="card-title1 mt-4 ms-2 text1">Admins Uploaded</h5>
                                     <p class="card-body1 mt-4 "><?php echo $total_admin_uploads; ?></p>
                                 </div>
@@ -189,7 +189,7 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
         </div>
         <div class="row">
             <div class="uploads col-12 tabledata">
-            <h2 class="text-center text-success fw-bold">Survey Data</h2>
+            <h2 class="font text-center fw-bold">Survey Data</h2>
 
                 <div class="table-container">
                     <table class="table table-bordered" id="surveyTable">
@@ -275,6 +275,164 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
             </div>
         </div>
     </div>
+
+
+    <!-- laptop view -->
+
+    <div class="container d-none d-lg-block">
+        <div class="row">
+            <div class="col-12  col-md-6 mb-3 mt-4">
+                <div class="card profile-card">
+                <div class="card-bodyl-lg">
+                <div class="card-body d-flex justify-content-between align-items-center">
+                            <img src="image/geopulse_logo-removebg-preview.png" alt="Company Logo" class="company-logo-lg ">
+
+                            <a href="logout.php" class="btn mb-4"><i class="fas fa-power-off off-lg" style="color: red;"></i></a>
+
+                        </div>
+
+                        <h2 class="font text-center pb-5 fw-bold heading-lg">User Profile</h2>
+                        <div class="profile-row">
+                            <p class="text text-center text-start"><strong class="ms-5">Full Name:</strong> <?php echo htmlspecialchars($logged_user['username']); ?></p>
+                            <p class="text text-center text-start"><strong class="ms-5">Email:</strong> <?php echo htmlspecialchars($logged_user['email']); ?></p>
+                        </div>
+                        
+                        <div class="profile-row">
+                            <p class="text text-center"><strong class="ms-5">Contact No:</strong> <?php echo htmlspecialchars($logged_user['contact_no']); ?></p>
+                            <p class="text text-center"><strong class="ms-5">Occupation:</strong> <?php echo htmlspecialchars($logged_user['occupation']); ?></p>  
+                        </div>   
+                </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 mb-3">
+                <div class=" card stats-card counts">
+                <div class="card-body">
+                <div class="d-flex justify-content-center align-items-center mb-3 mt-4">
+                            <i class="fa-solid fa-gauge "></i>
+                        </div>
+
+                     <h2 class="font mt-4  text-center fw-bold">Dashboard </h2>
+               
+                     <div class="card-container1 mt-4 mb-4">
+                            <div class="card1">
+                                <div class="card-body1 text-center">
+                                    <i class="fas fa-users fa-2x me-3 mt-5"></i>
+                                    <h5 class="card-title1 mt-4 ms-2 text1">Total Users</h5>
+                                    <p class="card-body1 mt-4 "><?php echo $total_users; ?></p>
+                                </div>
+                            </div>
+                            <div class="card1">
+                                <div class="card-body1 text-center">
+                                    <i class="fas fa-upload fa-2x me-3  mt-5"></i>
+                                    <h5 class="card-title1 mt-4 ms-2 text1">Users Uploaded </h5>
+                                    <p class="card-body1 mt-4 "><?php echo $total_user_uploads; ?></p>
+                                </div>
+                            </div>
+                            <div class="card1">
+                                <div class="card-body1 text-center">
+                                    <i class="fas fa-user-shield fa-2x me-3 mt-5"></i>
+                                    <h5 class="card-title1 mt-4 ms-2 text1">Admins Uploaded</h5>
+                                    <p class="card-body1 mt-4 "><?php echo $total_admin_uploads; ?></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="uploads col-12 tabledata">
+            <h2 class="font text-center fw-bold">Survey Data</h2>
+
+                <div class="table-container">
+                    <table class="table table-bordered" id="surveyTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Username</th>
+                                <th>District</th>
+                                <th>Taluka</th>
+                                <th>Village</th>
+                                <th>Survey Number</th>
+                                <th>Survey Map</th>
+                                <th>Village Map</th>
+                                <th>PDF 7/12</th>
+                                <th>Date & Time</th>
+                                <th>Upload File</th>
+                                <th>Uploaded File Name</th>
+                                <th>Uploaded Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($survey_data as $survey) : ?>
+                                <tr>
+                                    <td><?php echo htmlspecialchars($survey['id']); ?></td>
+                                    <td><?php echo htmlspecialchars($survey['username']); ?></td>
+                                    <td><?php echo htmlspecialchars($survey['district']); ?></td>
+                                    <td><?php echo htmlspecialchars($survey['taluka']); ?></td>
+                                    <td><?php echo htmlspecialchars($survey['village']); ?></td>
+                                    <td><?php echo htmlspecialchars($survey['survey_number']); ?></td>
+                                    <td><a href="uploads/<?php echo htmlspecialchars($survey['survey_map_filename']); ?>" download><?php echo htmlspecialchars($survey['survey_map_filename']); ?></a></td>
+                                    <td><a href="uploads/<?php echo htmlspecialchars($survey['village_map_filename']); ?>" download><?php echo htmlspecialchars($survey['village_map_filename']); ?></a></td>
+                                    <td><a href="uploads/<?php echo htmlspecialchars($survey['pdf_7_12_filename']); ?>" download><?php echo htmlspecialchars($survey['pdf_7_12_filename']); ?></a></td>
+                                    <td><?php echo htmlspecialchars($survey['timestamp']); ?></td>
+                                    <td>
+                                        <form method="POST" enctype="multipart/form-data">
+                                            <input type="hidden" name="survey_id" value="<?php echo htmlspecialchars($survey['id']); ?>" />
+                                            <input type="hidden" name="username" value="<?php echo htmlspecialchars($survey['username']); ?>" />
+                                            <input type="file" name="uploadFile" />
+                                            <button type="submit" class="btnn">Upload</button>
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <?php
+                                        $upload_query = "SELECT file_path, upload_time FROM public.admin_uploads WHERE survey_id = $1 AND admin_username = $2";
+                                        $upload_result = pg_query_params($conn, $upload_query, array($survey['id'], $logged_in_user));
+                                        if ($upload_result) {
+                                            while ($upload_row = pg_fetch_assoc($upload_result)) {
+                                                echo htmlspecialchars(basename($upload_row['file_path']));
+                                            }
+                                        }
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <?php
+                                        if ($upload_result) {
+                                            pg_result_seek($upload_result, 0); // Reset result pointer to the beginning
+                                            while ($upload_row = pg_fetch_assoc($upload_result)) {
+                                                echo htmlspecialchars($upload_row['upload_time']);
+                                            }
+                                        }
+                                        ?>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+                <nav aria-label="Page navigation">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous" onclick="prevPage()">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <span id="pageNumbers"></span>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next" onclick="nextPage()">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    
+
+
     <script>
         const rowsPerPage = 5;
         let currentPage = 1;

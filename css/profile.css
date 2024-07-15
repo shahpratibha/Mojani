@@ -1,6 +1,6 @@
 body {
     font-family: 'Times New Roman', Times, serif;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .profile, .counts, .uploads {
@@ -18,9 +18,7 @@ body {
     margin-top: 20px;
 }
 
-.uploads h2 {
-    color: green;
-}
+
 
 .uploads table {
     width: 100%;
@@ -39,7 +37,7 @@ body {
 
 #surveyTable th, .uploads th {
     font-size: 14px;
-    background-color: #0080005c;
+    background-color: darkblue;
     font-weight: bold;
 }
 
@@ -104,7 +102,7 @@ tr {
     font-weight: bold;
 }
 a{
-    color: green;
+    color: darkblue;
 }
 
 .btnn{
@@ -155,8 +153,8 @@ body {
     padding: 5px 10px;
     cursor: pointer;
     font-size: 50px;
-    color: #0080005c;
-    border: 2px solid #0080005c;
+    color: darkblue;
+    border: 2px solid darkblue;
 }
 
 .pagination .active .page-link {
@@ -173,7 +171,7 @@ body {
 
 .card {
     width: 100%;
-    border: 4px solid #0080005c;
+    border: 4px solid darkblue;
     border-radius: 15px;
     margin-bottom: 20px;
     font-size: 50px;
@@ -184,10 +182,6 @@ body {
     padding: 20px;
 }
 
-.card h2 {
-    color: black;
-    font-size: 1.5em;
-}
 
 .text {
     color: black;
@@ -247,7 +241,8 @@ body {
 
 #surveyTable th {
     font-size: 30px;
-    background-color: #0080005c;
+    background-color: darkblue;
+    color: #ffff;
 }
 
 #surveyTable td {
@@ -272,3 +267,39 @@ body {
 .card-body h2{
     font-size: 30px;
 }
+.font{
+    color: darkblue;
+}
+.fa-gauge{
+    color: darkblue;
+}
+.fa-users{
+    color: darkblue;
+}
+.fa-upload{
+    color: darkblue;
+}
+.fa-user-shield{
+    color: darkblue;
+}
+
+/* Styles for tablets (768px to 1024px) */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .company-logo-lg{
+        height: 51px;
+        width: 55px;
+        margin-top: -31px;
+    }
+    .card-bodyl-lg{
+        padding: 0px;
+    }
+    .off-lg{
+        font-size: 26px;
+    }
+    .heading-lg{
+        font-size: 10PX;
+        margin-top: 10PX;
+    }
+}
+
