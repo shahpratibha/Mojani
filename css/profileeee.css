@@ -299,8 +299,7 @@ background-color: gray;
 }
 
 #uploadTable th{
-    font-size: 35px;
-    background-color: #E9E9F7 !important;
+    font-size: 35px!important;
     color: darkblue !important;
    
 }
