@@ -51,6 +51,7 @@ if (!$uploads_result) {
 
     </script>
    <link rel="stylesheet" href=css/profileeee.css>
+   <link rel="stylesheet" href="css/profile.css">
    
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -94,7 +95,7 @@ if (!$uploads_result) {
                 <p class="text text-center text-start"><strong>Occupation:</strong class="ms-5"> <?php echo htmlspecialchars($user['occupation']); ?></p>
     </div>
               
-                    <button type="button" class="btn btn-outline-primary  mt-3 text-center">back</button>
+                    <button type="button" class="btn btn-outline-primary  mt-3 text-center"><a href="index.php">back</a></button>
                 
              
             

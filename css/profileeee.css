@@ -156,21 +156,3 @@ color: rgba(var(--bs-success-rgb), var(--bs-text-opacity)) !important;
     justify-content: space-between;
 
 }
-.pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: -129px;
-}
-
-.pagination .page-item .page-link {
-    margin: 0 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-    font-size: 50px;
-    color: #0080005c;
-    border: 2px solid #0080005c;
-}
-
-.pagination .active .page-link {
-    font-weight: bold;
-}
