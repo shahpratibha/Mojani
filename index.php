@@ -19,7 +19,6 @@ $logged_in_user = $_SESSION['username'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mojani Project</title>
 
-
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -39,15 +38,27 @@ $logged_in_user = $_SESSION['username'];
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
 
-
+    <style>
+        .modal-content {
+            height: auto;
+            max-height: 400px; /* Adjust this value as needed */
+            /* overflow: ; */
+        }
+        .modal-body {
+            padding: 10px; /* Reduce padding if needed */
+        }
+        .modal-footer {
+            padding: 10px; /* Reduce padding if needed */
+        }
+    </style>
 </head>
 
 <body>
-   
+
     <section class="row">
         <div class="col-12">
 
-        <div class="profile justify-content-end" >
+            <div class="profile justify-content-end">
                 <ul>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -68,19 +79,36 @@ $logged_in_user = $_SESSION['username'];
                         </ul>
                     </li>
                 </ul>
+            </div>
 
+            <a class="Geo" href="#"><img src="image/geopulse_logo-removebg-preview.png" alt=""></a>
+            <div class="toggle-switch">
+                <input type="checkbox" id="toggle" class="toggle-input">
+                <label for="toggle" class="toggle-label">
+                    <span class="toggle-text toggle-text-left">State</span>
+                    <span class="toggle-handle"></span>
+                    <span class="toggle-text toggle-text-right">Maharashtra</span>
+                </label>
+            </div>
 
-         </div>
-            
-        <a class="Geo" href="#"><img src="image/geopulse_logo-removebg-preview.png" alt=""></a>
-        <div class="toggle-switch">
-    <input type="checkbox" id="toggle" class="toggle-input">
-    <label for="toggle" class="toggle-label">
-        <span class="toggle-text toggle-text-left">State</span>
-        <span class="toggle-handle"></span>
-        <span class="toggle-text toggle-text-right">Maharashtra</span>
-    </label>
-</div>
+            <!-- Success Message Modal -->
+            <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="successModalLabel">Success</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Your form has been submitted successfully!
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--  -->
 
             <button type="button" class="menu-bar" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <img src="image/grid_icon.png" alt=" image not found" height="40" width="40">
@@ -145,9 +173,6 @@ $logged_in_user = $_SESSION['username'];
                 </div>
 
                 <div id="map"></div>
-
-
-
             </div>
     </section>
 
@@ -155,14 +180,27 @@ $logged_in_user = $_SESSION['username'];
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
 
-
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="js/index.js"></script>
     <script src="mainmodal/legend.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script>
         function handleFileUpload(input, targetId) {
+            // Display the file name in the specified target element
+            var fileList = input.files;
+            var fileNames = [];
+            for (var i = 0; i < fileList.length; i++) {
+                fileNames.push(fileList[i].name);
+            }
+            document.getElementById(targetId).innerText = fileNames.join(', ');
         }
+
+        $(document).ready(function() {
+            <?php if (isset($_GET['success']) && $_GET['success'] == 'true') { ?>
+                var successModal = new bootstrap.Modal(document.getElementById('successModal'));
+                successModal.show();
+            <?php } ?>
+        });
     </script>
 </body>
 

@@ -298,8 +298,8 @@ function fitMapToBounds(data) {
     highlightLayer = L.geoJSON(data, {
         style: function () {
             return {
-                color: 'blue',
-                weight: 2,
+                color: 'transparent',
+                weight: 1,
                 fillOpacity: 0.1
             };
         }

@@ -58,13 +58,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Check if insertion was successful
     if ($success) {
-        echo "Data inserted successfully.";
+        header("Location: index.php?success=true");
     } else {
-        echo "Error inserting data.";
+        header("Location: index.php?success=false");
     }
 
-    // Redirect back to form or success page
-    header("Location: index.php"); // Replace with your desired redirect location
     exit();
 }
 ?>
