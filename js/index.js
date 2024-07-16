@@ -1,5 +1,4 @@
-var districtCache = {}; // Cache for district data
-
+var districtCache = {}; 
 var geoURL = "https://portal.geopulsea.com/geoserver/Mojani/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Mojani:Villages_Boundary&outputFormat=json";
 
 var map = L.map("map", {}).setView([18.76, 76.74], 7, L.CRS.EPSG4326);
@@ -65,7 +64,7 @@ control.setPosition('bottomright');
 map.zoomControl.remove();
 
 L.control.zoom({
-    position: 'bottomright' // Set position to bottom right
+    position: 'bottomright' 
 }).addTo(map);
 
 
@@ -212,7 +211,8 @@ function populateTalukas() {
 // Function to populate village dropdown based on selected taluka
 function populateVillages() {
     var selectedTaluka = $('#input2').val();
-    var url = geoURL + "&CQL_FILTER=taluka='" + selectedTaluka + "'";
+    var selectedDistrict = $('#input1').val(); // Also get the selected district for precise filtering
+    var url = geoURL + "&CQL_FILTER=taluka='" + selectedTaluka + "' AND district='" + selectedDistrict + "'";
 
     $.ajax({
         url: url,
@@ -241,7 +241,7 @@ function populateVillages() {
             // Fit map to selected taluka's bounds
             villageSelect.change(function () {
                 var selectedVillage = $(this).val();
-                var villageUrl = geoURL + "&CQL_FILTER=village='" + selectedVillage + "'";
+                var villageUrl = geoURL + "&CQL_FILTER=village='" + selectedVillage + "' AND taluka='" + selectedTaluka + "' AND district='" + selectedDistrict + "'";
 
                 $.ajax({
                     url: villageUrl,
