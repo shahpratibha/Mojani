@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt = $pdo->prepare("INSERT INTO users (username, email, password, occupation, contact_no) VALUES (?, ?, ?, ?, ?)");
     $stmt->execute([$username, $email, $password, $occupation, $contact_no]);
     // Redirect to index.php after successful registration
-    header("Location: login.php");
+    header("Location: Login.php");
     exit();
 }
 ?>

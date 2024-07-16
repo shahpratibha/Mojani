@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Login failed, set session variables for error handling
         $_SESSION['login_status'] = "failed";
         $_SESSION['error_message'] = "Invalid email or password. Please try again.";
-        header("Location: login.php"); // Redirect back to login page
+        header("Location: Login.php"); // Redirect back to login page
         exit();
     }
 }
