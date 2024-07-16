@@ -1,7 +1,9 @@
 var districtCache = {}; 
 var geoURL = "https://portal.geopulsea.com/geoserver/Mojani/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Mojani:Villages_Boundary&outputFormat=json";
 
-var map = L.map("map", {}).setView([18.76, 76.74], 7, L.CRS.EPSG4326);
+
+
+
 
 var googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
     maxZoom: 20,

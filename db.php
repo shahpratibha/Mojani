@@ -1,9 +1,9 @@
 <?php
-$host = "rr.c01x1jtcm1ms.ap-south-1.rds.amazonaws.com";
+$host = "157.173.222.9";
 $port = "5432";
 $dbname = "Mojani";
 $user = "postgres";
-$password = "Pmc992101";
+$password = "Geo992101";
 
 
 try {
