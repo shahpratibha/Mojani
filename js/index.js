@@ -334,3 +334,67 @@ function handleFileUpload(fileInput, targetDivId) {
         });
     }
 }
+
+  const rowsPerPage = 5;
+        let currentPage = 1;
+        const table = document.getElementById("surveyTable");
+        const rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+        const totalRows = rows.length;
+        const totalPages = Math.ceil(totalRows / rowsPerPage);
+        const pageNumbers = document.getElementById("pageNumbers");
+
+    function closeModal() {
+        var modal = document.getElementById('pdfModal');
+        modal.style.display = 'none';
+        var pdfViewer = modal.querySelector('#pdfViewer');
+        pdfViewer.src = '';
+    }
+
+    
+
+        function showPage(page) {
+            for (let i = 0; i < totalRows; i++) {
+                rows[i].style.display = "none";
+            }
+            const start = (page - 1) * rowsPerPage;
+            const end = start + rowsPerPage;
+            for (let i = start; i < end && i < totalRows; i++) {
+                rows[i].style.display = "";
+            }
+           
+
+            updatePageNumbers();
+        }
+
+        function prevPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                showPage(currentPage);
+            }
+        }
+
+        function nextPage() {
+            if (currentPage < totalPages) {
+                currentPage++;
+                showPage(currentPage);
+            }
+        }
+
+        function updatePageNumbers() {
+            pageNumbers.innerHTML = "";
+            for (let i = 1; i <= totalPages; i++) {
+                const li = document.createElement("li");
+                li.className = "page-item" + (i === currentPage ? " active" : "");
+                li.innerHTML = `<a class="page-link" href="#" onclick="goToPage(${i})">${i}</a>`;
+                pageNumbers.appendChild(li);
+            }
+        }
+
+        function goToPage(page) {
+            currentPage = page;
+            showPage(currentPage);
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            showPage(currentPage);
+        });

@@ -1,5 +1,5 @@
 body {
-    font-family:'Times New Roman', Times, serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .profile, .counts, .uploads {
@@ -26,7 +26,7 @@ body {
 }
 
 .uploads table, .uploads th, .uploads td, #surveyTable tr {
-    border: 1px solid #ddd;
+    border: 1px solid black;
 }
 
 .uploads th, .uploads td, #surveyTable th, #surveyTable td {
@@ -35,7 +35,8 @@ body {
 }
 
 #surveyTable th, .uploads th {
-    font-size: 14px;
+    font-size: 12px;
+    color: darkblue;
     /* background-color: darkblue; */
     background-color: #E9E9F7;
     font-weight: bold;
@@ -152,7 +153,7 @@ a{
     margin: 0 5px;
     padding: 5px 10px;
     cursor: pointer;
-    font-size: 50px;
+    font-size: 40px;
     color: darkblue;
     border: 2px solid darkblue;
 }
@@ -215,13 +216,12 @@ a{
 .card-container1 {
     display: flex;
     justify-content: space-between;
-    gap: 20px;/
+    gap: 20px;
 }
 
 .card1 {
     flex: 1;
     margin: 10px;
-    /* border: 4px solid #0080005c; */
     background-color: #E9E9F7;
     box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.6);
 }
@@ -281,6 +281,7 @@ a{
 }
 .font{
     color: darkblue;
+    text-decoration: underline;
 }
 .fa-gauge{
     color: darkblue;
@@ -339,32 +340,385 @@ a{
     width: 90px; 
     height: auto;
 }
+.pagination .page-item {
+    display: inline-block;
+    margin: 0 5px;
+}
 
-/* Styles for tablets (768px to 1024px) */
 
+/* Media Query */
+
+/* Mobile devices */
+@media (max-width: 767px) {
+    .company-logo-lg {
+        height: 40px;
+        width: 45px;
+        margin-top: -20px;
+    }
+    .card-bodyl-lg {
+        padding: 0px;
+    }
+    .off-lg {
+        font-size: 18px;
+    }
+    .heading-lg {
+        font-size: 14px;
+        margin-top: 5px;
+    }
+    .text-lg {
+        color: black;
+        font-size: 12px;
+    }
+    .col-lg {
+        margin-top: -20px;
+    }
+    .col-lg1 {
+        margin-top: -50px;
+    }
+    .card-dashboard-lg {
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        font-size: 30px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    .card-icon {
+        width: 30px; 
+        height: auto;
+    }
+    .dashboard-lg {
+        font-size: 10px;
+    }
+    .text1-lg {
+        font-size: 12px;
+    }
+    .card1-lg {
+        flex: 1;
+        margin: 5px;
+        background-color: #E9E9F7;
+        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+    }
+    .card-dashboard-lg h2 {
+        font-size: 14px;
+    }
+    .card-container1-lg {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .recent-lg {
+        font-size: 14px;
+    }
+    #surveyTable1 td {
+        font-size: 12px;
+    }
+    .pagination .page-item .page-link {
+        font-size: 14px;
+    }
+}
+
+/* Tablet devices */
 @media (min-width: 768px) and (max-width: 1024px) {
-    .company-logo-lg{
+    .company-logo-lg {
         height: 51px;
         width: 55px;
         margin-top: -31px;
     }
-    .card-bodyl-lg{
+    .card-bodyl-lg {
         padding: 0px;
     }
-    .off-lg{
+    .off-lg {
         font-size: 26px;
     }
-    
-    .heading-lg{
-        font-size: 10PX;
-        margin-top: 10PX;
+    .heading-lg {
+        font-size: 18px;
+        margin-top: 10px;
     }
-   
-    .text-lg{
+    .text-lg {
         color: black;
         font-size: 15px;
     }
-    
+    .col-lg {
+        margin-top: -31px;
+    }
+    .col-lg1 {
+        margin-top: -65px;
+    }
+    .card-dashboard-lg {
+        width: 90%;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        font-size: 50px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    }
+    .card-icon {
+        width: 40px; 
+        height: auto;
+    }
+    .dashboard-lg {
+        font-size: 12px;
+    }
+    .text1-lg {
+        font-size: 14px;
+    }
+    .card1-lg {
+        flex: 1;
+        margin: 10px;
+        background-color: #E9E9F7;
+        box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.6);
+    }
+    .card-dashboard-lg h2 {
+        font-size: 18px;
+    }
+    .card-container1-lg {
+        display: flex;
+        justify-content: space-between;
+        gap: 62px;
+    }
+    .recent-lg {
+        font-size: 18px;
+    }
+    #surveyTable1 td {
+        font-size: 17px;
+    }
+    .pagination .page-item .page-link {
+        font-size: 21px;
+    }
+    a {
+        color: darkblue;
+        text-decoration: none;
+    }
 }
 
+/* Small desktops */
 
+@media (min-width: 1025px) and (max-width: 1200px) {
+    .company-logo-lg {
+        height: 51px;
+        width: 55px;
+        margin-top: -31px;
+    }
+    .card-bodyl-lg {
+        padding: 0px;
+    }
+    .off-lg {
+        font-size: 26px;
+    }
+    .heading-lg {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+    .text-lg {
+        color: black;
+        font-size: 15px;
+    }
+    .col-lg {
+        margin-top: -31px;
+    }
+    .col-lg1 {
+        margin-top: -65px;
+    }
+    .card-dashboard-lg {
+        width: 90%;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        font-size: 50px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    }
+    .card-icon {
+        width: 40px; 
+        height: auto;
+    }
+    .dashboard-lg {
+        font-size: 12px;
+    }
+    .text1-lg {
+        font-size: 14px;
+    }
+    .card1-lg {
+        flex: 1;
+        margin: 10px;
+        background-color: #E9E9F7;
+        box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.6);
+    }
+    .card-dashboard-lg h2 {
+        font-size: 18px;
+    }
+    .card-container1-lg {
+        display: flex;
+        justify-content: space-between;
+        gap: 62px;
+    }
+    .recent-lg {
+        font-size: 18px;
+    }
+    #surveyTable1 td {
+        font-size: 17px;
+    }
+    .pagination .page-item .page-link {
+        font-size: 21px;
+    }
+    a {
+        color: darkblue;
+        text-decoration: none;
+    }
+}
+
+/* Large desktops */
+
+@media (min-width: 1200px) and (max-width: 1440px) {
+    .company-logo-lg {
+        height: 51px;
+        width: 55px;
+        margin-top: -31px;
+    }
+    .card-bodyl-lg {
+        padding: 0px;
+    }
+    .off-lg {
+        font-size: 26px;
+    }
+    .heading-lg {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+    .text-lg {
+        color: black;
+        font-size: 15px;
+    }
+    .col-lg {
+        margin-top: -31px;
+    }
+    .col-lg1 {
+        margin-top: -65px;
+    }
+    .card-dashboard-lg {
+        width: 90%;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        font-size: 50px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    }
+    .card-icon {
+        width: 40px; 
+        height: auto;
+    }
+    .dashboard-lg {
+        font-size: 12px;
+    }
+    .text1-lg {
+        font-size: 14px;
+    }
+    .card1-lg {
+        flex: 1;
+        margin: 10px;
+        background-color: #E9E9F7;
+        box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.6);
+    }
+    .card-dashboard-lg h2 {
+        font-size: 18px;
+    }
+    .card-container1-lg {
+        display: flex;
+        justify-content: space-between;
+        gap: 62px;
+    }
+    .recent-lg {
+        font-size: 18px;
+    }
+    #surveyTable1 td {
+        font-size: 17px;
+    }
+    .pagination .page-item .page-link {
+        font-size: 21px;
+    }
+    a {
+        color: darkblue;
+        text-decoration: none;
+    }
+}
+
+/* Extra large desktops */
+
+@media (min-width: 1440px) {
+    .company-logo-lg {
+        height: 55px;
+        width: 55px;
+        margin-top: -31px;
+        margin-left: -57px !important;
+    }
+    .card-bodyl-lg {
+        padding: 0px;
+    }
+    .off-lg {
+        font-size: 26px;
+    }
+    .heading-lg {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+    .text-lg {
+        color: black;
+        font-size: 15px;
+    }
+    .col-lg {
+        margin-top: -31px;
+    }
+    .col-lg1 {
+        margin-top: -65px;
+        width: 60%;
+    }
+    .card-dashboard-lg {
+        margin-left: 100px;
+        width: 80%;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        font-size: 50px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    }
+    .card-icon {
+        width: 40px; 
+        height: auto;
+    }
+    .dashboard-lg {
+        font-size: 12px;
+    }
+    .text1-lg {
+        font-size: 14px;
+    }
+    .card1-lg {
+        flex: 1;
+        margin: 10px;
+        background-color: #E9E9F7;
+        box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.6);
+    }
+    .card-dashboard-lg h2 {
+        font-size: 18px;
+    }
+    .card-container1-lg {
+        display: flex;
+        justify-content: space-between;
+        gap: 62px;
+    }
+    .recent-lg {
+        font-size: 18px;
+    }
+    #surveyTable1 td {
+        font-size: 12px;
+    }
+    .pagination .page-item .page-link {
+        font-size: 21px;
+    }
+    .table-container {
+        height: 500px;
+        position: relative;
+        overflow-y: auto;
+    }
+    .profile-card-lg{
+        width: 80%;
+    }
+    a {
+        color: darkblue;
+        text-decoration: none;
+    }
+}
