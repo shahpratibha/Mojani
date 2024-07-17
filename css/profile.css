@@ -1,5 +1,5 @@
 body {
-    font-family:'Times New Roman', Times, serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .profile, .counts, .uploads {
@@ -26,7 +26,7 @@ body {
 }
 
 .uploads table, .uploads th, .uploads td, #surveyTable tr {
-    border: 1px solid #ddd;
+    border: 1px solid black;
 }
 
 .uploads th, .uploads td, #surveyTable th, #surveyTable td {
@@ -35,7 +35,8 @@ body {
 }
 
 #surveyTable th, .uploads th {
-    font-size: 14px;
+    font-size: 12px;
+    color: darkblue;
     /* background-color: darkblue; */
     background-color: #E9E9F7;
     font-weight: bold;
@@ -282,6 +283,7 @@ a{
 }
 .font{
     color: darkblue;
+    text-decoration: underline;
 }
 .fa-gauge{
     color: darkblue;
@@ -484,6 +486,10 @@ a{
     .pagination .page-item .page-link {
         font-size: 21px;
     }
+    a {
+        color: darkblue;
+        text-decoration: none;
+    }
 }
 
 /* Small desktops */
@@ -553,6 +559,10 @@ a{
     }
     .pagination .page-item .page-link {
         font-size: 21px;
+    }
+    a {
+        color: darkblue;
+        text-decoration: none;
     }
 }
 
@@ -624,15 +634,20 @@ a{
     .pagination .page-item .page-link {
         font-size: 21px;
     }
+    a {
+        color: darkblue;
+        text-decoration: none;
+    }
 }
 
 /* Extra large desktops */
 
 @media (min-width: 1440px) {
     .company-logo-lg {
-        height: 51px;
+        height: 55px;
         width: 55px;
         margin-top: -31px;
+        margin-left: -57px !important;
     }
     .card-bodyl-lg {
         padding: 0px;
@@ -691,7 +706,7 @@ a{
         font-size: 18px;
     }
     #surveyTable1 td {
-        font-size: 17px;
+        font-size: 12px;
     }
     .pagination .page-item .page-link {
         font-size: 21px;
@@ -703,5 +718,9 @@ a{
     }
     .profile-card-lg{
         width: 80%;
+    }
+    a {
+        color: darkblue;
+        text-decoration: none;
     }
 }
