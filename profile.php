@@ -263,7 +263,10 @@ if (!$uploads_result) {
         document.addEventListener("DOMContentLoaded", () => {
             showPage(currentPage);
         });
-     /////
+     
+
+        // code for hide and show
+        
      document.getElementById('toggleProfileCardBtn').addEventListener('click', function() {
             var profileCard = document.getElementById('profileCard');
             if (profileCard.style.display === 'none' || profileCard.style.display === '') {
