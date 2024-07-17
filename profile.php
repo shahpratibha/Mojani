@@ -74,72 +74,68 @@ if (!$uploads_result) {
         }
     </script>
 </head>
-<body>
-<div class="container-fluid ">
+<body><div class="container-fluid ">
 
-        
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="profile">
-                   <img src="https://geopulsea.com/image/transparent_logo.png" alt="Profile Image" class="profile-img">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="profile">
+                <img src="https://geopulsea.com/image/transparent_logo.png" alt="Profile Image" class="profile-img">
                
-               
-                 <!-- Button to toggle the profile card -->
-                 <button id="toggleProfileCardBtn" class="user">Profile</button>
-                 <a href="logout.php" class="btn"><i class="fas fa-power-off" style="color: red;"></i></a>
-    </div>
-                
-              
-                <div class="card profile-card" id="profileCard">
-                    <div class="card-header">
-                     
-                          
-                
-                        </div>
-                       
-                            <div class=" profile-row">
-                            <p class="text text-start   "><strong class="ms-5">Full Name:</strong> <?php echo htmlspecialchars($user['username']); ?></p>
-                            <p class="text text-start   "><strong class="ms-5">Email:</strong> <?php echo htmlspecialchars($user['email']); ?></p>
-    </div>   
-    <div class="profile-row">
-                            <p class="text   text-start "><strong class="ms-5">Contact No:</strong> <?php echo htmlspecialchars($user['contact_no']); ?></p>
-                            <p class="text  text-start "><strong class="ms-5">Occupation:</strong> <?php echo htmlspecialchars($user['occupation']); ?></p>
-    </div>
-                        <i style="font-size:24px" class="fa">&#xf0a8;</i>
+                <!-- Button to toggle the profile card -->
+                <button id="toggleProfileCardBtn" class="user">
+                    <span class="icon"><i class="fas fa-user"></i></span>
+                    <span class="text">Profile</span>
+                </button>
 
-                    </div>
+                <!-- Logout Button (Hidden on Large Screens) -->
+                <a href="logout.php" class="btn ">
+                    <i class="fas fa-power-off" style="color: red;"></i>
+                </a>
+            </div>
+            
+            <div class="card profile-card card-header" id="profileCard" style="display: none;">
+                <div class="profile-row">
+                    <p class="text text-start text-center"><strong class="ms-1">Full Name:</strong> <?php echo htmlspecialchars($user['username']); ?></p>
+                    <p class="text text-start text-center"><strong class="ms-5">Email:</strong> <?php echo htmlspecialchars($user['email']); ?></p>
                 </div>
+                <div class="profile-row  contact">
+                    <p class="text text-start text-center"><strong class="ms-4">Contact No:</strong> <?php echo htmlspecialchars($user['contact_no']); ?></p>
+                    <p class="text text-start text-center"><strong class="ms-4">Occupation:</strong> <?php echo htmlspecialchars($user['occupation']); ?></p>
+                </div>
+                <i style="" class="fa ">&#xf0a8;</i>
+                
+                <!-- Logout Button (Visible on Large Screens) -->
+               
+                  
             </div>
         </div>
-        </div>
-        
-        
-<div class="row">
+    </div>
+    
+    <div class="row">
         <div class="uploads col-12 tabledata">
-            <h2 class="text-center text-success mt-5 underlined">Upload log</h2>
+            <h2 class="text-center text-success mt-5 underlined">Upload Log</h2>
             <div class="table-responsive-x">
                 <table class="table table-bordered" id="uploadTable">
                     <thead>
                         <tr>
-                    <th>Id</th>
-                    <th>District</th>
-                    <th>Taluka</th>
-                    <th>Village</th>
-                    <th>Survey Map Pdf</th>
-                    <th>Village Map Pdf</th>
-                    <th>7/12 Pdf</th>
-                    <th>Upload Date</th>
-                    <th>Download File</th>
+                            <th>Id</th>
+                            <th>District</th>
+                            <th>Taluka</th>
+                            <th>Village</th>
+                            <th>Survey Map Pdf</th>
+                            <th>Village Map Pdf</th>
+                            <th>7/12 Pdf</th>
+                            <th>Upload Date</th>
+                            <th>Download File</th>
                         </tr>
                     </thead>
                     <tbody>
-                        
                         <?php while ($upload = pg_fetch_assoc($uploads_result)) : ?>
                             <tr>
-                            <td><?php echo htmlspecialchars($upload['id']); ?></td>
+                                <td><?php echo htmlspecialchars($upload['id']); ?></td>
                                 <td><?php echo htmlspecialchars($upload['district']); ?></td>
                                 <td><?php echo htmlspecialchars($upload['taluka']); ?></td>
-                                <td ><?php echo htmlspecialchars($upload['village']); ?></td>
+                                <td><?php echo htmlspecialchars($upload['village']); ?></td>
                                 <td>
                                     <?php
                                     $surveyMapFilePath = 'uploads/' . $upload['survey_map_filename'];
@@ -159,47 +155,42 @@ if (!$uploads_result) {
                                     ?>
                                 </td>
                                 <td><?php echo htmlspecialchars($upload['timestamp']); ?></td>
-                        <td>
-                            <?php if ($upload['file_path']) : ?>
-                                <a href="<?php echo htmlspecialchars($upload['file_path']); ?>" download>
-                                    <?php echo htmlspecialchars(basename($upload['file_path'])); ?>
-                                    <i class="fa fa-download download-icon"></i>
-                                </a>
-                            <?php else : ?>
-                                <span>In Progress...</span>
-                            <?php endif; ?>
-                        </td>
-                    </tr>
-                <?php endwhile; ?>
-            </tbody>
-        </table>
-
+                                <td>
+                                    <?php if ($upload['file_path']) : ?>
+                                        <a href="<?php echo htmlspecialchars($upload['file_path']); ?>" download>
+                                            <?php echo htmlspecialchars(basename($upload['file_path'])); ?>
+                                            <i class="fa fa-download download-icon"></i>
+                                        </a>
+                                    <?php else : ?>
+                                        <span>In Progress...</span>
+                                    <?php endif; ?>
+                                </td>
+                            </tr>
+                        <?php endwhile; ?>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-
-    </div>
-    </div>
-
-   
-
-        <nav aria-label="Page navigation">
-                    <ul class="pagination">
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous" onclick="prevPage()">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <span id="pageNumbers"></span>
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next" onclick="nextPage()">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-    </div>
-
+    
+    <!-- Pagination -->
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous" onclick="prevPage()">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <span id="pageNumbers"></span>
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next" onclick="nextPage()">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    
+    <!-- Modal for PDF Viewer -->
     <div id="pdfModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
@@ -207,8 +198,11 @@ if (!$uploads_result) {
         </div>
     </div>
 </div>
+</div>
+
+
 <script>
-        const rowsPerPage = 8;
+        const rowsPerPage = 6;
         let currentPage = 1;
         const table = document.getElementById("uploadTable");
         const rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
@@ -271,20 +265,29 @@ if (!$uploads_result) {
         document.addEventListener("DOMContentLoaded", () => {
             showPage(currentPage);
         });
-     
+     /////
+     document.querySelector('.user .icon').addEventListener('click', function() {
+    var profileCard = document.getElementById('profileCard');
+    if (profileCard.style.display === 'none' || profileCard.style.display === '') {
+        profileCard.style.display = 'block';
+        document.getElementById('toggleProfileCardBtn').classList.add('fixed');
+    } else {
+        profileCard.style.display = 'none';
+        document.getElementById('toggleProfileCardBtn').classList.remove('fixed');
+    }
+});
 
-        // code for hide and show
-        
-     document.getElementById('toggleProfileCardBtn').addEventListener('click', function() {
-            var profileCard = document.getElementById('profileCard');
-            if (profileCard.style.display === 'none' || profileCard.style.display === '') {
-                profileCard.style.display = 'block';
-                this.textContent = 'Profile';
-            } else {
-                profileCard.style.display = 'none';
-                this.textContent = 'Profile';
-            }
-        });
+document.querySelector('.user .text').addEventListener('click', function() {
+    var profileCard = document.getElementById('profileCard');
+    if (profileCard.style.display === 'none' || profileCard.style.display === '') {
+        profileCard.style.display = 'block';
+        document.getElementById('toggleProfileCardBtn').classList.add('fixed');
+    } else {
+        profileCard.style.display = 'none';
+        document.getElementById('toggleProfileCardBtn').classList.remove('fixed');
+    }
+});
+
        
     </script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
