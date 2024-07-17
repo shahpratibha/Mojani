@@ -1,14 +1,12 @@
 <?php
+// index.php
 session_start();
+include 'db.php';
 
-// Check if user is logged in
-if (!isset($_SESSION['username'])) {
-    header("Location: Login.php"); // Redirect to login page if not logged in
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
     exit();
 }
-
-// Get logged-in user's name
-$logged_in_user = $_SESSION['username'];
 ?>
 
 <!DOCTYPE html>
