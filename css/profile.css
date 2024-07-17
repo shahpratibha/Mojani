@@ -643,17 +643,32 @@ a{
 /* Extra large desktops */
 
 @media (min-width: 1440px) {
+    .btn {
+        font-size: 20px !important;
+        margin-right: -8% !important;
+        margin-top: -13px;
+    }
+    .card {
+        /* width: 96%; */
+        height: 65%;
+        /* border: 4px solid darkblue; */
+        border-radius: 15px;
+        /* margin-bottom: 20px; */
+        font-size: 41px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    }
     .company-logo-lg {
-        height: 55px;
-        width: 55px;
-        margin-top: -31px;
-        margin-left: -57px !important;
+        height: 45px;
+        width: 45px;
+        margin-top: -35px;
+        margin-left: -86px !important;
     }
     .card-bodyl-lg {
         padding: 0px;
     }
     .off-lg {
-        font-size: 26px;
+        font-size: 23px;
+        margin-left: 20px !;
     }
     .heading-lg {
         font-size: 18px;
@@ -662,6 +677,9 @@ a{
     .text-lg {
         color: black;
         font-size: 15px;
+        display:inline-block;
+        margin-left: 20px;
+       
     }
     .col-lg {
         margin-top: -31px;
@@ -671,8 +689,8 @@ a{
         width: 60%;
     }
     .card-dashboard-lg {
-        margin-left: 100px;
-        width: 80%;
+      
+      
         border-radius: 15px;
         margin-bottom: 20px;
         font-size: 50px;
@@ -722,5 +740,21 @@ a{
     a {
         color: darkblue;
         text-decoration: none;
+    }
+    .card1-lg {
+        flex: 1;
+        margin: 10px;
+        background-color: #E9E9F7;
+        box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.6);
+        border-radius: 20px;
+    }
+   
+    
+    .card1 {
+        flex: 1;
+        margin: 10px;
+        background-color: #E9E9F7;
+        box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.6);
+        border-radius: 20px;
     }
 }
