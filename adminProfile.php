@@ -295,17 +295,24 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
 
             <div class="col-12  col-md-3 col-lg">
                 <div class="card profile-card-lg">
-                <div class="card-bodyl-lg">
+                <div class="card-bodyl-lg ">
+               
+                    <span class="icon"><i class="fas fa-user"></i></span>
+         
 
-                        <h2 class="font text-center pb-1 fw-bold heading-lg">User Profile</h2>
-                       
-                            <p class="text-lg text-center text-start"><strong class="">Full Name:</strong> <?php echo htmlspecialchars($logged_user['username']); ?></p>
-                            <p class="text-lg text-center text-start"><strong class="">Email:</strong> <?php echo htmlspecialchars($logged_user['email']); ?></p>
-                        
-                            <p class="text-lg text-center"><strong class="">Contact No:</strong> <?php echo htmlspecialchars($logged_user['contact_no']); ?></p>
-                            <p class="text-lg text-center"><strong class="">Occupation:</strong> <?php echo htmlspecialchars($logged_user['occupation']); ?></p>  
+
+                        <h2 class="font text-center  pb-1 fw-bold heading-lg">User Profile</h2>
+                     
+                            <p class="text-lg text-center pt-2 text-start capitalize"><strong class="">Full Name : &nbsp;</strong>   <span class="capitalize"><?php echo htmlspecialchars($logged_user['username']); ?></span></p>
+                            <p class="text-lg text-center text-start"><strong class="">Email :&nbsp; </strong> <?php echo htmlspecialchars($logged_user['email']); ?></p>
+                                  
+                             
+                            <p class="text-lg text-center"><strong class="">Contact No : &nbsp;</strong> <?php echo htmlspecialchars($logged_user['contact_no']); ?></p>
+                          
+                            <p class="text-lg text-center capitalize"><strong class="">Occupation : &nbsp;</strong> <span class ="capitalize"><?php echo htmlspecialchars($logged_user['occupation']); ?></span></p>  
+              
                 </div>
-                </div>
+                </div>  
             </div>
             
             <div class="col-12 col-md-9 col-lg1">
