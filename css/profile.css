@@ -225,7 +225,7 @@ a{
     flex: 1;
     margin: 10px;
     background-color: #E9E9F7;
-    box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.6);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
 }
 
 .text1 {
@@ -467,7 +467,8 @@ a{
         flex: 1;
         margin: 10px;
         background-color: #E9E9F7;
-        box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.6);
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+        border-radius: 20px;
     }
     .card-dashboard-lg h2 {
         font-size: 18px;
@@ -508,11 +509,12 @@ a{
     }
     .heading-lg {
         font-size: 18px;
-        margin-top: 10px;
+        /* margin-top: 10px; */
     }
     .text-lg {
         color: black;
         font-size: 15px;
+        display: flex;
     }
     .col-lg {
         margin-top: -31px;
@@ -541,7 +543,7 @@ a{
         flex: 1;
         margin: 10px;
         background-color: #E9E9F7;
-        box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.6);
+        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
     }
     .card-dashboard-lg h2 {
         font-size: 18px;
@@ -573,6 +575,7 @@ a{
         height: 51px;
         width: 55px;
         margin-top: -31px;
+       
     }
     .card-bodyl-lg {
         padding: 0px;
@@ -587,6 +590,7 @@ a{
     .text-lg {
         color: black;
         font-size: 15px;
+        display: flex;
     }
     .col-lg {
         margin-top: -31px;
@@ -595,7 +599,8 @@ a{
         margin-top: -65px;
     }
     .card-dashboard-lg {
-        width: 90%;
+        width: 110%;
+        margin-left: -130px;
         border-radius: 15px;
         margin-bottom: 20px;
         font-size: 50px;
@@ -615,7 +620,7 @@ a{
         flex: 1;
         margin: 10px;
         background-color: #E9E9F7;
-        box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.6);
+        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
     }
     .card-dashboard-lg h2 {
         font-size: 18px;
@@ -649,12 +654,12 @@ a{
         margin-top: -13px;
     }
     .card {
-        /* width: 96%; */
-        height: 65%;
-        /* border: 4px solid darkblue; */
+        height: 98%;
+        width: 71%;
         border-radius: 15px;
-        /* margin-bottom: 20px; */
+        margin-top: -16px;
         font-size: 41px;
+        margin-left: 30px;
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
     }
     .company-logo-lg {
@@ -662,6 +667,7 @@ a{
         width: 45px;
         margin-top: -35px;
         margin-left: -86px !important;
+        position: fixed;
     }
     .card-bodyl-lg {
         padding: 0px;
@@ -672,14 +678,15 @@ a{
     }
     .heading-lg {
         font-size: 18px;
-        margin-top: 10px;
+        /* margin-top: 10px; */
     }
     .text-lg {
         color: black;
         font-size: 15px;
-        display:inline-block;
-        margin-left: 20px;
-       
+        display: flex;
+        padding-left: 30px;
+        /* margin-top: 26px; */
+        /* margin-left: 20px; */
     }
     .col-lg {
         margin-top: -31px;
@@ -710,7 +717,7 @@ a{
         flex: 1;
         margin: 10px;
         background-color: #E9E9F7;
-        box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.6);
+        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
     }
     .card-dashboard-lg h2 {
         font-size: 18px;
@@ -734,9 +741,9 @@ a{
         position: relative;
         overflow-y: auto;
     }
-    .profile-card-lg{
-        width: 80%;
-    }
+    /* .profile-card-lg {
+        width: 106% !important;
+    } */
     a {
         color: darkblue;
         text-decoration: none;
@@ -745,7 +752,7 @@ a{
         flex: 1;
         margin: 10px;
         background-color: #E9E9F7;
-        box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.6);
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
         border-radius: 20px;
     }
    
@@ -754,7 +761,34 @@ a{
         flex: 1;
         margin: 10px;
         background-color: #E9E9F7;
-        box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.6);
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
         border-radius: 20px;
     }
+    .icon{
+       
+        border: none;
+    }
+    .fa-user {
+        font-size: 25px;
+        margin-left: 45%;
+        color: gray;
+      
+    }
+    .heading-lg {
+        font-size: 18px;
+        /* margin-top: 10px; */
+
+    }
+    .capitalize::first-letter {
+        text-transform: uppercase;
+    }
+    .card-dashboard-lg {
+        width: 110%;
+        margin-left: -120px;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        font-size: 50px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    }
+    
 }
