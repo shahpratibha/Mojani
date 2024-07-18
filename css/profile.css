@@ -16,7 +16,9 @@ body {
     text-align: center;
     margin-top: 20px;
 }
-
+.capitalize::first-letter {
+    text-transform: uppercase;
+}
 
 
 .uploads table {
@@ -490,6 +492,16 @@ a{
     a {
         color: darkblue;
         text-decoration: none;
+    }
+    .icon{
+       
+        border: none;
+    }
+    .fa-user {
+        font-size: 25px;
+        margin-left: 45%;
+        color: gray;
+      
     }
 }
 

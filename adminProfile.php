@@ -423,21 +423,20 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
                         </tbody>
                     </table>
                 </div>
-                <nav aria-label="Page navigation">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous" onclick="prevPage()">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <span id="pageNumbers"></span>
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next" onclick="nextPage()">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+                <ul id="pageNumbers" class="pagination">
+    <li class="page-item">
+        <a class="page-link" href="#" aria-label="Previous" onclick="prevPage()">
+            <span aria-hidden="true">«</span>
+        </a>
+    </li>
+    <!-- Page numbers will be inserted here -->
+    <li class="page-item">
+        <a class="page-link" href="#" aria-label="Next" onclick="nextPage()">
+            <span aria-hidden="true">»</span>
+        </a>
+    </li>
+</ul>
+
             </div>
         </div>
     </div> 
@@ -447,8 +446,7 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
 
    
     <script>
-        
-        const rowsPerPage = 5;
+           const rowsPerPage = 6;
         let currentPage = 1;
         const table = document.getElementById("surveyTable");
         const rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
@@ -511,7 +509,6 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
         document.addEventListener("DOMContentLoaded", () => {
             showPage(currentPage);
         });
-     
 
     </script>
 
