@@ -2,7 +2,7 @@
 include('db.php');
 
 // Connect to the database
-$conn = pg_connect("host=rr.c01x1jtcm1ms.ap-south-1.rds.amazonaws.com dbname=Mojani user=postgres password=Pmc992101");
+$conn = pg_connect("host=157.173.222.9 dbname=mojani user=postgres password=Mojani@992101");
 
 if (!$conn) {
     die("Connection failed: " . pg_last_error());
