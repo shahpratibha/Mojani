@@ -45,6 +45,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $villageMapFileName = handleFileUpload("village_map", $uploadDir);
     $pdf712FileName = handleFileUpload("pdf_7_12", $uploadDir);
 
+    // Check if at least one PDF file is uploaded
+    if (!$surveyMapFileName && !$villageMapFileName && !$pdf712FileName) {
+        $_SESSION['error'] = "At least one PDF file is required.";
+        header("Location: index.php");
+        exit();
+    }
+
     // Prepare and execute SQL insert statement
     $stmt = $pdo->prepare("INSERT INTO survey_data (username, district, taluka, village, survey_number, survey_map_filename, village_map_filename, pdf_7_12_filename, timestamp) VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW())");
     $success = $stmt->execute([
@@ -62,7 +69,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($success) {
         header("Location: index.php?success=true");
     } else {
-        header("Location: index.php?success=false");
+        $_SESSION['error'] = "Error inserting data.";
+        header("Location: index.php");
     }
 
     exit();

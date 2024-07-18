@@ -190,13 +190,14 @@ if (!$uploads_result) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script>
-        const rowsPerPage = 6;
-        let currentPage = 1;
-        const table = document.getElementById("uploadTable");
-        const rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
-        const totalRows = rows.length;
-        const totalPages = Math.ceil(totalRows / rowsPerPage);
-        const pageNumbers = document.getElementById("pageNumbers");
+
+    const rowsPerPage = 6;
+    let currentPage = 1;
+    const table = document.getElementById("uploadTable");
+    const rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+    const totalRows = rows.length;
+    const totalPages = Math.ceil(totalRows / rowsPerPage);
+    const pageNumbers = document.getElementById("pageNumbers");
 
     function closeModal() {
         var modal = document.getElementById('pdfModal');
@@ -205,78 +206,81 @@ if (!$uploads_result) {
         pdfViewer.src = '';
     }
 
-    
+    function openModal(filePath) {
+        var modal = document.getElementById('pdfModal');
+        var pdfViewer = modal.querySelector('#pdfViewer');
+        pdfViewer.src = filePath;
+        modal.style.display = 'block';
+    }
 
-        function showPage(page) {
-            for (let i = 0; i < totalRows; i++) {
-                rows[i].style.display = "none";
-            }
-            const start = (page - 1) * rowsPerPage;
-            const end = start + rowsPerPage;
-            for (let i = start; i < end && i < totalRows; i++) {
-                rows[i].style.display = "";
-            }
-           
-
-            updatePageNumbers();
+    function showPage(page) {
+        for (let i = 0; i < totalRows; i++) {
+            rows[i].style.display = "none";
         }
-
-        function prevPage() {
-            if (currentPage > 1) {
-                currentPage--;
-                showPage(currentPage);
-            }
+        const start = (page - 1) * rowsPerPage;
+        const end = start + rowsPerPage;
+        for (let i = start; i < end && i < totalRows; i++) {
+            rows[i].style.display = "";
         }
+        updatePageNumbers();
+    }
 
-        function nextPage() {
-            if (currentPage < totalPages) {
-                currentPage++;
-                showPage(currentPage);
-            }
-        }
-
-        function updatePageNumbers() {
-            pageNumbers.innerHTML = "";
-            for (let i = 1; i <= totalPages; i++) {
-                const li = document.createElement("li");
-                li.className = "page-item" + (i === currentPage ? " active" : "");
-                li.innerHTML = `<a class="page-link" href="#" onclick="goToPage(${i})">${i}</a>`;
-                pageNumbers.appendChild(li);
-            }
-        }
-
-        function goToPage(page) {
-            currentPage = page;
+    function prevPage() {
+        if (currentPage > 1) {
+            currentPage--;
             showPage(currentPage);
         }
+    }
 
-        document.addEventListener("DOMContentLoaded", () => {
+    function nextPage() {
+        if (currentPage < totalPages) {
+            currentPage++;
             showPage(currentPage);
-        });
-     /////
-     document.querySelector('.user .icon').addEventListener('click', function() {
-    var profileCard = document.getElementById('profileCard');
-    if (profileCard.style.display === 'none' || profileCard.style.display === '') {
-        profileCard.style.display = 'block';
-        document.getElementById('toggleProfileCardBtn').classList.add('fixed');
-    } else {
-        profileCard.style.display = 'none';
-        document.getElementById('toggleProfileCardBtn').classList.remove('fixed');
+        }
     }
-});
 
-document.querySelector('.user .text').addEventListener('click', function() {
-    var profileCard = document.getElementById('profileCard');
-    if (profileCard.style.display === 'none' || profileCard.style.display === '') {
-        profileCard.style.display = 'block';
-        document.getElementById('toggleProfileCardBtn').classList.add('fixed');
-    } else {
-        profileCard.style.display = 'none';
-        document.getElementById('toggleProfileCardBtn').classList.remove('fixed');
+    function updatePageNumbers() {
+        pageNumbers.innerHTML = "";
+        for (let i = 1; i <= totalPages; i++) {
+            const li = document.createElement("li");
+            li.className = "page-item" + (i === currentPage ? " active" : "");
+            li.innerHTML = `<a class="page-link" href="#" onclick="goToPage(${i})">${i}</a>`;
+            pageNumbers.appendChild(li);
+        }
     }
-});
 
-       
+    function goToPage(page) {
+        currentPage = page;
+        showPage(currentPage);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        showPage(currentPage);
+    });
+
+    document.querySelector('.user .icon').addEventListener('click', function() {
+        var profileCard = document.getElementById('profileCard');
+        if (profileCard.style.display === 'none' || profileCard.style.display === '') {
+            profileCard.style.display = 'block';
+            document.getElementById('toggleProfileCardBtn').classList.add('fixed');
+        } else {
+            profileCard.style.display = 'none';
+            document.getElementById('toggleProfileCardBtn').classList.remove('fixed');
+        }
+    });
+
+    document.querySelector('.user .text').addEventListener('click', function() {
+        var profileCard = document.getElementById('profileCard');
+        if (profileCard.style.display === 'none' || profileCard.style.display === '') {
+            profileCard.style.display = 'block';
+            document.getElementById('toggleProfileCardBtn').classList.add('fixed');
+        } else {
+            profileCard.style.display = 'none';
+            document.getElementById('toggleProfileCardBtn').classList.remove('fixed');
+        }
+    });
+
+
     </script>
    
 </body>

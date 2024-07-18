@@ -193,7 +193,7 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
         </div>
         <div class="row">
             <div class="uploads col-12 tabledata">
-            <h2 class="font text-center fw-bold">Recent Activity</h2>
+            <h2 class="font text-center fw-bold">User Activity Logs</h2>
 
                 <div class="table-container">
                     <table class="table table-bordered" id="surveyTable">

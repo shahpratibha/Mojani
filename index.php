@@ -52,6 +52,46 @@ $logged_in_user = $_SESSION['username'];
             padding: 10px; /* Reduce padding if needed */
         }
     </style>
+
+<style>
+        .upload-container {
+            width: 300px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .file-input-container {
+            margin-bottom: 20px;
+        }
+
+        .file-input-container label {
+            display: block;
+            cursor: pointer;
+            padding: 10px;
+            border: 2px dashed #ccc;
+            text-align: center;
+            border-radius: 5px;
+            transition: border-color 0.3s ease;
+        }
+
+        .file-input-container input {
+            display: none;
+        }
+
+        .file-input-container label:hover {
+            border-color: #888;
+        }
+
+        .file-progress {
+            margin-top: 10px;
+        }
+
+        .file-progress span {
+            display: block;
+        }
+    </style>
 </head>
 
 <body>
@@ -110,7 +150,15 @@ $logged_in_user = $_SESSION['username'];
                 </div>
             </div>
             <!--  -->
-
+            <?php
+       if (isset($_SESSION['error'])) : ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <?php echo $_SESSION['error']; ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <?php unset($_SESSION['error']); ?>
+    <?php endif; ?>
+              
             <button type="button" class="menu-bar" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <img src="image/grid_icon.png" alt=" image not found" height="40" width="40">
             </button>
@@ -137,7 +185,7 @@ $logged_in_user = $_SESSION['username'];
                                     Survey Number<span class="text-danger fs-3">*</span>
                                     <input class="form-control" type="text" name="input4" id="input4" required>
 
-                                    <div class="py-1">
+                                    <!-- <div class="py-1">
                                         <form action="your_php_script.php" method="post" enctype="multipart/form-data">
                                             <div class="py-1">
                                                 <label class="btn btn-outline-secondary fw-bold">
@@ -167,7 +215,39 @@ $logged_in_user = $_SESSION['username'];
                                                 <button type="submit" value="Submit" class="btn btn-outline-success">Submit</button>
                                             </div>
                                         </form>
-                                    </div>
+                                    </div> -->
+                                                       <div class="upload-container">
+    <form action="submit_form.php" method="post" enctype="multipart/form-data">
+        <div class="file-input-container">
+            <label>
+                <input type="file" class="file-input" accept=".pdf" name="survey_map" onchange="handleFileUpload(this, 'surveyMapFilePath')" required multiple>
+                Upload Survey Map PDF 
+            </label>
+            <div id="surveyMapFilePath" class="file-progress"></div>
+        </div>
+
+        <div class="file-input-container">
+            <label>
+                <input type="file" class="file-input" accept=".pdf" name="village_map" onchange="handleFileUpload(this, 'villageMapFilePath')" multiple>
+                Upload Village Map PDF
+            </label>
+            <div id="villageMapFilePath" class="file-progress"></div>
+        </div>
+
+        <div class="file-input-container">
+            <label>
+                <input type="file" class="file-input" accept=".pdf" name="pdf_7_12" onchange="handleFileUpload(this, 'pdf7_12FilePath')" multiple>
+                Upload 7/12 PDF
+            </label>
+            <div id="pdf7_12FilePath" class="file-progress"></div>
+        </div>
+
+        <div class="file-input-container">
+            <button type="submit" value="Submit" class="btn btn-outline-success">Submit</button>
+        </div>
+    </form>
+</div>
+
                             </div>
                         </div>
                     </div>

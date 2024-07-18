@@ -1,4 +1,4 @@
-var districtCache = {}; 
+var districtCache = {};
 var geoURL = "https://portal.geopulsea.com/geoserver/Mojani/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Mojani:Villages_Boundary&outputFormat=json";
 
 var map = L.map("map", {}).setView([18.76, 76.74], 7, L.CRS.EPSG4326);
@@ -38,7 +38,7 @@ var Taluka_Boundary = L.tileLayer.wms(baseURL, {
     opacity: 1,
 }).addTo(map);
 
-var Maharashtra_Data= L.tileLayer.wms(baseURL, {
+var Maharashtra_Data = L.tileLayer.wms(baseURL, {
     layers: "Maharashtra_Data",
     format: "image/png",
     transparent: true,
@@ -64,7 +64,7 @@ control.setPosition('bottomright');
 map.zoomControl.remove();
 
 L.control.zoom({
-    position: 'bottomright' 
+    position: 'bottomright'
 }).addTo(map);
 
 
@@ -120,9 +120,11 @@ $(document).ready(function () {
 var highlightLayer; // Layer for highlighted area
 
 function populateDistricts() {
-    var url = geoURL;
+    var url = "https://portal.geopulsea.com/geoserver/Mojani/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Mojani:District_Boundary&outputFormat=json";
 
     if (districtCache[url]) {
+
+
         // Use cached data if available
         handleDistrictData(districtCache[url]);
     } else {
@@ -170,9 +172,20 @@ function handleDistrictData(data) {
 
 // Function to populate taluka dropdown based on selected district
 function populateTalukas() {
-    var selectedDistrict = $('#input1').val();
-    var url = geoURL + "&CQL_FILTER=district='" + selectedDistrict + "'";
+    var layername = "Mojani:Taluka_Boundary"
+    var url = `https://portal.geopulsea.com/geoserver/Mojani/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=${layername}&outputFormat=json`;
 
+    var selectedDistrict = $('#input1').val();
+
+    const filter = `district IN ('${selectedDistrict}')`;
+
+    if (filter) {
+        url += "&CQL_FILTER=" + encodeURIComponent(filter);
+    }
+
+
+    // var url = geoURLt + `&CQL_FILTER=district IN ('${selectedDistrict}' )`;
+    console.log(url, selectedDistrict, "geoURLt,selectedDistrict")
     $.ajax({
         url: url,
         type: 'GET',
@@ -210,12 +223,21 @@ function populateTalukas() {
 
 // Function to populate village dropdown based on selected taluka
 function populateVillages() {
+    var urlls = "https://portal.geopulsea.com/geoserver/Mojani/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Mojani:Villages_Boundary&outputFormat=json";
     var selectedTaluka = $('#input2').val();
     var selectedDistrict = $('#input1').val(); // Also get the selected district for precise filtering
-    var url = geoURL + "&CQL_FILTER=taluka='" + selectedTaluka + "' AND district='" + selectedDistrict + "'";
+   
+    const filter = `district IN ('${selectedDistrict}') AND taluka IN ('${selectedTaluka}') `;
+    
 
+
+    if (filter) {
+        urlls += "&CQL_FILTER=" + encodeURIComponent(filter);
+    }
+
+console.log(urlls,"villageurl")
     $.ajax({
-        url: url,
+        url: urlls,
         type: 'GET',
         dataType: 'json',
         success: function (data) {
@@ -241,8 +263,14 @@ function populateVillages() {
             // Fit map to selected taluka's bounds
             villageSelect.change(function () {
                 var selectedVillage = $(this).val();
-                var villageUrl = geoURL + "&CQL_FILTER=village='" + selectedVillage + "' AND taluka='" + selectedTaluka + "' AND district='" + selectedDistrict + "'";
-
+                
+                // if (selectedVillage) {
+                    var urlls = "https://portal.geopulsea.com/geoserver/Mojani/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Mojani:Villages_Boundary&outputFormat=json";
+                    var filter = `district IN ('${selectedDistrict}') AND taluka IN ('${selectedTaluka}') AND village IN ('${selectedVillage}')`;
+                    urlls += "&CQL_FILTER=" + encodeURIComponent(filter);
+                // }
+                console.log(urlls)
+                var villageUrl = urlls
                 $.ajax({
                     url: villageUrl,
                     type: 'GET',
@@ -296,13 +324,8 @@ function fitMapToBounds(data) {
 
     // Create new highlight layer with blue border
     highlightLayer = L.geoJSON(data, {
-        style: function () {
-            return {
-                color: 'transparent',
-                weight: 1,
-                fillOpacity: 0.1
-            };
-        }
+        style: 'highlight'
+
     }).addTo(map);
 
     // Fit the map to the bounds
@@ -312,89 +335,84 @@ function fitMapToBounds(data) {
 // Initial population of districts
 populateDistricts();
 
-// Function to display file names
-function handleFileUpload(fileInput, targetDivId) {
-    const files = fileInput.files;
-    const targetDiv = document.getElementById(targetDivId);
 
-    // Clear previous content
+function handleFileUpload(input, targetId) {
+    const files = input.files;
+    const targetDiv = document.getElementById(targetId);
     targetDiv.innerHTML = '';
 
-    if (files.length === 0) {
-        // No file selected message
-        const message = document.createElement('p');
-        message.textContent = 'Nothing to show';
-        targetDiv.appendChild(message);
-    } else {
-        // Display each selected file's path
-        Array.from(files).forEach(file => {
-            const filePath = document.createElement('p');
-            filePath.textContent = `${file.name} - ${file.size} bytes`;
-            targetDiv.appendChild(filePath);
-        });
+    for (const file of files) {
+        const progressDiv = document.createElement('div');
+        progressDiv.innerHTML = `<span>${file.name}</span><span id="${file.name}-progress">Uploading...</span>`;
+        targetDiv.appendChild(progressDiv);
+
+        // Simulate file upload progress
+        setTimeout(() => {
+            document.getElementById(`${file.name}-progress`).innerText = 'Successfully uploaded.';
+        }, 2000);
     }
 }
 
-  const rowsPerPage = 5;
-        let currentPage = 1;
-        const table = document.getElementById("surveyTable");
-        const rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
-        const totalRows = rows.length;
-        const totalPages = Math.ceil(totalRows / rowsPerPage);
-        const pageNumbers = document.getElementById("pageNumbers");
+const rowsPerPage = 5;
+let currentPage = 1;
+const table = document.getElementById("surveyTable");
+const rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+const totalRows = rows.length;
+const totalPages = Math.ceil(totalRows / rowsPerPage);
+const pageNumbers = document.getElementById("pageNumbers");
 
-    function closeModal() {
-        var modal = document.getElementById('pdfModal');
-        modal.style.display = 'none';
-        var pdfViewer = modal.querySelector('#pdfViewer');
-        pdfViewer.src = '';
+function closeModal() {
+    var modal = document.getElementById('pdfModal');
+    modal.style.display = 'none';
+    var pdfViewer = modal.querySelector('#pdfViewer');
+    pdfViewer.src = '';
+}
+
+
+
+function showPage(page) {
+    for (let i = 0; i < totalRows; i++) {
+        rows[i].style.display = "none";
+    }
+    const start = (page - 1) * rowsPerPage;
+    const end = start + rowsPerPage;
+    for (let i = start; i < end && i < totalRows; i++) {
+        rows[i].style.display = "";
     }
 
-    
 
-        function showPage(page) {
-            for (let i = 0; i < totalRows; i++) {
-                rows[i].style.display = "none";
-            }
-            const start = (page - 1) * rowsPerPage;
-            const end = start + rowsPerPage;
-            for (let i = start; i < end && i < totalRows; i++) {
-                rows[i].style.display = "";
-            }
-           
+    updatePageNumbers();
+}
 
-            updatePageNumbers();
-        }
+function prevPage() {
+    if (currentPage > 1) {
+        currentPage--;
+        showPage(currentPage);
+    }
+}
 
-        function prevPage() {
-            if (currentPage > 1) {
-                currentPage--;
-                showPage(currentPage);
-            }
-        }
+function nextPage() {
+    if (currentPage < totalPages) {
+        currentPage++;
+        showPage(currentPage);
+    }
+}
 
-        function nextPage() {
-            if (currentPage < totalPages) {
-                currentPage++;
-                showPage(currentPage);
-            }
-        }
+function updatePageNumbers() {
+    pageNumbers.innerHTML = "";
+    for (let i = 1; i <= totalPages; i++) {
+        const li = document.createElement("li");
+        li.className = "page-item" + (i === currentPage ? " active" : "");
+        li.innerHTML = `<a class="page-link" href="#" onclick="goToPage(${i})">${i}</a>`;
+        pageNumbers.appendChild(li);
+    }
+}
 
-        function updatePageNumbers() {
-            pageNumbers.innerHTML = "";
-            for (let i = 1; i <= totalPages; i++) {
-                const li = document.createElement("li");
-                li.className = "page-item" + (i === currentPage ? " active" : "");
-                li.innerHTML = `<a class="page-link" href="#" onclick="goToPage(${i})">${i}</a>`;
-                pageNumbers.appendChild(li);
-            }
-        }
+function goToPage(page) {
+    currentPage = page;
+    showPage(currentPage);
+}
 
-        function goToPage(page) {
-            currentPage = page;
-            showPage(currentPage);
-        }
-
-        document.addEventListener("DOMContentLoaded", () => {
-            showPage(currentPage);
-        });
+document.addEventListener("DOMContentLoaded", () => {
+    showPage(currentPage);
+});
