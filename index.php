@@ -7,6 +7,9 @@ if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
 }
+
+
+$logged_in_user = $_SESSION['username'];
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +19,6 @@ if (!isset($_SESSION['user_id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mojani Project</title>
-
 
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <!-- bootstrap -->
@@ -37,15 +39,67 @@ if (!isset($_SESSION['user_id'])) {
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
 
+    <style>
+        .modal-content {
+            height: auto;
+            max-height: 400px; /* Adjust this value as needed */
+            /* overflow: ; */
+        }
+        .modal-body {
+            padding: 10px; /* Reduce padding if needed */
+        }
+        .modal-footer {
+            padding: 10px; /* Reduce padding if needed */
+        }
+    </style>
 
+<style>
+        .upload-container {
+            width: 300px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .file-input-container {
+            margin-bottom: 20px;
+        }
+
+        .file-input-container label {
+            display: block;
+            cursor: pointer;
+            padding: 10px;
+            border: 2px dashed #ccc;
+            text-align: center;
+            border-radius: 5px;
+            transition: border-color 0.3s ease;
+        }
+
+        .file-input-container input {
+            display: none;
+        }
+
+        .file-input-container label:hover {
+            border-color: #888;
+        }
+
+        .file-progress {
+            margin-top: 10px;
+        }
+
+        .file-progress span {
+            display: block;
+        }
+    </style>
 </head>
 
 <body>
-   
+
     <section class="row">
         <div class="col-12">
 
-        <div class="profile justify-content-end" >
+            <div class="profile justify-content-end">
                 <ul>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -66,20 +120,45 @@ if (!isset($_SESSION['user_id'])) {
                         </ul>
                     </li>
                 </ul>
+            </div>
 
+            <a class="Geo" href="#"><img src="image/geopulse_logo-removebg-preview.png" alt=""></a>
+            <div class="toggle-switch">
+                <input type="checkbox" id="toggle" class="toggle-input">
+                <label for="toggle" class="toggle-label">
+                    <span class="toggle-text toggle-text-left">State</span>
+                    <span class="toggle-handle"></span>
+                    <span class="toggle-text toggle-text-right">Maharashtra</span>
+                </label>
+            </div>
 
-         </div>
-            
-        <a class="Geo" href="#"><img src="image/geopulse_logo-removebg-preview.png" alt=""></a>
-        <div class="toggle-switch">
-    <input type="checkbox" id="toggle" class="toggle-input">
-    <label for="toggle" class="toggle-label">
-        <span class="toggle-text toggle-text-left">State</span>
-        <span class="toggle-handle"></span>
-        <span class="toggle-text toggle-text-right">Maharashtra</span>
-    </label>
-</div>
-
+            <!-- Success Message Modal -->
+            <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="successModalLabel">Success</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Your form has been submitted successfully!
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--  -->
+            <?php
+       if (isset($_SESSION['error'])) : ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <?php echo $_SESSION['error']; ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <?php unset($_SESSION['error']); ?>
+    <?php endif; ?>
+              
             <button type="button" class="menu-bar" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <img src="image/grid_icon.png" alt=" image not found" height="40" width="40">
             </button>
@@ -106,7 +185,7 @@ if (!isset($_SESSION['user_id'])) {
                                     Survey Number<span class="text-danger fs-3">*</span>
                                     <input class="form-control" type="text" name="input4" id="input4" required>
 
-                                    <div class="py-1">
+                                    <!-- <div class="py-1">
                                         <form action="your_php_script.php" method="post" enctype="multipart/form-data">
                                             <div class="py-1">
                                                 <label class="btn btn-outline-secondary fw-bold">
@@ -136,16 +215,45 @@ if (!isset($_SESSION['user_id'])) {
                                                 <button type="submit" value="Submit" class="btn btn-outline-success">Submit</button>
                                             </div>
                                         </form>
-                                    </div>
+                                    </div> -->
+                                                       <div class="upload-container">
+    <form action="submit_form.php" method="post" enctype="multipart/form-data">
+        <div class="file-input-container">
+            <label>
+                <input type="file" class="file-input" accept=".pdf" name="survey_map" onchange="handleFileUpload(this, 'surveyMapFilePath')" required multiple>
+                Upload Survey Map PDF 
+            </label>
+            <div id="surveyMapFilePath" class="file-progress"></div>
+        </div>
+
+        <div class="file-input-container">
+            <label>
+                <input type="file" class="file-input" accept=".pdf" name="village_map" onchange="handleFileUpload(this, 'villageMapFilePath')" multiple>
+                Upload Village Map PDF
+            </label>
+            <div id="villageMapFilePath" class="file-progress"></div>
+        </div>
+
+        <div class="file-input-container">
+            <label>
+                <input type="file" class="file-input" accept=".pdf" name="pdf_7_12" onchange="handleFileUpload(this, 'pdf7_12FilePath')" multiple>
+                Upload 7/12 PDF
+            </label>
+            <div id="pdf7_12FilePath" class="file-progress"></div>
+        </div>
+
+        <div class="file-input-container">
+            <button type="submit" value="Submit" class="btn btn-outline-success">Submit</button>
+        </div>
+    </form>
+</div>
+
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div id="map"></div>
-
-
-
             </div>
     </section>
 
@@ -153,14 +261,27 @@ if (!isset($_SESSION['user_id'])) {
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
 
-
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="js/index.js"></script>
     <script src="mainmodal/legend.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script>
         function handleFileUpload(input, targetId) {
+            // Display the file name in the specified target element
+            var fileList = input.files;
+            var fileNames = [];
+            for (var i = 0; i < fileList.length; i++) {
+                fileNames.push(fileList[i].name);
+            }
+            document.getElementById(targetId).innerText = fileNames.join(', ');
         }
+
+        $(document).ready(function() {
+            <?php if (isset($_GET['success']) && $_GET['success'] == 'true') { ?>
+                var successModal = new bootstrap.Modal(document.getElementById('successModal'));
+                successModal.show();
+            <?php } ?>
+        });
     </script>
 </body>
 

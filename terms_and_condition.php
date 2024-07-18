@@ -1,36 +1,33 @@
-
 <?php
 session_start();
 include('db.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_SESSION['user_id'])) {
-        $user_id = $_SESSION['user_id'];
+    $userId = $_SESSION['user_id'];
+    echo "User ID: " . $userId . "<br>"; // Debug output
 
-        // Update accepted_terms to TRUE
-        $stmt = $pdo->prepare("UPDATE users SET accepted_terms = TRUE WHERE id = ?");
-        $stmt->execute([$user_id]);
+    $stmt = $pdo->prepare("UPDATE users SET accepted_terms = TRUE WHERE user_id = ?");
+    $stmt->execute([$userId]);
 
-        // Redirect to index.php after accepting terms
-        header("Location: index.php");
-        exit();
+    // Debug output
+    if ($stmt->rowCount() > 0) {
+        echo "Terms accepted<br>";
     } else {
-        // Handle the case where user_id is not set in the session
-        echo "User not logged in.";
+        echo "Failed to update terms<br>";
     }
+
+    // Redirect to index page after accepting terms
+    header("Location: index.php");
+    exit();
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- Bootstrap CSS -->
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-
-<title>Terms and Conditions</title>
-<style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms and Conditions</title>
+    <style>
 
     
 /* Styles for modal popup */
@@ -150,10 +147,8 @@ a.fw-bold {
         
        
 </style>
-
 </head>
 <body>
-
 <div class="container">
 <h2 class="login-title">
     <img src="image\geopulse logo.png" class="logo" alt="" style="width:50px;height:50px;">
@@ -244,7 +239,7 @@ karve putla Kothrud , 411038]</p>
         </label>
 
         <a href="#" class="fw-bold" onclick="validateForm()">
-    <button id="acceptButton" type="button" disabled style="background-color: #808080; width: 200px;">Accept T&C</button>
+    <button id="acceptButton" type="submit" disabled style="background-color: #808080; width: 200px;">Accept T&C</button>
 </a>
     </div>
 
@@ -253,8 +248,13 @@ karve putla Kothrud , 411038]</p>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+    <!-- <h1>Terms and Conditions</h1>
+    <p>Please read and accept our terms and conditions to continue.</p>
+    <form method="POST">
+        <button type="submit">Accept</button>
+    </form> -->
 
-<script>
+    <script>
 // JavaScript to display the modal popup
 function openModal() {
     var modal = document.getElementById("myModal");

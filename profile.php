@@ -2,7 +2,7 @@
 include('db.php');
 
 // Connect to the database
-$conn = pg_connect("host=rr.c01x1jtcm1ms.ap-south-1.rds.amazonaws.com dbname=Mojani user=postgres password=Pmc992101");
+$conn = pg_connect("host=157.173.222.9 dbname=mojani user=postgres password=Mojani@992101");
 
 if (!$conn) {
     die("Connection failed: " . pg_last_error());
@@ -58,21 +58,7 @@ if (!$uploads_result) {
    
   
     <!-- <link rel="stylesheet" href="css/profileeee.css"> -->
-    <script>
-        function openModal(pdfUrl) {
-            var modal = document.getElementById('pdfModal');
-            var modalContent = modal.querySelector('.modal-content');
-            modalContent.innerHTML = '<iframe src="' + pdfUrl + '" style="width: 100%; height: 100%; border: none;"></iframe>';
-            modal.style.display = 'block';
-        }
-
-        function closeModal() {
-            var modal = document.getElementById('pdfModal');
-            modal.style.display = 'none';
-            var modalContent = modal.querySelector('.modal-content');
-            modalContent.innerHTML = '';
-        }
-    </script>
+ 
 </head>
 <body><div class="container-fluid ">
 
@@ -95,14 +81,14 @@ if (!$uploads_result) {
             
             <div class="card profile-card card-header" id="profileCard" style="display: none;">
                 <div class="profile-row">
-                    <p class="text text-start text-center occupation-text"><strong class="ms-1">Full Name:</strong> <span><?php echo htmlspecialchars($user['username']); ?></span></p>
+                    <p class="text text-start text-center"><strong class="ms-1">Full Name:</strong>  <span class="capitalize"><?php echo htmlspecialchars($user['username']); ?></span></p>
                     <p class="text text-start text-center"><strong class="ms-5">Email:</strong> <?php echo htmlspecialchars($user['email']); ?></p>
                 </div>
                 <div class="profile-row  contact">
                     <p class="text text-start text-center"><strong class="ms-4">Contact No:</strong> <?php echo htmlspecialchars($user['contact_no']); ?></p>
                     <p class="text text-start text-center occupation-text"><strong class="ms-4">Occupation:</strong> <span><?php echo htmlspecialchars($user['occupation']); ?> </span></p>
                 </div>
-                <i style="" class="fa ">&#xf0a8;</i>
+                <a href="index.php" class="fa ">&#xf0a8;</a>
                 
                 <!-- Logout Button (Visible on Large Screens) -->
                
@@ -204,13 +190,14 @@ if (!$uploads_result) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script>
-        const rowsPerPage = 6;
-        let currentPage = 1;
-        const table = document.getElementById("uploadTable");
-        const rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
-        const totalRows = rows.length;
-        const totalPages = Math.ceil(totalRows / rowsPerPage);
-        const pageNumbers = document.getElementById("pageNumbers");
+
+    const rowsPerPage = 6;
+    let currentPage = 1;
+    const table = document.getElementById("uploadTable");
+    const rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+    const totalRows = rows.length;
+    const totalPages = Math.ceil(totalRows / rowsPerPage);
+    const pageNumbers = document.getElementById("pageNumbers");
 
     function closeModal() {
         var modal = document.getElementById('pdfModal');
@@ -219,78 +206,81 @@ if (!$uploads_result) {
         pdfViewer.src = '';
     }
 
-    
+    function openModal(filePath) {
+        var modal = document.getElementById('pdfModal');
+        var pdfViewer = modal.querySelector('#pdfViewer');
+        pdfViewer.src = filePath;
+        modal.style.display = 'block';
+    }
 
-        function showPage(page) {
-            for (let i = 0; i < totalRows; i++) {
-                rows[i].style.display = "none";
-            }
-            const start = (page - 1) * rowsPerPage;
-            const end = start + rowsPerPage;
-            for (let i = start; i < end && i < totalRows; i++) {
-                rows[i].style.display = "";
-            }
-           
-
-            updatePageNumbers();
+    function showPage(page) {
+        for (let i = 0; i < totalRows; i++) {
+            rows[i].style.display = "none";
         }
-
-        function prevPage() {
-            if (currentPage > 1) {
-                currentPage--;
-                showPage(currentPage);
-            }
+        const start = (page - 1) * rowsPerPage;
+        const end = start + rowsPerPage;
+        for (let i = start; i < end && i < totalRows; i++) {
+            rows[i].style.display = "";
         }
+        updatePageNumbers();
+    }
 
-        function nextPage() {
-            if (currentPage < totalPages) {
-                currentPage++;
-                showPage(currentPage);
-            }
-        }
-
-        function updatePageNumbers() {
-            pageNumbers.innerHTML = "";
-            for (let i = 1; i <= totalPages; i++) {
-                const li = document.createElement("li");
-                li.className = "page-item" + (i === currentPage ? " active" : "");
-                li.innerHTML = `<a class="page-link" href="#" onclick="goToPage(${i})">${i}</a>`;
-                pageNumbers.appendChild(li);
-            }
-        }
-
-        function goToPage(page) {
-            currentPage = page;
+    function prevPage() {
+        if (currentPage > 1) {
+            currentPage--;
             showPage(currentPage);
         }
+    }
 
-        document.addEventListener("DOMContentLoaded", () => {
+    function nextPage() {
+        if (currentPage < totalPages) {
+            currentPage++;
             showPage(currentPage);
-        });
-     /////
-     document.querySelector('.user .icon').addEventListener('click', function() {
-    var profileCard = document.getElementById('profileCard');
-    if (profileCard.style.display === 'none' || profileCard.style.display === '') {
-        profileCard.style.display = 'block';
-        document.getElementById('toggleProfileCardBtn').classList.add('fixed');
-    } else {
-        profileCard.style.display = 'none';
-        document.getElementById('toggleProfileCardBtn').classList.remove('fixed');
+        }
     }
-});
 
-document.querySelector('.user .text').addEventListener('click', function() {
-    var profileCard = document.getElementById('profileCard');
-    if (profileCard.style.display === 'none' || profileCard.style.display === '') {
-        profileCard.style.display = 'block';
-        document.getElementById('toggleProfileCardBtn').classList.add('fixed');
-    } else {
-        profileCard.style.display = 'none';
-        document.getElementById('toggleProfileCardBtn').classList.remove('fixed');
+    function updatePageNumbers() {
+        pageNumbers.innerHTML = "";
+        for (let i = 1; i <= totalPages; i++) {
+            const li = document.createElement("li");
+            li.className = "page-item" + (i === currentPage ? " active" : "");
+            li.innerHTML = `<a class="page-link" href="#" onclick="goToPage(${i})">${i}</a>`;
+            pageNumbers.appendChild(li);
+        }
     }
-});
 
-       
+    function goToPage(page) {
+        currentPage = page;
+        showPage(currentPage);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        showPage(currentPage);
+    });
+
+    document.querySelector('.user .icon').addEventListener('click', function() {
+        var profileCard = document.getElementById('profileCard');
+        if (profileCard.style.display === 'none' || profileCard.style.display === '') {
+            profileCard.style.display = 'block';
+            document.getElementById('toggleProfileCardBtn').classList.add('fixed');
+        } else {
+            profileCard.style.display = 'none';
+            document.getElementById('toggleProfileCardBtn').classList.remove('fixed');
+        }
+    });
+
+    document.querySelector('.user .text').addEventListener('click', function() {
+        var profileCard = document.getElementById('profileCard');
+        if (profileCard.style.display === 'none' || profileCard.style.display === '') {
+            profileCard.style.display = 'block';
+            document.getElementById('toggleProfileCardBtn').classList.add('fixed');
+        } else {
+            profileCard.style.display = 'none';
+            document.getElementById('toggleProfileCardBtn').classList.remove('fixed');
+        }
+    });
+
+
     </script>
    
 </body>

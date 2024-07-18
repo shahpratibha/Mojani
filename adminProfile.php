@@ -3,7 +3,7 @@ session_start();
 include('db.php');
 
 // Connect to the database
-$conn = pg_connect("host=rr.c01x1jtcm1ms.ap-south-1.rds.amazonaws.com dbname=Mojani user=postgres password=Pmc992101");
+$conn = pg_connect("host=157.173.222.9 dbname=mojani user=postgres password=Mojani@992101");
 
 if (!$conn) {
     die("Connection failed: " . pg_last_error());
@@ -118,7 +118,7 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="css/profile.css">
-    <script src="./js/index.js"></script>
+    <!-- <script src="./js/index.js"></script> -->
         
     <style>
        
@@ -193,7 +193,7 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
         </div>
         <div class="row">
             <div class="uploads col-12 tabledata">
-            <h2 class="font text-center fw-bold">Recent Activity</h2>
+            <h2 class="font text-center fw-bold">User Activity Logs</h2>
 
                 <div class="table-container">
                     <table class="table table-bordered" id="surveyTable">
