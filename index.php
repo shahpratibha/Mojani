@@ -7,6 +7,9 @@ if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
 }
+
+
+$logged_in_user = $_SESSION['username'];
 ?>
 
 <!DOCTYPE html>

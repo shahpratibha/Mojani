@@ -81,14 +81,14 @@ if (!$uploads_result) {
             
             <div class="card profile-card card-header" id="profileCard" style="display: none;">
                 <div class="profile-row">
-                    <p class="text text-start text-center"><strong class="ms-1">Full Name:</strong> <?php echo htmlspecialchars($user['username']); ?></p>
+                    <p class="text text-start text-center"><strong class="ms-1">Full Name:</strong>  <span class="capitalize"><?php echo htmlspecialchars($user['username']); ?></span></p>
                     <p class="text text-start text-center"><strong class="ms-5">Email:</strong> <?php echo htmlspecialchars($user['email']); ?></p>
                 </div>
                 <div class="profile-row  contact">
                     <p class="text text-start text-center"><strong class="ms-4">Contact No:</strong> <?php echo htmlspecialchars($user['contact_no']); ?></p>
                     <p class="text text-start text-center"><strong class="ms-4">Occupation:</strong> <?php echo htmlspecialchars($user['occupation']); ?></p>
                 </div>
-                <i style="" class="fa ">&#xf0a8;</i>
+                <a href="index.php" class="fa ">&#xf0a8;</a>
                 
                 <!-- Logout Button (Visible on Large Screens) -->
                
