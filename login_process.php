@@ -19,6 +19,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "User ID: " . $_SESSION['user_id'] . "<br>";
         echo "Accepted Terms: " . ($user['accepted_terms'] ? 'true' : 'false') . "<br>";
 
+        
+
         if ($user['accepted_terms']) {
             echo "Redirecting to index.php<br>"; // Debug output
             header("Location: index.php");
