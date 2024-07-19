@@ -18,7 +18,8 @@ $logged_in_user = $_SESSION['username'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mojani Project</title>
+    <title>Mojani</title>
+    <link rel="icon" href="image\geopulse_logo-removebg-preview.png" type="image/x-icon">
 
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <!-- bootstrap -->
@@ -111,7 +112,7 @@ $logged_in_user = $_SESSION['username'];
                                 <hr class="dropdown-divider">
                             </li>
                             <li>
-                                <form action="Logout.php" method="post">
+                                <form action="logout.php" method="post">
                                     <button class="dropdown-item" type="submit" name="Logout">
                                         Logout
                                     </button>

@@ -102,9 +102,18 @@ $total_user_uploads_result = pg_query($conn, $total_user_uploads_sql);
 $total_user_uploads = pg_fetch_result($total_user_uploads_result, 0, 'total_user_uploads');
 
 // Count total number of admin users who uploaded files
-$total_admin_uploads_sql = "SELECT COUNT(DISTINCT admin_username) as total_admin_uploads FROM public.admin_uploads";
-$total_admin_uploads_result = pg_query($conn, $total_admin_uploads_sql);
+// $total_admin_uploads_sql = "SELECT COUNT(DISTINCT admin_username) as total_admin_uploads FROM public.admin_uploads";
+// $total_admin_uploads_result = pg_query($conn, $total_admin_uploads_sql);
+// $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_admin_uploads');
+
+// Count total number of admin uploads by the logged-in user
+$total_admin_uploads_sql = "SELECT COUNT(*) as total_admin_uploads FROM public.admin_uploads WHERE admin_username = $1";
+$total_admin_uploads_result = pg_query_params($conn, $total_admin_uploads_sql, array($logged_in_user));
+if (!$total_admin_uploads_result) {
+    die("Error in SQL query: " . pg_last_error());
+}
 $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_admin_uploads');
+
 ?>
 
 <!DOCTYPE html>
@@ -112,7 +121,8 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
 
 <head>
     <meta charset="UTF-8">
-    <title>Admin Profile</title>
+    <title>Mojani</title>
+    <link rel="icon" href="image\geopulse_logo-removebg-preview.png" type="image/x-icon">
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -162,11 +172,10 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
 
                      <h2 class="font mt-4  text-center fw-bold">Dashboard </h2>
                
-                     <div class="card-container1 mt-4 mb-4">
+                     <!-- <div class="card-container1 mt-4 mb-4">
                             <div class="card1">
                                 <div class="card-body1 text-center">
                                 <img src="./image/Users.svg" alt="Total Users" class="card-icon mt-4">
-                                    <!-- <i class="fas fa-users fa-2x me-3 mt-5"></i> -->
                                     <h5 class="card-title1 mt-4 ms-2 text1">Total Users</h5>
                                     <p class="card-body1 mt-4 "><?php echo $total_users; ?></p>
                                 </div>
@@ -174,19 +183,43 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
                             <div class="card1">
                                 <div class="card-body1 text-center">
                                 <img src="./image/Upload.svg" alt="Total Users" class="card-icon mt-4">
-                                    <!-- <i class="fas fa-upload fa-2x me-3  mt-5"></i> -->
                                     <h5 class="card-title1 mt-4 ms-2 text1">Users Uploaded </h5>
                                     <p class="card-body1 mt-4 "><?php echo $total_user_uploads; ?>                               </div>
                             </div>
                             <div class="card1">
                                 <div class="card-body1 text-center">
                                 <img src="./image/Admin.svg" alt="Total Users" class="card-icon mt-4">
-                                    <!-- <i class="fas fa-user-shield fa-2x me-3 mt-5"></i> -->
                                     <h5 class="card-title1 mt-4 ms-2 text1">Admins Uploaded</h5>
                                     <p class="card-body1 mt-4 "><?php echo $total_admin_uploads; ?></p>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
+                        <div class="card-container1 mt-4 mb-4">
+    <div class="card1">
+        <div class="card-body1 text-center">
+            <img src="./image/Users.svg" alt="Total Users" class="card-icon mt-4">
+            <h5 class="card-title1 mt-4 ms-2 text1">Total Users</h5>
+            <p class="card-body1 mt-4 "><?php echo $total_users; ?></p>
+        </div>
+    </div>
+    <div class="card1">
+        <div class="card-body1 text-center">
+            <img src="./image/Upload.svg" alt="Uploads by User" class="card-icon mt-4">
+            <h5 class="card-title1 mt-4 ms-2 text1">Uploads by You</h5>
+            <p class="card-body1 mt-4 "><?php echo $total_user_uploads; ?></p>
+        </div>
+    </div>
+    <div class="card1">
+        <div class="card-body1 text-center">
+            <img src="./image/Admin.svg" alt="Admins Uploaded" class="card-icon mt-4">
+            <h5 class="card-title1 mt-4 ms-2 text1">Admins Uploaded</h5>
+            <p class="card-body1 mt-4 "><?php echo $total_admin_uploads; ?></p>
+        </div>
+    </div>
+</div>
+
+
+                        <!--  -->
                     </div>
                 </div>
             </div>

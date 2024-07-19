@@ -42,7 +42,8 @@ if (!$uploads_result) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>User Profile</title>
+    <title>Mojani</title>
+    <link rel="icon" href="image\geopulse_logo-removebg-preview.png" type="image/x-icon">
      <!-- bootstrap -->
      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">

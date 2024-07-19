@@ -1,7 +1,7 @@
 var districtCache = {};
 var geoURL = "https://portal.geopulsea.com/geoserver/Mojani/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Mojani:Villages_Boundary&outputFormat=json";
 
-var map = L.map("map", {}).setView([18.76, 76.74], 7, L.CRS.EPSG4326);
+var map = L.map("map", {}).setView([18.8655, 76.7455], 5.48, L.CRS.EPSG4326);
 
 var googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
     maxZoom: 20,
@@ -353,66 +353,66 @@ function handleFileUpload(input, targetId) {
     }
 }
 
-const rowsPerPage = 5;
-let currentPage = 1;
-const table = document.getElementById("surveyTable");
-const rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
-const totalRows = rows.length;
-const totalPages = Math.ceil(totalRows / rowsPerPage);
-const pageNumbers = document.getElementById("pageNumbers");
+// const rowsPerPage = 5;
+// let currentPage = 1;
+// const table = document.getElementById("surveyTable");
+// const rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+// const totalRows = rows.length;
+// const totalPages = Math.ceil(totalRows / rowsPerPage);
+// const pageNumbers = document.getElementById("pageNumbers");
 
-function closeModal() {
-    var modal = document.getElementById('pdfModal');
-    modal.style.display = 'none';
-    var pdfViewer = modal.querySelector('#pdfViewer');
-    pdfViewer.src = '';
-}
-
-
-
-function showPage(page) {
-    for (let i = 0; i < totalRows; i++) {
-        rows[i].style.display = "none";
-    }
-    const start = (page - 1) * rowsPerPage;
-    const end = start + rowsPerPage;
-    for (let i = start; i < end && i < totalRows; i++) {
-        rows[i].style.display = "";
-    }
+// function closeModal() {
+//     var modal = document.getElementById('pdfModal');
+//     modal.style.display = 'none';
+//     var pdfViewer = modal.querySelector('#pdfViewer');
+//     pdfViewer.src = '';
+// }
 
 
-    updatePageNumbers();
-}
 
-function prevPage() {
-    if (currentPage > 1) {
-        currentPage--;
-        showPage(currentPage);
-    }
-}
+// function showPage(page) {
+//     for (let i = 0; i < totalRows; i++) {
+//         rows[i].style.display = "none";
+//     }
+//     const start = (page - 1) * rowsPerPage;
+//     const end = start + rowsPerPage;
+//     for (let i = start; i < end && i < totalRows; i++) {
+//         rows[i].style.display = "";
+//     }
 
-function nextPage() {
-    if (currentPage < totalPages) {
-        currentPage++;
-        showPage(currentPage);
-    }
-}
 
-function updatePageNumbers() {
-    pageNumbers.innerHTML = "";
-    for (let i = 1; i <= totalPages; i++) {
-        const li = document.createElement("li");
-        li.className = "page-item" + (i === currentPage ? " active" : "");
-        li.innerHTML = `<a class="page-link" href="#" onclick="goToPage(${i})">${i}</a>`;
-        pageNumbers.appendChild(li);
-    }
-}
+//     updatePageNumbers();
+// }
 
-function goToPage(page) {
-    currentPage = page;
-    showPage(currentPage);
-}
+// function prevPage() {
+//     if (currentPage > 1) {
+//         currentPage--;
+//         showPage(currentPage);
+//     }
+// }
 
-document.addEventListener("DOMContentLoaded", () => {
-    showPage(currentPage);
-});
+// function nextPage() {
+//     if (currentPage < totalPages) {
+//         currentPage++;
+//         showPage(currentPage);
+//     }
+// }
+
+// function updatePageNumbers() {
+//     pageNumbers.innerHTML = "";
+//     for (let i = 1; i <= totalPages; i++) {
+//         const li = document.createElement("li");
+//         li.className = "page-item" + (i === currentPage ? " active" : "");
+//         li.innerHTML = `<a class="page-link" href="#" onclick="goToPage(${i})">${i}</a>`;
+//         pageNumbers.appendChild(li);
+//     }
+// }
+
+// function goToPage(page) {
+//     currentPage = page;
+//     showPage(currentPage);
+// }
+
+// document.addEventListener("DOMContentLoaded", () => {
+//     showPage(currentPage);
+// });
