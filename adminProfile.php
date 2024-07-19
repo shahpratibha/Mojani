@@ -11,7 +11,7 @@ if (!$conn) {
 
 // Check if user is logged in
 if (!isset($_SESSION['username'])) {
-    header("Location: admin.php"); // Redirect to login page if not logged in
+    header("Location: admin.php"); 
     exit();
 }
 

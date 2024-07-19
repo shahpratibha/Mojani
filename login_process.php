@@ -13,17 +13,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($user && password_verify($password, $user['password'])) {
         $_SESSION['login_status'] = "success";
         $_SESSION['username'] = $user['username'];
-        $_SESSION['user_id'] = $user['user_id']; // Changed from 'id' to 'user_id'
-
-        // Debug output
-        echo "User ID: " . $_SESSION['user_id'] . "<br>";
-        echo "Accepted Terms: " . ($user['accepted_terms'] ? 'true' : 'false') . "<br>";
+        $_SESSION['user_id'] = $user['user_id'];
 
         if ($user['accepted_terms']) {
-            echo "Redirecting to index.php<br>"; // Debug output
             header("Location: index.php");
         } else {
-            echo "Redirecting to terms_and_condition.php<br>"; // Debug output
             header("Location: terms_and_condition.php");
         }
         exit();

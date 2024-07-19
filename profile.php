@@ -81,7 +81,11 @@ if (!$uploads_result) {
             
             <div class="card profile-card card-header" id="profileCard" style="display: none;">
                 <div class="profile-row">
+<<<<<<< HEAD
                     <p class="text text-start text-center"><strong class="ms-1">Full Name:</strong>  <span class="capitalize"><?php echo htmlspecialchars($user['username']); ?></span></p>
+=======
+                    <p class="text text-start text-center occupation-text"><strong class="ms-1">Full Name:</strong> <span><?php echo htmlspecialchars($user['username']); ?></span></p>
+>>>>>>> cc3ba21c355fcb0e6614695cd7e6d2e5dfc8b785
                     <p class="text text-start text-center"><strong class="ms-5">Email:</strong> <?php echo htmlspecialchars($user['email']); ?></p>
                 </div>
                 <div class="profile-row ">
