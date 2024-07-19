@@ -101,10 +101,6 @@ $total_user_uploads_sql = "SELECT COUNT(DISTINCT username) as total_user_uploads
 $total_user_uploads_result = pg_query($conn, $total_user_uploads_sql);
 $total_user_uploads = pg_fetch_result($total_user_uploads_result, 0, 'total_user_uploads');
 
-// Count total number of admin users who uploaded files
-// $total_admin_uploads_sql = "SELECT COUNT(DISTINCT admin_username) as total_admin_uploads FROM public.admin_uploads";
-// $total_admin_uploads_result = pg_query($conn, $total_admin_uploads_sql);
-// $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_admin_uploads');
 
 // Count total number of admin uploads by the logged-in user
 $total_admin_uploads_sql = "SELECT COUNT(*) as total_admin_uploads FROM public.admin_uploads WHERE admin_username = $1";
