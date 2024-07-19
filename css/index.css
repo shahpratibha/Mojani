@@ -263,6 +263,15 @@ li{
         /* width: 4dvw; */
         height: 7dvh;
     }
+    .leaflet-top {
+       top: 65% !important;
+    }
+    .svg-inline--fa {
+        display: var(--fa-display, inline-block);
+        height: 1em;
+        overflow: visible;
+        vertical-align: 0.875em;
+    }
     .menu-bar img {
         z-index: 999;
         position: absolute;
@@ -321,8 +330,9 @@ li{
         color: rgb(0, 255, 251);
         text-transform: uppercase;
         text-shadow: #fff;
-        font-size: 13px;
-        margin-right: 29px;
+        font-size: 12px;
+        margin-top: 33px;
+        margin-right: 133px;
     }
     .leaflet-touch .leaflet-control-layers, .leaflet-touch .leaflet-bar {
         /* border: 2px solid rgba(0, 0, 0, 0.2); */
