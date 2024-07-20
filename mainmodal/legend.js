@@ -68,7 +68,7 @@ legendControl.onAdd = function (map) {
   div.style.overflowY = "auto";
   div.style.scrollbarWidth = "thin";
   div.style.backgroundColor = "white";
-  div.style.border = "2px solid green";
+  div.style.border = "2px solid #0077DA";
   div.style.borderRadius = "10px";
   div.style.padding = "10px";
   div.style.transition = "all 0.3s ease-in-out"; // Add transition for smooth animation
@@ -95,11 +95,11 @@ var collapseButton = L.control({ position: "topright" });
 
 collapseButton.onAdd = function (map) {
   var button = L.DomUtil.create("button", "collapse-button");
-  button.innerHTML = "<i class='fa-solid fa-list' style='color:green;'></i>"; // Initial text
+  button.innerHTML = "<i class='fa-solid fa-list' style='color:#0077DA;'></i>"; // Initial text
 
   // Apply styling
   button.style.backgroundColor = "white";
-  button.style.border = "2px solid green";
+  button.style.border = "2px solid #0077DA";
   button.style.width = "35px";
   button.style.height = "35px";
   button.style.borderRadius = "5px";
@@ -120,19 +120,19 @@ collapseButton.onAdd = function (map) {
       legendDiv.style.display = "block";
       legendDiv.style.height = "40vh";
       legendDiv.style.width = "200px";
-      legendDiv.style.top ="12%";
-      legendDiv.style.right ="4%";
+      legendDiv.style.top ="8%";
+      legendDiv.style.right ="5px";
       legendDiv.style.scrollbarWidth = "thin";
       legendDiv.style.scrollbarColor =  "#163140 white";
       legendDiv.style.borderRadius= "10px";
       legendDiv.style.boxShadow = "5px 5px 5px rgba(0, 0, 0, 0.7)"; // Add shadow
-      button.innerHTML = "<i class='fa-solid fa-list' style='color:green;'></i>";
+      button.innerHTML = "<i class='fa-solid fa-list' style='color:0077DA;'></i>";
 
       button.style.backgroundColor = "white"; 
       legendVisible = true;
     } else {
       legendDiv.style.display = "none";
-      button.innerHTML = "<i class='fa-solid fa-list' style='color:green;'></i>";
+      button.innerHTML = "<i class='fa-solid fa-list' style='color:#0077DA;'></i>";
       button.style.backgroundColor = "white"; 
       legendVisible = false;
     }
@@ -205,7 +205,7 @@ legend.onAdd = function (map) {
       div.style.overflowY = "auto";
       div.style.scrollbarWidth = "thin";
       div.style.backgroundColor = "white";
-      div.style.border = "2px solid green";
+      div.style.border = "2px solid 0077DA";
       div.style.borderRadius = "10px";
       div.style.padding = "10px";
     })
@@ -235,7 +235,7 @@ var northArrowControl = L.Control.extend({
   onAdd: function (map) {
     var container = L.DomUtil.create("div", "leaflet-bar leaflet-control");
     container.innerHTML =
-      '<img src="mainmodal/002-cardinal-point.png" class="border-0;" alt="" style="width: 30px;  height:50px; background-color: white; border:2px solid green; ">';
+      '<img src="mainmodal/002-cardinal-point.png" class="border-0;" alt="" style="width: 30px;  height:50px; background-color: white; ">';
     return container;
   },
 });
