@@ -44,7 +44,7 @@ $logged_in_user = $_SESSION['username'];
         .modal-content {
             height: auto;
             max-height: 400px; /* Adjust this value as needed */
-            /* overflow: ; */
+         
         }
         .modal-body {
             padding: 10px; /* Reduce padding if needed */
@@ -100,10 +100,11 @@ $logged_in_user = $_SESSION['username'];
     <section class="row">
         <div class="col-12">
 
-            <div class="profile justify-content-end">
+            <div class="profile justify-content-end ">
                 <ul>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+
                             <?php echo $logged_in_user; ?>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -124,14 +125,7 @@ $logged_in_user = $_SESSION['username'];
             </div>
 
             <a class="Geo" href="#"><img src="image/geopulse_logo-removebg-preview.png" alt=""></a>
-            <div class="toggle-switch">
-                <input type="checkbox" id="toggle" class="toggle-input">
-                <label for="toggle" class="toggle-label">
-                    <span class="toggle-text toggle-text-left">State</span>
-                    <span class="toggle-handle"></span>
-                    <span class="toggle-text toggle-text-right">Maharashtra</span>
-                </label>
-            </div>
+        
 
             <!-- Success Message Modal -->
             <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
@@ -161,63 +155,50 @@ $logged_in_user = $_SESSION['username'];
     <?php endif; ?>
               
             <button type="button" class="menu-bar" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <img src="image/grid_icon.png" alt=" image not found" height="40" width="40">
+                <img src="image/menu.png" alt=" image not found" height="25" width="25">
             </button>
 
             <div class="col-12 col-md-3 from">
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog draggable-modal">
                         <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Form</h5>
-                                <button type="button" class="btn-close custom-close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
+                         
                             <div class="modal-body">
-                                <form method="post" action="submit_form.php" enctype="multipart/form-data">
-                                    District
-                                    <select class="form-control" name="input1" id="input1"></select>
+                            <div class="toggle-switch">
+                <input type="checkbox" id="toggle" class="toggle-input">
+                <label for="toggle" class="toggle-label">
+                    <span class="toggle-text toggle-text-left">State</span>
+                    <span class="toggle-handle"></span>
+                    <span class="toggle-text toggle-text-right">Maharashtra</span>
+                </label>
+            </div>
+                                <button type="button" class="btn-close custom-close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <hr>
+                           
+                            
+    <div class="modal-body">                  
+    <form method="post" action="submit_form.php" enctype="multipart/form-data">
+    <div class="form-group">
+        <label>District</label>
+        <select class="form-control" name="input1" id="input1"></select>
+    </div>
+    
+    <div class="form-group">
+        <label>Taluka</label>
+        <select class="form-control" name="input2" id="input2"></select>
+    </div>
 
-                                    Taluka <br>
-                                    <select class="form-control" name="input2" id="input2"></select>
+    <div class="form-group">
+        <label>Village</label>
+        <select class="form-control" name="input3" id="input3"></select>
+    </div>
 
-                                    Village <br>
-                                    <select class="form-control" name="input3" id="input3"></select>
+    <div class="form-group">
+        <label>Survey No<span class="text-danger fs-3">*</span></label>
+        <input class="form-control" type="text" name="input4" id="input4" required>
+    </div>
 
-                                    Survey Number<span class="text-danger fs-3">*</span>
-                                    <input class="form-control" type="text" name="input4" id="input4" required>
-
-                                    <!-- <div class="py-1">
-                                        <form action="your_php_script.php" method="post" enctype="multipart/form-data">
-                                            <div class="py-1">
-                                                <label class="btn btn-outline-secondary fw-bold">
-                                                    <input type="file" class="file-input" accept=".pdf" name="survey_map" onchange="handleFileUpload(this, 'surveyMapFilePath')" required multiple>
-                                                    Upload Survey Map PDF <span class="text-danger fs-3">*</span>
-                                                </label>
-                                                <div id="surveyMapFilePath"></div>
-                                            </div>
-
-                                            <div class="py-1">
-                                                <label class="btn btn-outline-secondary fw-bold">
-                                                    <input type="file" class="file-input" accept=".pdf" name="village_map" onchange="handleFileUpload(this, 'villageMapFilePath')" multiple>
-                                                    Upload Village Map PDF
-                                                </label>
-                                                <div id="villageMapFilePath"></div>
-                                            </div>
-
-                                            <div class="py-1">
-                                                <label class="btn btn-outline-secondary fw-bold">
-                                                    <input type="file" class="file-input" accept=".pdf" name="pdf_7_12" onchange="handleFileUpload(this, 'pdf7_12FilePath')" multiple>
-                                                    Upload 7/12 PDF
-                                                </label>
-                                                <div id="pdf7_12FilePath"></div>
-                                            </div>
-
-                                            <div class="py-1">
-                                                <button type="submit" value="Submit" class="btn btn-outline-success">Submit</button>
-                                            </div>
-                                        </form>
-                                    </div> -->
-                                                       <div class="upload-container">
+                <div class="upload-container">
     <form action="submit_form.php" method="post" enctype="multipart/form-data">
         <div class="file-input-container">
             <label>
@@ -246,9 +227,11 @@ $logged_in_user = $_SESSION['username'];
         <div class="file-input-container">
             <button type="submit" value="Submit" class="btn btn-outline-success">Submit</button>
         </div>
+
+        
     </form>
 </div>
-
+       </div>
                             </div>
                         </div>
                     </div>
@@ -283,6 +266,9 @@ $logged_in_user = $_SESSION['username'];
                 successModal.show();
             <?php } ?>
         });
+
+
+        
     </script>
 </body>
 
