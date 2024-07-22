@@ -1,0 +1,277 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   
+}
+body{
+    overflow-x: hidden;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+.leaflet-control-attribution{
+    display: none;
+}
+.dropdown-menu .dropdown-item:hover {
+    background-color:#0080005c;
+    color: white; 
+}
+
+#map {
+    position: absolute;
+    top: 30vh;
+    left: 0;
+    height: 55vh;
+    width: 94vw;
+    z-index: 0;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+}
+    
+
+.form-control input:focus {
+    outline: none;
+    border: 2px solid darkblue;
+}
+
+.form-control input:invalid:not(:focus):not(:placeholder-shown) {
+    border: 2px solid #ff3860;
+}
+
+.btn {
+    width: 50;
+    max-width: 95%;
+    HEIGHT: 26px;
+    text-align: right;
+    /* padding: 12px 0 12px 37px; */
+    top: 50px;
+    font-size: 10px;
+}
+.leaflet-touch .leaflet-bar a {
+    width: 20px;
+    font-size: 18px;
+    height: 20px;
+    line-height: 20px;
+    
+}
+.leaflet-touch .leaflet-control-layers-toggle {
+    width: 20px;
+    height: 20px;
+}
+
+.leaflet-retina .leaflet-control-layers-toggle {
+    background-image: url('../image/Layers_Icon.png');
+    background-size: 23px 23px;
+}
+
+.leaflet-control-scale-line {
+    border: 2px solid #777;
+    border-top: none;
+    line-height: 1.1;
+    padding: 2px 1px;
+    white-space: nowrap;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.8);
+    text-shadow: 1px 1px #fff;
+    font-size: 7px;
+}
+li{
+    list-style: none;
+}
+  
+
+.card{
+    height: 25vh;
+    top: 8px;
+    font-size: 10px;
+}
+
+/* Toggle Switch Container */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 34px;
+}
+
+/* Hide default input */
+.toggle-input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Toggle Label */
+.toggle-label {
+    display: block;
+    position: absolute;
+    width: 220%;
+    height: 100%;
+    background-color:darkblue;
+    color:white;
+    top:10px;
+    left:83vw;
+    z-index: 1;
+    border-radius: 20px;
+    font-size: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Toggle Handle */
+.toggle-handle {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 70px;
+    height: 30px;
+    background-color:#fff;
+    border-radius:20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+/* Toggle Text Left (State) */
+.toggle-text-left {
+    position: absolute;
+   z-index:1;
+    top: 50%;
+    left: 10px;
+    color:darkblue;
+    transform: translateY(-50%);
+}
+
+/* Toggle Text Right (Maharashtra) */
+.toggle-text-right {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
+
+
+
+.Geo img{
+    position: absolute;
+    z-index: 9999;
+    top: 0;
+    color: black;
+    /* width: 4dvw; */
+    height: 7dvh;
+}
+
+
+    .message-container {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(255, 255, 255, 0.8);
+        padding: 10px;
+        /* text-align: center; */
+        width: 100%;
+        max-width: 800px;
+    }
+    .message-container p {
+       font-size: 10px;
+        margin-bottom: 10px;
+    }
+
+    
+
+    /* Styles specifically for devices with a minimum width of 320px */
+@media (min-width: 320px) and (max-width: 479px) {
+    .Geo img {
+        position: absolute;
+        z-index: 9999;
+        top: 0px;
+        left: 1%;
+        color: black;
+        /* width: 4dvw; */
+        height: 7dvh;
+    }
+   
+    .toggle-text-left {
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        font-size: 12px;
+        left: 10px;
+        color: darkblue;
+        transform: translateY(-50%);
+    }
+    .toggle-handle {
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 37px;
+        height: 27px;
+      
+        background-color: #fff;
+        border-radius: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s, background-color 0.3s;
+        font-weight: bold;
+    }
+    .toggle-text-right {
+        position: absolute;
+        top: 52%;
+        left: 45%;
+        font-size: 11px;
+        right: -11px;
+        transform: translateY(-50%);
+    }
+    .toggle-label {
+        display: block;
+        position: absolute;
+        width: 131%;
+        height: 90%;
+        background-color: darkblue;
+        color: white;
+        top: 6px;
+        left: 59vw;
+        z-index: 1;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+       
+    }
+   
+       
+
+    .leaflet-touch .leaflet-control-layers, .leaflet-touch .leaflet-bar {
+        /* border: 2px solid rgba(0, 0, 0, 0.2); */
+        background-clip: padding-box;
+        border: 2px solid darkblue !important;
+    }
+
+   
+  
+}
+
+.card-body {
+    padding: 10px;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    /* margin-bottom: 15px; */
+}
+
+.form-group label {
+    width: 100px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.form-group select,
+.form-group input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}

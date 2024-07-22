@@ -17,14 +17,14 @@ body{
     color: white; 
 }
 
-#map {
+/* #map {
         position: absolute;
         top: 0PX;
         left: 0;
         height: 100vh;
         width: 100vw;
         z-index: 0;
-}
+} */
     
 
 
@@ -160,7 +160,7 @@ li{
     background-color:green;
     color:white;
     top:10px;
-    left: 200%;
+    left:83vw;
     z-index: 1;
     border-radius: 20px;
     cursor: pointer;

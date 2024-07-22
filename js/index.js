@@ -10,13 +10,13 @@ var googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',
 
 var osm = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
+});
 
 var Esri_WorldImagery = L.tileLayer(
     "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", {
     attribution: "Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community"
 }
-);
+).addTo(map);
 
 var baseURL = "https://portal.geopulsea.com/geoserver/Mojani/wms";
 
@@ -47,12 +47,12 @@ var Maharashtra_Data = L.tileLayer.wms(baseURL, {
     opacity: 1,
 }).addTo(map);
 
-var baseLayers = {};
+var baseLayers = { "OpenStreetMap": osm,
+    "Esri World Imagery": Esri_WorldImagery,
+    "Google Satellite": googleSat,};
 
 var WMSlayers = {
-    "OpenStreetMap": osm,
-    "Esri World Imagery": Esri_WorldImagery,
-    "Google Satellite": googleSat,
+   
     "Villages Boundary": Villages_Boundary,
     "Taluka Boundary": Taluka_Boundary,
     "Maharashtra_Data": Maharashtra_Data
@@ -213,7 +213,7 @@ function populateTalukas() {
             talukaSelect.change(populateVillages);
 
             // Fit map to selected district's bounds
-            fitMapToBounds(data); // Assuming data here contains the features for talukas
+           // Assuming data here contains the features for talukas
         },
         error: function (xhr, status, error) {
             console.error('Error fetching talukas:', error);
