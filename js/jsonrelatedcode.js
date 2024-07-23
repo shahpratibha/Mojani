@@ -14,7 +14,7 @@ var Esri_WorldImagery = L.tileLayer(
         attribution: "Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community"
     }
 );
-var baseURL = "https://portal.geopulsea.com/geoserver/Mojani/wms";
+var baseURL = "https://info.dpzoning.com/geoserver/Mojani/wms";
 
 var Villages_Boundary= L.tileLayer.wms(
     baseURL,

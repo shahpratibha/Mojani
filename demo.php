@@ -31,11 +31,6 @@
     padding: 10px;
 }
 
-.form-group {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-}
 
 .form-group label {
     width: 100px;

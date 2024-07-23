@@ -1,5 +1,5 @@
 // GeoServer URL
-var geoserverUrl = "https://portal.geopulsea.com/geoserver/";
+var geoserverUrl = "https://info.dpzoning.com/geoserver/";
 
 // Specific layer to show in the legend
 var layerName = "Mojani:District_Boundary";
@@ -14,7 +14,9 @@ var collapseButton = L.control({ position: "topright" });
 
 collapseButton.onAdd = function (map) {
   var button = L.DomUtil.create("button", "collapse-button");
-  button.innerHTML = "<i class='fa-solid fa-list' style='color:darkblue;'></i>"; // Initial text
+ // Set the initial text with an image
+button.innerHTML = "<img src='mainmodal/Status_list.png' alt='image description' style='width: 20px; height: 20px;'>"; 
+
 
   button.onclick = function () {
     var legendDiv = document.querySelector(".info.legend");
