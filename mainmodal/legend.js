@@ -1,5 +1,5 @@
 // GeoServer URL
-var geoserverUrl = "https://portal.geopulsea.com/geoserver/";
+var geoserverUrl = "https://info.dpzoning.com/geoserver/";
 
 // Specific layer to show in the legend
 var layerName = "Mojani:District_Boundary";
