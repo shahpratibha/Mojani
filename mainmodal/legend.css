@@ -20,8 +20,8 @@
 
 .legend-div {
     position: fixed;
-    top: -4px;
-    right: 10px;
+    top: -13px;
+    right: -5px;
     height: 22vh;
     width: 99px;
     overflow-y: auto;

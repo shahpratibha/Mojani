@@ -43,9 +43,13 @@ body{
     width: 50;
     max-width: 95%;
     HEIGHT: 26px;
-    text-align: right;
+    justify-content: right;
+    background-color: darkblue;
+    color: white;
     /* padding: 12px 0 12px 37px; */
     top: 50px;
+    left: 75%;
+position: absolute;
     font-size: 10px;
 }
 .leaflet-touch .leaflet-bar a {
@@ -167,6 +171,7 @@ li{
         position: absolute;
         bottom: 0;
         left: 50%;
+        bottom: 21px;
         transform: translateX(-50%);
         background: rgba(255, 255, 255, 0.8);
         padding: 10px;
@@ -254,7 +259,24 @@ li{
 .card-body {
     padding: 10px;
 }
-
+.form-control {
+    display: inline-flex;
+    width: 71%;
+    padding: -31.625rem .75rem;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--bs-body-color);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: var(--bs-body-bg);
+    background-clip: padding-box;
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    margin: 4px 1px;
+}
 .form-group {
     display: flex;
     align-items: center;
