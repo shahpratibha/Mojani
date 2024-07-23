@@ -17,9 +17,19 @@ body{
     color: white; 
 }
 
+.btn.next-button {
+    background-color: darkblue;
+    border-color: darkblue;
+    color: white; /* Change text color to white for better contrast */
+}
+.btn.next-button:hover {
+    background-color: #00008b; /* Slightly lighter dark blue for hover effect */
+    border-color: #00008b;
+}
+
 #map {
     position: absolute;
-    top: 30vh;
+    top: 40vh;
     left: 0;
     height: 55vh;
     width: 94vw;
@@ -274,4 +284,8 @@ li{
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
+}
+
+.next-button{
+    background-color: darkblue;
 }
