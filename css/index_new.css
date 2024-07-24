@@ -1,34 +1,56 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-   
+
 }
-body{
+
+body {
     overflow-x: hidden;
     font-family: 'Times New Roman', Times, serif;
-    
+
 }
-.leaflet-control-attribution{
+
+.leaflet-control-attribution {
     display: none;
 }
+
 .dropdown-menu .dropdown-item:hover {
-    background-color:#0080005c;
-    color: white; 
+    background-color: #0080005c;
+    color: white;
+}
+
+.btn.next-button {
+    background-color: darkblue;
+    border-color: darkblue;
+    color: white;
+    /* Change text color to white for better contrast */
+}
+
+.btn.next-button:hover {
+    background-color: #00008b;
+    /* Slightly lighter dark blue for hover effect */
+    border-color: #00008b;
 }
 
 #map {
     position: absolute;
-    top: 30vh;
+    top: 15vh;
     left: 0;
-    height: 55vh;
+    height: 72vh;
     width: 94vw;
     z-index: 0;
     border-radius: 10px;
     padding: 10px;
     margin: 10px;
+    transition: height 0.3s, top 0.3s;
 }
-    
+
+.map-container.reduced-height #map {
+    height: 52vh;
+    top: 34vh;
+}
+
 
 .form-control input:focus {
     outline: none;
@@ -49,16 +71,18 @@ body{
     /* padding: 12px 0 12px 37px; */
     top: 50px;
     left: 75%;
-position: absolute;
+    position: absolute;
     font-size: 10px;
 }
+
 .leaflet-touch .leaflet-bar a {
     width: 20px;
     font-size: 18px;
     height: 20px;
     line-height: 20px;
-    
+
 }
+
 .leaflet-touch .leaflet-control-layers-toggle {
     width: 20px;
     height: 20px;
@@ -81,14 +105,15 @@ position: absolute;
     text-shadow: 1px 1px #fff;
     font-size: 7px;
 }
-li{
+
+li {
     list-style: none;
 }
-  
 
-.card{
-    height: 25vh;
-    top: 8px;
+
+.card {
+    height: 18vh;
+    top: -11px;
     font-size: 10px;
 }
 
@@ -113,10 +138,10 @@ li{
     position: absolute;
     width: 220%;
     height: 100%;
-    background-color:darkblue;
-    color:white;
-    top:10px;
-    left:83vw;
+    background-color: darkblue;
+    color: white;
+    top: 10px;
+    left: 83vw;
     z-index: 1;
     border-radius: 20px;
     font-size: 10px;
@@ -131,8 +156,8 @@ li{
     left: 2px;
     width: 70px;
     height: 30px;
-    background-color:#fff;
-    border-radius:20px;
+    background-color: #fff;
+    border-radius: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s, background-color 0.3s;
 }
@@ -140,10 +165,10 @@ li{
 /* Toggle Text Left (State) */
 .toggle-text-left {
     position: absolute;
-   z-index:1;
+    z-index: 1;
     top: 50%;
     left: 10px;
-    color:darkblue;
+    color: darkblue;
     transform: translateY(-50%);
 }
 
@@ -157,7 +182,7 @@ li{
 
 
 
-.Geo img{
+.Geo img {
     position: absolute;
     z-index: 9999;
     top: 0;
@@ -167,26 +192,27 @@ li{
 }
 
 
-    .message-container {
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        bottom: 21px;
-        transform: translateX(-50%);
-        background: rgba(255, 255, 255, 0.8);
-        padding: 10px;
-        /* text-align: center; */
-        width: 100%;
-        max-width: 800px;
-    }
-    .message-container p {
-       font-size: 10px;
-        margin-bottom: 10px;
-    }
+.message-container {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    bottom: 21px;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    /* text-align: center; */
+    width: 100%;
+    max-width: 800px;
+}
 
-    
+.message-container p {
+    font-size: 10px;
+    margin-bottom: 10px;
+}
 
-    /* Styles specifically for devices with a minimum width of 320px */
+
+
+/* Styles specifically for devices with a minimum width of 320px */
 @media (min-width: 320px) and (max-width: 479px) {
     .Geo img {
         position: absolute;
@@ -197,7 +223,7 @@ li{
         /* width: 4dvw; */
         height: 7dvh;
     }
-   
+
     .toggle-text-left {
         position: absolute;
         z-index: 1;
@@ -207,19 +233,21 @@ li{
         color: darkblue;
         transform: translateY(-50%);
     }
+
     .toggle-handle {
         position: absolute;
         top: 2px;
         left: 2px;
         width: 37px;
         height: 27px;
-      
+
         background-color: #fff;
         border-radius: 20px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         transition: transform 0.3s, background-color 0.3s;
         font-weight: bold;
     }
+
     .toggle-text-right {
         position: absolute;
         top: 52%;
@@ -228,6 +256,7 @@ li{
         right: -11px;
         transform: translateY(-50%);
     }
+
     .toggle-label {
         display: block;
         position: absolute;
@@ -241,24 +270,26 @@ li{
         border-radius: 20px;
         cursor: pointer;
         transition: background-color 0.3s;
-       
-    }
-   
-       
 
-    .leaflet-touch .leaflet-control-layers, .leaflet-touch .leaflet-bar {
+    }
+
+
+
+    .leaflet-touch .leaflet-control-layers,
+    .leaflet-touch .leaflet-bar {
         /* border: 2px solid rgba(0, 0, 0, 0.2); */
         background-clip: padding-box;
         border: 2px solid darkblue !important;
     }
 
-   
-  
+
+
 }
 
 .card-body {
     padding: 10px;
 }
+
 .form-control {
     display: inline-flex;
     width: 71%;
@@ -277,6 +308,7 @@ li{
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
     margin: 4px 1px;
 }
+
 .form-group {
     display: flex;
     align-items: center;
@@ -292,8 +324,79 @@ li{
 .form-group select,
 .form-group input {
     flex: 1;
-    padding: 8px;
+    padding: 4px;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
+}
+
+.next-button {
+    background-color: darkblue;
+}
+
+/* code for new index design */
+.location-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; 
+    margin-top: 21px;    /* Adjust if needed */
+}
+
+.location-input-container {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    padding: 5px 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.location-input {
+    border: none;
+    outline: none;
+    flex: 1;
+    padding: 5px 10px;
+    border-radius: 50px;
+}
+
+.location-input::placeholder {
+    color: #888;
+}
+
+.location-button {
+    background-color: white;
+    border: none;
+    outline: none;
+    padding: 5px;
+    border-radius: 50%;
+    color:black;
+    cursor: pointer;
+    margin-left: -22px; 
+}
+
+.small-button {
+    padding: 7px; 
+}
+
+.location-button i {
+    font-size: 10px;
+}
+
+.small-icon {
+    font-size: 12px; 
+}
+
+.location-icon {
+    color: darkblue;
+    font-size: 33px;
+    margin-left: 27px; 
+}
+
+.large-icon {
+    font-size: 24px; 
+}
+
+.card {
+    display: none; 
 }
