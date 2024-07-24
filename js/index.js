@@ -47,12 +47,12 @@ var Maharashtra_Data = L.tileLayer.wms(baseURL, {
     opacity: 1,
 }).addTo(map);
 
-var baseLayers = {};
+var baseLayers = { "OpenStreetMap": osm,
+    "Esri World Imagery": Esri_WorldImagery,
+    "Google Satellite": googleSat,};
 
 var WMSlayers = {
-    "OpenStreetMap": osm,
-    "Esri World Imagery": Esri_WorldImagery,
-    "Google Satellite": googleSat,
+   
     "Villages Boundary": Villages_Boundary,
     "Taluka Boundary": Taluka_Boundary,
     "Maharashtra_Data": Maharashtra_Data
