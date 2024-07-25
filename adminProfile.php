@@ -118,7 +118,7 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
 <head>
     <meta charset="UTF-8">
     <title>Mojani</title>
-    <link rel="icon" href="image\geopulse_logo-removebg-preview.png" type="image/x-icon">
+    <link rel="icon" href="image\LOGO_DP_Zoning.png" type="image/x-icon">
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -136,7 +136,7 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
 
         <!-- Header Row -->
 <div class="header-row d-flex justify-content-between align-items-center mt-4">
-    <img src="image/geopulse_logo-removebg-preview.png" alt="Company Logo" class="company-logo ">
+    <img src="image/LOGO_DP_Zoning.png" alt="Company Logo" class="company-logo ">
     <button type="button" class="btn btn-primary admin fw-bold" id="toggleButton">Show Profile</button>
     <a href="logout.php" class="btn"><i class="fas fa-power-off" style="color: red;"></i></a>
 </div>
@@ -316,7 +316,7 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
     <div class="container d-none d-lg-block">
         <div class="row">
         <div class="card-body d-flex justify-content-between align-items-center">
-                            <img src="image/geopulse_logo-removebg-preview.png" alt="Company Logo" class="company-logo-lg ">
+                            <img src="image/LOGO_DP_Zoning.png" alt="Company Logo" class="company-logo-lg ">
 
                             <a href="logout.php" class="btn mb-4"><i class="fas fa-power-off off-lg" style="color: red;"></i></a>
 

@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if at least one PDF file is uploaded
     if (!$surveyMapFileName && !$villageMapFileName && !$pdf712FileName) {
         $_SESSION['error'] = "At least one PDF file is required.";
-        header("Location: index.php");
+        header("Location: form.php");
         exit();
     }
 
@@ -67,10 +67,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Check if insertion was successful
     if ($success) {
-        header("Location: index.php?success=true");
+        header("Location: form.php?success=true");
     } else {
         $_SESSION['error'] = "Error inserting data.";
-        header("Location: index.php");
+        header("Location: form.php");
     }
 
     exit();

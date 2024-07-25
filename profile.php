@@ -43,7 +43,7 @@ if (!$uploads_result) {
 <head>
     <meta charset="UTF-8">
     <title>Mojani</title>
-    <link rel="icon" href="image\geopulse_logo-removebg-preview.png" type="image/x-icon">
+    <link rel="icon" href="image\LOGO_DP_Zoning.png" type="image/x-icon">
      <!-- bootstrap -->
      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -66,7 +66,7 @@ if (!$uploads_result) {
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="profile">
-                <img src="https://geopulsea.com/image/transparent_logo.png" alt="Profile Image" class="profile-img">
+                <img src="image/LOGO_DP_Zoning.png" alt="Profile Image" class="profile-img">
                
                 <!-- Button to toggle the profile card -->
                 <button id="toggleProfileCardBtn" class="user">
@@ -89,7 +89,7 @@ if (!$uploads_result) {
                     <p class="text text-start text-center"><strong class="ms-4">Contact No:</strong> <?php echo htmlspecialchars($user['contact_no']); ?></p>
                     <p class="text text-start text-center occupation-text"><strong class="ms-4">Occupation:</strong> <span><?php echo htmlspecialchars($user['occupation']); ?> </span></p>
                 </div>
-                <a href="index.php" class="fa ">&#xf0a8;</a>
+                <a href="form.php" class="fa ">&#xf0a8;</a>
                 
                 <!-- Logout Button (Visible on Large Screens) -->
                

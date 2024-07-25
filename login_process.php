@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['user_id'] = $user['user_id'];
 
         if ($user['accepted_terms']) {
-            header("Location: index.php");
+            header("Location: form.php");
         } else {
             header("Location: terms_and_condition.php");
         }

@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->execute([$userId]);
 
     // Redirect to index page after accepting terms
-    header("Location: index.php");
+    header("Location: form.php");
     exit();
 }
 ?>
@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mojani</title>
-    <link rel="icon" href="image\geopulse_logo-removebg-preview.png" type="image/x-icon">
+    <link rel="icon" href="image\LOGO_DP_Zoning.png" type="image/x-icon">
     <style>
         /* Styles for modal popup */
         .modal {
@@ -145,7 +145,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <div class="container">
         <h2 class="login-title">
-            <img src="image/geopulse logo.png" class="logo" alt="" style="width:50px;height:50px;">
+            <img src="image/LOGO_DP_Zoning.png" class="logo" alt="" style="width:50px;height:50px;">
             <span class="fw-bold">Geopulsea</span>
         </h2>
 
