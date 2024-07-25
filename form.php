@@ -172,12 +172,22 @@ if (!isset($_SESSION['user_id'])) {
         .dropdown-item i {
             margin-right: 5px;
         }
+
+        .Geo{
+            position: absolute;
+            z-index: 9999;
+            top: 0;
+            color: black;
+            /* width: 4dvw; */
+            height: 7dvh;
+        }
     </style>
 </head>
 
 <body>
     <div class="container mt-5">
         <div class="header">
+            <img src="./image/geopulse_logo-removebg-preview.png" alt="Logo" class="Geo mt-3">
             <span>New User</span>
             <div class="dropdown">
                 <i class="fas fa-user-circle" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false"></i>

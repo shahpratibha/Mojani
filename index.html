@@ -43,9 +43,6 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
         <link rel="stylesheet" type="text/css" href="css/index_new.css">
 
-        <style>
-
-   </style>
     </head>
 
     <body>
@@ -66,18 +63,19 @@
                 <!-- Location input -->
                 <div class="location-wrapper">
                     <div class="location-input-container">
-                        <input type="text" class="location-input" placeholder="Select my location">
                         <button class="location-button" onclick="toggleCard()">
-                            <i class="fas fa-plus"></i>
+                            <span> Select my location </span> <i class="fas fa-plus"></i>
                         </button>
                     </div>
-                    <i class="fas fa-map-marker-alt location-icon"></i>
+                    <img src="./image/Pin_alt_fill.png" alt="Map Marker" class="location-icon" onclick="getLiveLocation()">
+                    <div id="output"></div>
                 </div>
                 
 
                 <!-- Card -->
                 <div class="card" id="locationCard">
                     <div class="card-body">
+                        <i class="fas fa-times cancel-icon" onclick="toggleCard()"></i>
                         <form method="post" action
                             enctype="multipart/form-data">
                             <div class="form-group mt-1">
@@ -116,7 +114,7 @@
                         योजना सर्वेक्षणाची माहिती तसेच ई-नकाशा म्हणजे जमिनीच्या
                         नकाशाची माहिती मिळेल.</p>
                     <button class="btn" onclick="window.location.href='login.php';">Proceed</button>
-
+                   
                 </div>
             </div>
         </div>
@@ -149,5 +147,53 @@
             window.location.href = 'login.php'; 
         }
     </script>
+
+<script>
+    function getLiveLocation() {
+    const options = {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 2000
+    };
+
+    navigator.geolocation.getCurrentPosition(success, error, options);
+}
+
+function success(pos) {
+    const lat = pos.coords.latitude;
+    const lng = pos.coords.longitude;
+    const accuracy = pos.coords.accuracy;
+
+    // Update map view
+    map.setView([lat, lng], 15);
+
+    // Add a marker to the map
+    L.marker([lat, lng]).addTo(map)
+        .bindPopup('You are here')
+        .openPopup();
+
+    // Display the live location information
+    document.getElementById('output').innerText = `
+        Latitude: ${lat}
+        Longitude: ${lng}
+        Accuracy: ${Math.round(accuracy)} meters
+    `;
+
+    // Adjust map container styles
+    document.getElementById('mapContainer').classList.add('live-location');
+}
+
+function error(err) {
+    if (err.code === 1) {
+        alert("Please allow geolocation access");
+    } else {
+        alert("Cannot get current location");
+    }
+}
+
+    </script>
+    
+
+        
     </body>
 </html>
