@@ -1,7 +1,7 @@
 var districtCache = {};
 var geoURL = "https://info.dpzoning.com/geoserver/Mojani/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Mojani:Villages_Boundary&outputFormat=json";
 
-var map = L.map("map", {}).setView([18.8655, 76.7455], 6.48, L.CRS.EPSG4326);
+var map = L.map("map", {}).setView([18.8655, 76.7455], 5.48, L.CRS.EPSG4326);
 
 var googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
     maxZoom: 20,
@@ -47,21 +47,19 @@ var Maharashtra_Data = L.tileLayer.wms(baseURL, {
     opacity: 1,
 }).addTo(map);
 
-var baseLayers = {
-    "OpenStreetMap": osm,
+var baseLayers = { "OpenStreetMap": osm,
     "Esri World Imagery": Esri_WorldImagery,
-    "Google Satellite": googleSat,
-};
+    "Google Satellite": googleSat,};
 
 var WMSlayers = {
-    
+   
     "Villages Boundary": Villages_Boundary,
     "Taluka Boundary": Taluka_Boundary,
     "Maharashtra_Data": Maharashtra_Data
 };
 
 var control = new L.control.layers(baseLayers, WMSlayers).addTo(map);
-control.setPosition('bottomright');
+control.setPosition('topright');
 
 map.zoomControl.remove();
 
@@ -326,7 +324,7 @@ function fitMapToBounds(data) {
 
     // Create new highlight layer with blue border
     highlightLayer = L.geoJSON(data, {
-        style: 'highlight'
+        style: 'Mojani:highlight'
 
     }).addTo(map);
 

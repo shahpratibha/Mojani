@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mojani</title>
-    <link rel="icon" href="image\geopulse_logo-removebg-preview.png" type="image/x-icon">
+    <link rel="icon" href="image\LOGO_DP_Zoning.png" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
 </head>
@@ -15,7 +15,7 @@
         <div class="right-section">
             <div class="login-container">
                 <form class="login-form" action="Adminregister_process.php" method="post">
-                <h2 class="login-title"><img src="image\geopulse logo.png" class="logo" alt="" style=""> </br> Geopulse</h2>
+                <h2 class="login-title"><img src="image\LOGO_DP_Zoning.png" class="logo" alt="" style=""></h2>
                     <div class="form-control">
                         <i class="fas fa-user icon"></i>
                         <input type="text" name="username" placeholder="UserName" required>
