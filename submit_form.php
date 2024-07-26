@@ -21,14 +21,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Function to handle file uploads
     function handleFileUpload($inputName, $targetDirectory)
     {
-        if (isset($_FILES[$inputName]) && $_FILES[$inputName]['error'] == UPLOAD_ERR_OK) {
-            $targetFile = $targetDirectory . basename($_FILES[$inputName]["name"]);
-            if (move_uploaded_file($_FILES[$inputName]["tmp_name"], $targetFile)) {
-                return basename($_FILES[$inputName]["name"]); // Return only the filename
+        if (isset($_FILES[$inputName])) {
+            $error = $_FILES[$inputName]['error'];
+
+            // Check for upload errors
+            if ($error == UPLOAD_ERR_OK) {
+                $targetFile = $targetDirectory . basename($_FILES[$inputName]["name"]);
+                if (move_uploaded_file($_FILES[$inputName]["tmp_name"], $targetFile)) {
+                    // Return filename
+                    return basename($_FILES[$inputName]["name"]);
+                } else {
+                    // Log error
+                    error_log("Error: Unable to move uploaded file.");
+                    return false;
+                }
             } else {
+                // Log specific upload error
+                $errorMessages = [
+                    UPLOAD_ERR_INI_SIZE   => 'The uploaded file exceeds the upload_max_filesize directive in php.ini.',
+                    UPLOAD_ERR_FORM_SIZE  => 'The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form.',
+                    UPLOAD_ERR_PARTIAL    => 'The uploaded file was only partially uploaded.',
+                    UPLOAD_ERR_NO_FILE    => 'No file was uploaded.',
+                    UPLOAD_ERR_NO_TMP_DIR => 'Missing a temporary folder.',
+                    UPLOAD_ERR_CANT_WRITE => 'Failed to write file to disk.',
+                    UPLOAD_ERR_EXTENSION  => 'A PHP extension stopped the file upload.',
+                ];
+                $errorMessage = isset($errorMessages[$error]) ? $errorMessages[$error] : 'Unknown upload error.';
+                error_log("Upload Error: " . $errorMessage);
                 return false;
             }
         }
+        // Log no file uploaded error
+        error_log("Error: No file uploaded.");
         return null;
     }
 
@@ -47,9 +71,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Check if at least one PDF file is uploaded
     if (!$surveyMapFileName && !$villageMapFileName && !$pdf712FileName) {
-        $_SESSION['error'] = "At least one PDF file is required.";
-        header("Location: form.php");
-        exit();
+        //$_SESSION['error'] = "At least one PDF file is required.";
+        //header("Location: form.php");
+        //exit();
     }
 
     // Prepare and execute SQL insert statement
