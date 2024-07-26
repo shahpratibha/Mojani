@@ -8,6 +8,7 @@
 body {
     overflow-x: hidden;
     font-family: 'Times New Roman', Times, serif;
+    color: #262626;
 
 }
 
@@ -21,8 +22,8 @@ body {
 }
 
 .btn.next-button {
-    background-color: darkblue;
-    border-color: darkblue;
+    background-color: #0077DA;
+    border-color: #0077DA;
     color: white;
     /* Change text color to white for better contrast */
 }
@@ -33,33 +34,27 @@ body {
     border-color: #00008b;
 }
 
+.collapse-button {
+border: 3px solid #0077DA;
+}
+
+
 #map {
     position: absolute;
     top: 15vh;
     left: 0;
-    height: 70vh;
+    height: 65vh;
     width: 94vw;
     z-index: 0;
     border-radius: 10px;
     padding: 10px;
     margin: 10px;
-    transition: height 0.3s, top 0.3s;
 }
 
-.map-container.reduced-height #map {
-    height: 52vh;
-    top: 34vh;
-}
-
-.map-container.live-location #map {
-    top: 7vh; /* Move map from top */
-    height: 78vh; /* Adjust map height */
-    transition: height 0.3s, top 0.3s; /* Ensure smooth transition */
-}
 
 .form-control input:focus {
     outline: none;
-    border: 2px solid darkblue;
+    border: 2px solid #0077DA;
 }
 
 .form-control input:invalid:not(:focus):not(:placeholder-shown) {
@@ -71,7 +66,7 @@ body {
     max-width: 95%;
     HEIGHT: 26px;
     justify-content: right;
-    background-color: darkblue;
+    background-color: #0077DA;
     color: white;
     /* padding: 12px 0 12px 37px; */
     top: 50px;
@@ -116,13 +111,29 @@ li {
 }
 
 
-.card {
+/* .card {
     height: 18vh;
     top: -11px;
     font-size: 10px;
-    border: 2px solid darkblue;
-}
+    border: 2px solid #0077DA;
+} */
 
+.card {
+    position: absolute;
+    top: -3vh; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 400px;
+    z-index: 1; 
+    display: none; 
+    background-color: rgba(255, 255, 255, 0.9); ;
+    border: 2px solid #0077DA;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    font-size: 12px;
+}
 /* Toggle Switch Container */
 .toggle-switch {
     position: relative;
@@ -144,7 +155,7 @@ li {
     position: absolute;
     width: 220%;
     height: 100%;
-    background-color: darkblue;
+    background-color: #0077DA;
     color: white;
     top: 10px;
     left: 83vw;
@@ -174,7 +185,7 @@ li {
     z-index: 1;
     top: 50%;
     left: 10px;
-    color: darkblue;
+    color: #0077DA;
     transform: translateY(-50%);
 }
 
@@ -236,7 +247,7 @@ li {
         top: 50%;
         font-size: 12px;
         left: 10px;
-        color: darkblue;
+        color: #0077DA;
         transform: translateY(-50%);
     }
 
@@ -257,7 +268,7 @@ li {
     .toggle-text-right {
         position: absolute;
         top: 52%;
-        left: 45%;
+        left: 42%;
         font-size: 11px;
         right: -11px;
         transform: translateY(-50%);
@@ -268,7 +279,7 @@ li {
         position: absolute;
         width: 131%;
         height: 90%;
-        background-color: darkblue;
+        background-color: #0077DA;
         color: white;
         top: 6px;
         left: 59vw;
@@ -285,11 +296,8 @@ li {
     .leaflet-touch .leaflet-bar {
         /* border: 2px solid rgba(0, 0, 0, 0.2); */
         background-clip: padding-box;
-        border: 2px solid darkblue !important;
+        border: 2px solid #0077DA !important;
     }
-
-
-
 }
 
 .card-body {
@@ -334,11 +342,11 @@ li {
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
-    border: 1px solid darkblue;
+    border: 1px solid #0077DA;
 }
 
 .next-button {
-    background-color: darkblue;
+    background-color: #0077DA;
 }
 
 /* code for new index design */
@@ -347,7 +355,7 @@ li {
     display: flex;
     align-items: center;
     margin-bottom: 20px; 
-    margin-top: 21px;    /* Adjust if needed */
+    margin-top: 21px;    
 }
 
 .location-input-container {
@@ -358,7 +366,7 @@ li {
     border-radius: 50px;
     padding: 1px 31px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border: 2px solid darkblue;
+    border: 2px solid #0077DA;
 }
 
 .location-input {
@@ -381,7 +389,7 @@ li {
     border-radius: 50%;
     color:black;
     cursor: pointer;
-    margin-left: -22px; 
+    margin-left: -7px; 
 }
 
 .small-button {
@@ -397,8 +405,8 @@ li {
 }
 
 .location-icon {
-    background-color: darkblue;
-    /* color: darkblue; */
+    background-color: #0077DA;
+    /* color: #0077DA; */
     /* font-size: 33px;*/
     margin-left: 35px;
     width: 28px;
@@ -427,7 +435,7 @@ li {
     right: 10px;
     font-size: 15px;
     cursor: pointer;
-    color: darkblue;
+    color: #0077DA;
 }
 
 .leaflet-control-layers-expanded .leaflet-control-layers-list {

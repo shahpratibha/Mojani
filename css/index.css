@@ -289,7 +289,7 @@ li{
     .menu-bar img {
         z-index: 999;
         position: absolute;
-        top: 7%;
+        top: 9%;
         left: 7%;
         height: 20px;
         width: 20px;
@@ -377,7 +377,7 @@ li{
     .btn-close {
         margin-top: -13px !important;
         font-size: 10px !important;
-        margin-left: 172px;
+        margin-left: 194px;
     }
     .btn-close {
         margin-top: -13px !important;
@@ -469,9 +469,9 @@ li{
    
     #map {
         position: absolute;
-        top: 10vh;
+        top: 6vh;
         left: 0;
-        height: 87vh;
+        height: 88vh;
         width: 94vw;
         z-index: 0;
         border-radius: 10px;
@@ -548,17 +548,39 @@ li{
         position: relative;
         display: flex;
         flex-direction: column;
-        width: 100%;
+        width: 70%;
         color: var(--bs-modal-color);
         pointer-events: auto;
-        background-color: rgba(194, 223, 233, 0.5) !important;
+        background-color: rgba(255, 255, 255, 0.8);
         background-clip: padding-box;
         border: var(--bs-modal-border-width) solid var(--bs-modal-border-color);
         border-radius: var(--bs-modal-border-radius);
         outline: 0;
+        /* margin-left: 16px; 
+        margin-right: 16px; */
     }
     .modal-body {
         padding: 5px !important;
+    }
+
+    .legend-div {
+        position: fixed;
+        top: -71px;
+        right: 26px;
+        height: 22vh;
+        width: 99px;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        background-color: white;
+        border: 2px solid darkblue;
+        border-radius: 10px;
+        padding: 10px;
+        font-size: 9px;
+        transition: all 0.3s ease-in-out;
+        display: none;
+    }
+    *, ::after, ::before {
+        box-sizing: border-box;
     }
     
    
