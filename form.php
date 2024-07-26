@@ -248,6 +248,12 @@ if (!isset($_SESSION['user_id'])) {
             const fileName = input.files[0] ? input.files[0].name : 'No file chosen';
             document.getElementById(targetId).textContent = fileName;
         }
+
+        document.getElementById('cancel-icon').addEventListener('click', function () {
+        if (confirm("Are you sure you want to cancel?")) {
+            window.location.href = "index.php";
+        }
+    });
     </script>
 </body>
 
