@@ -67,7 +67,7 @@
                             <span> Select my location </span> <i class="fas fa-plus"></i>
                         </button>
                     </div>
-                    <img src="./image/Pin_alt_fill.png" alt="Map Marker" class="location-icon" onclick="getLiveLocation()">
+                    <img src="./image/Pin_alt_fill.png" alt="Map Marker" class="location-icon" onclick="LiveLocation()">
                     <div id="output"></div>
                 </div>
                 
@@ -149,7 +149,17 @@
     </script>
 
 <script>
-    function getLiveLocation() {
+   
+// Add a tile layer to the map (ensure this URL is valid)
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors'
+}).addTo(map);
+
+// Declare the marker variable
+var marker;
+
+// Function to get live location and update the map view
+function LiveLocation() {
     const options = {
         enableHighAccuracy: true,
         timeout: 5000,
@@ -159,35 +169,31 @@
     navigator.geolocation.getCurrentPosition(success, error, options);
 }
 
+// Success callback for geolocation
 function success(pos) {
     const lat = pos.coords.latitude;
     const lng = pos.coords.longitude;
-    const accuracy = pos.coords.accuracy;
 
-    // Update map view
+    // Update the map view to the current location
     map.setView([lat, lng], 15);
 
-    // Add a marker to the map
-    L.marker([lat, lng]).addTo(map)
+    // Remove existing marker if present
+    if (marker) {
+        map.removeLayer(marker);
+    }
+
+    // Add a new marker at the current location
+    marker = L.marker([lat, lng]).addTo(map)
         .bindPopup('You are here')
         .openPopup();
-
-    // Display the live location information
-    document.getElementById('output').innerText = `
-        Latitude: ${lat}
-        Longitude: ${lng}
-        Accuracy: ${Math.round(accuracy)} meters
-    `;
-
-    // Adjust map container styles
-    document.getElementById('mapContainer').classList.add('live-location');
 }
 
+// Error callback for geolocation
 function error(err) {
     if (err.code === 1) {
         alert("Please allow geolocation access");
     } else {
-        alert("Cannot get current location");
+        alert("Unable to get current location");
     }
 }
 

@@ -44,8 +44,8 @@ $logged_in_user = $_SESSION['username'];
     <style>
         .modal-content {
             height: auto;
-            max-height: 400px; /* Adjust this value as needed */
-         
+            max-height: 400px; 
+            background-color: rgba(255, 255, 255, 0.8);
         }
         .modal-body {
             padding: 10px; /* Reduce padding if needed */
@@ -53,6 +53,7 @@ $logged_in_user = $_SESSION['username'];
         .modal-footer {
             padding: 10px; /* Reduce padding if needed */
         }
+        
     </style>
 
 <style>
@@ -68,12 +69,14 @@ $logged_in_user = $_SESSION['username'];
     background: rgba(255, 255, 255, 0.8);
     text-shadow: 1px 1px #fff;
     font-size: 7px;
+    margin-top: 10px;
 }
 .leaflet-touch .leaflet-bar a {
     width: 20px;
     font-size: 18px;
     height: 20px;
     line-height: 20px;
+    
 }
 .leaflet-touch .leaflet-control-layers-toggle {
     width: 25px;
@@ -129,6 +132,7 @@ $logged_in_user = $_SESSION['username'];
         .file-progress span {
             display: block;
         }
+
     </style>
 </head>
 

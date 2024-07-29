@@ -46,9 +46,11 @@
                     </div>
                    
                     <button type="submit" value="Login">Login</button>
-                    <p class="endline"><a href="register.php">Create an account</a>
-                    <!-- |<a href="forgot_password.php" class="text-success">Forgot Password</a> -->
-                </p>
+                    
+                    <p class="endline">
+                    <a href="register.php" class="btn">Create an account</a>
+                    </p>
+
                 </form>
             </div>
         </div>
