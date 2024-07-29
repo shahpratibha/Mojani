@@ -146,7 +146,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="container">
         <h2 class="login-title">
             <img src="image/LOGO_DP_Zoning.png" class="logo" alt="" style="width:50px;height:50px;">
-            <span class="fw-bold">Geopulsea</span>
+            <span class="fw-bold">DP-Zoning</span>
         </h2>
 
         <h4 class="heading mt-4 text-center">Terms and Conditions</h4>
