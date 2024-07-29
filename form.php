@@ -44,56 +44,61 @@ $logged_in_user = $_SESSION['username'];
     <style>
         .modal-content {
             height: auto;
-            max-height: 400px; 
+            max-height: 400px;
             background-color: rgba(255, 255, 255, 0.8);
         }
+
         .modal-body {
-            padding: 10px; /* Reduce padding if needed */
+            padding: 10px;
+            /* Reduce padding if needed */
         }
+
         .modal-footer {
-            padding: 10px; /* Reduce padding if needed */
+            padding: 10px;
+            /* Reduce padding if needed */
         }
-        
     </style>
 
-<style>
+    <style>
+        .leaflet-control-scale-line {
+            border: 2px solid #777;
+            border-top: none;
+            line-height: 1.1;
+            padding: 2px 1px;
+            white-space: nowrap;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            background: rgba(255, 255, 255, 0.8);
+            text-shadow: 1px 1px #fff;
+            font-size: 7px;
+            margin-top: 10px;
+        }
 
-.leaflet-control-scale-line {
-    border: 2px solid #777;
-    border-top: none;
-    line-height: 1.1;
-    padding: 2px 1px;
-    white-space: nowrap;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    background: rgba(255, 255, 255, 0.8);
-    text-shadow: 1px 1px #fff;
-    font-size: 7px;
-    margin-top: 10px;
-}
-.leaflet-touch .leaflet-bar a {
-    width: 20px;
-    font-size: 18px;
-    height: 20px;
-    line-height: 20px;
-    
-}
-.leaflet-touch .leaflet-control-layers-toggle {
-    width: 25px;
-    height: 25px;
-}
+        .leaflet-touch .leaflet-bar a {
+            width: 20px;
+            font-size: 18px;
+            height: 20px;
+            line-height: 20px;
 
-.leaflet-retina .leaflet-control-layers-toggle {
-    background-image: url('./image/Layers_Icon.png');
-    background-size: 29px 29px;
-}
+        }
 
-    .north-arrow {
-    width: 20px;
-    height: 27px;
-    background-color: white;
-    border: 2px solid darkblue;
-}
+        .leaflet-touch .leaflet-control-layers-toggle {
+            width: 25px;
+            height: 25px;
+        }
+
+        .leaflet-retina .leaflet-control-layers-toggle {
+            background-image: url('./image/Layers_Icon.png');
+            background-size: 29px 29px;
+        }
+
+        .north-arrow {
+            width: 20px;
+            height: 27px;
+            background-color: white;
+            border: 2px solid darkblue;
+        }
+
         .upload-container {
             width: 300px;
             margin: auto;
@@ -132,7 +137,6 @@ $logged_in_user = $_SESSION['username'];
         .file-progress span {
             display: block;
         }
-
     </style>
 </head>
 
@@ -166,7 +170,7 @@ $logged_in_user = $_SESSION['username'];
             </div>
 
             <a class="Geo" href="#"><img src="image/LOGO_DP_Zoning.png" alt=""></a>
-        
+
 
             <!-- Success Message Modal -->
             <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
@@ -187,14 +191,14 @@ $logged_in_user = $_SESSION['username'];
             </div>
             <!--  -->
             <?php
-       if (isset($_SESSION['error'])) : ?>
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <?php echo $_SESSION['error']; ?>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        <?php unset($_SESSION['error']); ?>
-    <?php endif; ?>
-              
+            if (isset($_SESSION['error'])) : ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <?php echo $_SESSION['error']; ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php unset($_SESSION['error']); ?>
+            <?php endif; ?>
+
             <button type="button" class="menu-bar" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <img src="image/menu.png" alt=" image not found" height="25" width="25">
             </button>
@@ -203,76 +207,76 @@ $logged_in_user = $_SESSION['username'];
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog draggable-modal">
                         <div class="modal-content">
-                         
+
                             <div class="modal-body">
-                            <div class="toggle-switch">
-                <input type="checkbox" id="toggle" class="toggle-input">
-                <label for="toggle" class="toggle-label">
-                    <span class="toggle-text toggle-text-left">State</span>
-                    <span class="toggle-handle"></span>
-                    <span class="toggle-text toggle-text-right">Maharashtra</span>
-                </label>
-            </div>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="toggle" class="toggle-input">
+                                    <label for="toggle" class="toggle-label">
+                                        <span class="toggle-text toggle-text-left">State</span>
+                                        <span class="toggle-handle"></span>
+                                        <span class="toggle-text toggle-text-right">Maharashtra</span>
+                                    </label>
+                                </div>
                                 <button type="button" class="btn-close custom-close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
                                 <hr>
-                           
-                            
-    <div class="modal-body">                  
-    <form method="post" action="submit_form.php" enctype="multipart/form-data">
-    <div class="form-group">
-        <label>District</label>
-        <select class="form-control" name="input1" id="input1"></select>
-    </div>
-    
-    <div class="form-group">
-        <label>Taluka</label>
-        <select class="form-control" name="input2" id="input2"></select>
-    </div>
 
-    <div class="form-group">
-        <label>Village</label>
-        <select class="form-control" name="input3" id="input3"></select>
-    </div>
 
-    <div class="form-group">
-        <label>Survey No<span class="text-danger fs-3">*</span></label>
-        <input class="form-control" type="text" name="input4" id="input4" required>
-    </div>
+                                <div class="modal-body">
+                                    <form method="post" action="submit_form.php" enctype="multipart/form-data">
+                                        <div class="form-group">
+                                            <label>District</label>
+                                            <select class="form-control" name="input1" id="input1"></select>
+                                        </div>
 
-                <div class="upload-container">
-    <form action="submit_form.php" method="post" enctype="multipart/form-data">
-        <div class="file-input-container">
-            <label>
-                <input type="file" class="file-input" accept=".pdf" name="survey_map" onchange="handleFileUpload(this, 'surveyMapFilePath')" required multiple>
-                Upload Survey Map PDF 
-            </label>
-            <div id="surveyMapFilePath" class="file-progress"></div>
-        </div>
+                                        <div class="form-group">
+                                            <label>Taluka</label>
+                                            <select class="form-control" name="input2" id="input2"></select>
+                                        </div>
 
-        <div class="file-input-container">
-            <label>
-                <input type="file" class="file-input" accept=".pdf" name="village_map" onchange="handleFileUpload(this, 'villageMapFilePath')" multiple>
-                Upload Village Map PDF
-            </label>
-            <div id="villageMapFilePath" class="file-progress"></div>
-        </div>
+                                        <div class="form-group">
+                                            <label>Village</label>
+                                            <select class="form-control" name="input3" id="input3"></select>
+                                        </div>
 
-        <div class="file-input-container">
-            <label>
-                <input type="file" class="file-input" accept=".pdf" name="pdf_7_12" onchange="handleFileUpload(this, 'pdf7_12FilePath')" multiple>
-                Upload 7/12 PDF
-            </label>
-            <div id="pdf7_12FilePath" class="file-progress"></div>
-        </div>
+                                        <div class="form-group">
+                                            <label>Survey No<span class="text-danger fs-3">*</span></label>
+                                            <input class="form-control" type="text" name="input4" id="input4" required>
+                                        </div>
 
-        <div class="file-input-container">
-            <button type="submit" value="Submit" class="btn btn-outline-success">Submit</button>
-        </div>
+                                        <div class="upload-container">
+                                            <form action="submit_form.php" method="post" enctype="multipart/form-data">
+                                                <div class="file-input-container">
+                                                    <label>
+                                                        <input type="file" class="file-input" accept=".pdf" name="survey_map" onchange="handleFileUpload(this, 'surveyMapFilePath')" required multiple>
+                                                        Upload Survey Map PDF
+                                                    </label>
+                                                    <div id="surveyMapFilePath" class="file-progress"></div>
+                                                </div>
 
-        
-    </form>
-</div>
-       </div>
+                                                <div class="file-input-container">
+                                                    <label>
+                                                        <input type="file" class="file-input" accept=".pdf" name="village_map" onchange="handleFileUpload(this, 'villageMapFilePath')" multiple>
+                                                        Upload Village Map PDF
+                                                    </label>
+                                                    <div id="villageMapFilePath" class="file-progress"></div>
+                                                </div>
+
+                                                <div class="file-input-container">
+                                                    <label>
+                                                        <input type="file" class="file-input" accept=".pdf" name="pdf_7_12" onchange="handleFileUpload(this, 'pdf7_12FilePath')" multiple>
+                                                        Upload 7/12 PDF
+                                                    </label>
+                                                    <div id="pdf7_12FilePath" class="file-progress"></div>
+                                                </div>
+
+                                                <div class="file-input-container">
+                                                    <button type="submit" value="Submit" class="btn btn-outline-success">Submit</button>
+                                                </div>
+
+
+                                            </form>
+                                        </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -307,9 +311,6 @@ $logged_in_user = $_SESSION['username'];
                 successModal.show();
             <?php } ?>
         });
-
-
-        
     </script>
 </body>
 

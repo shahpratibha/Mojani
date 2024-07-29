@@ -39,7 +39,7 @@
                     </div>
                    
                     <button type="submit" value="Register">Register</button>
-                    <p class="endline"><a href="login.php">I am already a member</a></p>
+                    <p class="endline"><a href="login.php" class="btn">I am already a member</a></p>
                 </form>
             </div>
         </div>

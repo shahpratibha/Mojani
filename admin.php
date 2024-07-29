@@ -38,9 +38,11 @@ session_start();
                     </div>
                     <button type="submit">Admin Login</button>
                     <p class="endline">
-                        <a href="AdminRegister.php">Create an account</a>
+                        <a href="AdminRegister.php" class="btn">Create an account</a>
                       
                     </p>
+
+                    
                 </form>
             </div>
         </div>

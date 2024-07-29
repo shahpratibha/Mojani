@@ -443,3 +443,36 @@ li {
     position: relative;
     font-size: 8px;
 }
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    #map {
+        position: absolute;
+        top: 15vh;
+        left: 0;
+        height: 76vh;
+        width: 108vw;
+        z-index: 0;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 10px;
+        border: 2px solid #0077DA;
+    
+  }
+.message-container p {
+    font-size: 10px;
+    margin-bottom: -25px;
+    text-align: center;
+}
+.btn {
+    width: 50;
+    max-width: 95%;
+    HEIGHT: 26px;
+    justify-content: right;
+    background-color: #0077DA;
+    color: white;
+    top: 0px;
+    left: 100%;
+    position: absolute;
+    font-size: 10px;
+}
+}
