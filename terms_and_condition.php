@@ -2,6 +2,7 @@
 session_start();
 include('db.php');
 
+$logged_in_user = $_SESSION['username'];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $userId = $_SESSION['user_id'];
@@ -15,9 +16,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   
 }
-
-
-$logged_in_user = $_SESSION['username'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,215 +25,9 @@ $logged_in_user = $_SESSION['username'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mojani</title>
     <link rel="icon" href="image\LOGO_DP_Zoning.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="css/terms_condition.css">
     <style>
-           /* Styles for modal popup */
-           .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto;
-            padding: 10px;
-            /* Decrease padding */
-            border: 1px solid #888;
-            width: 30%;
-            /* Set the width to 30% */
-            border-radius: 5px;
-        }
-
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 50px auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 2);
-        }
-
-        h2 {
-            text-align: center;
-        }
-
-        form {
-            margin-top: 20px;
-            text-align: left;
-            /* Align form elements to the left */
-        }
-
-        label {
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        input[type="checkbox"] {
-            margin-right: 10px;
-        }
-
-        button {
-            display: block;
-            width: 80%;
-            padding: 10px;
-            margin: 20px auto 0;
-            border: none;
-            background-color: #0077DA;
-            color: #fff;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        button a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .heading {
-            color: #0077DA;
-            font-size: 20px;
-            padding-bottom: 10px;
-            text-align: center;
-        }
-
-        span {
-            color: #1324BC;
-            font-size: 30px;
-        }
-
-        a.fw-bold {
-            text-decoration: none;
-        }
-
-        .login-title {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .center-content {
-            display: flex;
-            align-items: center;
-        }
-
-        .scrollable-container {
-            width: 100%;
-            height: 300px;
-            overflow-y: scroll;
-            border: 1px solid #ccc;
-            padding: 10px;
-        }
-
-        ol, ul {
-            padding-left: 10px;
-            text-align: left;
-            font-size: 14  qpx;
-        }
-
-        li {
-            margin-bottom: 10px;
-        }
-
-        .checkbox-container {
-            display: flex;
-            align-items: center;
-            margin-top: 20px;
-        }
-
-        .checkbox-container label {
-            margin-bottom: 0;
-        }
-
-        /* Header Styles */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-
-        .header .logo img {
-            width: 50px;
-            height: 50px;
-        }
-
-        .profile {
-            display: flex;
-            align-items: center;
-            z-index: 1;
-        }
-
-        .profile ul {
-            display: flex;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .profile .nav-item {
-            position: relative;
-        }
-
-        .profile .nav-link {
-            color: #0077DA;
-            font-size: 12px;
-            font-weight: bold;
-            text-transform: uppercase;
-            text-shadow: #fff;
-            margin-right: 20px;
-            cursor: pointer;
-        }
-
-        .profile .dropdown-menu {
-            display: none;
-            position: absolute;
-            right: 0;
-            top: 100%;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .profile .dropdown-menu.show {
-            display: block;
-        }
-
-        .profile .dropdown-item {
-            padding: 10px 20px;
-            color: #0077DA;
-            text-decoration: none;
-            display: block;
-        }
-
-        .profile .dropdown-item:hover {
-            background-color: #f0f0f0;
-        }
+          
     </style>
 </head>
 

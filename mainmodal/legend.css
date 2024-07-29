@@ -1,9 +1,9 @@
 
 .collapse-button {
     background-color: white;
-    border: 2px solid darkblue;
-    width: 23px; /* Increased width for better icon visibility */
-    height: 25px; /* Increased height for better icon visibility */
+    border: 2px solid #0077da;
+    width: 32px;
+    height: 29px;
     border-radius: 5px;
     color: black;
     text-align: center;
@@ -12,10 +12,10 @@
     margin: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
-    position: fixed; /* Make the button fixed */
-    top: 10px; /* Adjust the position */
-    right: -2px; /* Adjust the position */
-    z-index: 1000; /* Ensure it stays above other elements */
+    position: fixed;
+    top: 92px;
+    right: -2px;
+    z-index: 1000;
 }
 
 .legend-div {
@@ -27,7 +27,7 @@
     overflow-y: auto;
     scrollbar-width: thin;
     background-color: white;
-    border: 2px solid darkblue;
+    border: 2px solid #0077da;
     border-radius: 10px;
     padding: 10px;
     font-size: 9px;
@@ -46,7 +46,7 @@
     width: 20px;
     height: 27px;
     background-color: white;
-    border: 2px solid darkblue;
+    border: 2px solid d#0077da;
 }
 
 img, svg {
