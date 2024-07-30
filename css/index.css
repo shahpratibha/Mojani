@@ -11,6 +11,10 @@ body{
     font-family: 'Times New Roman', Times, serif;
     
 }
+.leaflet-top {
+    top: 37px;
+    margin-top: -570px;
+}
 .leaflet-control-attribution{
     display: none;
 }
@@ -39,6 +43,8 @@ body{
     transition: border-color 0.3s ease;
 }
     
+/* css of inline form.php */
+
 
 
 .form-control {
@@ -265,7 +271,15 @@ li{
         /* margin: 15px 40%; */
     }
 
+    .leaflet-control-layers leaflet-control{
+        margin-top: 10px;
+    }
 
+    .leaflet-touch .leaflet-control-layers, .leaflet-touch .leaflet-bar {
+        border: 2px solid rgba(0, 0, 0, 0.2);
+        background-clip: padding-box;
+        margin-top: 97px;
+    }
     /* Styles specifically for devices with a minimum width of 320px */
 @media (min-width: 320px) and (max-width: 479px) {
     .Geo img {
@@ -291,8 +305,8 @@ li{
         position: absolute;
         top: 9%;
         left: 7%;
-        height: 20px;
-        width: 20px;
+        height: 25px;
+        width: 27px;
         border: none;
         background-color: transparent;
     }
@@ -342,7 +356,6 @@ li{
     }
 
 
-
     #navbarDropdown {
         font: 1rem;
         color: #0077DA;
@@ -350,7 +363,7 @@ li{
         text-shadow: #fff;
         font-size: 12px;
         margin-top: 33px;
-        margin-right: 133px;
+        margin-right: 25px;
     }
     .leaflet-touch .leaflet-control-layers, .leaflet-touch .leaflet-bar {
         /* border: 2px solid rgba(0, 0, 0, 0.2); */
@@ -470,18 +483,16 @@ li{
     #map {
         position: absolute;
         top: 6vh;
-        left: 0;
-        height: 128vh;
-        width: 130vw;
+        left: -9px;
+        height: 125vh;
+        width: 137vw;
         z-index: 0;
         border-radius: 10px;
         padding: 10px;
         margin: 10px;
         transition: height 0.3s, top 0.3s;
+        box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
     }
-    
-
-    
 
       .modal-content {
         height: auto;
@@ -565,29 +576,123 @@ li{
 
     .legend-div {
         position: fixed;
-        top: -71px;
-        right: 26px;
+        top: -100px;
+        right: 40px;
         height: 22vh;
-        width: 99px;
+        width: 100px;
         overflow-y: auto;
         scrollbar-width: thin;
         background-color: white;
-        border: 2px solid darkblue;
+        border: 2px solid #0077da;
         border-radius: 10px;
         padding: 10px;
         font-size: 9px;
         transition: all 0.3s ease-in-out;
         display: none;
     }
+
     *, ::after, ::before {
         box-sizing: border-box;
-    }
+    } 
+
     
-   
 }
 
 
 
 
 
+/* Media query for tablets */
+@media (min-width: 768px) and (max-width: 768px) {
+    #map {
+        position: absolute;
+        top: 62PX;
+        /* left: 12px; */
+        height: 91vh;
+        width: 102vw;
+        z-index: 0;
+        /* border: 2px solid #0077da; */
+        border-radius: 5px;
+        box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .menu-bar img {
+        z-index: 999;
+        position: absolute;
+        top: 12%;
+        left: 2%;
+        border: none;
+        background-color: transparent;
+        height: 28px;
+    }
+    .Geo img {
+        position: absolute;
+        z-index: 9999;
+        top: 3px;
+        color: black;
+        width: 7vw;
+        height: 7dvh;
+        left: 11px;
+    }
+    .leaflet-top {
+        top: 37px;
+        margin-top: 0px;
+    }
+    .leaflet-retina .leaflet-control-layers-toggle {
+        background-image: url(./image/Layers_Icon.png);
+        background-size: 29px 29px;
+        border: 2px solid #0077da;
+        width: 29px;
+        border-radius: 5px;
+    }
+    navbarDropdown {
+        font: 1rem;
+        /* color: rgb(0, 255, 251); */
+        color: green;
+        font-weight: bolder;
+        text-transform: uppercase;
+        text-shadow: #fff;
+        font-size: 14px;
+    }
+}
 
+/* @media (min-width: 1024px) and (max-width: 1024px) {
+    #map {
+        position: absolute;
+        top: 62PX;
+        height: 92vh;
+        width: 102vw;
+        z-index: 0;
+        border-radius: 5px;
+    }
+    .menu-bar img {
+        z-index: 999;
+        position: absolute;
+        top: 11%;
+        left: 4%;
+        height: 31px;
+        border: none;
+        background-color: transparent;
+    }
+    .Geo img {
+        position: absolute;
+        z-index: 9999;
+        top: 3px;
+        color: black;
+        width: 7vw;
+        height: 7dvh;
+        left: 11px;
+    }
+    .leaflet-touch .leaflet-control-layers, .leaflet-touch .leaflet-bar {
+        border: 2px solid rgba(0, 0, 0, 0.2);
+        background-clip: padding-box;
+        margin-top: 435px;
+    }
+    
+    .leaflet-retina .leaflet-control-layers-toggle {
+        background-image: url(./image/Layers_Icon.png);
+        background-size: 29px 29px;
+        border: 2px solid #0077da;
+        width: 29px;
+        border-radius: 5px;
+    }
+} */

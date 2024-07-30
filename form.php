@@ -57,46 +57,49 @@ $logged_in_user = $_SESSION['username'];
             padding: 10px;
             /* Reduce padding if needed */
         }
+
+        
     </style>
 
     <style>
-        .leaflet-control-scale-line {
-            border: 2px solid #777;
-            border-top: none;
-            line-height: 1.1;
-            padding: 2px 1px;
-            white-space: nowrap;
-            -moz-box-sizing: border-box;
-            box-sizing: border-box;
-            background: rgba(255, 255, 255, 0.8);
-            text-shadow: 1px 1px #fff;
-            font-size: 7px;
-            margin-top: 10px;
-        }
+       .leaflet-control-scale-line {
+    border: 2px solid #777;
+    border-top: none;
+    line-height: 1.1;
+    padding: 2px 1px;
+    white-space: nowrap;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.8);
+    text-shadow: 1px 1px #fff;
+    font-size: 10px;
+    margin-top: 4px;
+}
 
         .leaflet-touch .leaflet-bar a {
-            width: 20px;
+            width: 29px;
             font-size: 18px;
-            height: 20px;
+            height: 27px;
             line-height: 20px;
 
         }
 
         .leaflet-touch .leaflet-control-layers-toggle {
-            width: 25px;
-            height: 25px;
+            width: 29px;
+            height: 26px;
         }
 
         .leaflet-retina .leaflet-control-layers-toggle {
             background-image: url('./image/Layers_Icon.png');
-            background-size: 29px 29px;
+            background-size: 37px 33px;
+            border: 1px solid;
         }
 
         .north-arrow {
-            width: 20px;
-            height: 27px;
+            width: 26px;
+            height: 30px;
             background-color: white;
-            border: 2px solid darkblue;
+            border: 2px solid #0077DA;
         }
 
         .upload-container {
@@ -137,6 +140,7 @@ $logged_in_user = $_SESSION['username'];
         .file-progress span {
             display: block;
         }
+        
     </style>
 </head>
 
