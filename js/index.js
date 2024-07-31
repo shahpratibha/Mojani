@@ -1,7 +1,7 @@
 var districtCache = {};
 var geoURL = "https://info.dpzoning.com/geoserver/Mojani/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Mojani:Villages_Boundary&outputFormat=json";
 
-var map = L.map("map", {}).setView([18.8655, 76.7455], 5.48, L.CRS.EPSG4326);
+var map = L.map("map", {}).setView([18.8655, 76.7455], 6, L.CRS.EPSG4326);
 
 var googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
     maxZoom: 20,
@@ -352,3 +352,19 @@ function handleFileUpload(input, targetId) {
         }, 2000);
     }
 }
+
+
+function adjustZoomLevel() {
+    if (window.matchMedia("(max-width: 600px)").matches) {
+        map.setZoom(6); // small screens
+    } else if (window.matchMedia("(min-width: 601px) and (max-width: 1200px)").matches) {
+        map.setZoom(7); // medium screens
+    } else {
+        map.setZoom(7); // large screens
+    }
+}
+
+adjustZoomLevel();
+window.matchMedia("(max-width: 600px)").addListener(adjustZoomLevel);
+window.matchMedia("(min-width: 601px) and (max-width: 1200px)").addListener(adjustZoomLevel);
+window.matchMedia("(min-width: 1201px)").addListener(adjustZoomLevel);

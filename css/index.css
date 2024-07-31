@@ -22,10 +22,10 @@ border: 2px solid;
     display: none;
 }
 
-.dropdown-menu .dropdown-item:hover {
+/* .dropdown-menu .* {
     background-color: #0080005c;
     color: white;
-}
+} */
 
 #map {
     position: absolute;
@@ -855,7 +855,7 @@ li {
         align-items: center;
         padding: 5px;
         border: 3px solid #0077da;
-        border-radius: 4px;
+        border-radius: 5px;
         background-color: white;
         cursor: pointer;
         margin-top: 82px;

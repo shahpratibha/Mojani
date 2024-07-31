@@ -237,6 +237,63 @@ button:hover {
     border-radius: 50%;
 }
 
+/* Modal styles */
+/* Modal styles */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.4); 
+    padding-top: 60px; 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; 
+    padding: 20px;
+    border: 2px solid #0077DA; 
+    border-radius: 10px; 
+    width: 80%; 
+    max-width: 300px; 
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.modal p {
+    font-size: 16px;
+    color: #333; 
+    margin: 0 0 20px; 
+    line-height: 1.5; 
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end; 
+}
+
+.modal-button {
+    padding: 5px 10px; 
+    border: none;
+    border-radius: 5px;
+    background-color: #0077DA; 
+    color: white;
+    font-size: 14px; 
+    cursor: pointer;
+    transition: background-color 0.3s; 
+    width: 15%;
+}
+
+.modal-button:hover {
+    background-color: #0056b3; 
+}
+
+
+
 /*Responsive*/
 
 
