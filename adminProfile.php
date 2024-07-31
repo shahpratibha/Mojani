@@ -138,7 +138,11 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
 <div class="header-row d-flex justify-content-between align-items-center mt-4">
     <img src="image/LOGO_DP_Zoning.png" alt="Company Logo" class="company-logo ">
     <button type="button" class="btn btn-primary admin fw-bold" id="toggleButton">Show Profile</button>
-    <a href="logout.php" class="btn"><i class="fas fa-power-off" style="color: red;"></i></a>
+    <form action="logout.php" method="post" style="display: inline;">
+                        <button type="submit" name="Logout" class="btn">
+                            <i class="fas fa-power-off" style="color: red;"></i>
+                        </button>
+                    </form>
 </div>
 
         <div class="row">
