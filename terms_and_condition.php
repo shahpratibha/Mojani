@@ -24,6 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mojani</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" href="image\LOGO_DP_Zoning.png" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="css/terms_condition.css">
     <style>
@@ -38,21 +39,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <div class="profile justify-content-end">
             <ul>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" aria-expanded="false">
-                        <?php echo $logged_in_user; ?>
+            <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <?php echo htmlspecialchars($logged_in_user); ?>
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="profile.php?username=<?php echo $logged_in_user; ?>">View Profile</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li>
-                            <form action="logout.php" method="post">
-                                <button class="dropdown-item" type="submit" name="Logout">Logout</button>
-                            </form>
-                        </li>
-                    </ul>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <!-- <a class="dropdown-item" href="profile.php?username=<?php echo urlencode($logged_in_user); ?>">View Profile</a> -->
+                        <!-- <div class="dropdown-divider"></div> -->
+                        <form action="logout.php" method="post" style="margin: 0;">
+                            <button class="dropdown-item" type="submit" name="Logout">Logout</button>
+                        </form>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -191,6 +188,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         document.getElementById("terms").addEventListener("change", toggleButton);
     </script>
+      <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
