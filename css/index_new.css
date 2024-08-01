@@ -89,9 +89,25 @@ border: 3px solid #0077DA;
     height: 20px;
 }
 
-.leaflet-retina .leaflet-control-layers-toggle {
+.leaflet-touch .leaflet-control-layers, .leaflet-touch .leaflet-bar {
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    background-clip: padding-box;
+    border: 2px solid #0077DA;
+}
+
+
+/* .leaflet-retina .leaflet-control-layers-toggle {
     background-image: url('../image/Layers_Icon.png');
     background-size: 23px 23px;
+} */
+
+.leaflet-retina .leaflet-control-layers-toggle {
+    background-image: url('../image/Layers_Icon.png');
+    background-size: 30px 30px; 
+    width: 27px;
+    height: 28px; 
+    background-repeat: no-repeat; 
+    background-position: center; 
 }
 
 .leaflet-control-scale-line {
@@ -216,7 +232,7 @@ li {
     left: 50%;
     bottom: 21px;
     transform: translateX(-50%);
-    background: rgba(255, 255, 255, 0.8);
+    /* background: rgba(255, 255, 255, 0.8); */
     padding: 10px;
     /* text-align: center; */
     width: 100%;
@@ -225,7 +241,7 @@ li {
 
 .message-container p {
     font-size: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 22px;
 }
 
 
@@ -808,3 +824,400 @@ li {
     }
 }
 
+/* meadia query for the iphones 12/12 pro,13/13 pro,14/14 pro*/
+
+@media only screen
+  and (min-device-width: 390px)
+  and (max-device-width: 390px)
+  and (min-device-height: 844px)
+  and (max-device-height: 844px)
+  and (-webkit-device-pixel-ratio: 3) {
+
+     #map {
+        position: absolute;
+        top: 13vh;
+        left: 0;
+        height: 73vh;
+        width: 116.6vw;
+        z-index: 0;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 10px;
+        border: 2px solid #0077DA;
+    }
+    .location-wrapper {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        margin-top: 15px;
+        margin-left: 1px;
+        margin-top: 30px;
+    }
+    .location-icon {
+        background-color: #0077DA;
+        margin-left: 30px;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        border-radius: 50%;
+    }
+    .Geo img {
+        position: absolute;
+        z-index: 9999;
+        top: 0;
+        color: black;
+        height: 7dvh;
+        left: 10px;
+    }
+    .card {
+        position: absolute;
+        top: 12vh;
+        left: 32%;
+        transform: translateX(-50%);
+        width: 60%;
+        max-width: 400px;
+        z-index: 1;
+        display: none;
+        background-color: rgba(255, 255, 255, 0.9);
+        border: 2px solid #0077DA;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        font-size: 12px;
+    }
+    .message-container p {
+        font-size: 10px;
+        margin-bottom: 26px;
+        margin-left: 13px;
+    }
+    .btn {
+        width: 50px;
+        max-width: 95%;
+        height: 26px;
+        justify-content: right;
+        background-color: #0077DA;
+        color: white;
+        top: 5px;
+        left: 105%;
+        position: absolute;
+        font-size: 10px;
+    }
+    .toggle-label {
+        display: block;
+        position: absolute;
+        width: 220%;
+        height: 100%;
+        background-color: #0077DA;
+        color: white;
+        top: 13px;
+        left: 71vw;
+        z-index: 1;
+        border-radius: 20px;
+        font-size: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    } 
+}
+
+@media only screen
+  and (min-device-width: 414px)
+  and (max-device-width: 414px)
+  and (min-device-height: 896px)
+  and (max-device-height: 896px)
+  and (-webkit-device-pixel-ratio: 2) {
+    #map {
+        position: absolute;
+        top: 12vh;
+        left: 0;
+        height: 73vh;
+        width: 113.6vw;
+        z-index: 0;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 10px;
+        border: 2px solid #0077DA;
+    }
+    .location-wrapper {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        margin-top: 15px;
+        margin-left: 1px;
+        margin-top: 30px;
+    }
+    .location-icon {
+        background-color: #0077DA;
+        margin-left: 30px;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        border-radius: 50%;
+    }
+    .Geo img {
+        position: absolute;
+        z-index: 9999;
+        top: 0;
+        color: black;
+        height: 7dvh;
+        left: 10px;
+    }
+    .card {
+        position: absolute;
+        top: 11.5vh;
+
+        left: 32%;
+        transform: translateX(-50%);
+        width: 60%;
+        max-width: 400px;
+        z-index: 1;
+        display: none;
+        background-color: rgba(255, 255, 255, 0.9);
+        border: 2px solid #0077DA;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        font-size: 12px;
+    }
+    .message-container p {
+        font-size: 10px;
+        margin-bottom: 26px;
+        margin-left: 13px;
+    }
+    .btn {
+        width: 50px;
+        max-width: 95%;
+        height: 26px;
+        justify-content: right;
+        background-color: #0077DA;
+        color: white;
+        top: 5px;
+        left: 105%;
+        position: absolute;
+        font-size: 10px;
+    }
+    .toggle-label {
+        display: block;
+        position: absolute;
+        width: 220%;
+        height: 100%;
+        background-color: #0077DA;
+        color: white;
+        top: 13px;
+        left: 71vw;
+        z-index: 1;
+        border-radius: 20px;
+        font-size: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    } 
+
+  }
+
+  @media only screen
+  and (min-device-width: 430px)
+  and (max-device-width: 430px)
+  and (min-device-height: 932px)
+  and (max-device-height: 932px)
+  and (-webkit-device-pixel-ratio: 3) {
+    #map {
+        position: absolute;
+        top: 12vh;
+        left: 0;
+        height: 65vh;
+        width: 112.6vw;
+        z-index: 0;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 10px;
+        border: 2px solid #0077DA;
+    }
+    .location-wrapper {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        margin-top: 15px;
+        margin-left: 1px;
+        margin-top: 30px;
+    }
+    .location-icon {
+        background-color: #0077DA;
+        margin-left: 30px;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        border-radius: 50%;
+    }
+    .Geo img {
+        position: absolute;
+        z-index: 9999;
+        top: 0;
+        color: black;
+        height: 7dvh;
+        left: 10px;
+    }
+    .card {
+        position: absolute;
+        top: 11vh;
+        left: 32%;
+        transform: translateX(-50%);
+        width: 60%;
+        max-width: 400px;
+        z-index: 1;
+        display: none;
+        background-color: rgba(255, 255, 255, 0.9);
+        border: 2px solid #0077DA;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        font-size: 12px;
+    }
+    .message-container {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        bottom: 123px;
+      
+        padding: 10px;
+        width: 100%;
+        max-width: 800px;
+    }
+   
+     .message-container p {
+        font-size: 10px;
+        margin-top: 90px; 
+        margin-bottom: 26px;
+        margin-left: 13px; 
+    } 
+    .btn {
+        width: 50px;
+        max-width: 95%;
+        height: 26px;
+        justify-content: right;
+        background-color: #0077DA;
+        color: white;
+        top: 92px;
+        left: 103%;
+        position: absolute;
+        font-size: 10px;
+    }
+    .toggle-label {
+        display: block;
+        position: absolute;
+        width: 220%;
+        height: 100%;
+        background-color: #0077DA;
+        color: white;
+        top: 13px;
+        left: 71vw;
+        z-index: 1;
+        border-radius: 20px;
+        font-size: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    } 
+  }
+
+
+  @media only screen
+  and (min-device-width: 360px)
+  and (max-device-width: 360px)
+  and (min-device-height: 780px)
+  and (max-device-height: 780px)
+  and (-webkit-device-pixel-ratio: 3) {
+
+    #map {
+        position: absolute;
+        top: 14vh;
+        left: 0;
+        height: 84vh;
+        width: 119.6vw;
+        z-index: 0;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 10px;
+        border: 2px solid #0077DA;
+    }
+    .location-wrapper {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        margin-top: 15px;
+        margin-left: 1px;
+        margin-top: 30px;
+    }
+    .location-icon {
+        background-color: #0077DA;
+        margin-left: 30px;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        border-radius: 50%;
+    }
+    .Geo img {
+        position: absolute;
+        z-index: 9999;
+        top: 0;
+        color: black;
+        height: 7dvh;
+        left: 10px;
+    }
+    .card {
+        position: absolute;
+        top: 13.2vh;
+        left: 35%;
+        transform: translateX(-50%);
+        width: 65%;
+        max-width: 400px;
+        z-index: 1;
+        display: none;
+        background-color: rgba(255, 255, 255, 0.9);
+        border: 2px solid #0077DA;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        font-size: 12px;
+    }
+    .message-container {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        bottom: -70px;
+        padding: 10px;
+        width: 100%;
+        max-width: 800px;
+    }
+   
+     /* .message-container p {
+        font-size: 10px;
+        margin-top: 139px;
+        margin-bottom: 26px;
+        margin-left: 13px; 
+    }  */
+    .btn {
+        width: 50px;
+        max-width: 95%;
+        height: 26px;
+        justify-content: right;
+        background-color: #0077DA;
+        color: white;
+        top: 10px;
+        left: 103%;
+        position: absolute;
+        font-size: 10px;
+    }
+    .toggle-label {
+        display: block;
+        position: absolute;
+        width: 220%;
+        height: 100%;
+        background-color: #0077DA;
+        color: white;
+        top: 13px;
+        left: 71vw;
+        z-index: 1;
+        border-radius: 20px;
+        font-size: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    } 
+  }

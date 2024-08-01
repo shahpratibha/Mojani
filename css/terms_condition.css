@@ -1,4 +1,4 @@
- /* Styles for modal popup */
+/* Styles for modal popup */
  .modal {
     display: none;
     position: fixed;
@@ -171,6 +171,25 @@ li {
 .profile .nav-item {
     position: relative;
 }
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 98px;
+    padding: .5rem 0;
+    margin: .125rem 0 0;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: .25rem;
+}
 
 .profile .nav-link {
     color: #0077DA;
@@ -199,7 +218,8 @@ li {
 }
 
 .profile .dropdown-item {
-    padding: 10px 20px;
+    /* padding: 10px 20px; */
+    margin-top: -3px;
     color: black;
     text-decoration: none;
     display: block;
@@ -210,15 +230,16 @@ li {
 }
 
 #navbarDropdown {
-font: 1rem;
-color: #0077DA;
-text-transform: uppercase;
-text-shadow: #fff;
-font-size: 12px;
-margin-top: 33px;
-margin-right: 133px;
-text-decoration: none;
-font-weight: bold;
+    /* margin-left: 20px; */
+    font: 1rem;
+    color: #0077DA;
+    text-transform: uppercase;
+    text-shadow: #fff;
+    font-size: 12px;
+    margin-top: 7px;
+    margin-right: -17px;
+    text-decoration: none;
+    font-weight: bold;
 }
 .profile {
 position: absolute;
@@ -232,8 +253,32 @@ right: 5%;
     .scrollable-container {
         height: 300px;
     }
+    #navbarDropdown {
+        /* margin-left: 20px; */
+        font: 1rem;
+        color: #0077DA;
+        text-transform: uppercase;
+        text-shadow: #fff;
+        font-size: 12px;
+        margin-top: 7px;
+        margin-right: -17px;
+        text-decoration: none;
+        font-weight: bold;
+    }
     .container {
         margin: 60px auto; 
+    }
+    .profile .dropdown-menu {
+        display: none;
+        position: absolute;
+        right: 0;
+        margin-top: -7px;
+        top: 100%;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        overflow: hidden;
+        z-index: 1;
     }
 }
 @media (min-width: 1440px) and (max-width: 1440px) {

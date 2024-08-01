@@ -22,11 +22,6 @@ border: 2px solid;
     display: none;
 }
 
-/* .dropdown-menu .* {
-    background-color: #0080005c;
-    color: white;
-} */
-
 #map {
     position: absolute;
     top: 60PX;
@@ -1017,3 +1012,446 @@ li {
     }   
 }
 
+
+ /* meadia query for the iphones 12/12 pro,13/13 pro,14/14 pro */
+
+@media only screen
+  and (min-device-width: 390px)
+  and (max-device-width: 390px)
+  and (min-device-height: 844px)
+  and (max-device-height: 844px)
+  and (-webkit-device-pixel-ratio: 3) {
+    #map {
+        position: absolute;
+        top: 66PX;
+        left: 2%;
+        height: 104vh;
+        width: 137vw;
+        z-index: 0;
+        border-radius: 5px;
+        box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
+        border: 3px solid #0077da;
+    }
+
+    .menu-bar {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        border: 3px solid #0077da;
+        border-radius: 4px;
+        background-color: white;
+        cursor: pointer;
+        margin-top: 87px;
+        position: relative;
+        z-index: 1000;
+        width: 32px;
+        height: 32px;
+        left: 27px;
+    }
+
+    .menu-bar img {
+        top: 7px;
+        height: 20px;
+        width: 20px;
+        left: 5px;
+        border: none;
+        background-color: transparent;
+    }
+
+    .Geo img {
+        position: absolute;
+        z-index: 9999;
+        top: 3px;
+        margin-bottom: 14px;
+        left: 1%;
+        color: black;
+        height: 8dvh;
+    }
+
+
+    .leaflet-top {
+        top: 10px;
+        margin-top: 0px;
+    }
+
+    .leaflet-top, .leaflet-bottom {
+        position: absolute;
+        z-index: 1000;
+        pointer-events: none;
+        margin-top: -612px;
+    }
+    .legend-div {
+        position: fixed;
+        top: -49px;
+        right: 40px;
+        height: 17vh;
+        width: 102px;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        background-color: white;
+        border: 2px solid #0077da;
+        border-radius: 10px;
+        padding: 10px;
+        font-size: 9px;
+        transition: all 0.3s ease-in-out;
+        display: none;
+    }
+    #navbarDropdown {
+        font: 1rem;
+        color: #0077DA;
+        text-transform: uppercase;
+        text-shadow: #fff;
+        font-size: 20px;
+        margin-top: 51px;
+        margin-right: 45px;
+    }
+
+    li {
+        list-style: none;
+        font-size: 13px;
+        right: -34px;
+    }
+
+    .contain-toggle {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .btn-close {
+        margin-top: 1opx ;
+        font-size: 10px ;
+        margin-left: 235px;
+    }
+  }
+
+  @media only screen
+  and (min-device-width: 414px)
+  and (max-device-width: 414px)
+  and (min-device-height: 896px)
+  and (max-device-height: 896px)
+  and (-webkit-device-pixel-ratio: 2) {
+    #map {
+        position: absolute;
+        top: 66PX;
+        left: 2%;
+        height: 97vh;
+        width: 137vw;
+        z-index: 0;
+        border-radius: 5px;
+        box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
+        border: 3px solid #0077da;
+    }
+
+    .menu-bar {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        border: 3px solid #0077da;
+        border-radius: 4px;
+        background-color: white;
+        cursor: pointer;
+        margin-top: 87px;
+        position: relative;
+        z-index: 1000;
+        width: 32px;
+        height: 32px;
+        left: 27px;
+    }
+
+    .menu-bar img {
+        top: 7px;
+        height: 20px;
+        width: 20px;
+        left: 5px;
+        border: none;
+        background-color: transparent;
+    }
+
+    .Geo img {
+        position: absolute;
+        z-index: 9999;
+        top: 3px;
+        margin-bottom: 14px;
+        left: 1%;
+        color: black;
+        height: 8dvh;
+    }
+
+
+    .leaflet-top {
+        top: 10px;
+        margin-top: 0px;
+    }
+
+    .leaflet-top, .leaflet-bottom {
+        position: absolute;
+        z-index: 1000;
+        pointer-events: none;
+        margin-top: -612px;
+    }
+    .legend-div {
+        position: fixed;
+        top: -49px;
+        right: 40px;
+        height: 17vh;
+        width: 102px;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        background-color: white;
+        border: 2px solid #0077da;
+        border-radius: 10px;
+        padding: 10px;
+        font-size: 9px;
+        transition: all 0.3s ease-in-out;
+        display: none;
+    }
+    #navbarDropdown {
+        font: 1rem;
+        color: #0077DA;
+        text-transform: uppercase;
+        text-shadow: #fff;
+        font-size: 20px;
+        margin-top: 51px;
+        margin-right: 45px;
+    }
+
+    li {
+        list-style: none;
+        font-size: 13px;
+        right: -34px;
+    }
+
+    .contain-toggle {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .btn-close {
+        margin-top: 1opx ;
+        font-size: 10px ;
+        margin-left: 235px;
+    }
+  }
+
+  @media only screen
+  and (min-device-width: 430px)
+  and (max-device-width: 430px)
+  and (min-device-height: 932px)
+  and (max-device-height: 932px)
+  and (-webkit-device-pixel-ratio: 3) {
+    #map {
+        position: absolute;
+        top: 66PX;
+        left: 2%;
+        height: 93vh;
+        width: 137vw;
+        z-index: 0;
+        border-radius: 5px;
+        box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
+        border: 3px solid #0077da;
+    }
+
+    .menu-bar {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        border: 3px solid #0077da;
+        border-radius: 4px;
+        background-color: white;
+        cursor: pointer;
+        margin-top: 87px;
+        position: relative;
+        z-index: 1000;
+        width: 32px;
+        height: 32px;
+        left: 27px;
+    }
+
+    .menu-bar img {
+        top: 7px;
+        height: 20px;
+        width: 20px;
+        left: 5px;
+        border: none;
+        background-color: transparent;
+    }
+
+    .Geo img {
+        position: absolute;
+        z-index: 9999;
+        top: 3px;
+        margin-bottom: 14px;
+        left: 1%;
+        color: black;
+        height: 8dvh;
+    }
+
+
+    .leaflet-top {
+        top: 10px;
+        margin-top: 0px;
+    }
+
+    .leaflet-top, .leaflet-bottom {
+        position: absolute;
+        z-index: 1000;
+        pointer-events: none;
+        margin-top: -612px;
+    }
+    .legend-div {
+        position: fixed;
+        top: -49px;
+        right: 40px;
+        height: 17vh;
+        width: 102px;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        background-color: white;
+        border: 2px solid #0077da;
+        border-radius: 10px;
+        padding: 10px;
+        font-size: 9px;
+        transition: all 0.3s ease-in-out;
+        display: none;
+    }
+    #navbarDropdown {
+        font: 1rem;
+        color: #0077DA;
+        text-transform: uppercase;
+        text-shadow: #fff;
+        font-size: 20px;
+        margin-top: 51px;
+        margin-right: 45px;
+    }
+
+    li {
+        list-style: none;
+        font-size: 13px;
+        right: -34px;
+    }
+
+    .contain-toggle {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .btn-close {
+        margin-top: 1opx ;
+        font-size: 10px ;
+        margin-left: 235px;
+    }
+  }
+
+  @media only screen
+  and (min-device-width: 360px)
+  and (max-device-width: 360px)
+  and (min-device-height: 780px)
+  and (max-device-height: 780px)
+  and (-webkit-device-pixel-ratio: 3) {
+
+    #map {
+        position: absolute;
+        top: 66PX;
+        left: 2%;
+        height: 112vh;
+        width: 137vw;
+        z-index: 0;
+        border-radius: 5px;
+        box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
+        border: 3px solid #0077da;
+    }
+
+    .menu-bar {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        border: 3px solid #0077da;
+        border-radius: 4px;
+        background-color: white;
+        cursor: pointer;
+        margin-top: 87px;
+        position: relative;
+        z-index: 1000;
+        width: 32px;
+        height: 32px;
+        left: 27px;
+    }
+
+    .menu-bar img {
+        top: 7px;
+        height: 20px;
+        width: 20px;
+        left: 5px;
+        border: none;
+        background-color: transparent;
+    }
+
+    .Geo img {
+        position: absolute;
+        z-index: 9999;
+        top: 3px;
+        margin-bottom: 14px;
+        left: 1%;
+        color: black;
+        height: 8dvh;
+    }
+
+
+    .leaflet-top {
+        top: 10px;
+        margin-top: 0px;
+    }
+
+    .leaflet-top, .leaflet-bottom {
+        position: absolute;
+        z-index: 1000;
+        pointer-events: none;
+        margin-top: -612px;
+    }
+    .legend-div {
+        position: fixed;
+        top: -49px;
+        right: 40px;
+        height: 17vh;
+        width: 102px;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        background-color: white;
+        border: 2px solid #0077da;
+        border-radius: 10px;
+        padding: 10px;
+        font-size: 9px;
+        transition: all 0.3s ease-in-out;
+        display: none;
+    }
+    #navbarDropdown {
+        font: 1rem;
+        color: #0077DA;
+        text-transform: uppercase;
+        text-shadow: #fff;
+        font-size: 20px;
+        margin-top: 51px;
+        margin-right: 45px;
+    }
+
+    li {
+        list-style: none;
+        font-size: 13px;
+        right: -34px;
+    }
+
+    .contain-toggle {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .btn-close {
+        margin-top: 1opx ;
+        font-size: 10px ;
+        margin-left: 235px;
+    }
+  }
