@@ -77,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Prepare and execute SQL insert statement
-    $stmt = $pdo->prepare("INSERT INTO survey_data (username, district, taluka, village, survey_number, survey_map_filename, village_map_filename, pdf_7_12_filename, user_entry_timestamp) VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW() AT TIME ZONE 'Asia/Kolkata')");
+    $stmt = $pdo->prepare("INSERT INTO survey_data (username, district, taluka, village, survey_number, survey_map_filename, village_map_filename, pdf_7_12_filename, timestamp) VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW() AT TIME ZONE 'Asia/Kolkata')");
     $success = $stmt->execute([
         $logged_in_user, 
         $district, 
