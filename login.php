@@ -7,67 +7,80 @@
     <title>Mojani</title>
     <link rel="icon" href="image/LOGO_DP_Zoning.png" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-
 </head>
 
 <body>
 
     <?php
+    // Start the session
+    session_start();
+
     // Display error message if login failed
     if (isset($_SESSION['login_status']) && $_SESSION['login_status'] == "failed") {
-        echo '<p style="color: red;">' . $_SESSION['error_message'] . '</p>';
+        echo '<script type="text/javascript">',
+        'document.addEventListener("DOMContentLoaded", function() {',
+        'showPopup("<strong>That\'s login info didn\'t work</strong><br><br>Check your Email or Password and try again");',
+        '});',
+        '</script>';
+        // Clear the session variables
+        unset($_SESSION['login_status']);
+        unset($_SESSION['error_message']);
     }
     ?>
 
-    <div class="container">
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <p id="modalMessage"></p>
+            <div class="modal-footer">
+                <button class="modal-button" onclick="closeModal()">OK</button>
+            </div>
+        </div>
+    </div>
 
+    <div class="container">
         <div class="right-section">
             <div class="login-container">
                 <form class="login-form" action="login_process.php" method="post">
                     <h2 class="login-title"><img src="image/LOGO_DP_Zoning.png" class="logo" alt=""></h2>
-
-                    <?php
-                    // Display error message if login failed
-                    if (isset($_SESSION['login_status']) && $_SESSION['login_status'] == "failed") {
-                        echo '<p style="color: red;">' . $_SESSION['error_message'] . '</p>';
-                        // Clear the session variables
-                        unset($_SESSION['login_status']);
-                        unset($_SESSION['error_message']);
-                    }
-                    ?>
                     <div class="form-control">
                         <i class="fas fa-envelope icon"></i>
                         <input type="email" name="email" placeholder="abc@gmail.com" required>
                     </div>
                     <div class="form-control">
                         <i class="fas fa-lock icon"></i>
-                        <input type="password" name="password" placeholder="Password" id="password">
-                        <i class="fas fa-eye eye-icon" id="togglePassword" title="show password"></i>
+                        <input type="password" name="password" placeholder="Password" id="password" required>
                     </div>
-
                     <button type="submit" value="Login">Login</button>
-
                     <p class="endline">
                         <a href="register.php" class="btn">Create an account</a>
                     </p>
-
                 </form>
             </div>
         </div>
     </div>
 
     <script>
-        // JavaScript to toggle password visibility
-        const togglePassword = document.querySelector('#togglePassword');
-        const password = document.querySelector('#password');
+        // Function to display popup message
+        function showPopup(message) {
+            var modal = document.getElementById("myModal");
+            var modalMessage = document.getElementById("modalMessage");
+            modalMessage.innerHTML = message; // Use innerHTML to handle HTML content
+            modal.style.display = "block";
+        }
 
-        togglePassword.addEventListener('click', function(e) {
-            // Toggle the type attribute
-            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-            password.setAttribute('type', type);
-            // Toggle the eye icon class
-            this.classList.toggle('fa-eye-slash');
-        });
+        // Function to close the modal
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+
+        // Close the modal when clicking outside of the modal content
+        window.onclick = function(event) {
+            var modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
     </script>
 </body>
 

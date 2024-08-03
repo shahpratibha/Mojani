@@ -57,31 +57,29 @@ $logged_in_user = $_SESSION['username'];
             padding: 10px;
             /* Reduce padding if needed */
         }
-
-        
     </style>
 
     <style>
-       .leaflet-control-scale-line {
-    border: 2px solid #777;
-    border-top: none;
-    line-height: 1.1;
-    padding: 2px 1px;
-    white-space: nowrap;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    background: rgba(255, 255, 255, 0.8);
-    text-shadow: 1px 1px #fff;
-    font-size: 10px;
-    margin-top: 4px;
-}
+        .leaflet-control-scale-line {
+            border: 2px solid #777;
+            border-top: none;
+            line-height: 1.1;
+            padding: 2px 1px;
+            white-space: nowrap;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            background: rgba(255, 255, 255, 0.8);
+            text-shadow: 1px 1px #fff;
+            font-size: 10px;
+            margin-top: 4px;
+        }
 
         .leaflet-touch .leaflet-bar a {
             width: 29px;
             font-size: 18px;
             height: 27px;
+            border: 2px solid #0077da;
             line-height: 20px;
-
         }
 
         .leaflet-touch .leaflet-control-layers-toggle {
@@ -92,7 +90,7 @@ $logged_in_user = $_SESSION['username'];
         .leaflet-retina .leaflet-control-layers-toggle {
             background-image: url('./image/Layers_Icon.png');
             background-size: 37px 33px;
-            border: 1px solid;
+            border: 3px solid;
         }
 
         .north-arrow {
@@ -140,7 +138,6 @@ $logged_in_user = $_SESSION['username'];
         .file-progress span {
             display: block;
         }
-        
     </style>
 </head>
 
@@ -207,12 +204,14 @@ $logged_in_user = $_SESSION['username'];
                 <img src="image/menu.png" alt=" image not found" height="25" width="25">
             </button>
 
+            
             <div class="col-12 col-md-3 from">
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog draggable-modal">
                         <div class="modal-content">
 
                             <div class="modal-body">
+                                <div class="contain-toggle">
                                 <div class="toggle-switch">
                                     <input type="checkbox" id="toggle" class="toggle-input">
                                     <label for="toggle" class="toggle-label">
@@ -222,6 +221,7 @@ $logged_in_user = $_SESSION['username'];
                                     </label>
                                 </div>
                                 <button type="button" class="btn-close custom-close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
                                 <hr>
 
 

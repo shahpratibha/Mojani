@@ -1,36 +1,36 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  
+}
 
-   
-}
-body{
-    overflow-x: hidden ;
+body {
+    overflow-x: hidden;
     font-family: 'Times New Roman', Times, serif;
-    
+
 }
+.btn-submit{
+border: 2px solid;
+}
+
 .leaflet-top {
     top: 37px;
     margin-top: -570px;
 }
-.leaflet-control-attribution{
+
+.leaflet-control-attribution {
     display: none;
-}
-.dropdown-menu .dropdown-item:hover {
-    background-color:#0080005c;
-    color: white; 
 }
 
 #map {
-        position: absolute;
-        top: 60PX;
-        left: 0;
-        height: 100vh;
-        width: 100vw;
-        z-index: 0;
+    position: absolute;
+    top: 60PX;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 0;
 }
+
 .file-input-container label {
     display: block;
     cursor: pointer;
@@ -42,14 +42,13 @@ body{
     border-radius: 5px;
     transition: border-color 0.3s ease;
 }
-    
+
 /* css of inline form.php */
 
 
 
 .form-control {
     position: relative;
-    /* margin-bottom: 30px; */
     height: 40px;
     overflow-y: auto;
 }
@@ -70,7 +69,7 @@ body{
     background-color: rgb(232, 232, 232);
     color: rgb(50, 73, 94);
     border-radius: 6px;
- 
+
     transition: all 0.3s ease-in-out 0s;
     /* transform: translate(-100%); */
 }
@@ -84,47 +83,44 @@ body{
     border: 2px solid #ff3860;
 }
 
-.btn{
+.btn {
     width: 100%;
     max-width: 95%;
     padding: 12px 0 12px 37px;
     top: 50px;
 }
+
 .leaflet-touch .leaflet-bar a {
     width: 40px;
     height: 40px;
     line-height: 40px;
-    
+
 }
 
 
-  .draggable {
+.draggable {
     width: 100px;
     height: 100px;
     background-color: #0080005c;
     color: white;
     text-align: center;
     line-height: 100px;
-    cursor: move; 
+    cursor: move;
     position: absolute;
     top: 0;
     left: 0;
 }
-.custom-close-btn {
-    color: red !important;
-    margin-left: 200px;
-    margin-top: 0px;
-}
-.from{
+.from {
     height: 100px;
     width: 100%;
 }
+
 .custom-modal-dialog {
-    max-width: 50%; 
+    max-width: 50%;
 }
 
 .modal-content {
-    height: 400px; 
+    height: 400px;
     overflow-y: auto;
     max-width: 90%;
     position: relative;
@@ -132,30 +128,39 @@ body{
 
 
 
-    .modal-dialog.draggable-modal {
-        position: fixed;
-        top: 30px;
-        left: 0;  
-        margin-left: 0;
-        margin-right: auto;
-        width: 70%; 
-        max-width: 400px; 
-        height: 100vh;
-        overflow-y: auto; 
-    }
+.modal-dialog.draggable-modal {
+    position: fixed;
+    top: 30px;
+    left: 0;
+    margin-left: 0;
+    margin-right: auto;
+    width: 70%;
+    max-width: 400px;
+    height: 100vh;
+    overflow-y: auto;
+}
 
-    .modal-content {
-        height: 400px;
-        border: none;
-        border-radius: 0;
-        top: 60px;
-    }
-li{
+.modal-content {
+    height: 400px;
+    border: none;
+    border-radius: 0;
+    top: 60px;
+}
+
+li {
     list-style: none;
 }
-  
 
+.contain-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
+.btn-close {
+    font-size: 10px;
+    margin: 0;
+}
 
 /* Toggle Switch Container */
 .toggle-switch {
@@ -195,8 +200,8 @@ li{
     left: 2px;
     width: 70px;
     height: 30px;
-    background-color:#fff;
-    border-radius:20px;
+    background-color: #fff;
+    border-radius: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s, background-color 0.3s;
 }
@@ -204,10 +209,10 @@ li{
 /* Toggle Text Left (State) */
 .toggle-text-left {
     position: absolute;
-   z-index:1;
+    z-index: 1;
     top: 50%;
     left: 10px;
-    color:green;
+    color: green;
     transform: translateY(-50%);
 }
 
@@ -218,18 +223,8 @@ li{
     right: 10px;
     transform: translateY(-50%);
 }
-.menu-bar img {
-    z-index: 999;
-    position: absolute;
-    top: 2%;
-    left: 5%;
-    border: none;
-    background-color: transparent;
-}
 
-
-
-.Geo img{
+.Geo img {
     position: absolute;
     z-index: 9999;
     top: 0;
@@ -244,72 +239,99 @@ li{
     top: 2%;
     right: 5%;
 }
-#navbarDropdown{
-    font:1rem;
+
+#navbarDropdown {
+    font: 1rem;
     /* color: rgb(0, 255, 251); */
-    color: green;
+    color: #0077da;
     font-weight: bolder;
     text-transform: uppercase;
     text-shadow: #fff;
-} */
+}
 
 
 .dropdown-menu {
-    min-width: auto; /* Adjust dropdown menu width */
+    min-width: auto;
+    /* Adjust dropdown menu width */
 }
 
- .user-logo {
-        width: 50px;
-        height: 50px;
-        background-color: #bbb;
-        font-weight:bold;
-        color:green;
-        font-size: 24px;
-        text-align: center;
-        line-height: 50px;
-        border-radius: 50%;
-        /* margin: 15px 40%; */
-    }
+.user-logo {
+    width: 50px;
+    height: 50px;
+    background-color: #bbb;
+    font-weight: bold;
+    color: green;
+    font-size: 24px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    /* margin: 15px 40%; */
+}
 
-    .leaflet-control-layers leaflet-control{
-        margin-top: 10px;
-    }
+.leaflet-control-layers leaflet-control {
+    margin-top: 10px;
+}
 
-    .leaflet-touch .leaflet-control-layers, .leaflet-touch .leaflet-bar {
-        border: 2px solid rgba(0, 0, 0, 0.2);
-        background-clip: padding-box;
-        margin-top: 97px;
-    }
-    /* Styles specifically for devices with a minimum width of 320px */
+.leaflet-touch .leaflet-control-layers,
+.leaflet-touch .leaflet-bar {
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    background-clip: padding-box;
+    margin-top: 97px;
+}
+
+
+/* Styles specifically for devices with a minimum width of 320px */
+
 @media (min-width: 320px) and (max-width: 479px) {
     .Geo img {
         position: absolute;
         z-index: 9999;
-        top: 0px;
-        left: 2%;
+        top: 12px;
+        margin-bottom: 14px;
+        left: 4%;
         color: black;
-        /* width: 4dvw; */
-        height: 7dvh;
+        height: 8dvh;
     }
+
     .leaflet-top {
-       top: 71% !important;
+        top: 71% !important;
     }
+
     .svg-inline--fa {
         display: var(--fa-display, inline-block);
         height: 1em;
         overflow: visible;
         vertical-align: 0.875em;
     }
+
+
+    .menu-bar {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        border: 3px solid #0077da;
+        border-radius: 4px;
+        background-color: white;
+        cursor: pointer;
+        margin-top: 87px;
+        position: relative;
+        z-index: 1000;
+        width: 32px;
+        height: 32px;
+        left: 10px;
+    }
+
     .menu-bar img {
-        z-index: 999;
-        position: absolute;
-        top: 9%;
-        left: 7%;
-        height: 25px;
-        width: 27px;
+        top: 7px;
+        height: 20px;
+        width: 20px;
+        left: 5px;
         border: none;
         background-color: transparent;
     }
+
+
     .toggle-text-left {
         position: absolute;
         z-index: 1;
@@ -319,6 +341,7 @@ li{
         color: green;
         transform: translateY(-50%);
     }
+
     .toggle-handle {
         position: absolute;
         top: 2px;
@@ -331,6 +354,7 @@ li{
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         transition: transform 0.3s, background-color 0.3s;
     }
+
     .toggle-text-left {
         position: absolute;
         z-index: 1;
@@ -340,6 +364,7 @@ li{
         color: black;
         transform: translateY(-50%);
     }
+
     .toggle-label {
         display: block;
         position: absolute;
@@ -361,50 +386,66 @@ li{
         color: #0077DA;
         text-transform: uppercase;
         text-shadow: #fff;
-        font-size: 12px;
-        margin-top: 33px;
-        margin-right: 25px;
+        font-size: 14px;
+        margin-top: 49px;
+        margin-right: 20px;
     }
-    .leaflet-touch .leaflet-control-layers, .leaflet-touch .leaflet-bar {
+
+    .leaflet-touch .leaflet-control-layers,
+    .leaflet-touch .leaflet-bar {
         /* border: 2px solid rgba(0, 0, 0, 0.2); */
         background-clip: padding-box;
         border: 2px solid #0077DA !important;
     }
-    .h5, h5 {
+
+    .h5,
+    h5 {
         font-size: 16px;
     }
+
     .modal-title {
         margin-bottom: -4px;
     }
-    button, input, optgroup, select, textarea {
+
+    button,
+    input,
+    optgroup,
+    select,
+    textarea {
         margin: 0;
         font-family: inherit;
         /* font-size: 10px; */
         /* top: -4px; */
         line-height: inherit;
     }
-    .h5, h5 {
+
+    .h5,
+    h5 {
         font-size: 1rem !important;
         margin-top: -17px !important;
     }
+
+    .btn-close {
+        margin-top: 1opx;
+        font-size: 10px;
+        margin-left: 194px;
+    }
+
     .btn-close {
         margin-top: -13px !important;
         font-size: 10px !important;
-        margin-left: 194px;
     }
-    .btn-close {
-        margin-top: -13px !important;
-    font-size: 10px !important;
-    }
+
     .modal-title {
         margin-bottom: -7px;
         line-height: var(--bs-modal-title-line-height);
     }
-   
+
     .fw-bold {
         /* font-weight: 700 !important; */
         font-size: 10px !important;
     }
+
     .btn-outline-success {
         font-size: 10px !important;
         background: #0077da !important;
@@ -412,7 +453,7 @@ li{
         font-family: sans-serif;
         color: white !important;
     }
-    
+
     .toggle-text-right {
         position: absolute;
         top: 50%;
@@ -420,7 +461,7 @@ li{
         right: 10px;
         transform: translateY(-50%);
     }
-    
+
     .form-control {
         display: block;
         width: 88% !important;
@@ -440,64 +481,65 @@ li{
         border-radius: var(--bs-border-radius);
         transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
     }
-    
+
     .form-control option {
-        padding: 2px; 
+        padding: 2px;
         line-height: 1.2 !important;
-      
+
         font-size: 14px !important;
-       
+
     }
 
     .form-control {
-    max-height: 200px; 
-    overflow-y: auto; 
-    scrollbar-width: thin; 
-    scrollbar-color: #888 #f1f1f1; 
-}
+        max-height: 200px;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: #888 #f1f1f1;
+    }
 
-.form-control option {
-    padding: 2px 8px; 
-    line-height: 1.2 !important; 
-    font-size: 14px !important;
-}
+    .form-control option {
+        padding: 2px 8px;
+        line-height: 1.2 !important;
+        font-size: 14px !important;
+    }
 
-/* Custom scrollbar styles for WebKit browsers (Chrome, Safari) */
-.form-control::-webkit-scrollbar {
-    width: 8px;
-}
+    /* Custom scrollbar styles for WebKit browsers (Chrome, Safari) */
+    .form-control::-webkit-scrollbar {
+        width: 8px;
+    }
 
-.form-control::-webkit-scrollbar-thumb {
-    background-color: #888; 
-    border-radius: 10px; 
-}
+    .form-control::-webkit-scrollbar-thumb {
+        background-color: #888;
+        border-radius: 10px;
+    }
 
-.form-control::-webkit-scrollbar-track {
-    background: #f1f1f1; 
-}
+    .form-control::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
 
-    #input1{
+    #input1 {
         height: 50%;
     }
-   
+
     #map {
         position: absolute;
-        top: 6vh;
+        top: 10vh;
         left: -9px;
-        height: 125vh;
+        height: 123vh;
         width: 137vw;
         z-index: 0;
         border-radius: 10px;
         padding: 10px;
         margin: 10px;
         transition: height 0.3s, top 0.3s;
-        box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
     }
 
-      .modal-content {
+    .modal-content {
         height: auto;
         max-height: 700px !important;
     }
+
     .modal-dialog.draggable-modal {
         position: fixed;
         top: 2px;
@@ -510,12 +552,14 @@ li{
         height: 140vh;
         /* overflow-y: auto; */
     }
+
     .profile {
         position: absolute;
         z-index: 1;
         top: -3%;
         right: -37%;
     }
+
     .file-input-container label {
         display: block;
         cursor: pointer;
@@ -526,36 +570,38 @@ li{
         border-radius: 5px;
         transition: border-color 0.3s ease;
     }
+
     form {
         display: flex;
         flex-direction: column;
     }
-    
+
     .form-group {
         display: flex;
         align-items: center;
         margin-bottom: 10px;
     }
-    
+
     .form-group label {
         width: 84px;
         margin-right: 10px;
         text-align: left;
         font-size: 15px;
     }
-    
+
     .form-control {
         flex: 1;
     }
+
     .upload-container {
         width: 276px !important;
-    
+
         padding: 20px;
         border: 1px solid #ccc;
         border-radius: 5px;
     }
 
-      .modal-content {
+    .modal-content {
         position: relative;
         display: flex;
         flex-direction: column;
@@ -567,9 +613,8 @@ li{
         border: var(--bs-modal-border-width) solid var(--bs-modal-border-color);
         border-radius: var(--bs-modal-border-radius);
         outline: 0;
-        /* margin-left: 16px; 
-        margin-right: 16px; */
     }
+
     .modal-body {
         padding: 5px !important;
     }
@@ -591,85 +636,236 @@ li{
         display: none;
     }
 
-    *, ::after, ::before {
+    *,
+    ::after,
+    ::before {
         box-sizing: border-box;
-    } 
+    }
 
+
+}
+
+
+/* Media query for tablets */
+@media (min-width: 768px) and (max-width: 768px) {
+    
+    #map {
+        position: absolute;
+        top: 62PX;
+        height: 91vh;
+        width: 102vw;
+        z-index: 0;
+        border-radius: 5px;
+        box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .menu-bar {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        border: 3px solid #0077da;
+        border-radius: 4px;
+        background-color: white;
+        cursor: pointer;
+        margin-top: 78px;
+        position: relative;
+        z-index: 1000;
+        width: 32px;
+        height: 32px;
+        left: 18px;
+    }
+
+    .menu-bar img {
+        top: 7px;
+        height: 20px;
+        width: 20px;
+        left: 5px;
+        border: none;
+        background-color: transparent;
+    }
+
+    .Geo img {
+        position: absolute;
+        z-index: 9999;
+        top: 3px;
+        margin-bottom: 14px;
+        left: 1%;
+        color: black;
+        height: 8dvh;
+    }
+
+
+    .leaflet-top {
+        top: 37px;
+        margin-top: 0px;
+    }
+
+    .leaflet-retina .leaflet-control-layers-toggle {
+        background-image: url(./image/Layers_Icon.png);
+        background-size: 29px 29px;
+        border: 3px solid #0077da;
+        width: 29px;
+        border-radius: 5px;
+    }
+
+    #navbarDropdown {
+        font: 1rem;
+        color: #0077DA;
+        text-transform: uppercase;
+        text-shadow: #fff;
+        font-size: 14px;
+        margin-top: 13px;
+        margin-right: -2px;
+    }
+
+    li {
+        list-style: none;
+        font-size: 13px;
+        right: -34px;
+    }
+
+    .contain-toggle {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .btn-close {
+        margin-top: 1opx ;
+        font-size: 10px ;
+        margin-left: 210px;
+    }
     
 }
 
 
 
-
-
-/* Media query for tablets */
-@media (min-width: 768px) and (max-width: 768px) {
+/* Media query for laptop */
+@media (min-width: 1024px) and (max-width: 1024px) {
     #map {
         position: absolute;
-        top: 62PX;
+        top: 61PX;
         /* left: 12px; */
         height: 91vh;
         width: 102vw;
         z-index: 0;
         /* border: 2px solid #0077da; */
         border-radius: 5px;
-        box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
     }
+    .menu-bar {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        border: 3px solid #0077da;
+        border-radius: 4px;
+        background-color: white;
+        cursor: pointer;
+        margin-top: 70px;
+        position: relative;
+        z-index: 1000;
+        width: 32px;
+        height: 32px;
+        left: 10px;
+    }
+
     .menu-bar img {
-        z-index: 999;
-        position: absolute;
-        top: 12%;
-        left: 2%;
+        top: 7px;
+        height: 20px;
+        width: 20px;
+        left: 5px;
         border: none;
         background-color: transparent;
-        height: 28px;
     }
     .Geo img {
         position: absolute;
         z-index: 9999;
-        top: 3px;
+        top: 5px;
+        margin-bottom: 14px;
+        left: 0%;
         color: black;
-        width: 7vw;
-        height: 7dvh;
-        left: 11px;
+        height: 8dvh;
     }
+
+
     .leaflet-top {
         top: 37px;
         margin-top: 0px;
     }
+
     .leaflet-retina .leaflet-control-layers-toggle {
         background-image: url(./image/Layers_Icon.png);
         background-size: 29px 29px;
-        border: 2px solid #0077da;
+        border: 3px solid #0077da;
         width: 29px;
         border-radius: 5px;
     }
-    navbarDropdown {
+    #navbarDropdown {
         font: 1rem;
-        /* color: rgb(0, 255, 251); */
-        color: green;
-        font-weight: bolder;
+        color: #0077DA;
         text-transform: uppercase;
         text-shadow: #fff;
-        font-size: 14px;
+        font-size: 15px;
+        margin-top: 9px;
+        margin-right: -24px;
+    }
+    
+    li {
+        list-style: none;
+        font-size: 13px;
+        right: -34px;
+    }
+
+    .contain-toggle {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .btn-close {
+        margin-top: 1opx ;
+        font-size: 10px ;
+        margin-left: 230px;
     }
 }
 
-/* @media (min-width: 1024px) and (max-width: 1024px) {
+
+
+@media (min-width: 1100px) {
+    .leaflet-right {
+        right: 30px;
+    }
     #map {
         position: absolute;
-        top: 62PX;
-        height: 92vh;
-        width: 102vw;
+        top: 64PX;
+        height: 90vh;
+        width: 100vw;
         z-index: 0;
         border-radius: 5px;
+        box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
     }
-    .menu-bar img {
-        z-index: 999;
-        position: absolute;
-        top: 11%;
-        left: 4%;
+    .menu-bar {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        border: 3px solid #0077da;
+        border-radius: 5px;
+        background-color: white;
+        cursor: pointer;
+        margin-top: 82px;
+        position: relative;
+        z-index: 1000;
+        width: 30px;
         height: 31px;
+        left: 24px;
+    }
+
+    .menu-bar img {
+        top: 7px;
+        height: 20px;
+        width: 20px;
+        left: 5px;
         border: none;
         background-color: transparent;
     }
@@ -677,22 +873,815 @@ li{
         position: absolute;
         z-index: 9999;
         top: 3px;
+        margin-bottom: 14px;
+        left: 1%;
         color: black;
-        width: 7vw;
-        height: 7dvh;
-        left: 11px;
+        height: 9dvh;
+        width: 79px;
     }
-    .leaflet-touch .leaflet-control-layers, .leaflet-touch .leaflet-bar {
-        border: 2px solid rgba(0, 0, 0, 0.2);
-        background-clip: padding-box;
-        margin-top: 435px;
+
+
+    .leaflet-top {
+        top: 37px;
+        margin-top: 0px;
+        right: 50px;;
     }
-    
+
     .leaflet-retina .leaflet-control-layers-toggle {
         background-image: url(./image/Layers_Icon.png);
         background-size: 29px 29px;
-        border: 2px solid #0077da;
+        border: 3px solid #0077da;
         width: 29px;
         border-radius: 5px;
     }
-} */
+    #navbarDropdown {
+        font: 1rem;
+        color: #0077DA;
+        text-transform: uppercase;
+        text-shadow: #fff;
+        font-size: 16px;
+        margin-top: 15px;
+        margin-right: -30px;
+    }
+
+    
+    li {
+        list-style: none;
+        font-size: 13px;
+        right: -34px;
+    }
+
+    .contain-toggle {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .btn-close {
+        margin-top: 1opx ;
+        font-size: 10px ;
+        margin-left: 230px;
+    }   
+}
+
+
+@media (min-width: 1440px) and (max-width: 1440px) {
+    #map {
+        position: absolute;
+        top: 91PX;
+        height: 90vh;
+        width: 102vw;
+        z-index: 0;
+        border-radius: 5px;
+        box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
+    }
+    .menu-bar {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        border: 3px solid #0077da;
+        border-radius: 4px;
+        background-color: white;
+        cursor: pointer;
+        margin-top: 119px;
+        position: relative;
+        z-index: 1000;
+        width: 35px;
+        height: 34px;
+        left: 24px;
+    }
+
+    .menu-bar img {
+        top: 7px;
+        height: 20px;
+        width: 20px;
+        left: 5px;
+        border: none;
+        background-color: transparent;
+    }
+    .Geo img {
+        position: absolute;
+        z-index: 9999;
+        top: 6px;
+        margin-bottom: 14px;
+        left: 0%;
+        color: black;
+        height: 9dvh;
+        width: 90px;
+    }
+
+
+    .leaflet-top {
+        top: 37px;
+        margin-top: 0px;
+    }
+
+    .leaflet-retina .leaflet-control-layers-toggle {
+        background-image: url(./image/Layers_Icon.png);
+        background-size: 29px 29px;
+        border: 3px solid #0077da;
+        width: 29px;
+        border-radius: 5px;
+    }
+    #navbarDropdown {
+        font: 1rem;
+        color: #0077DA;
+        text-transform: uppercase;
+        text-shadow: #fff;
+        font-size: 23px;
+        margin-top: 11px;
+        margin-right: -52px;
+    }
+
+    
+    li {
+        list-style: none;
+        font-size: 13px;
+        right: -34px;
+    }
+
+    .contain-toggle {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .btn-close {
+        margin-top: 1opx ;
+        font-size: 10px ;
+        margin-left: 230px;
+    }   
+}
+
+
+ /* meadia query for the iphones 12/12 pro,13/13 pro,14/14 pro */
+
+@media only screen
+  and (min-device-width: 390px)
+  and (max-device-width: 390px)
+  and (min-device-height: 844px)
+  and (max-device-height: 844px)
+  and (-webkit-device-pixel-ratio: 3) {
+    #map {
+        position: absolute;
+        top: 66PX;
+        left: 2%;
+        height: 104vh;
+        width: 137vw;
+        z-index: 0;
+        border-radius: 5px;
+        box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
+        border: 3px solid #0077da;
+    }
+
+    .menu-bar {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        border: 3px solid #0077da;
+        border-radius: 4px;
+        background-color: white;
+        cursor: pointer;
+        margin-top: 87px;
+        position: relative;
+        z-index: 1000;
+        width: 32px;
+        height: 32px;
+        left: 27px;
+    }
+
+    .menu-bar img {
+        top: 7px;
+        height: 20px;
+        width: 20px;
+        left: 5px;
+        border: none;
+        background-color: transparent;
+    }
+
+    .Geo img {
+        position: absolute;
+        z-index: 9999;
+        top: 3px;
+        margin-bottom: 14px;
+        left: 1%;
+        color: black;
+        height: 8dvh;
+    }
+
+
+    .leaflet-top {
+        top: 10px;
+        margin-top: 0px;
+    }
+
+    .leaflet-top, .leaflet-bottom {
+        position: absolute;
+        z-index: 1000;
+        pointer-events: none;
+        margin-top: -612px;
+    }
+    .legend-div {
+        position: fixed;
+        top: -49px;
+        right: 40px;
+        height: 17vh;
+        width: 102px;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        background-color: white;
+        border: 2px solid #0077da;
+        border-radius: 10px;
+        padding: 10px;
+        font-size: 9px;
+        transition: all 0.3s ease-in-out;
+        display: none;
+    }
+    #navbarDropdown {
+        font: 1rem;
+        color: #0077DA;
+        text-transform: uppercase;
+        text-shadow: #fff;
+        font-size: 20px;
+        margin-top: 51px;
+        margin-right: 45px;
+    }
+
+    li {
+        list-style: none;
+        font-size: 13px;
+        right: -34px;
+    }
+
+    .contain-toggle {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .btn-close {
+        margin-top: 1opx ;
+        font-size: 10px ;
+        margin-left: 235px;
+    }
+  }
+
+  /* meadia query for the iphone 11/iphone xr / iphone xs */
+
+  @media only screen
+  and (min-device-width: 414px)
+  and (max-device-width: 414px)
+  and (min-device-height: 896px)
+  and (max-device-height: 896px)
+  and (-webkit-device-pixel-ratio: 2) {
+    #map {
+        position: absolute;
+        top: 66PX;
+        left: 2%;
+        height: 97vh;
+        width: 137vw;
+        z-index: 0;
+        border-radius: 5px;
+        box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
+        border: 3px solid #0077da;
+    }
+
+    .menu-bar {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        border: 3px solid #0077da;
+        border-radius: 4px;
+        background-color: white;
+        cursor: pointer;
+        margin-top: 87px;
+        position: relative;
+        z-index: 1000;
+        width: 32px;
+        height: 32px;
+        left: 27px;
+    }
+
+    .menu-bar img {
+        top: 7px;
+        height: 20px;
+        width: 20px;
+        left: 5px;
+        border: none;
+        background-color: transparent;
+    }
+
+    .Geo img {
+        position: absolute;
+        z-index: 9999;
+        top: 3px;
+        margin-bottom: 14px;
+        left: 1%;
+        color: black;
+        height: 8dvh;
+    }
+
+
+    .leaflet-top {
+        top: 10px;
+        margin-top: 0px;
+    }
+
+    .leaflet-top, .leaflet-bottom {
+        position: absolute;
+        z-index: 1000;
+        pointer-events: none;
+        margin-top: -612px;
+    }
+    .legend-div {
+        position: fixed;
+        top: -49px;
+        right: 40px;
+        height: 17vh;
+        width: 102px;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        background-color: white;
+        border: 2px solid #0077da;
+        border-radius: 10px;
+        padding: 10px;
+        font-size: 9px;
+        transition: all 0.3s ease-in-out;
+        display: none;
+    }
+    #navbarDropdown {
+        font: 1rem;
+        color: #0077DA;
+        text-transform: uppercase;
+        text-shadow: #fff;
+        font-size: 20px;
+        margin-top: 51px;
+        margin-right: 45px;
+    }
+
+    li {
+        list-style: none;
+        font-size: 13px;
+        right: -34px;
+    }
+
+    .contain-toggle {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .btn-close {
+        margin-top: 1opx ;
+        font-size: 10px ;
+        margin-left: 235px;
+    }
+  }
+
+  /* meadia query for the iphones 13/13 */
+
+  @media only screen
+  and (min-device-width: 430px)
+  and (max-device-width: 430px)
+  and (min-device-height: 932px)
+  and (max-device-height: 932px)
+  and (-webkit-device-pixel-ratio: 3) {
+    #map {
+        position: absolute;
+        top: 66PX;
+        left: 2%;
+        height: 93vh;
+        width: 137vw;
+        z-index: 0;
+        border-radius: 5px;
+        box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
+        border: 3px solid #0077da;
+    }
+
+    .menu-bar {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        border: 3px solid #0077da;
+        border-radius: 4px;
+        background-color: white;
+        cursor: pointer;
+        margin-top: 87px;
+        position: relative;
+        z-index: 1000;
+        width: 32px;
+        height: 32px;
+        left: 27px;
+    }
+
+    .menu-bar img {
+        top: 7px;
+        height: 20px;
+        width: 20px;
+        left: 5px;
+        border: none;
+        background-color: transparent;
+    }
+
+    .Geo img {
+        position: absolute;
+        z-index: 9999;
+        top: 3px;
+        margin-bottom: 14px;
+        left: 1%;
+        color: black;
+        height: 8dvh;
+    }
+
+
+    .leaflet-top {
+        top: 10px;
+        margin-top: 0px;
+    }
+
+    .leaflet-top, .leaflet-bottom {
+        position: absolute;
+        z-index: 1000;
+        pointer-events: none;
+        margin-top: -612px;
+    }
+    .legend-div {
+        position: fixed;
+        top: -49px;
+        right: 40px;
+        height: 17vh;
+        width: 102px;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        background-color: white;
+        border: 2px solid #0077da;
+        border-radius: 10px;
+        padding: 10px;
+        font-size: 9px;
+        transition: all 0.3s ease-in-out;
+        display: none;
+    }
+    #navbarDropdown {
+        font: 1rem;
+        color: #0077DA;
+        text-transform: uppercase;
+        text-shadow: #fff;
+        font-size: 20px;
+        margin-top: 51px;
+        margin-right: 45px;
+    }
+
+    li {
+        list-style: none;
+        font-size: 13px;
+        right: -34px;
+    }
+
+    .contain-toggle {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .btn-close {
+        margin-top: 1opx ;
+        font-size: 10px ;
+        margin-left: 235px;
+    }
+  }
+
+/* meadia query for the iphones */
+    
+  @media only screen
+  and (min-device-width: 360px)
+  and (max-device-width: 360px)
+  and (min-device-height: 780px)
+  and (max-device-height: 780px)
+  and (-webkit-device-pixel-ratio: 3) {
+
+    #map {
+        position: absolute;
+        top: 66PX;
+        left: 2%;
+        height: 112vh;
+        width: 137vw;
+        z-index: 0;
+        border-radius: 5px;
+        box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
+        border: 3px solid #0077da;
+    }
+
+    .menu-bar {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        border: 3px solid #0077da;
+        border-radius: 4px;
+        background-color: white;
+        cursor: pointer;
+        margin-top: 87px;
+        position: relative;
+        z-index: 1000;
+        width: 32px;
+        height: 32px;
+        left: 27px;
+    }
+
+    .menu-bar img {
+        top: 7px;
+        height: 20px;
+        width: 20px;
+        left: 5px;
+        border: none;
+        background-color: transparent;
+    }
+
+    .Geo img {
+        position: absolute;
+        z-index: 9999;
+        top: 3px;
+        margin-bottom: 14px;
+        left: 1%;
+        color: black;
+        height: 8dvh;
+    }
+
+
+    .leaflet-top {
+        top: 10px;
+        margin-top: 0px;
+    }
+
+    .leaflet-top, .leaflet-bottom {
+        position: absolute;
+        z-index: 1000;
+        pointer-events: none;
+        margin-top: -612px;
+    }
+    .legend-div {
+        position: fixed;
+        top: -49px;
+        right: 40px;
+        height: 17vh;
+        width: 102px;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        background-color: white;
+        border: 2px solid #0077da;
+        border-radius: 10px;
+        padding: 10px;
+        font-size: 9px;
+        transition: all 0.3s ease-in-out;
+        display: none;
+    }
+    #navbarDropdown {
+        font: 1rem;
+        color: #0077DA;
+        text-transform: uppercase;
+        text-shadow: #fff;
+        font-size: 20px;
+        margin-top: 51px;
+        margin-right: 45px;
+    }
+
+    li {
+        list-style: none;
+        font-size: 13px;
+        right: -34px;
+    }
+
+    .contain-toggle {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .btn-close {
+        margin-top: 1opx ;
+        font-size: 10px ;
+        margin-left: 235px;
+    }
+  }
+
+  /* meadia query for the iphone 15 / 15 pro */
+
+  @media only screen
+    and (min-device-width: 393px)
+    and (max-device-width: 393px)
+    and (min-device-height: 852px)
+    and (max-device-height: 852px)
+    and (-webkit-device-pixel-ratio: 3) {
+        #map {
+            position: absolute;
+            top: 66PX;
+            left: 2%;
+            height: 101vh;
+            width: 137vw;
+            z-index: 0;
+            border-radius: 5px;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
+            border: 3px solid #0077da;
+        }
+    
+        .menu-bar {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5px;
+            border: 3px solid #0077da;
+            border-radius: 4px;
+            background-color: white;
+            cursor: pointer;
+            margin-top: 87px;
+            position: relative;
+            z-index: 1000;
+            width: 32px;
+            height: 32px;
+            left: 27px;
+        }
+    
+        .menu-bar img {
+            top: 7px;
+            height: 20px;
+            width: 20px;
+            left: 5px;
+            border: none;
+            background-color: transparent;
+        }
+    
+        .Geo img {
+            position: absolute;
+            z-index: 9999;
+            top: 3px;
+            margin-bottom: 14px;
+            left: 1%;
+            color: black;
+            height: 8dvh;
+        }
+    
+    
+        .leaflet-top {
+            top: 10px;
+            margin-top: 0px;
+        }
+    
+        .leaflet-top, .leaflet-bottom {
+            position: absolute;
+            z-index: 1000;
+            pointer-events: none;
+            margin-top: -612px;
+        }
+        .legend-div {
+            position: fixed;
+            top: -49px;
+            right: 40px;
+            height: 17vh;
+            width: 102px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            background-color: white;
+            border: 2px solid #0077da;
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 9px;
+            transition: all 0.3s ease-in-out;
+            display: none;
+        }
+        #navbarDropdown {
+            font: 1rem;
+            color: #0077DA;
+            text-transform: uppercase;
+            text-shadow: #fff;
+            font-size: 20px;
+            margin-top: 51px;
+            margin-right: 45px;
+        }
+    
+        li {
+            list-style: none;
+            font-size: 13px;
+            right: -34px;
+        }
+    
+        .contain-toggle {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-close {
+            margin-top: 1opx ;
+            font-size: 10px ;
+            margin-left: 235px;
+        }
+    }
+
+    /* meadia query for iphone 11 pro */
+
+    @media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 375px) 
+  and (min-device-height: 812px) 
+  and (max-device-height: 812px) 
+  and (-webkit-device-pixel-ratio: 3) {
+    #map {
+        position: absolute;
+        top: 66PX;
+        left: 2%;
+        height: 101vh;
+        width: 137vw;
+        z-index: 0;
+        border-radius: 5px;
+        box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
+        border: 3px solid #0077da;
+    }
+
+    .menu-bar {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        border: 3px solid #0077da;
+        border-radius: 4px;
+        background-color: white;
+        cursor: pointer;
+        margin-top: 87px;
+        position: relative;
+        z-index: 1000;
+        width: 32px;
+        height: 32px;
+        left: 27px;
+    }
+
+    .menu-bar img {
+        top: 7px;
+        height: 20px;
+        width: 20px;
+        left: 5px;
+        border: none;
+        background-color: transparent;
+    }
+
+    .Geo img {
+        position: absolute;
+        z-index: 9999;
+        top: 3px;
+        margin-bottom: 14px;
+        left: 1%;
+        color: black;
+        height: 8dvh;
+    }
+
+
+    .leaflet-top {
+        top: 10px;
+        margin-top: 0px;
+    }
+
+    .leaflet-top, .leaflet-bottom {
+        position: absolute;
+        z-index: 1000;
+        pointer-events: none;
+        margin-top: -580px;
+    }
+    .legend-div {
+        position: fixed;
+        top: -49px;
+        right: 40px;
+        height: 17vh;
+        width: 102px;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        background-color: white;
+        border: 2px solid #0077da;
+        border-radius: 10px;
+        padding: 10px;
+        font-size: 9px;
+        transition: all 0.3s ease-in-out;
+        display: none;
+    }
+    #navbarDropdown {
+        font: 1rem;
+        color: #0077DA;
+        text-transform: uppercase;
+        text-shadow: #fff;
+        font-size: 20px;
+        margin-top: 51px;
+        margin-right: 45px;
+    }
+
+    li {
+        list-style: none;
+        font-size: 13px;
+        right: -34px;
+    }
+
+    .contain-toggle {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .btn-close {
+        margin-top: 1opx ;
+        font-size: 10px ;
+        margin-left: 235px;
+    }
+  }
