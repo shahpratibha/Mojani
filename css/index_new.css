@@ -41,10 +41,10 @@ border: 3px solid #0077DA;
 
 #map {
     position: absolute;
-    top: 15vh;
+    top: 16vh;
     left: 0;
-    height: 65vh;
-    width: 94vw;
+    height: 64vh;
+    width: 80vw;
     z-index: 0;
     border-radius: 10px;
     padding: 10px;
@@ -69,9 +69,8 @@ border: 3px solid #0077DA;
     justify-content: right;
     background-color: #0077DA;
     color: white;
-    /* padding: 12px 0 12px 37px; */
     top: 50px;
-    left: 75%;
+    left: 110%;
     position: absolute;
     font-size: 10px;
 }
@@ -137,15 +136,15 @@ li {
 
 .card {
     position: absolute;
-    top: -3vh; 
-    left: 44%;
+    top: 3vh;
+    left: 54%;
     transform: translateX(-50%);
-    width: 90%;
+    width: 130%;
     max-width: 400px;
-    z-index: 1; 
-    display: none; 
-    background-color: rgba(255, 255, 255, 0.9); ;
-    border: 2px solid #0077DA;
+    z-index: 1;
+    display: none;
+    background: rgba(255, 255, 255, 0.50);
+    /* border: 2px solid #0077DA; */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
@@ -214,8 +213,6 @@ li {
     transform: translateY(-50%);
 }
 
-
-
 .Geo img {
     position: absolute;
     z-index: 9999;
@@ -225,29 +222,37 @@ li {
     height: 7dvh;
 }
 
-
 .message-container {
     position: absolute;
     bottom: 0;
-    left: 50%;
-    bottom: 21px;
+    left: 40%;
+    bottom: 40px;
     transform: translateX(-50%);
-    /* background: rgba(255, 255, 255, 0.8); */
     padding: 10px;
-    /* text-align: center; */
-    width: 100%;
+    width: 80%;
     max-width: 800px;
 }
 
 .message-container p {
     font-size: 10px;
-    margin-bottom: 22px;
+    margin-bottom: -5px;
 }
-
 
 
 /* Styles specifically for devices with a minimum width of 320px */
 @media (min-width: 320px) and (max-width: 479px) {
+    #map {
+        position: absolute;
+        top: 15vh;
+        left: 0;
+        height: 68vh;
+        width: 107.4vw;
+        z-index: 0;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 10px;
+        border: 2px solid #0077DA;
+    }
     .Geo img {
         position: absolute;
         z-index: 9999;
@@ -294,19 +299,17 @@ li {
     .toggle-label {
         display: block;
         position: absolute;
-        width: 131%;
+        width: 160%;
         height: 90%;
         background-color: #0077DA;
         color: white;
         top: 6px;
-        left: 59vw;
+        left: 70vw;
         z-index: 1;
         border-radius: 20px;
         cursor: pointer;
         transition: background-color 0.3s;
-
     }
-
 
 
     .leaflet-touch .leaflet-control-layers,
@@ -314,6 +317,22 @@ li {
         /* border: 2px solid rgba(0, 0, 0, 0.2); */
         background-clip: padding-box;
         border: 2px solid #0077DA !important;
+    }
+
+    .message-container {
+        position: absolute;
+        bottom: 0;
+        left: 40%;
+        bottom: 40px;
+        transform: translateX(-50%);
+        padding: 10px;
+        width: 80%;
+        max-width: 800px;
+    }
+    
+    .message-container p {
+        font-size: 10px;
+        margin-bottom: -33px;
     }
 }
 
@@ -366,75 +385,59 @@ li {
     background-color: #0077DA;
 }
 
+
 /* code for new index design */
+
 
 .location-wrapper {
     display: flex;
     align-items: center;
-    margin-bottom: 20px; 
-    margin-top: 21px;    
+    gap: 30px; 
+    width: 430px;
 }
 
 .location-input-container {
-    display: flex;
-    align-items: center;
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 50px;
-    padding: 1px 31px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border: 2px solid #0077DA;
-}
-
-.location-input {
-    border: none;
-    outline: none;
-    flex: 1;
-    padding: 5px 10px;
-    border-radius: 50px;
-}
-
-.location-input::placeholder {
-    color: #888;
+    width: 80%;
 }
 
 .location-button {
+    width: 107%;
+    border: 2px solid #0077DA;
+    border-radius: 28px;
     background-color: white;
-    border: none;
-    outline: none;
-    padding: 5px;
-    border-radius: 50%;
-    color:black;
+    color: black;
+    padding: 7px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    margin-left: -7px; 
+    margin-top: 28px;
+    margin-left: -5px;
+    transition: background-color 0.3s, color 0.3s;
 }
-
-.small-button {
-    padding: 7px; 
+.svg-inline--fa {
+    display: var(--fa-display, inline-block);
+    height: 1em;
+    overflow: visible;
+    vertical-align: -.125em;
+    margin-left: 32%;
 }
-
-.location-button i {
-    font-size: 10px;
-}
-
-.small-icon {
-    font-size: 12px; 
+.location-button:hover {
+    
+    color: black; 
 }
 
 .location-icon {
+    width: 36px;
+    height: 36px;
     background-color: #0077DA;
-    /* color: #0077DA; */
-    /* font-size: 33px;*/
-    margin-left: 35px;
-    width: 28px;
-    height: 29px;
-    cursor: pointer;
     border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+    margin-top: 16px;
 }
 
-.large-icon {
-    font-size: 24px; 
-}
 
 .card {
     display: none; 
@@ -471,28 +474,64 @@ li {
         top: 7.5vh;
         left: 0;
         height: 84vh;
-        width: 97.6vw;
+        width: 96vw;
         z-index: 0;
         border-radius: 10px;
         padding: 10px;
         margin: 10px;
         border: 2px solid #0077DA;
     }
-    .location-wrapper {
-        display: flex;
-        align-items: center;
-        margin-bottom: 20px;
-        margin-top: -25px;
-        margin-left: 50px;
-    }
-    .location-icon {
-        background-color: #0077DA;
-        margin-left: 10px;
-        width: 28px;
-        height: 29px;
-        cursor: pointer;
-        border-radius: 50%;
-    }
+   
+.location-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 18px; 
+    width: 52%;
+}
+
+.location-input-container {
+    width: 80%;
+}
+
+.location-button {
+    width: 93%;
+    border: 2px solid #0077DA;
+    border-radius: 28px;
+    background-color: white;
+    color: black;
+    padding: 7px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-top: -27px;
+    margin-left: 45px;
+    transition: background-color 0.3s, color 0.3s;
+}
+.svg-inline--fa {
+    display: var(--fa-display, inline-block);
+    height: 1em;
+    overflow: visible;
+    vertical-align: -.125em;
+    margin-left: 27%;
+}
+.location-button:hover {
+    
+    color: black; 
+}
+
+.location-icon {
+    width: 36px;
+    height: 36px;
+    background-color: #0077DA;
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+    margin-top: -32px;
+    margin-left: 29px;
+}
+
     .Geo img {
         position: absolute;
         z-index: 9999;
@@ -510,12 +549,22 @@ li {
         max-width: 400px;
         z-index: 1;
         display: none;
-        background-color: rgba(255, 255, 255, 0.9);
-        border: 2px solid #0077DA;
+        background: rgba(255, 255, 255, 0.50);
+        /* border: 2px solid #0077DA; */
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         transition: all 0.3s ease;
         font-size: 12px;
+    }
+    .message-container {
+        position: absolute;
+        bottom: 0;
+        left: 40%;
+        bottom: 22px;
+        transform: translateX(-50%);
+        padding: 10px;
+        width: 80%;
+        max-width: 800px;
     }
     .message-container p {
         font-size: 10px;
@@ -530,7 +579,7 @@ li {
         background-color: #0077DA;
         color: white;
         top: 0px;
-        left: 92%;
+        left: 112%;
         position: absolute;
         font-size: 10px;
     }
@@ -542,7 +591,7 @@ li {
         background-color: #0077DA;
         color: white;
         top: 10px;
-        left: 71vw;
+        left: 69vw;
         z-index: 1;
         border-radius: 20px;
         font-size: 10px;
@@ -557,7 +606,7 @@ li {
         top: 7.5vh;
         left: 0;
         height: 84vh;
-        width: 98vw;
+        width: 96.5vw;
         z-index: 0;
         border-radius: 10px;
         padding: 10px;
@@ -567,18 +616,53 @@ li {
     .location-wrapper {
         display: flex;
         align-items: center;
-        margin-bottom: 20px;
-        margin-top: -25px;
-        margin-left: 50px;
+        gap: 10px; 
+        width: 97%;
     }
-    .location-icon {
-        background-color: #0077DA;
-        margin-left: 10px;
-        width: 28px;
-        height: 29px;
+    
+    .location-input-container {
+        width: 69%;
+    }
+    
+    .location-button {
+        width: 52%;
+        border: 2px solid #0077DA;
+        border-radius: 28px;
+        background-color: white;
+        color: black;
+        padding: 7px;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         cursor: pointer;
-        border-radius: 50%;
+        margin-top: -22px;
+        margin-left: 45px;
+        transition: background-color 0.3s, color 0.3s;
     }
+    .svg-inline--fa {
+        display: var(--fa-display, inline-block);
+        height: 1em;
+        overflow: visible;
+        vertical-align: -.125em;
+        margin-left: 27%;
+    }
+    .location-button:hover {
+         
+        color: black; 
+    }
+    
+    .location-icon {
+        width: 36px;
+        height: 36px;
+        background-color: #0077DA;
+        border-radius: 50%;
+        padding: 5px;
+        cursor: pointer;
+        margin-top: -22px;
+        margin-left: -256px;
+    }
+    
     .Geo img {
         position: absolute;
         z-index: 9999;
@@ -589,34 +673,44 @@ li {
     }
     .card {
         position: absolute;
-        top: 7vh;
-        left: 21%;
+        top: 6vh;
+        left: 24%;
         transform: translateX(-50%);
-        width: 27%;
+        width: 32%;
         max-width: 400px;
         z-index: 1;
         display: none;
-        background-color: rgba(255, 255, 255, 0.9);
+        background: rgba(255, 255, 255, 0.50);
     
+    }
+    .message-container {
+        position: absolute;
+        bottom: 0;
+        left: 41%;
+        bottom: 34px;
+        transform: translateX(-50%);
+        padding: 10px;
+        width: 80%;
+        max-width: 800px;
     }
     .message-container p {
         margin-bottom: -25px;
-        margin-left: -104px;
+        margin-left: -2px;
     }
     .btn {
-        width: 50px; 
+        width: 50px;
         max-width: 95%;
-        height: 26px; 
+        height: 26px;
         justify-content: right;
         background-color: #0077DA;
         color: white;
         top: 0px;
-        left: 106%;
+        left: 115%;
         position: absolute;
         font-size: 10px;
     }
     .toggle-label {
-        left: 77vw;
+        left: 75vw;
     }
 }
 
@@ -636,18 +730,52 @@ li {
     .location-wrapper {
         display: flex;
         align-items: center;
-        margin-bottom: 20px;
-        margin-top: -25px;
-        margin-left: 50px;
+        gap: 18px; 
     }
-    .location-icon {
-        background-color: #0077DA;
-        margin-left: 10px;
-        width: 28px;
-        height: 29px;
+    
+    .location-input-container {
+        width: 80%;
+    }
+    
+    .location-button {
+        width: 43%;
+        border: 2px solid #0077DA;
+        border-radius: 28px;
+        background-color: white;
+        color: black;
+        padding: 7px;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         cursor: pointer;
-        border-radius: 50%;
+        margin-top: -27px;
+        margin-left: 45px;
+        transition: background-color 0.3s, color 0.3s;
     }
+    .svg-inline--fa {
+        display: var(--fa-display, inline-block);
+        height: 1em;
+        overflow: visible;
+        vertical-align: -.125em;
+        margin-left: 27%;
+    }
+    .location-button:hover {
+        
+        color: black; 
+    }
+    
+    .location-icon {
+        width: 36px;
+        height: 36px;
+        background-color: #0077DA;
+        border-radius: 50%;
+        padding: 5px;
+        cursor: pointer;
+        margin-top: -22px;
+        margin-left: -256px;
+    }
+    
     .Geo img {
         position: absolute;
         z-index: 9999;
@@ -665,11 +793,12 @@ li {
         max-width: 400px;
         z-index: 1;
         display: none;
-        background-color: rgba(255, 255, 255, 0.9);
+        background: rgba(255, 255, 255, 0.50);
     }
     .message-container p {
         margin-bottom: -25px;
-        margin-left: -311px;
+        margin-left: -141px;
+        font-size: 12px;
     }
     .btn {
         width: 50px;
@@ -691,9 +820,9 @@ li {
 @media only screen and (min-width: 1440px) {
     #map {
         position: absolute;
-        top: 7vh;
+        top: 7.5vh;
         left: 0;
-        height: 86vh;
+        height: 85vh;
         width: 98.5vw;
         z-index: 0;
         border-radius: 10px;
@@ -704,18 +833,53 @@ li {
     .location-wrapper {
         display: flex;
         align-items: center;
-        margin-bottom: 20px;
-        margin-top: -25px;
-        margin-left: 50px;
+        gap: 1px; 
+        width: 104%;
     }
-    .location-icon {
-        background-color: #0077DA;
-        margin-left: 10px;
-        width: 28px;
-        height: 29px;
+    
+    .location-input-container {
+        width: 46%;
+    }
+    
+    .location-button {
+        width: 48%;
+        border: 2px solid #0077DA;
+        border-radius: 28px;
+        background-color: white;
+        color: black;
+        padding: 7px;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         cursor: pointer;
-        border-radius: 50%;
+        margin-top: -20px;
+        margin-left: -10px;
+        transition: background-color 0.3s, color 0.3s;
     }
+    .svg-inline--fa {
+        display: var(--fa-display, inline-block);
+        height: 1em;
+        overflow: visible;
+        vertical-align: -.125em;
+        margin-left: 27%;
+    }
+    .location-button:hover {
+       
+        color: black; 
+    }
+    
+    .location-icon {
+        width: 36px;
+        height: 36px;
+        background-color: #0077DA;
+        border-radius: 50%;
+        padding: 5px;
+        cursor: pointer;
+        margin-top: -22px;
+        margin-left: -300px;
+    }
+    
     .Geo img {
         position: absolute;
         z-index: 9999;
@@ -726,69 +890,29 @@ li {
     }
     .card {
         position: absolute;
-        top: 6.3vh;
-        left: 18%;
+        top: 7.3vh;
+        left: 17%;
         transform: translateX(-50%);
-        width: 20%;
+        width: 22%;
         max-width: 400px;
         z-index: 1;
         display: none;
-        background-color: rgba(255, 255, 255, 0.9);
+        background: rgba(255, 255, 255, 0.50);
+    }
+    .message-container {
+        position: absolute;
+        bottom: 0;
+        left: 37%;
+        bottom: 34px;
+        transform: translateX(-50%);
+        padding: 10px;
+        width: 80%;
+        max-width: 800px;
     }
     .message-container p {
-        margin-bottom: -25px;
-        margin-left: -337px;
+       margin-top: 60px;
+        margin-left: -170px;
         font-size: 12px;
-       @media only screen and (min-width: 1500px) {
-    #map {
-        position: absolute;
-        top: 6vh;
-        left: 0;
-        height: 86vh;
-        width: 98.5vw;
-        z-index: 0;
-        border-radius: 10px;
-        padding: 10px;
-        margin: 10px;
-        border: 2px solid #0077DA;
-    }
-    .location-wrapper {
-        display: flex;
-        align-items: center;
-        margin-bottom: 20px;
-        margin-top: -25px;
-        margin-left: 40px;
-    }
-    .location-icon {
-        background-color: #0077DA;
-        margin-left: 10px;
-        width: 28px;
-        height: 29px;
-        cursor: pointer;
-        border-radius: 50%;
-    }
-    .Geo img {
-        position: absolute;
-        z-index: 9999;
-        top: 0;
-        color: black;
-        height: 7dvh;
-        left: 10px;
-    }
-    .card {
-        position: absolute;
-        top: 8vh;
-        left: 21%;
-        transform: translateX(-50%);
-        width: 27%;
-        max-width: 400px;
-        z-index: 1;
-        display: none;
-        background-color: rgba(255, 255, 255, 0.9);
-    }
-    .message-container p {
-        margin-bottom: -25px;
-        margin-left: -207px;
     }
     .btn {
         width: 50px;
@@ -797,30 +921,13 @@ li {
         justify-content: right;
         background-color: #0077DA;
         color: white;
-        top: 0px;
-        left: 132%;
+        top: 70px;
+        left: 162%;
         position: absolute;
         font-size: 10px;
     }
     .toggle-label {
-        left: 81vw;
-    }
-}
-    }
-    .btn {
-        width: 50px;
-        max-width: 95%;
-        height: 30px;
-        justify-content: right;
-        background-color: #0077DA;
-        color: white;
-        top: 3px;
-        left: 135%;
-        position: absolute;
-        font-size: 10px;
-    }
-    .toggle-label {
-        left: 81vw;
+        left: 80vw;
     }
 }
 
@@ -835,10 +942,10 @@ li {
 
      #map {
         position: absolute;
-        top: 13vh;
+        top: 15vh;
         left: 0;
         height: 73vh;
-        width: 116.6vw;
+        width: 94.6vw;
         z-index: 0;
         border-radius: 10px;
         padding: 10px;
@@ -848,19 +955,53 @@ li {
     .location-wrapper {
         display: flex;
         align-items: center;
-        margin-bottom: 20px;
-        margin-top: 15px;
-        margin-left: 1px;
-        margin-top: 30px;
+        gap: 16px; 
+        margin-top: 17px;
+        width: 390px;
     }
-    .location-icon {
-        background-color: #0077DA;
-        margin-left: 30px;
-        width: 30px;
-        height: 30px;
+    
+    .location-input-container {
+        width: 80%;
+    }
+    
+    .location-button {
+        width: 103%;
+        border: 2px solid #0077DA;
+        border-radius: 28px;
+        background-color: white;
+        color: black;
+        padding: 7px;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         cursor: pointer;
-        border-radius: 50%;
+        margin-top: 25px;
+        margin-left: -5px;
+        transition: background-color 0.3s, color 0.3s;
     }
+    .svg-inline--fa {
+        display: var(--fa-display, inline-block);
+        height: 1em;
+        overflow: visible;
+        vertical-align: -.125em;
+        margin-left: 35%;
+    }
+    .location-button:hover {
+        color: black; /* Text color on hover */
+    }
+    
+    .location-icon {
+        width: 36px;
+        height: 36px;
+        background-color: #0077DA;
+        border-radius: 50%;
+        padding: 5px;
+        cursor: pointer;
+        margin-top: 16px;
+    }
+    
+    
     .Geo img {
         position: absolute;
         z-index: 9999;
@@ -871,15 +1012,15 @@ li {
     }
     .card {
         position: absolute;
-        top: 12vh;
-        left: 32%;
+        top: 16vh;
+        left: 50%;
         transform: translateX(-50%);
-        width: 60%;
+        width: 94%;
         max-width: 400px;
         z-index: 1;
         display: none;
-        background-color: rgba(255, 255, 255, 0.9);
-        border: 2px solid #0077DA;
+        background: rgba(255, 255, 255, 0.50);
+        /* border: 2px solid #0077DA; */
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         transition: all 0.3s ease;
@@ -887,7 +1028,7 @@ li {
     }
     .message-container p {
         font-size: 10px;
-        margin-bottom: 26px;
+  margin-bottom: -23px;
         margin-left: 13px;
     }
     .btn {
@@ -910,7 +1051,7 @@ li {
         background-color: #0077DA;
         color: white;
         top: 13px;
-        left: 71vw;
+        left: 48vw;
         z-index: 1;
         border-radius: 20px;
         font-size: 10px;
@@ -972,8 +1113,8 @@ li {
         max-width: 400px;
         z-index: 1;
         display: none;
-        background-color: rgba(255, 255, 255, 0.9);
-        border: 2px solid #0077DA;
+        background: rgba(255, 255, 255, 0.50);
+        /* border: 2px solid #0077DA; */
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         transition: all 0.3s ease;
@@ -1023,10 +1164,10 @@ li {
   and (-webkit-device-pixel-ratio: 3) {
     #map {
         position: absolute;
-        top: 12vh;
+        top: 15vh;
         left: 0;
-        height: 65vh;
-        width: 112.6vw;
+        height: 68vh;
+        width: 95.6vw;
         z-index: 0;
         border-radius: 10px;
         padding: 10px;
@@ -1040,6 +1181,7 @@ li {
         margin-top: 15px;
         margin-left: 1px;
         margin-top: 30px;
+        width: 400px;
     }
     .location-icon {
         background-color: #0077DA;
@@ -1059,15 +1201,15 @@ li {
     }
     .card {
         position: absolute;
-        top: 11vh;
-        left: 32%;
+        top: 16vh;
+        left: 50%;
         transform: translateX(-50%);
-        width: 60%;
+        width: 100%;
         max-width: 400px;
         z-index: 1;
         display: none;
-        background-color: rgba(255, 255, 255, 0.9);
-        border: 2px solid #0077DA;
+        background: rgba(255, 255, 255, 0.50);
+        /* border: 2px solid #0077DA; */
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         transition: all 0.3s ease;
@@ -1087,7 +1229,7 @@ li {
      .message-container p {
         font-size: 10px;
         margin-top: 90px; 
-        margin-bottom: 26px;
+        margin-bottom: -40px;
         margin-left: 13px; 
     } 
     .btn {
@@ -1097,8 +1239,8 @@ li {
         justify-content: right;
         background-color: #0077DA;
         color: white;
-        top: 92px;
-        left: 103%;
+        top: 136px;
+        left: 84%;
         position: absolute;
         font-size: 10px;
     }
@@ -1110,7 +1252,7 @@ li {
         background-color: #0077DA;
         color: white;
         top: 13px;
-        left: 71vw;
+        left: 52vw;
         z-index: 1;
         border-radius: 20px;
         font-size: 10px;
@@ -1173,8 +1315,8 @@ li {
         max-width: 400px;
         z-index: 1;
         display: none;
-        background-color: rgba(255, 255, 255, 0.9);
-        border: 2px solid #0077DA;
+        background: rgba(255, 255, 255, 0.50);
+        /* border: 2px solid #0077DA; */
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         transition: all 0.3s ease;
@@ -1278,8 +1420,8 @@ li {
             max-width: 400px;
             z-index: 1;
             display: none;
-            background-color: rgba(255, 255, 255, 0.9);
-            border: 2px solid #0077DA;
+            background: rgba(255, 255, 255, 0.50);
+            /* border: 2px solid #0077DA; */
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
@@ -1344,6 +1486,202 @@ li {
             top: 14vh;
             left: 0;
             height: 67vh;
+            width: 94.6vw;
+            z-index: 0;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px;
+            border: 2px solid #0077DA;
+        }
+        .location-wrapper {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            margin-top: 15px;
+            margin-left: 1px;
+            margin-top: 30px;
+            width: 400px;
+        }
+        .location-icon {
+            background-color: #0077DA;
+            margin-left: 30px;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        .Geo img {
+            position: absolute;
+            z-index: 9999;
+            top: 0;
+            color: black;
+            height: 7dvh;
+            left: 10px;
+        }
+        .card {
+            position: absolute;
+            top: 15.1vh;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 95%;
+            max-width: 400px;
+            z-index: 1;
+            display: none;
+            background: rgba(255, 255, 255, 0.50);
+            /* border: 2px solid #0077DA; */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            font-size: 12px;
+        }
+        .message-container {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            bottom: 77px;
+            padding: 10px;
+            width: 100%;
+            max-width: 800px;
+        }
+        .btn {
+            width: 50px;
+            max-width: 95%;
+            height: 26px;
+            justify-content: right;
+            background-color: #0077DA;
+            color: white;
+            top: 50px;
+            left: 83%;
+            position: absolute;
+            font-size: 10px;
+        }
+        .toggle-label {
+            display: block;
+            position: absolute;
+            width: 220%;
+            height: 100%;
+            background-color: #0077DA;
+            color: white;
+            top: 13px;
+            left: 52vw;
+            z-index: 1;
+            border-radius: 20px;
+            font-size: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+    }
+
+/* meadia query for iphone 11 pro */
+
+    @media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 375px) 
+  and (min-device-height: 812px) 
+  and (max-device-height: 812px) 
+  and (-webkit-device-pixel-ratio: 3) {
+    #map {
+        position: absolute;
+        top: 17vh;
+        left: 0;
+        height: 68vh;
+        width: 94.6vw;
+        z-index: 0;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 10px;
+        border: 2px solid #0077DA;
+    }
+    .location-wrapper {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        margin-top: 15px;
+        margin-left: 1px;
+        width: 365px;
+    }
+    .location-icon {
+        background-color: #0077DA;
+        margin-left: 30px;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        border-radius: 50%;
+    }
+    .Geo img {
+        position: absolute;
+        z-index: 9999;
+        top: 0;
+        color: black;
+        height: 7dvh;
+        left: 10px;
+    }
+    .card {
+        position: absolute;
+        top: 18.2vh;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 95%;
+        max-width: 400px;
+        z-index: 1;
+        display: none;
+        background: rgba(255, 255, 255, 0.50);
+        /* border: 2px solid #0077DA; */
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        font-size: 12px;
+    }
+    .message-container {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        bottom: 35px;
+        padding: 10px;
+        width: 100%;
+        max-width: 800px;
+    }
+    .btn {
+        width: 50px;
+        max-width: 95%;
+        height: 26px;
+        justify-content: right;
+        background-color: #0077DA;
+        color: white;
+        top: 30px;
+        left: 80%;
+        position: absolute;
+        font-size: 10px;
+    }
+    .toggle-label {
+        display: block;
+        position: absolute;
+        height: 100%;
+        height: 100%;
+        background-color: #0077DA;
+        color: white;
+        top: 13px;
+        left: 50vw;
+        z-index: 1;
+        border-radius: 20px;
+        font-size: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+}
+
+@media only screen
+    and (min-device-width: 320px)
+    and (max-device-width: 340px)
+    and (min-device-height: 680px)
+    and (max-device-height: 690px)
+    and (-webkit-device-pixel-ratio: 3) {
+
+        #map {
+            position: absolute;
+            top: 14vh;
+            left: 0;
+            height: 71vh;
             width: 115.6vw;
             z-index: 0;
             border-radius: 10px;
@@ -1377,15 +1715,15 @@ li {
         }
         .card {
             position: absolute;
-            top: 12.1vh;
+            top: 12.2vh;
             left: 35%;
             transform: translateX(-50%);
             width: 65%;
             max-width: 400px;
             z-index: 1;
             display: none;
-            background-color: rgba(255, 255, 255, 0.9);
-            border: 2px solid #0077DA;
+            background: rgba(255, 255, 255, 0.50);
+            /* border: 2px solid #0077DA; */
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
@@ -1395,7 +1733,7 @@ li {
             position: absolute;
             bottom: 0;
             left: 50%;
-            bottom: 77px;
+            bottom: 19px;
             padding: 10px;
             width: 100%;
             max-width: 800px;
@@ -1428,101 +1766,3 @@ li {
             transition: background-color 0.3s;
         }
     }
-
-/* meadia query for iphone 11 pro */
-
-    @media only screen 
-  and (min-device-width: 375px) 
-  and (max-device-width: 375px) 
-  and (min-device-height: 812px) 
-  and (max-device-height: 812px) 
-  and (-webkit-device-pixel-ratio: 3) {
-    #map {
-        position: absolute;
-        top: 14vh;
-        left: 0;
-        height: 71vh;
-        width: 115.6vw;
-        z-index: 0;
-        border-radius: 10px;
-        padding: 10px;
-        margin: 10px;
-        border: 2px solid #0077DA;
-    }
-    .location-wrapper {
-        display: flex;
-        align-items: center;
-        margin-bottom: 20px;
-        margin-top: 15px;
-        margin-left: 1px;
-        margin-top: 30px;
-    }
-    .location-icon {
-        background-color: #0077DA;
-        margin-left: 30px;
-        width: 30px;
-        height: 30px;
-        cursor: pointer;
-        border-radius: 50%;
-    }
-    .Geo img {
-        position: absolute;
-        z-index: 9999;
-        top: 0;
-        color: black;
-        height: 7dvh;
-        left: 10px;
-    }
-    .card {
-        position: absolute;
-        top: 12.2vh;
-        left: 35%;
-        transform: translateX(-50%);
-        width: 65%;
-        max-width: 400px;
-        z-index: 1;
-        display: none;
-        background-color: rgba(255, 255, 255, 0.9);
-        border: 2px solid #0077DA;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-        font-size: 12px;
-    }
-    .message-container {
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        bottom: 19px;
-        padding: 10px;
-        width: 100%;
-        max-width: 800px;
-    }
-    .btn {
-        width: 50px;
-        max-width: 95%;
-        height: 26px;
-        justify-content: right;
-        background-color: #0077DA;
-        color: white;
-        top: 10px;
-        left: 103%;
-        position: absolute;
-        font-size: 10px;
-    }
-    .toggle-label {
-        display: block;
-        position: absolute;
-        width: 220%;
-        height: 100%;
-        background-color: #0077DA;
-        color: white;
-        top: 13px;
-        left: 71vw;
-        z-index: 1;
-        border-radius: 20px;
-        font-size: 10px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
-}

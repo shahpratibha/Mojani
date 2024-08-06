@@ -84,9 +84,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $taluka, 
         $village, 
         $survey_number, 
-        $surveyMapFileName, 
-        $villageMapFileName, 
-        $pdf712FileName
+        $surveyMapFileName ?: null,  
+        $villageMapFileName?: null, 
+        $pdf712FileName?: null
     ]);
 
     // Check if insertion was successful

@@ -9,13 +9,14 @@ body {
     font-family: 'Times New Roman', Times, serif;
 
 }
-.btn-submit{
-border: 2px solid;
+
+.btn-submit {
+    border: 2px solid;
 }
 
 .leaflet-top {
     top: 37px;
-    margin-top: -570px;
+    margin-top: 38px;
 }
 
 .leaflet-control-attribution {
@@ -50,7 +51,7 @@ border: 2px solid;
 .form-control {
     position: relative;
     height: 40px;
-    overflow-y: auto;
+    /* overflow-y: auto; */
 }
 
 .form-control i {
@@ -110,6 +111,7 @@ border: 2px solid;
     top: 0;
     left: 0;
 }
+
 .from {
     height: 100px;
     width: 100%;
@@ -137,7 +139,7 @@ border: 2px solid;
     width: 70%;
     max-width: 400px;
     height: 100vh;
-    overflow-y: auto;
+    /* overflow-y: auto; */
 }
 
 .modal-content {
@@ -279,6 +281,119 @@ li {
     margin-top: 97px;
 }
 
+/* For the alternate toggle switch */
+.toggle-switch-alternate {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 34px;
+}
+
+.toggle-input-alternate {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-label-alternate {
+    display: block;
+    position: absolute;
+    width: 180%;
+    height: 100%;
+    background-color: #0077DA;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    top: 6px;
+}
+
+.toggle-text-left-alternate {
+    position: absolute;
+    z-index: 1;
+    top: 55%;
+    font-size: 12px;
+    left: 10px;
+    color: #0077DA;
+    transform: translateY(-50%);
+}
+
+.toggle-text-right-alternate {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    font-size: 12px;
+    right: 1px;
+    color: white;
+    transform: translateY(-50%);
+}
+
+.toggle-handle-alternate {
+    position: absolute;
+    top: 1px;
+    left: 4px;
+    width: 50px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+/* Hide default input */
+.toggle-input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Toggle Label */
+.toggle-label {
+    display: block;
+    position: absolute;
+    width: 185%;
+    height: 89%;
+    background-color: #0077DA;
+    color: white;
+    top: 75px;
+    left: 88vw;
+    z-index: 1;
+    border-radius: 20px;
+    font-size: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Toggle Handle */
+.toggle-handle {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 65px;
+    height: 23px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+/* Toggle Text Left (State) */
+.toggle-text-left {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 10px;
+    color: #0077DA;
+    transform: translateY(-50%);
+}
+
+/* Toggle Text Right (Maharashtra) */
+.toggle-text-right {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
 
 /* Styles specifically for devices with a minimum width of 320px */
 
@@ -294,7 +409,9 @@ li {
     }
 
     .leaflet-top {
-        top: 71% !important;
+        .leaflet-top {
+            margin-top: 37px;
+        }
     }
 
     .svg-inline--fa {
@@ -314,7 +431,7 @@ li {
         border-radius: 4px;
         background-color: white;
         cursor: pointer;
-        margin-top: 87px;
+        margin-top: 57px;
         position: relative;
         z-index: 1000;
         width: 32px;
@@ -368,18 +485,17 @@ li {
     .toggle-label {
         display: block;
         position: absolute;
-        /* width: 289%; */
+        width: 169%;
         height: 100%;
         background-color: #0077DA;
         color: white;
-        top: -1px;
-        left: -5%;
+        top: 95px;
+        left: 495%;
         z-index: 1;
         border-radius: 20px;
         cursor: pointer;
         transition: background-color 0.3s;
     }
-
 
     #navbarDropdown {
         font: 1rem;
@@ -387,8 +503,8 @@ li {
         text-transform: uppercase;
         text-shadow: #fff;
         font-size: 14px;
-        margin-top: 49px;
-        margin-right: 20px;
+        margin-top: 50px;
+        margin-right: 24px;
     }
 
     .leaflet-touch .leaflet-control-layers,
@@ -447,7 +563,7 @@ li {
     }
 
     .btn-outline-success {
-        font-size: 10px !important;
+        font-size: 15px !important;
         background: #0077da !important;
         /* background: aliceblue; */
         font-family: sans-serif;
@@ -525,8 +641,8 @@ li {
         position: absolute;
         top: 10vh;
         left: -9px;
-        height: 123vh;
-        width: 137vw;
+        height: 116vh;
+        width: 135vw;
         z-index: 0;
         border-radius: 10px;
         padding: 10px;
@@ -542,12 +658,12 @@ li {
 
     .modal-dialog.draggable-modal {
         position: fixed;
-        top: 2px;
-        left: 9px;
+        top: 47px;
+        left: 47px;
         border-radius: 15px;
         margin-left: 0;
         margin-right: auto;
-        width: 76%;
+        width: 86%;
         /* max-width: 400px; */
         height: 140vh;
         /* overflow-y: auto; */
@@ -605,10 +721,12 @@ li {
         position: relative;
         display: flex;
         flex-direction: column;
-        width: 70%;
+        width: 100%;
         color: var(--bs-modal-color);
         pointer-events: auto;
-        background-color: rgba(255, 255, 255, 0.8);
+        border: 1px solid var(--Grey-300, #A8A8A8);
+        background: rgba(255, 255, 255,0.50);
+
         background-clip: padding-box;
         border: var(--bs-modal-border-width) solid var(--bs-modal-border-color);
         border-radius: var(--bs-modal-border-radius);
@@ -642,13 +760,29 @@ li {
         box-sizing: border-box;
     }
 
+    .icon-wrapper {
+        position: absolute;
+        top: 20%;
+        left: 8px;
+        background-color: white;
+        border: 2px solid #0077da;
+        border-radius: 5px;
+        padding: 5px;
+        z-index: 2;
+    }
 
+    .location-icon {
+        width: 22px;
+        height: 21px;
+        cursor: pointer;
+        display: block;
+    }
 }
 
 
 /* Media query for tablets */
 @media (min-width: 768px) and (max-width: 768px) {
-    
+
     #map {
         position: absolute;
         top: 62PX;
@@ -668,7 +802,7 @@ li {
         border-radius: 4px;
         background-color: white;
         cursor: pointer;
-        margin-top: 78px;
+        margin-top: 48px;
         position: relative;
         z-index: 1000;
         width: 32px;
@@ -698,8 +832,9 @@ li {
 
     .leaflet-top {
         top: 37px;
-        margin-top: 0px;
+        margin-top: 35px;
     }
+
 
     .leaflet-retina .leaflet-control-layers-toggle {
         background-image: url(./image/Layers_Icon.png);
@@ -730,12 +865,113 @@ li {
         align-items: center;
         gap: 10px;
     }
+
     .btn-close {
-        margin-top: 1opx ;
-        font-size: 10px ;
+        margin-top: 1opx;
+        font-size: 10px;
         margin-left: 210px;
     }
+
+    .icon-wrapper {
+        position: absolute;
+        top: 18%;
+        left: 18px;
+        background-color: white;
+        border: 2px solid #0077da;
+        border-radius: 5px;
+        padding: 5px;
+        z-index: 2;
+    }
+
+    .location-icon {
+        width: 18px;
+        height: 17px;
+        cursor: pointer;
+        display: block;
+    }
+
+    .btn-outline-success {
+        font-size: 15px !important;
+        background: #0077da !important;
+        /* background: aliceblue; */
+        font-family: sans-serif;
+        color: white !important;
+    }
+    .modal-dialog.draggable-modal {
+        position: fixed;
+        top: 47px;
+        left: 47px;
+        border-radius: 15px;
+        margin-left: 0;
+        margin-right: auto;
+        width: 86%;
+        /* max-width: 400px; */
+        height: 140vh;
+        /* overflow-y: auto; */
+    }
     
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 34px;
+}
+
+/* Hide default input */
+.toggle-input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Toggle Label */
+.toggle-label {
+    display: block;
+    position: absolute;
+    width: 177%;
+    height: 98%;
+    background-color: #0077DA;
+    color: white;
+    top: 68px;
+    left: 83vw;
+    z-index: 1;
+    border-radius: 20px;
+    font-size: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Toggle Handle */
+.toggle-handle {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 70px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+/* Toggle Text Left (State) */
+.toggle-text-left {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 10px;
+    color: #0077DA;
+    transform: translateY(-50%);
+}
+
+/* Toggle Text Right (Maharashtra) */
+.toggle-text-right {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
+
 }
 
 
@@ -753,6 +989,7 @@ li {
         border-radius: 5px;
         box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
     }
+
     .menu-bar {
         display: inline-flex;
         justify-content: center;
@@ -762,7 +999,7 @@ li {
         border-radius: 4px;
         background-color: white;
         cursor: pointer;
-        margin-top: 70px;
+        margin-top: 41px;
         position: relative;
         z-index: 1000;
         width: 32px;
@@ -778,6 +1015,7 @@ li {
         border: none;
         background-color: transparent;
     }
+
     .Geo img {
         position: absolute;
         z-index: 9999;
@@ -791,7 +1029,7 @@ li {
 
     .leaflet-top {
         top: 37px;
-        margin-top: 0px;
+        margin-top: 34px;
     }
 
     .leaflet-retina .leaflet-control-layers-toggle {
@@ -801,6 +1039,7 @@ li {
         width: 29px;
         border-radius: 5px;
     }
+
     #navbarDropdown {
         font: 1rem;
         color: #0077DA;
@@ -810,7 +1049,7 @@ li {
         margin-top: 9px;
         margin-right: -24px;
     }
-    
+
     li {
         list-style: none;
         font-size: 13px;
@@ -822,11 +1061,113 @@ li {
         align-items: center;
         gap: 10px;
     }
+
     .btn-close {
-        margin-top: 1opx ;
-        font-size: 10px ;
+        margin-top: 1opx;
+        font-size: 10px;
         margin-left: 230px;
     }
+
+    .icon-wrapper {
+        position: absolute;
+        top: 13%;
+        left: 11px;
+        background-color: white;
+        border: 2px solid #0077da;
+        border-radius: 5px;
+        padding: 5px;
+        z-index: 2;
+    }
+
+    .location-icon {
+        width: 18px;
+        height: 17px;
+        cursor: pointer;
+        display: block;
+    }
+
+    .btn-outline-success {
+        font-size: 15px !important;
+        background: #0077da !important;
+        /* background: aliceblue; */
+        font-family: sans-serif;
+        color: white !important;
+    }
+    .modal-dialog.draggable-modal {
+        position: fixed;
+        top: 47px;
+        left: 47px;
+        border-radius: 15px;
+        margin-left: 0;
+        margin-right: auto;
+        width: 86%;
+        /* max-width: 400px; */
+        height: 140vh;
+        /* overflow-y: auto; */
+    }
+    
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 34px;
+}
+
+/* Hide default input */
+.toggle-input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Toggle Label */
+.toggle-label {
+    display: block;
+    position: absolute;
+    width: 186%;
+    height: 100%;
+    background-color: #0077DA;
+    color: white;
+    top: 63px;
+    left: 87vw;
+    z-index: 1;
+    border-radius: 20px;
+    font-size: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Toggle Handle */
+.toggle-handle {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 70px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+/* Toggle Text Left (State) */
+.toggle-text-left {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 10px;
+    color: #0077DA;
+    transform: translateY(-50%);
+}
+
+/* Toggle Text Right (Maharashtra) */
+.toggle-text-right {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
+
 }
 
 
@@ -835,6 +1176,7 @@ li {
     .leaflet-right {
         right: 30px;
     }
+
     #map {
         position: absolute;
         top: 64PX;
@@ -844,6 +1186,7 @@ li {
         border-radius: 5px;
         box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
     }
+
     .menu-bar {
         display: inline-flex;
         justify-content: center;
@@ -853,7 +1196,7 @@ li {
         border-radius: 5px;
         background-color: white;
         cursor: pointer;
-        margin-top: 82px;
+        margin-top: 46px;
         position: relative;
         z-index: 1000;
         width: 30px;
@@ -869,6 +1212,7 @@ li {
         border: none;
         background-color: transparent;
     }
+
     .Geo img {
         position: absolute;
         z-index: 9999;
@@ -883,8 +1227,9 @@ li {
 
     .leaflet-top {
         top: 37px;
-        margin-top: 0px;
-        right: 50px;;
+        margin-top: 50px;
+        right: 50px;
+        ;
     }
 
     .leaflet-retina .leaflet-control-layers-toggle {
@@ -894,6 +1239,7 @@ li {
         width: 29px;
         border-radius: 5px;
     }
+
     #navbarDropdown {
         font: 1rem;
         color: #0077DA;
@@ -904,7 +1250,7 @@ li {
         margin-right: -30px;
     }
 
-    
+
     li {
         list-style: none;
         font-size: 13px;
@@ -916,11 +1262,113 @@ li {
         align-items: center;
         gap: 10px;
     }
+
     .btn-close {
-        margin-top: 1opx ;
-        font-size: 10px ;
+        margin-top: 1opx;
+        font-size: 10px;
         margin-left: 230px;
-    }   
+    }
+
+    .icon-wrapper {
+        position: absolute;
+        top: 16%;
+        left: 23px;
+        background-color: white;
+        border: 2px solid #0077da;
+        border-radius: 5px;
+        padding: 5px;
+        z-index: 2;
+    }
+
+    .location-icon {
+        width: 20px;
+        height: 18px;
+        cursor: pointer;
+        display: block;
+    }
+
+    .btn-outline-success {
+        font-size: 17px !important;
+        background: #0077da !important;
+        /* background: aliceblue; */
+        font-family: sans-serif;
+        color: white !important;
+    }
+    .modal-dialog.draggable-modal {
+        position: fixed;
+        top: 37px;
+        left: 160px;
+        border-radius: 15px;
+        margin-left: 0;
+        margin-right: auto;
+        width: 86%;
+        /* max-width: 400px; */
+        height: 140vh;
+      
+        /* overflow-y: auto; */
+    }
+    
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 34px;
+}
+
+/* Hide default input */
+.toggle-input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Toggle Label */
+.toggle-label {
+    display: block;
+    position: absolute;
+    width: 180%;
+    height: 100%;
+    background-color: #0077DA;
+    color: white;
+    top: 80px;
+    left: 90vw;
+    z-index: 1;
+    border-radius: 20px;
+    font-size: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Toggle Handle */
+.toggle-handle {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 70px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+/* Toggle Text Left (State) */
+.toggle-text-left {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 10px;
+    color: #0077DA;
+    transform: translateY(-50%);
+}
+
+/* Toggle Text Right (Maharashtra) */
+.toggle-text-right {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
 }
 
 
@@ -934,6 +1382,7 @@ li {
         border-radius: 5px;
         box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
     }
+
     .menu-bar {
         display: inline-flex;
         justify-content: center;
@@ -943,7 +1392,7 @@ li {
         border-radius: 4px;
         background-color: white;
         cursor: pointer;
-        margin-top: 119px;
+        margin-top: 96px;
         position: relative;
         z-index: 1000;
         width: 35px;
@@ -959,6 +1408,7 @@ li {
         border: none;
         background-color: transparent;
     }
+
     .Geo img {
         position: absolute;
         z-index: 9999;
@@ -973,7 +1423,7 @@ li {
 
     .leaflet-top {
         top: 37px;
-        margin-top: 0px;
+        margin-top: 60px;
     }
 
     .leaflet-retina .leaflet-control-layers-toggle {
@@ -983,6 +1433,7 @@ li {
         width: 29px;
         border-radius: 5px;
     }
+
     #navbarDropdown {
         font: 1rem;
         color: #0077DA;
@@ -993,7 +1444,7 @@ li {
         margin-right: -52px;
     }
 
-    
+
     li {
         list-style: none;
         font-size: 13px;
@@ -1005,22 +1456,131 @@ li {
         align-items: center;
         gap: 10px;
     }
+
     .btn-close {
-        margin-top: 1opx ;
-        font-size: 10px ;
+        margin-top: 1opx;
+        font-size: 10px;
         margin-left: 230px;
-    }   
+    }
+
+    .icon-wrapper {
+        position: absolute;
+        top: 16%;
+        left: 27px;
+        background-color: white;
+        border: 2px solid #0077da;
+        border-radius: 5px;
+        padding: 5px;
+        z-index: 2;
+    }
+
+    .location-icon {
+        width: 22px;
+        height: 20px;
+        cursor: pointer;
+        display: block;
+    }
+
+    .btn-outline-success {
+        font-size: 18px !important;
+        background: #0077da !important;
+        /* background: aliceblue; */
+        font-family: sans-serif;
+        color: white !important;
+    }
+    .modal-dialog.draggable-modal {
+        position: fixed;
+        top: 47px;
+        left: 47px;
+        border-radius: 15px;
+        margin-left: 0;
+        margin-right: auto;
+        width: 200%;
+        height: 140vh;
+    }
+    
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 34px;
+}
+
+/* Hide default input */
+.toggle-input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Toggle Label */
+.toggle-label {
+    display: block;
+    position: absolute;
+    width: 220%;
+    height: 100%;
+    background-color: #0077DA;
+    color: white;
+    top: 101px;
+    left: 90vw;
+    z-index: 1;
+    border-radius: 20px;
+    font-size: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+/* Toggle Handle */
+.toggle-handle {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 70px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+/* Toggle Text Left (State) */
+.toggle-text-left {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 10px;
+    color: #0077DA;
+    transform: translateY(-50%);
+}
+
+/* Toggle Text Right (Maharashtra) */
+.toggle-text-right {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
+.modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: var(--bs-modal-color);
+    pointer-events: auto;
+    border: 1px solid var(--Grey-300, #A8A8A8);
+    background: rgba(255, 255, 255,0.50);
+
+    background-clip: padding-box;
+    border: var(--bs-modal-border-width) solid var(--bs-modal-border-color);
+    border-radius: var(--bs-modal-border-radius);
+    outline: 0;
+    height: 50%;
+}
 }
 
 
- /* meadia query for the iphones 12/12 pro,13/13 pro,14/14 pro */
+/* meadia query for the iphones 12/12 pro,13/13 pro,14/14 pro */
 
-@media only screen
-  and (min-device-width: 390px)
-  and (max-device-width: 390px)
-  and (min-device-height: 844px)
-  and (max-device-height: 844px)
-  and (-webkit-device-pixel-ratio: 3) {
+@media only screen and (min-device-width: 390px) and (max-device-width: 390px) and (min-device-height: 844px) and (max-device-height: 844px) and (-webkit-device-pixel-ratio: 3) {
     #map {
         position: absolute;
         top: 66PX;
@@ -1075,12 +1635,14 @@ li {
         margin-top: 0px;
     }
 
-    .leaflet-top, .leaflet-bottom {
+    .leaflet-top,
+    .leaflet-bottom {
         position: absolute;
         z-index: 1000;
         pointer-events: none;
-        margin-top: -612px;
+        margin-top: 13%;
     }
+
     .legend-div {
         position: fixed;
         top: -49px;
@@ -1097,6 +1659,7 @@ li {
         transition: all 0.3s ease-in-out;
         display: none;
     }
+
     #navbarDropdown {
         font: 1rem;
         color: #0077DA;
@@ -1118,21 +1681,34 @@ li {
         align-items: center;
         gap: 10px;
     }
+
     .btn-close {
-        margin-top: 1opx ;
-        font-size: 10px ;
+        margin-top: 1opx;
+        font-size: 10px;
         margin-left: 235px;
     }
-  }
+    .icon-wrapper {
+        position: absolute;
+        top: 20%;
+        left: 24px;
+        background-color: white;
+        border: 2px solid #0077da;
+        border-radius: 5px;
+        padding: 5px;
+        z-index: 2;
+    }
 
-  /* meadia query for the iphone 11/iphone xr / iphone xs */
+    .location-icon {
+        width: 22px;
+        height: 21px;
+        cursor: pointer;
+        display: block;
+    }
+}
 
-  @media only screen
-  and (min-device-width: 414px)
-  and (max-device-width: 414px)
-  and (min-device-height: 896px)
-  and (max-device-height: 896px)
-  and (-webkit-device-pixel-ratio: 2) {
+/* meadia query for the iphone 11/iphone xr / iphone xs */
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 414px) and (min-device-height: 896px) and (max-device-height: 896px) and (-webkit-device-pixel-ratio: 2) {
     #map {
         position: absolute;
         top: 66PX;
@@ -1187,12 +1763,14 @@ li {
         margin-top: 0px;
     }
 
-    .leaflet-top, .leaflet-bottom {
+    .leaflet-top,
+    .leaflet-bottom {
         position: absolute;
         z-index: 1000;
         pointer-events: none;
         margin-top: -612px;
     }
+
     .legend-div {
         position: fixed;
         top: -49px;
@@ -1209,6 +1787,7 @@ li {
         transition: all 0.3s ease-in-out;
         display: none;
     }
+
     #navbarDropdown {
         font: 1rem;
         color: #0077DA;
@@ -1230,21 +1809,17 @@ li {
         align-items: center;
         gap: 10px;
     }
+
     .btn-close {
-        margin-top: 1opx ;
-        font-size: 10px ;
+        margin-top: 1opx;
+        font-size: 10px;
         margin-left: 235px;
     }
-  }
+}
 
-  /* meadia query for the iphones 13/13 */
+/* meadia query for the iphones 13/13 */
 
-  @media only screen
-  and (min-device-width: 430px)
-  and (max-device-width: 430px)
-  and (min-device-height: 932px)
-  and (max-device-height: 932px)
-  and (-webkit-device-pixel-ratio: 3) {
+@media only screen and (min-device-width: 430px) and (max-device-width: 430px) and (min-device-height: 932px) and (max-device-height: 932px) and (-webkit-device-pixel-ratio: 3) {
     #map {
         position: absolute;
         top: 66PX;
@@ -1299,12 +1874,14 @@ li {
         margin-top: 0px;
     }
 
-    .leaflet-top, .leaflet-bottom {
+    .leaflet-top,
+    .leaflet-bottom {
         position: absolute;
         z-index: 1000;
         pointer-events: none;
         margin-top: -612px;
     }
+
     .legend-div {
         position: fixed;
         top: -49px;
@@ -1321,6 +1898,7 @@ li {
         transition: all 0.3s ease-in-out;
         display: none;
     }
+
     #navbarDropdown {
         font: 1rem;
         color: #0077DA;
@@ -1342,21 +1920,17 @@ li {
         align-items: center;
         gap: 10px;
     }
+
     .btn-close {
-        margin-top: 1opx ;
-        font-size: 10px ;
+        margin-top: 1opx;
+        font-size: 10px;
         margin-left: 235px;
     }
-  }
+}
 
 /* meadia query for the iphones */
-    
-  @media only screen
-  and (min-device-width: 360px)
-  and (max-device-width: 360px)
-  and (min-device-height: 780px)
-  and (max-device-height: 780px)
-  and (-webkit-device-pixel-ratio: 3) {
+
+@media only screen and (min-device-width: 360px) and (max-device-width: 360px) and (min-device-height: 780px) and (max-device-height: 780px) and (-webkit-device-pixel-ratio: 3) {
 
     #map {
         position: absolute;
@@ -1412,12 +1986,14 @@ li {
         margin-top: 0px;
     }
 
-    .leaflet-top, .leaflet-bottom {
+    .leaflet-top,
+    .leaflet-bottom {
         position: absolute;
         z-index: 1000;
         pointer-events: none;
         margin-top: -612px;
     }
+
     .legend-div {
         position: fixed;
         top: -49px;
@@ -1434,6 +2010,7 @@ li {
         transition: all 0.3s ease-in-out;
         display: none;
     }
+
     #navbarDropdown {
         font: 1rem;
         color: #0077DA;
@@ -1455,133 +2032,17 @@ li {
         align-items: center;
         gap: 10px;
     }
+
     .btn-close {
-        margin-top: 1opx ;
-        font-size: 10px ;
+        margin-top: 1opx;
+        font-size: 10px;
         margin-left: 235px;
     }
-  }
+}
 
-  /* meadia query for the iphone 15 / 15 pro */
+/* meadia query for the iphone 15 / 15 pro */
 
-  @media only screen
-    and (min-device-width: 393px)
-    and (max-device-width: 393px)
-    and (min-device-height: 852px)
-    and (max-device-height: 852px)
-    and (-webkit-device-pixel-ratio: 3) {
-        #map {
-            position: absolute;
-            top: 66PX;
-            left: 2%;
-            height: 101vh;
-            width: 137vw;
-            z-index: 0;
-            border-radius: 5px;
-            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
-            border: 3px solid #0077da;
-        }
-    
-        .menu-bar {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            padding: 5px;
-            border: 3px solid #0077da;
-            border-radius: 4px;
-            background-color: white;
-            cursor: pointer;
-            margin-top: 87px;
-            position: relative;
-            z-index: 1000;
-            width: 32px;
-            height: 32px;
-            left: 27px;
-        }
-    
-        .menu-bar img {
-            top: 7px;
-            height: 20px;
-            width: 20px;
-            left: 5px;
-            border: none;
-            background-color: transparent;
-        }
-    
-        .Geo img {
-            position: absolute;
-            z-index: 9999;
-            top: 3px;
-            margin-bottom: 14px;
-            left: 1%;
-            color: black;
-            height: 8dvh;
-        }
-    
-    
-        .leaflet-top {
-            top: 10px;
-            margin-top: 0px;
-        }
-    
-        .leaflet-top, .leaflet-bottom {
-            position: absolute;
-            z-index: 1000;
-            pointer-events: none;
-            margin-top: -612px;
-        }
-        .legend-div {
-            position: fixed;
-            top: -49px;
-            right: 40px;
-            height: 17vh;
-            width: 102px;
-            overflow-y: auto;
-            scrollbar-width: thin;
-            background-color: white;
-            border: 2px solid #0077da;
-            border-radius: 10px;
-            padding: 10px;
-            font-size: 9px;
-            transition: all 0.3s ease-in-out;
-            display: none;
-        }
-        #navbarDropdown {
-            font: 1rem;
-            color: #0077DA;
-            text-transform: uppercase;
-            text-shadow: #fff;
-            font-size: 20px;
-            margin-top: 51px;
-            margin-right: 45px;
-        }
-    
-        li {
-            list-style: none;
-            font-size: 13px;
-            right: -34px;
-        }
-    
-        .contain-toggle {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .btn-close {
-            margin-top: 1opx ;
-            font-size: 10px ;
-            margin-left: 235px;
-        }
-    }
-
-    /* meadia query for iphone 11 pro */
-
-    @media only screen 
-  and (min-device-width: 375px) 
-  and (max-device-width: 375px) 
-  and (min-device-height: 812px) 
-  and (max-device-height: 812px) 
-  and (-webkit-device-pixel-ratio: 3) {
+@media only screen and (min-device-width: 393px) and (max-device-width: 393px) and (min-device-height: 852px) and (max-device-height: 852px) and (-webkit-device-pixel-ratio: 3) {
     #map {
         position: absolute;
         top: 66PX;
@@ -1636,12 +2097,14 @@ li {
         margin-top: 0px;
     }
 
-    .leaflet-top, .leaflet-bottom {
+    .leaflet-top,
+    .leaflet-bottom {
         position: absolute;
         z-index: 1000;
         pointer-events: none;
-        margin-top: -580px;
+        margin-top: -612px;
     }
+
     .legend-div {
         position: fixed;
         top: -49px;
@@ -1658,6 +2121,7 @@ li {
         transition: all 0.3s ease-in-out;
         display: none;
     }
+
     #navbarDropdown {
         font: 1rem;
         color: #0077DA;
@@ -1679,9 +2143,147 @@ li {
         align-items: center;
         gap: 10px;
     }
+
     .btn-close {
-        margin-top: 1opx ;
-        font-size: 10px ;
+        margin-top: 1opx;
+        font-size: 10px;
         margin-left: 235px;
     }
-  }
+}
+
+/* meadia query for iphone 11 pro */
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 375px) and (min-device-height: 812px) and (max-device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+    #map {
+        position: absolute;
+        top: 66PX;
+        left: 2%;
+        height: 101vh;
+        width: 137vw;
+        z-index: 0;
+        border-radius: 5px;
+        box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
+        border: 3px solid #0077da;
+    }
+
+    .menu-bar {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        border: 3px solid #0077da;
+        border-radius: 4px;
+        background-color: white;
+        cursor: pointer;
+        margin-top: 87px;
+        position: relative;
+        z-index: 1000;
+        width: 32px;
+        height: 32px;
+        left: 27px;
+    }
+
+    .menu-bar img {
+        top: 7px;
+        height: 20px;
+        width: 20px;
+        left: 5px;
+        border: none;
+        background-color: transparent;
+    }
+
+    .Geo img {
+        position: absolute;
+        z-index: 9999;
+        top: 3px;
+        margin-bottom: 14px;
+        left: 1%;
+        color: black;
+        height: 8dvh;
+    }
+
+    .location-wrapper {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        margin-top: -25px;
+        margin-left: 50px;
+    }
+
+    .location-icon {
+        background-color: #0077DA;
+        margin-left: 10px;
+        width: 28px;
+        height: 29px;
+        cursor: pointer;
+        border-radius: 50%;
+    }
+
+    .leaflet-top {
+        top: 10px;
+        margin-top: 0px;
+    }
+
+    .leaflet-top,
+    .leaflet-bottom {
+        position: absolute;
+        z-index: 1000;
+        pointer-events: none;
+        margin-top: -580px;
+    }
+
+    .legend-div {
+        position: fixed;
+        top: -49px;
+        right: 40px;
+        height: 17vh;
+        width: 102px;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        background-color: white;
+        border: 2px solid #0077da;
+        border-radius: 10px;
+        padding: 10px;
+        font-size: 9px;
+        transition: all 0.3s ease-in-out;
+        display: none;
+    }
+
+    #navbarDropdown {
+        font: 1rem;
+        color: #0077DA;
+        text-transform: uppercase;
+        text-shadow: #fff;
+        font-size: 20px;
+        margin-top: 51px;
+        margin-right: 45px;
+    }
+
+    li {
+        list-style: none;
+        font-size: 13px;
+        right: -34px;
+    }
+
+    .contain-toggle {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .btn-close {
+        margin-top: 1opx;
+        font-size: 10px;
+        margin-left: 235px;
+    }
+}
+
+
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 34px;
+}
+
