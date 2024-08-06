@@ -65,12 +65,13 @@ if (!$uploads_result) {
 
 <body>
     <div class="container-fluid ">
-
+    
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="profile">
                     <img src="image/LOGO_DP_Zoning.png" alt="Profile Image" class="profile-img">
 
+                   
                     <!-- Button to toggle the profile card -->
                     <button id="toggleProfileCardBtn" class="user">
                         <span class="icon"><i class="fas fa-user"></i></span>
@@ -191,6 +192,10 @@ if (!$uploads_result) {
         </div>
     </div>
     </div>
+    
+    <a href="form.php" class="back-button">
+    <i class="fas fa-arrow-left"></i> 
+     </a>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>

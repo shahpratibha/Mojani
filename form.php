@@ -42,11 +42,11 @@ $logged_in_user = $_SESSION['username'];
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
 
     <style>
-        .modal-content {
+        /* .modal-content {
             height: auto;
             max-height: 400px;
             background-color: rgba(255, 255, 255, 0.8);
-        }
+        } */
 
         .modal-body {
             padding: 10px;
@@ -138,10 +138,55 @@ $logged_in_user = $_SESSION['username'];
         .file-progress span {
             display: block;
         }
+
+        .modal-content {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            color: var(--bs-modal-color);
+            pointer-events: auto;
+            border: 1px solid var(--Grey-300, #A8A8A8);
+            background: rgba(255, 255, 255, 0.50);
+            background-clip: padding-box;
+            border: var(--bs-modal-border-width) solid var(--bs-modal-border-color);
+            border-radius: var(--bs-modal-border-radius);
+            outline: 0;
+            height: 50%;
+        }
+
+        .modal-backdrop {
+            --bs-backdrop-zindex: 1050;
+            --bs-backdrop-bg: #000;
+            --bs-backdrop-opacity: 0.5;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: var(--bs-backdrop-zindex);
+            width: 100vw;
+            height: 100vh;
+            background-color: transparent;
+        }
     </style>
 </head>
 
 <body>
+
+
+    <div class="icon-wrapper">
+        <img src="./image/Pin_fill.svg" alt="Map Marker" class="location-icon" onclick="LiveLocation()">
+    </div>
+    <div id="output"></div>
+
+    <div class="toggle-switch">
+        <input type="checkbox" id="toggle" class="toggle-input">
+        <label for="toggle" class="toggle-label">
+            <span class="toggle-text toggle-text-left">State</span>
+            <span class="toggle-handle"></span>
+            <span class="toggle-text toggle-text-right">Maharashtra</span>
+        </label>
+    </div>
+
 
     <section class="row">
         <div class="col-12">
@@ -204,7 +249,7 @@ $logged_in_user = $_SESSION['username'];
                 <img src="image/menu.png" alt=" image not found" height="25" width="25">
             </button>
 
-            
+
             <div class="col-12 col-md-3 from">
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog draggable-modal">
@@ -212,15 +257,16 @@ $logged_in_user = $_SESSION['username'];
 
                             <div class="modal-body">
                                 <div class="contain-toggle">
-                                <div class="toggle-switch">
-                                    <input type="checkbox" id="toggle" class="toggle-input">
-                                    <label for="toggle" class="toggle-label">
-                                        <span class="toggle-text toggle-text-left">State</span>
-                                        <span class="toggle-handle"></span>
-                                        <span class="toggle-text toggle-text-right">Maharashtra</span>
-                                    </label>
-                                </div>
-                                <button type="button" class="btn-close custom-close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <div class="toggle-switch-alternate">
+                                        <input type="checkbox" id="toggle-alternate" class="toggle-input-alternate">
+                                        <label for="toggle-alternate" class="toggle-label-alternate">
+                                            <span class="toggle-text-alternate toggle-text-left-alternate">State</span>
+                                            <span class="toggle-handle-alternate"></span>
+                                            <span class="toggle-text-alternate toggle-text-right-alternate">Maharashtra</span>
+                                        </label>
+                                    </div>
+
+                                    <button type="button" class="btn-close custom-close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <hr>
 
@@ -248,46 +294,44 @@ $logged_in_user = $_SESSION['username'];
                                         </div>
 
                                         <div class="upload-container">
-                                            <form action="submit_form.php" method="post" enctype="multipart/form-data">
-                                                <div class="file-input-container">
-                                                    <label>
-                                                        <input type="file" class="file-input" accept=".pdf" name="survey_map" onchange="handleFileUpload(this, 'surveyMapFilePath')" required multiple>
-                                                        Upload Survey Map PDF
-                                                    </label>
-                                                    <div id="surveyMapFilePath" class="file-progress"></div>
-                                                </div>
+                                            <div class="file-input-container">
+                                                <label>
+                                                    <input type="file" class="file-input" accept=".pdf" name="survey_map" onchange="handleFileUpload(this, 'surveyMapFilePath')">
+                                                    Upload Survey Map PDF / Village Map PDF / 7/12 PDF
+                                                </label>
+                                                <div id="surveyMapFilePath" class="file-progress"></div>
+                                            </div>
 
-                                                <div class="file-input-container">
-                                                    <label>
-                                                        <input type="file" class="file-input" accept=".pdf" name="village_map" onchange="handleFileUpload(this, 'villageMapFilePath')" multiple>
-                                                        Upload Village Map PDF
-                                                    </label>
-                                                    <div id="villageMapFilePath" class="file-progress"></div>
-                                                </div>
+                                            <!-- <div class="file-input-container">
+                                                <label>
+                                                    <input type="file" class="file-input" accept=".pdf" name="village_map" onchange="handleFileUpload(this, 'villageMapFilePath')">
+                                                    Upload Village Map PDF (optional)
+                                                </label>
+                                                <div id="villageMapFilePath" class="file-progress"></div>
+                                            </div>
 
-                                                <div class="file-input-container">
-                                                    <label>
-                                                        <input type="file" class="file-input" accept=".pdf" name="pdf_7_12" onchange="handleFileUpload(this, 'pdf7_12FilePath')" multiple>
-                                                        Upload 7/12 PDF
-                                                    </label>
-                                                    <div id="pdf7_12FilePath" class="file-progress"></div>
-                                                </div>
+                                            <div class="file-input-container">
+                                                <label>
+                                                    <input type="file" class="file-input" accept=".pdf" name="pdf_7_12" onchange="handleFileUpload(this, 'pdf7_12FilePath')">
+                                                    Upload 7/12 PDF (optional)
+                                                </label>
+                                                <div id="pdf7_12FilePath" class="file-progress"></div>
+                                            </div> -->
 
-                                                <div class="file-input-container">
-                                                    <button type="submit" value="Submit" class="btn btn-outline-success">Submit</button>
-                                                </div>
-
-
-                                            </form>
+                                            <div class="file-input-container">
+                                                <button type="submit" value="Submit" class="btn btn-outline-success">Submit</button>
+                                            </div>
                                         </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div id="map"></div>
             </div>
+
+            <div id="map"></div>
+        </div>
     </section>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -315,6 +359,55 @@ $logged_in_user = $_SESSION['username'];
                 successModal.show();
             <?php } ?>
         });
+    </script>
+
+    <script>
+        // Add a tile layer to the map (ensure this URL is valid)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Declare the marker variable
+        var marker;
+
+        // Function to get live location and update the map view
+        function LiveLocation() {
+            const options = {
+                enableHighAccuracy: true,
+                timeout: 5000,
+                maximumAge: 2000
+            };
+
+            navigator.geolocation.getCurrentPosition(success, error, options);
+        }
+
+        // Success callback for geolocation
+        function success(pos) {
+            const lat = pos.coords.latitude;
+            const lng = pos.coords.longitude;
+
+            // Update the map view to the current location
+            map.setView([lat, lng], 15);
+
+            // Remove existing marker if present
+            if (marker) {
+                map.removeLayer(marker);
+            }
+
+            // Add a new marker at the current location
+            marker = L.marker([lat, lng]).addTo(map)
+                .bindPopup('You are here')
+                .openPopup();
+        }
+
+        // Error callback for geolocation
+        function error(err) {
+            if (err.code === 1) {
+                alert("Please allow geolocation access");
+            } else {
+                alert("Unable to get current location");
+            }
+        }
     </script>
 </body>
 

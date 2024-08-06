@@ -6,6 +6,8 @@
     <title>Mojani</title>
     <link rel="icon" href="image\LOGO_DP_Zoning.png" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <script>
         function validateEmail() {
             const email = document.querySelector('input[name="email"]').value;
@@ -45,7 +47,7 @@
                         <input type="text" name="occupation" placeholder="Occupation" required>
                     </div>
                     <div class="form-control">
-                        <i class="fas fa-phone icon"></i>
+                    <i class="fa-solid fa-phone"></i>
                         <input type="tel" name="contact_no" placeholder="Contact Number" required>
                     </div>
                     <button type="submit" value="Register">Register</button>

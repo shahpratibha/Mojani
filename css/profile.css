@@ -669,8 +669,8 @@ a{
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
     }
     .company-logo-lg {
-        height: 45px;
-        width: 45px;
+        height: 55px;
+        width: 55px;
         margin-top: -35px;
         margin-left: -86px !important;
         position: fixed;
@@ -799,4 +799,17 @@ a{
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
     }
     
+}
+.back-button {
+    position: fixed;
+    top: 40px;
+    left: -317px;
+    color: darkblue;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.back-button i {
+    margin-right: 5px; 
 }

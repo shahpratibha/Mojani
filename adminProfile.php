@@ -78,7 +78,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['uploadFile'])) {
 }
 
 // Fetch survey data
-$survey_data_sql = "SELECT * FROM public.survey_data";
+// Fetch survey data sorted by timestamp in descending order
+$survey_data_sql = "SELECT * FROM public.survey_data ORDER BY timestamp DESC";
 $survey_data_result = pg_query($conn, $survey_data_sql);
 
 if (!$survey_data_result) {
@@ -90,6 +91,7 @@ $survey_data = [];
 while ($row = pg_fetch_assoc($survey_data_result)) {
     $survey_data[] = $row;
 }
+
 
 // Count total number of users
 $total_users_sql = "SELECT COUNT(*) as total_users FROM public.users";
@@ -138,7 +140,7 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
 <div class="header-row d-flex justify-content-between align-items-center mt-4">
     <img src="image/LOGO_DP_Zoning.png" alt="Company Logo" class="company-logo ">
     <button type="button" class="btn btn-primary admin fw-bold" id="toggleButton">Show Profile</button>
-    <form action="logout.php" method="post" style="display: inline;">
+    <form action="index.html" method="post" style="display: inline;">
                         <button type="submit" name="Logout" class="btn">
                             <i class="fas fa-power-off" style="color: red;"></i>
                         </button>
@@ -322,7 +324,7 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
         <div class="card-body d-flex justify-content-between align-items-center">
                             <img src="image/LOGO_DP_Zoning.png" alt="Company Logo" class="company-logo-lg ">
 
-                            <a href="logout.php" class="btn mb-4"><i class="fas fa-power-off off-lg" style="color: red;"></i></a>
+                            <a href="index.html" class="btn mb-4"><i class="fas fa-power-off off-lg" style="color: red;"></i></a>
 
                         </div>
 
@@ -474,8 +476,9 @@ $total_admin_uploads = pg_fetch_result($total_admin_uploads_result, 0, 'total_ad
         </div>
     </div> 
 
-    
-
+    <a href="index.html" class="back-button">
+    <i class="fas fa-arrow-left"></i> Back
+     </a>
 
    
     <script>
