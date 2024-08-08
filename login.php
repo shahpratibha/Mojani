@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mojani</title>
     <link rel="icon" href="image/LOGO_DP_Zoning.png" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
+
 <body>
-  
+
     <?php
     // Start the session
     session_start();
@@ -36,8 +40,13 @@
     </div>
 
     <div class="container">
+
         <div class="right-section">
             <div class="login-container">
+                <!-- <a href="index.html">
+                    <i class="fa-solid fa-house icon-top-10"></i>
+                </a> -->
+
                 <form class="login-form" action="login_process.php" method="post">
                     <h2 class="login-title"><img src="image/LOGO_DP_Zoning.png" class="logo" alt=""></h2>
                     <div class="form-control">
@@ -81,4 +90,5 @@
         }
     </script>
 </body>
+
 </html>

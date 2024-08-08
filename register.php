@@ -27,6 +27,9 @@
     <div class="container">
         <div class="right-section">
             <div class="login-container">
+            <!-- <a href="index.html">
+                    <i class="fa-solid fa-house icon-top-10"></i>
+                </a> -->
                 <form class="login-form" action="register_process.php" method="post" onsubmit="return validateEmail()">
                     <h2 class="login-title"><img src="image\LOGO_DP_Zoning.png" class="logo" alt="" style=""></h2>
                     <div class="form-control">

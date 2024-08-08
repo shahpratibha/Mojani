@@ -21,18 +21,16 @@ body {
     color: white;
 } */
 
-.btn.next-button {
+/* .btn.next-button {
     background-color: #0077DA;
     border-color: #0077DA;
     color: white;
-    /* Change text color to white for better contrast */
-}
+} */
 
-.btn.next-button:hover {
+/* .btn.next-button:hover {
     background-color: #00008b;
-    /* Slightly lighter dark blue for hover effect */
     border-color: #00008b;
-}
+} */
 
 .collapse-button {
 border: 3px solid #0077DA;
@@ -69,12 +67,15 @@ border: 3px solid #0077DA;
     justify-content: right;
     background-color: #0077DA;
     color: white;
-    top: 50px;
-    left: 110%;
+    top: 43px;
+    left: 98%;
     position: absolute;
     font-size: 10px;
 }
-
+.btn:hover {
+    background-color: #0077DA;
+    color: white;
+}
 .leaflet-touch .leaflet-bar a {
     width: 20px;
     font-size: 18px;
@@ -136,10 +137,10 @@ li {
 
 .card {
     position: absolute;
-    top: 3vh;
-    left: 54%;
+    top: 1vh;
+    left: 50%;
     transform: translateX(-50%);
-    width: 130%;
+    width: 102%;
     max-width: 400px;
     z-index: 1;
     display: none;
@@ -245,8 +246,8 @@ li {
         position: absolute;
         top: 15vh;
         left: 0;
-        height: 68vh;
-        width: 107.4vw;
+        height: 70vh;
+        width: 93.4vw;
         z-index: 0;
         border-radius: 10px;
         padding: 10px;
@@ -304,13 +305,12 @@ li {
         background-color: #0077DA;
         color: white;
         top: 6px;
-        left: 70vw;
+        left: 54vw;
         z-index: 1;
         border-radius: 20px;
         cursor: pointer;
         transition: background-color 0.3s;
     }
-
 
     .leaflet-touch .leaflet-control-layers,
     .leaflet-touch .leaflet-bar {
@@ -332,7 +332,7 @@ li {
     
     .message-container p {
         font-size: 10px;
-        margin-bottom: -33px;
+        margin-bottom: -31px;
     }
 }
 
@@ -392,8 +392,8 @@ li {
 .location-wrapper {
     display: flex;
     align-items: center;
-    gap: 30px; 
-    width: 430px;
+    gap: 30px;
+    width: 400px;
 }
 
 .location-input-container {
@@ -911,7 +911,7 @@ li {
     }
     .message-container p {
        margin-top: 60px;
-        margin-left: -170px;
+        margin-left: -150px;
         font-size: 12px;
     }
     .btn {
@@ -922,7 +922,7 @@ li {
         background-color: #0077DA;
         color: white;
         top: 70px;
-        left: 162%;
+        left: 157%;
         position: absolute;
         font-size: 10px;
     }

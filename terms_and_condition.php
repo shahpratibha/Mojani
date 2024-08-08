@@ -13,8 +13,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Redirect to index page after accepting terms
     header("Location: form.php");
     exit();
-
-  
 }
 ?>
 <!DOCTYPE html>
@@ -27,19 +25,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" href="image\LOGO_DP_Zoning.png" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="css/terms_condition.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <style>
-          
+
     </style>
 </head>
 
 <body>
-<header class="header">
+    <header class="header">
         <div class="logo">
             <a class="Geo" href="#"><img src="image/LOGO_DP_Zoning.png" alt="Logo"></a>
         </div>
         <div class="profile justify-content-end">
             <ul>
-            <li class="nav-item dropdown">
+                <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <?php echo htmlspecialchars($logged_in_user); ?>
                     </a>
@@ -56,6 +56,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </header>
 
     <div class="container">
+        <!-- <a href="index.html">
+            <i class="fa-solid fa-house icon-top-10"></i>
+        </a> -->
         <h2 class="login-title">
             <img src="image/LOGO_DP_Zoning.png" class="logo" alt="" style="width:50px;height:50px;">
             <!-- <span class="fw-bold">Geopulsea</span> -->
@@ -188,8 +191,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         document.getElementById("terms").addEventListener("change", toggleButton);
     </script>
-      <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

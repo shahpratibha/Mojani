@@ -58,9 +58,10 @@ body {
 
 .form-control i {
     position: absolute;
-    left: 4px;
+    left: 2px;
     top: 1px;
     color: #32495e;
+    
 }
 
 .form-control input {
@@ -184,6 +185,10 @@ body {
     background-color: #69c0ff;
 }
 
+.icon-top-10 {
+    color: black;
+}
+
 button {
     width: 100%;
     padding: 15px;
@@ -204,6 +209,7 @@ button:hover {
     color: white;
     font-weight: bold;
 }
+
 
 .endline {
     text-align: center; 
@@ -369,6 +375,20 @@ button:hover {
             justify-content: center;
             align-items: center;
         }
+        .form-control i {
+            position: absolute;
+            left: 10px;
+            top: 1px;
+            color: #32495e;
+            
+        }
+        .form-control i {
+            position: absolute;
+            left: 8px;
+            top: 1px;
+            color: #32495e;
+            
+        }
     }
         
         @media screen and (min-width: 992px) {
@@ -401,8 +421,16 @@ button:hover {
             margin-bottom: 35px;
             margin-top: 12px;
         }
+        .form-control i {
+            position: absolute;
+            left: 8px;
+            top: 1px;
+            color: #32495e;
+            
+        }
         
   }
 
 
 
+  

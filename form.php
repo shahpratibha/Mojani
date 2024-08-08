@@ -167,6 +167,25 @@ $logged_in_user = $_SESSION['username'];
             height: 100vh;
             background-color: transparent;
         }
+
+        .form-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            /* Adjust the spacing between rows as needed */
+        }
+
+        .form-row label {
+            flex: 1;
+            margin-right: 10px;
+            /* Adjust the spacing between label and input */
+            text-align: right;
+            /* Align label text to the right */
+        }
+
+        .form-row .form-control {
+            flex: 2;
+        }
     </style>
 </head>
 
@@ -273,22 +292,22 @@ $logged_in_user = $_SESSION['username'];
 
                                 <div class="modal-body">
                                     <form method="post" action="submit_form.php" enctype="multipart/form-data">
-                                        <div class="form-group">
+                                        <div class="form-group form-row">
                                             <label>District</label>
                                             <select class="form-control" name="input1" id="input1"></select>
                                         </div>
 
-                                        <div class="form-group">
+                                        <div class="form-group form-row">
                                             <label>Taluka</label>
                                             <select class="form-control" name="input2" id="input2"></select>
                                         </div>
 
-                                        <div class="form-group">
+                                        <div class="form-group form-row">
                                             <label>Village</label>
                                             <select class="form-control" name="input3" id="input3"></select>
                                         </div>
 
-                                        <div class="form-group">
+                                        <div class="form-group form-row">
                                             <label>Survey No<span class="text-danger fs-3">*</span></label>
                                             <input class="form-control" type="text" name="input4" id="input4" required>
                                         </div>

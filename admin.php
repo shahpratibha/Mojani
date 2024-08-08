@@ -10,6 +10,7 @@ session_start();
     <link rel="icon" href="image\LOGO_DP_Zoning.png" type="image/x-icon">
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <?php
@@ -25,6 +26,9 @@ session_start();
     <div class="container">
         <div class="right-section">
             <div class="login-container">
+            <!-- <a href="index.html">
+                    <i class="fa-solid fa-house icon-top-10"></i>
+                </a> -->
                 <form class="login-form" action="admin_process.php" method="post">
                 <h2 class="login-title"><img src="image\LOGO_DP_Zoning.png" class="logo" alt="" style=""></h2>
 

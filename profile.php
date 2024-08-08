@@ -195,6 +195,7 @@ if (!$uploads_result) {
     
     <a href="form.php" class="back-button">
     <i class="fas fa-arrow-left"></i> 
+    <!-- <i class="fa-solid fa-house icon-top-10"></i> -->
      </a>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
