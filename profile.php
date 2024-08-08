@@ -115,9 +115,10 @@ if (!$uploads_result) {
                                 <th>District</th>
                                 <th>Taluka</th>
                                 <th>Village</th>
-                                <th>Survey Map Pdf</th>
-                                <th>Village Map Pdf</th>
-                                <th>7/12 Pdf</th>
+                                <th>Survey No</th>
+                                <th>Upload Pdf</th>
+                                <!-- <th>Village Map Pdf</th>
+                                <th>7/12 Pdf</th> -->
                                 <th>Upload Date</th>
                                 <th>Download File</th>
                             </tr>
@@ -129,13 +130,14 @@ if (!$uploads_result) {
                                     <td><?php echo htmlspecialchars($upload['district']); ?></td>
                                     <td><?php echo htmlspecialchars($upload['taluka']); ?></td>
                                     <td><?php echo htmlspecialchars($upload['village']); ?></td>
+                                    <td><?php echo htmlspecialchars($upload['survey_number']); ?></td>
                                     <td>
                                         <?php
                                         $surveyMapFilePath = 'uploads/' . $upload['survey_map_filename'];
                                         echo '<a href="#" onclick="openModal(\'' . $surveyMapFilePath . '\')">' . htmlspecialchars($upload['survey_map_filename']) . '</a>';
                                         ?>
                                     </td>
-                                    <td>
+                                    <!-- <td>
                                         <?php
                                         $villageMapFilePath = 'uploads/' . $upload['village_map_filename'];
                                         echo '<a href="#" onclick="openModal(\'' . $villageMapFilePath . '\')">' . htmlspecialchars($upload['village_map_filename']) . '</a>';
@@ -146,7 +148,7 @@ if (!$uploads_result) {
                                         $pdf712FilePath = 'uploads/' . $upload['pdf_7_12_filename'];
                                         echo '<a href="#" onclick="openModal(\'' . $pdf712FilePath . '\')">' . htmlspecialchars($upload['pdf_7_12_filename']) . '</a>';
                                         ?>
-                                    </td>
+                                    </td> -->
                                     <td><?php echo htmlspecialchars($upload['timestamp']); ?></td>
                                     <td>
                                         <?php if ($upload['file_path']) : ?>

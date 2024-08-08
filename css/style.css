@@ -39,6 +39,26 @@ body {
    
 }
 
+.login-container1 {
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 29px 88px rgb(29, 54, 59);
+    /* margin-top: 129px; */
+    border-radius: 19px;
+    position: absolute;
+    top: 51px;
+    width: 71px;
+    left: 16px;
+}
+.homebtn{
+    background-color: rgba(255, 255, 255, 0.8);
+    color: var(--Grey-800, #262626);
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
 .login-form h2 {
     color: #1324bc;
     text-align: center;
