@@ -116,20 +116,117 @@ body {
     height: 100px;
     width: 100%;
 }
-
-.custom-modal-dialog {
-    max-width: 50%;
+/* Make the modal content background transparent */
+.modal-content {
+    background: rgba(255, 255, 255, 0.8);
+    border: none; 
 }
+
+/* Make the form background transparent */
+.modal-body {
+    background: transparent; background: rgba(255, 255, 255, 0.8);
+}
+
+/* Optional: Style the form elements to stand out against the transparent background */
+.form-control {
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background for inputs */
+    border: 1px solid #ced4da; /* Adjust border color as needed */
+}
+
 
 .modal-content {
-    height: 400px;
-    overflow-y: auto;
-    max-width: 90%;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    /* width: 50%; */
+    color: var(--bs-modal-color);
+    pointer-events: auto;
+    background: rgba(255, 255, 255, 0.5);
+    background-clip: padding-box;
+    border: var(--bs-modal-border-width) solid var(--bs-modal-border-color);
+    border-radius: 8px;
+    outline: 0;
+}
+
+.form-group {
+    margin-bottom: 0.5rem; /* Space between form groups */
+}
+
+.form-control {
+    font-size: 12px; /* Base font size */
+    padding: 0.5rem; /* Base padding */
+    border-radius: 4px; /* Rounded corners */
+}
+
+.upload-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* Space between file inputs */
+}
+
+.file-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem; /* Space between label and input */
+}
+
+/* Responsive styles */
+@media (max-width: 320px) {
+    .modal-dialog {
+        margin: 5px; 
+    }
+    
+    .modal-body {
+        padding: 0 5px; 
+    }
+    
+    .form-control {
+        font-size: 10px; 
+        padding: 0.25rem; 
+    }
+    
+    .form-group label {
+        margin: 0; /* Remove margin to reduce space around labels */
+        padding: 0; /* Remove padding */
+        font-size: 10px; /* Smaller font size for labels */
+    }
+    
+    .upload-container {
+        gap: 0.25rem; /* Reduce gap between file inputs */
+    }
+    
+    .file-input-container {
+        gap: 0.1rem; /* Even smaller gap between label and input */
+    }
 }
 
 
 
+
+/* .modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 68%;
+    color: var(--bs-modal-color);
+    pointer-events: auto;
+    background: rgba(255, 255, 255, 0.5);
+    background-clip: padding-box;
+    border: var(--bs-modal-border-width) solid var(--bs-modal-border-color);
+    border-radius: var(--bs-modal-border-radius);
+    outline: 0;
+    margin-top: 10px;
+} */
+.modal-body {
+    position: relative;
+    flex: 1 1 auto;
+    padding: var(--bs-modal-padding);
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* .custom-modal-dialog {
+    max-width: 50%;
+}
 .modal-dialog.draggable-modal {
     position: fixed;
     top: 30px;
@@ -139,7 +236,6 @@ body {
     width: 70%;
     max-width: 400px;
     height: 100vh;
-    /* overflow-y: auto; */
 }
 
 .modal-content {
@@ -147,7 +243,7 @@ body {
     border: none;
     border-radius: 0;
     top: 60px;
-}
+} */
 
 li {
     list-style: none;
@@ -431,7 +527,7 @@ li {
         border-radius: 4px;
         background-color: white;
         cursor: pointer;
-        margin-top: 57px;
+        margin-top: 64px;
         position: relative;
         z-index: 1000;
         width: 32px;
@@ -489,8 +585,8 @@ li {
         height: 100%;
         background-color: #0077DA;
         color: white;
-        top: 95px;
-        left: 495%;
+        top: 93px;
+        left: 330%;
         z-index: 1;
         border-radius: 20px;
         cursor: pointer;
@@ -504,7 +600,7 @@ li {
         text-shadow: #fff;
         font-size: 14px;
         margin-top: 50px;
-        margin-right: 24px;
+        margin-right: 150px;
     }
 
     .leaflet-touch .leaflet-control-layers,
@@ -544,7 +640,7 @@ li {
     .btn-close {
         margin-top: 1opx;
         font-size: 10px;
-        margin-left: 194px;
+        margin-left: 250px;
     }
 
     .btn-close {
@@ -641,8 +737,8 @@ li {
         position: absolute;
         top: 10vh;
         left: -9px;
-        height: 116vh;
-        width: 135vw;
+        height: 80vh;
+        width: 100vw;
         z-index: 0;
         border-radius: 10px;
         padding: 10px;
@@ -651,7 +747,7 @@ li {
         box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
     }
 
-    .modal-content {
+    /* .modal-content {
         height: auto;
         max-height: 700px !important;
     }
@@ -664,10 +760,8 @@ li {
         margin-left: 0;
         margin-right: auto;
         width: 86%;
-        /* max-width: 400px; */
         height: 140vh;
-        /* overflow-y: auto; */
-    }
+    } */
 
     .profile {
         position: absolute;
@@ -721,20 +815,25 @@ li {
         position: relative;
         display: flex;
         flex-direction: column;
-        width: 100%;
+        width: 68%;
         color: var(--bs-modal-color);
         pointer-events: auto;
-        border: 1px solid var(--Grey-300, #A8A8A8);
-        background: rgba(255, 255, 255,0.50);
-
         background-clip: padding-box;
         border: var(--bs-modal-border-width) solid var(--bs-modal-border-color);
         border-radius: var(--bs-modal-border-radius);
         outline: 0;
+        margin-top: 76px;
+        background: rgba(255, 255, 255, 0.5);
     }
 
-    .modal-body {
+    /* .modal-body {
         padding: 5px !important;
+    } */
+    .modal-body {
+        position: relative;
+        flex: 1 1 auto;
+        padding: var(--bs-modal-padding);
+        background: rgba(255, 255, 255, 0.5);
     }
 
     .legend-div {
@@ -869,7 +968,7 @@ li {
     .btn-close {
         margin-top: 1opx;
         font-size: 10px;
-        margin-left: 210px;
+        margin-left: 390px;
     }
 
     .icon-wrapper {
@@ -897,17 +996,21 @@ li {
         font-family: sans-serif;
         color: white !important;
     }
-    .modal-dialog.draggable-modal {
-        position: fixed;
-        top: 47px;
-        left: 47px;
-        border-radius: 15px;
-        margin-left: 0;
-        margin-right: auto;
-        width: 86%;
-        /* max-width: 400px; */
-        height: 140vh;
-        /* overflow-y: auto; */
+
+    
+    .modal-content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 85%;
+        color: var(--bs-modal-color);
+        pointer-events: auto;
+        background: rgba(255, 255, 255, 0.5);
+        background-clip: padding-box;
+        border: var(--bs-modal-border-width) solid var(--bs-modal-border-color);
+        border-radius: var(--bs-modal-border-radius);
+        outline: 0;
+        margin-top: 10px;
     }
     
 .toggle-switch {
@@ -971,7 +1074,6 @@ li {
     right: 10px;
     transform: translateY(-50%);
 }
-
 }
 
 
@@ -1065,7 +1167,7 @@ li {
     .btn-close {
         margin-top: 1opx;
         font-size: 10px;
-        margin-left: 230px;
+        margin-left: 380px;
     }
 
     .icon-wrapper {
@@ -1093,18 +1195,22 @@ li {
         font-family: sans-serif;
         color: white !important;
     }
-    .modal-dialog.draggable-modal {
-        position: fixed;
-        top: 47px;
-        left: 47px;
-        border-radius: 15px;
-        margin-left: 0;
-        margin-right: auto;
-        width: 86%;
-        /* max-width: 400px; */
-        height: 140vh;
-        /* overflow-y: auto; */
-    }
+    /* .modal-content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 85%;
+        color: var(--bs-modal-color);
+        pointer-events: auto;
+        background: rgba(255, 255, 255, 0.5);
+        background-clip: padding-box;
+        border: var(--bs-modal-border-width) solid var(--bs-modal-border-color);
+        border-radius: var(--bs-modal-border-radius);
+        outline: 0;
+        margin-top: 80px;
+    } */
+
+    
     
 .toggle-switch {
     position: relative;
@@ -1266,7 +1372,7 @@ li {
     .btn-close {
         margin-top: 1opx;
         font-size: 10px;
-        margin-left: 230px;
+        margin-left: 380px;
     }
 
     .icon-wrapper {
@@ -1294,20 +1400,28 @@ li {
         font-family: sans-serif;
         color: white !important;
     }
-    .modal-dialog.draggable-modal {
-        position: fixed;
-        top: 37px;
-        left: 160px;
-        border-radius: 15px;
-        margin-left: 0;
-        margin-right: auto;
-        width: 86%;
-        /* max-width: 400px; */
-        height: 140vh;
-      
-        /* overflow-y: auto; */
+    .modal-content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 85%;
+        color: var(--bs-modal-color);
+        pointer-events: auto;
+        background: rgba(255, 255, 255, 0.5);
+        background-clip: padding-box;
+        border: var(--bs-modal-border-width) solid var(--bs-modal-border-color);
+        border-radius: var(--bs-modal-border-radius);
+        outline: 0;
+        margin-top: 60px;
     }
-    
+    .upload-container {
+        width: 390px;
+        height: 52%;
+        margin: auto;
+        padding: 13px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
 .toggle-switch {
     position: relative;
     display: inline-block;
@@ -1488,15 +1602,19 @@ li {
         font-family: sans-serif;
         color: white !important;
     }
-    .modal-dialog.draggable-modal {
-        position: fixed;
-        top: 47px;
-        left: 47px;
-        border-radius: 15px;
-        margin-left: 0;
-        margin-right: auto;
-        width: 200%;
-        height: 140vh;
+    .modal-content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 85%;
+        color: var(--bs-modal-color);
+        pointer-events: auto;
+        background: rgba(255, 255, 255, 0.5);
+        background-clip: padding-box;
+        border: var(--bs-modal-border-width) solid var(--bs-modal-border-color);
+        border-radius: var(--bs-modal-border-radius);
+        outline: 0;
+        margin-top: 89px;
     }
     
 .toggle-switch {
@@ -1559,22 +1677,6 @@ li {
     right: 10px;
     transform: translateY(-50%);
 }
-.modal-content {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    color: var(--bs-modal-color);
-    pointer-events: auto;
-    border: 1px solid var(--Grey-300, #A8A8A8);
-    background: rgba(255, 255, 255,0.50);
-
-    background-clip: padding-box;
-    border: var(--bs-modal-border-width) solid var(--bs-modal-border-color);
-    border-radius: var(--bs-modal-border-radius);
-    outline: 0;
-    height: 50%;
-}
 }
 
 
@@ -1585,14 +1687,27 @@ li {
         position: absolute;
         top: 66PX;
         left: 2%;
-        height: 104vh;
-        width: 137vw;
+        height: 80vh;
+        width: 92vw;
         z-index: 0;
         border-radius: 5px;
         box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
         border: 3px solid #0077da;
     }
-
+    .toggle-label {
+        display: block;
+        position: absolute;
+        width: 169%;
+        height: 100%;
+        background-color: #0077DA;
+        color: white;
+        top: 93px;
+        left: 300%;
+        z-index: 1;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+       
     .menu-bar {
         display: inline-flex;
         justify-content: center;
@@ -1667,7 +1782,7 @@ li {
         text-shadow: #fff;
         font-size: 20px;
         margin-top: 51px;
-        margin-right: 45px;
+        margin-right: 205px;
     }
 
     li {
@@ -1721,6 +1836,20 @@ li {
         border: 3px solid #0077da;
     }
 
+    .toggle-label {
+        display: block;
+        position: absolute;
+        width: 169%;
+        height: 100%;
+        background-color: #0077DA;
+        color: white;
+        top: 93px;
+        left: 300%;
+        z-index: 1;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
     .menu-bar {
         display: inline-flex;
         justify-content: center;
@@ -1823,9 +1952,9 @@ li {
     #map {
         position: absolute;
         top: 66PX;
-        left: 2%;
-        height: 93vh;
-        width: 137vw;
+        left: 1%;
+        height: 86vh;
+        width: 93vw;
         z-index: 0;
         border-radius: 5px;
         box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
@@ -1874,12 +2003,11 @@ li {
         margin-top: 0px;
     }
 
-    .leaflet-top,
-    .leaflet-bottom {
+    .leaflet-top, .leaflet-bottom {
         position: absolute;
         z-index: 1000;
         pointer-events: none;
-        margin-top: -612px;
+        margin-top: 45px;
     }
 
     .legend-div {
@@ -1926,6 +2054,17 @@ li {
         font-size: 10px;
         margin-left: 235px;
     }
+
+    .icon-wrapper {
+        position: absolute;
+        top: 17%;
+        left: 23px;
+        background-color: white;
+        border: 2px solid #0077da;
+        border-radius: 5px;
+        padding: 5px;
+        z-index: 2;
+    }
 }
 
 /* meadia query for the iphones */
@@ -1934,10 +2073,10 @@ li {
 
     #map {
         position: absolute;
-        top: 66PX;
+        top: 64PX;
         left: 2%;
-        height: 112vh;
-        width: 137vw;
+        height: 89vh;
+        width: 90vw;
         z-index: 0;
         border-radius: 5px;
         box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
@@ -2046,9 +2185,9 @@ li {
     #map {
         position: absolute;
         top: 66PX;
-        left: 2%;
-        height: 101vh;
-        width: 137vw;
+        left: -2%;
+        height: 88vh;
+        width: 99vw;
         z-index: 0;
         border-radius: 5px;
         box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
@@ -2097,12 +2236,11 @@ li {
         margin-top: 0px;
     }
 
-    .leaflet-top,
-    .leaflet-bottom {
+    .leaflet-top, .leaflet-bottom {
         position: absolute;
         z-index: 1000;
         pointer-events: none;
-        margin-top: -612px;
+        margin-top: 45px;
     }
 
     .legend-div {
@@ -2149,6 +2287,16 @@ li {
         font-size: 10px;
         margin-left: 235px;
     }
+    .icon-wrapper {
+        position: absolute;
+        top: 20%;
+        left: 24px;
+        background-color: white;
+        border: 2px solid #0077da;
+        border-radius: 5px;
+        padding: 5px;
+        z-index: 2;
+    }
 }
 
 /* meadia query for iphone 11 pro */
@@ -2157,9 +2305,9 @@ li {
     #map {
         position: absolute;
         top: 66PX;
-        left: 2%;
-        height: 101vh;
-        width: 137vw;
+        left: -2%;
+        height: 87vh;
+        width: 99vw;
         z-index: 0;
         border-radius: 5px;
         box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
@@ -2202,14 +2350,16 @@ li {
         height: 8dvh;
     }
 
-    .location-wrapper {
-        display: flex;
-        align-items: center;
-        margin-bottom: 20px;
-        margin-top: -25px;
-        margin-left: 50px;
+    .icon-wrapper {
+        position: absolute;
+        top: 20%;
+        left: 24px;
+        background-color: white;
+        border: 2px solid #0077da;
+        border-radius: 5px;
+        padding: 5px;
+        z-index: 2;
     }
-
     .location-icon {
         background-color: #0077DA;
         margin-left: 10px;

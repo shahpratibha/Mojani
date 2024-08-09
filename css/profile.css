@@ -38,9 +38,9 @@ body {
 
 #surveyTable th, .uploads th {
     font-size: 12px;
-    color: darkblue;
+    color: #393939;
     /* background-color: darkblue; */
-    background-color: #E9E9F7;
+    background-color: #B0D5F4;
     font-weight: bold;
 }
 
@@ -105,7 +105,7 @@ tr {
     font-weight: bold;
 }
 a{
-    color: darkblue;
+    color: #0077DA;
 }
 
 .btnn{
@@ -156,8 +156,8 @@ a{
     padding: 5px 10px;
     cursor: pointer;
     font-size: 40px;
-    color: darkblue;
-    border: 2px solid darkblue;
+    color: #0077DA;
+    border: 2px solid #0077DA;
 }
 
 .pagination .active .page-link {
@@ -244,8 +244,8 @@ a{
 #surveyTable th {
     font-size: 30px;
     /* background-color: darkblue; */
-    background-color: #E9E9F7;
-    color: darkblue;
+    background-color: #B0D5F4;
+    color: #262626;
 }
 
 #surveyTable td {
@@ -282,20 +282,20 @@ a{
     font-size: 30px;
 }
 .font{
-    color: darkblue;
+    color: #0077DA;
     text-decoration: underline;
 }
 .fa-gauge{
-    color: darkblue;
+    color: #0077DA;
 }
 .fa-users{
-    color: darkblue;
+    color: #0077DA;
 }
 .fa-upload{
-    color: darkblue;
+    color: #0077DA;
 }
 .fa-user-shield{
-    color: darkblue;
+    color: #0077DA;
 }
 
 .admin {
@@ -304,7 +304,7 @@ a{
     margin-left: 35%;
     padding: 10px 20px;
      background-color: #E9E9F7;
-    color: darkblue;
+    color: #0077DA;
     border: none;
     border-radius: 10px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
@@ -316,7 +316,7 @@ a{
 
 .admin:hover {
     background-color: #E9E9F7;
-    color: darkblue;
+    color: #0077DA;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     transform: translateY(-2px);
 }

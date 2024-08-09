@@ -139,20 +139,11 @@ $logged_in_user = $_SESSION['username'];
             display: block;
         }
 
+        
         .modal-content {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            color: var(--bs-modal-color);
-            pointer-events: auto;
-            border: 1px solid var(--Grey-300, #A8A8A8);
             background: rgba(255, 255, 255, 0.50);
-            background-clip: padding-box;
-            border: var(--bs-modal-border-width) solid var(--bs-modal-border-color);
-            border-radius: var(--bs-modal-border-radius);
-            outline: 0;
-            height: 50%;
+            width: 100%;
+            font-size: 12px;
         }
 
         .modal-backdrop {
@@ -178,14 +169,33 @@ $logged_in_user = $_SESSION['username'];
         .form-row label {
             flex: 1;
             margin-right: 10px;
-            /* Adjust the spacing between label and input */
             text-align: right;
-            /* Align label text to the right */
         }
 
         .form-row .form-control {
             flex: 2;
         }
+
+        /* Custom popup style */
+        .leaflet-popup-content-wrapper, .leaflet-popup-tip {
+         background: rgba(0, 0, 0, 0.6);
+        color: white;
+        }
+
+
+        .leaflet-container a.leaflet-popup-close-button {
+         position: absolute;
+        top: 0;
+        right: 0;
+        border: none;
+        text-align: center;
+        width: 24px;
+        height: 24px;
+        font: 16px / 24px Tahoma, Verdana, sans-serif;
+        color: white;
+        text-decoration: none;
+        background: transparent;
+    }
     </style>
 </head>
 
@@ -276,14 +286,7 @@ $logged_in_user = $_SESSION['username'];
 
                             <div class="modal-body">
                                 <div class="contain-toggle">
-                                    <div class="toggle-switch-alternate">
-                                        <input type="checkbox" id="toggle-alternate" class="toggle-input-alternate">
-                                        <label for="toggle-alternate" class="toggle-label-alternate">
-                                            <span class="toggle-text-alternate toggle-text-left-alternate">State</span>
-                                            <span class="toggle-handle-alternate"></span>
-                                            <span class="toggle-text-alternate toggle-text-right-alternate">Maharashtra</span>
-                                        </label>
-                                    </div>
+                                   <h2>Form</h2>
 
                                     <button type="button" class="btn-close custom-close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
@@ -321,15 +324,15 @@ $logged_in_user = $_SESSION['username'];
                                                 <div id="surveyMapFilePath" class="file-progress"></div>
                                             </div>
 
-                                            <!-- <div class="file-input-container">
+                                             <div class="file-input-container">
                                                 <label>
                                                     <input type="file" class="file-input" accept=".pdf" name="village_map" onchange="handleFileUpload(this, 'villageMapFilePath')">
-                                                    Upload Village Map PDF (optional)
+                                                    Upload other pdf
                                                 </label>
                                                 <div id="villageMapFilePath" class="file-progress"></div>
                                             </div>
 
-                                            <div class="file-input-container">
+                                           <!-- <div class="file-input-container">
                                                 <label>
                                                     <input type="file" class="file-input" accept=".pdf" name="pdf_7_12" onchange="handleFileUpload(this, 'pdf7_12FilePath')">
                                                     Upload 7/12 PDF (optional)
@@ -415,7 +418,8 @@ $logged_in_user = $_SESSION['username'];
 
             // Add a new marker at the current location
             marker = L.marker([lat, lng]).addTo(map)
-                .bindPopup('You are here')
+            .bindPopup(`Location Coordinates: ${lat.toFixed(4)}, ${lng.toFixed(4)}`)
+
                 .openPopup();
         }
 

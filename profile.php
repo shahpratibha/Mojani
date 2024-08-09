@@ -38,6 +38,7 @@ if (!$uploads_result) {
 }
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -64,26 +65,51 @@ if (!$uploads_result) {
 </head>
 
 <body>
+
+<header class="header">
+        <div class="logo">
+            <a class="Geo" href="#"><img src="image/LOGO_DP_Zoning.png" alt="Logo"></a>
+        </div>
+        <div class="profile justify-content-end">
+            <ul>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <?php echo htmlspecialchars($user['username']); ?>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <form action="logout.php" method="post" style="margin: 0;">
+                            <button class="dropdown-item" type="submit" name="Logout">Logout</button>
+                        </form>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <a href="index.html" class="back-button">
+    <i class="fa fa-angle-left mt-5"></i> Dashboard
+     
+     </a>
     <div class="container-fluid ">
-    
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="profile">
-                    <img src="image/LOGO_DP_Zoning.png" alt="Profile Image" class="profile-img">
+                    <!-- <img src="image/LOGO_DP_Zoning.png" alt="Profile Image" class="profile-img"> -->
 
                    
                     <!-- Button to toggle the profile card -->
                     <button id="toggleProfileCardBtn" class="user">
-                        <span class="icon"><i class="fas fa-user"></i></span>
-                        <span class="text">Profile</span>
+                        <!-- <span class="icon"><i class="fas fa-user"></i></span>-->
+                        <!-- <span class="text">Profile</span>  -->
+                        Show User Profile
                     </button>
 
 
-                    <form action="logout.php" method="post" style="display: inline;">
+                    <!-- <form action="logout.php" method="post" style="display: inline;">
                         <button type="submit" name="Logout" class="btn">
                             <i class="fas fa-power-off" style="color: red;"></i>
                         </button>
-                    </form>
+                    </form> -->
                 </div>
 
                 <div class="card profile-card card-header" id="profileCard" style="display: none;">
@@ -106,7 +132,7 @@ if (!$uploads_result) {
 
         <div class="row">
             <div class="uploads col-12 tabledata">
-                <h2 class="text-center text-success mt-5 underlined">Upload Log</h2>
+                <h2 class="text-center mt-5">Upload Log</h2>
                 <div class="table-responsive-x">
                     <table class="table table-bordered" id="uploadTable">
                         <thead>
@@ -115,10 +141,9 @@ if (!$uploads_result) {
                                 <th>District</th>
                                 <th>Taluka</th>
                                 <th>Village</th>
-                                <th>Survey No</th>
-                                <th>Upload Pdf</th>
-                                <!-- <th>Village Map Pdf</th>
-                                <th>7/12 Pdf</th> -->
+                                <th>Survey Map Pdf</th>
+                                <th>Village Map Pdf</th>
+                                <th>7/12 Pdf</th>
                                 <th>Upload Date</th>
                                 <th>Download File</th>
                             </tr>
@@ -130,14 +155,13 @@ if (!$uploads_result) {
                                     <td><?php echo htmlspecialchars($upload['district']); ?></td>
                                     <td><?php echo htmlspecialchars($upload['taluka']); ?></td>
                                     <td><?php echo htmlspecialchars($upload['village']); ?></td>
-                                    <td><?php echo htmlspecialchars($upload['survey_number']); ?></td>
                                     <td>
                                         <?php
                                         $surveyMapFilePath = 'uploads/' . $upload['survey_map_filename'];
                                         echo '<a href="#" onclick="openModal(\'' . $surveyMapFilePath . '\')">' . htmlspecialchars($upload['survey_map_filename']) . '</a>';
                                         ?>
                                     </td>
-                                    <!-- <td>
+                                    <td>
                                         <?php
                                         $villageMapFilePath = 'uploads/' . $upload['village_map_filename'];
                                         echo '<a href="#" onclick="openModal(\'' . $villageMapFilePath . '\')">' . htmlspecialchars($upload['village_map_filename']) . '</a>';
@@ -148,7 +172,7 @@ if (!$uploads_result) {
                                         $pdf712FilePath = 'uploads/' . $upload['pdf_7_12_filename'];
                                         echo '<a href="#" onclick="openModal(\'' . $pdf712FilePath . '\')">' . htmlspecialchars($upload['pdf_7_12_filename']) . '</a>';
                                         ?>
-                                    </td> -->
+                                    </td>
                                     <td><?php echo htmlspecialchars($upload['timestamp']); ?></td>
                                     <td>
                                         <?php if ($upload['file_path']) : ?>
@@ -195,10 +219,9 @@ if (!$uploads_result) {
     </div>
     </div>
     
-    <a href="form.php" class="back-button">
-    <i class="fas fa-arrow-left"></i> 
-    <!-- <i class="fa-solid fa-house icon-top-10"></i> -->
-     </a>
+
+   
+    
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
@@ -271,27 +294,17 @@ if (!$uploads_result) {
             showPage(currentPage);
         });
 
-        document.querySelector('.user .icon').addEventListener('click', function() {
-            var profileCard = document.getElementById('profileCard');
-            if (profileCard.style.display === 'none' || profileCard.style.display === '') {
-                profileCard.style.display = 'block';
-                document.getElementById('toggleProfileCardBtn').classList.add('fixed');
-            } else {
-                profileCard.style.display = 'none';
-                document.getElementById('toggleProfileCardBtn').classList.remove('fixed');
-            }
-        });
+        document.getElementById('toggleProfileCardBtn').addEventListener('click', function() {
+    var profileCard = document.getElementById('profileCard');
+    if (profileCard.style.display === 'none' || profileCard.style.display === '') {
+        profileCard.style.display = 'block';
+        this.classList.add('fixed'); 
+    } else {
+        profileCard.style.display = 'none';
+        this.classList.remove('fixed'); 
+    }
+});
 
-        document.querySelector('.user .text').addEventListener('click', function() {
-            var profileCard = document.getElementById('profileCard');
-            if (profileCard.style.display === 'none' || profileCard.style.display === '') {
-                profileCard.style.display = 'block';
-                document.getElementById('toggleProfileCardBtn').classList.add('fixed');
-            } else {
-                profileCard.style.display = 'none';
-                document.getElementById('toggleProfileCardBtn').classList.remove('fixed');
-            }
-        });
     </script>
 
 </body>
