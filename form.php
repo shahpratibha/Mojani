@@ -139,7 +139,7 @@ $logged_in_user = $_SESSION['username'];
             display: block;
         }
 
-        
+
         .modal-content {
             background: rgba(255, 255, 255, 0.50);
             width: 100%;
@@ -177,25 +177,26 @@ $logged_in_user = $_SESSION['username'];
         }
 
         /* Custom popup style */
-        .leaflet-popup-content-wrapper, .leaflet-popup-tip {
-         background: rgba(0, 0, 0, 0.6);
-        color: white;
+        .leaflet-popup-content-wrapper,
+        .leaflet-popup-tip {
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
         }
 
 
         .leaflet-container a.leaflet-popup-close-button {
-         position: absolute;
-        top: 0;
-        right: 0;
-        border: none;
-        text-align: center;
-        width: 24px;
-        height: 24px;
-        font: 16px / 24px Tahoma, Verdana, sans-serif;
-        color: white;
-        text-decoration: none;
-        background: transparent;
-    }
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: none;
+            text-align: center;
+            width: 24px;
+            height: 24px;
+            font: 16px / 24px Tahoma, Verdana, sans-serif;
+            color: white;
+            text-decoration: none;
+            background: transparent;
+        }
     </style>
 </head>
 
@@ -286,7 +287,7 @@ $logged_in_user = $_SESSION['username'];
 
                             <div class="modal-body">
                                 <div class="contain-toggle">
-                                   <h2>Form</h2>
+                                    <h2>Form</h2>
 
                                     <button type="button" class="btn-close custom-close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
@@ -324,7 +325,7 @@ $logged_in_user = $_SESSION['username'];
                                                 <div id="surveyMapFilePath" class="file-progress"></div>
                                             </div>
 
-                                             <div class="file-input-container">
+                                            <div class="file-input-container">
                                                 <label>
                                                     <input type="file" class="file-input" accept=".pdf" name="village_map" onchange="handleFileUpload(this, 'villageMapFilePath')">
                                                     Upload other pdf
@@ -332,7 +333,7 @@ $logged_in_user = $_SESSION['username'];
                                                 <div id="villageMapFilePath" class="file-progress"></div>
                                             </div>
 
-                                           <!-- <div class="file-input-container">
+                                            <!-- <div class="file-input-container">
                                                 <label>
                                                     <input type="file" class="file-input" accept=".pdf" name="pdf_7_12" onchange="handleFileUpload(this, 'pdf7_12FilePath')">
                                                     Upload 7/12 PDF (optional)
@@ -418,7 +419,7 @@ $logged_in_user = $_SESSION['username'];
 
             // Add a new marker at the current location
             marker = L.marker([lat, lng]).addTo(map)
-            .bindPopup(`Location Coordinates: ${lat.toFixed(4)}, ${lng.toFixed(4)}`)
+                .bindPopup(`Location Coordinates: ${lat.toFixed(4)}, ${lng.toFixed(4)}`)
 
                 .openPopup();
         }
@@ -437,49 +438,64 @@ map.on('click', function(e) {
     var lat = e.latlng.lat;
     var lng = e.latlng.lng;
 
-    // Define popup content with Save button
+    // Define popup content with Save and Cancel buttons
     var popupContent = `
         <div style="text-align: center;">
             <p>Coordinates: ${lat.toFixed(6)}, ${lng.toFixed(6)}</p>
             <button id="saveButton" style="padding: 5px 10px; background-color: #0077DA; color: white; border: none; border-radius: 4px; cursor: pointer;">
                 Save
             </button>
+            <button id="cancelButton" style="padding: 5px 10px; background-color: red; color: white; border: none; border-radius: 4px; cursor: pointer; margin-left: 10px;">
+                Cancel
+            </button>
         </div>
     `;
 
     // Display the popup with custom content
-    L.popup({ className: 'custom-popup' })
+    L.popup({
+            className: 'custom-popup'
+        })
         .setLatLng(e.latlng)
         .setContent(popupContent)
         .openOn(map);
 
     // Handle Save button click
     document.getElementById('saveButton').addEventListener('click', function() {
-        // Send coordinates to server
-        fetch('save_coordinates.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                lat: lat.toFixed(6),
-                lng: lng.toFixed(6),
-                user_id: <?php echo $_SESSION['user_id']; ?> // Pass user ID from PHP session
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                alert('Coordinates saved successfully.');
-            } else {
-                alert('Error saving coordinates.');
-            }
-        })
-        .catch(error => console.error('Error:', error));
+        // Show confirmation message
+        var confirmSave = confirm("Do you want to save these coordinates?");
+        if (confirmSave) {
+            // Send coordinates to server
+            fetch('save_coordinates.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        lat: lat.toFixed(6),
+                        lng: lng.toFixed(6),
+                        user_id: <?php echo $_SESSION['user_id']; ?> // Pass user ID from PHP session
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Coordinates saved successfully.');
+                    } else {
+                        alert('Error saving coordinates.');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    });
+
+    // Handle Cancel button click
+    document.getElementById('cancelButton').addEventListener('click', function() {
+        // Show cancel confirmation message
+        alert('Coordinate saving canceled.');
+        map.closePopup(); // Close the popup
     });
 });
-
-    </script>
+ </script>
 </body>
 
 </html>
