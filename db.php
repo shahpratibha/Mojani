@@ -1,7 +1,7 @@
 <?php
 $host = "157.173.222.9";
 $port = "5432";
-$dbname = "Mojani_test";
+$dbname = "Mojani_new";
 $user = "postgres";
 $password = "Mojani@992101";
 

@@ -1,7 +1,5 @@
 <?php
 session_start();
-
-
 include('db.php');
 
 // Set the default time zone to your local time zone
