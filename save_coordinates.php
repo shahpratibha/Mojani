@@ -11,17 +11,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($data['lat']) && isset($data['lng']) && isset($data['user_id'])) {
         $lat = $data['lat'];
         $lng = $data['lng'];
-        $user_id = $data['user_id'];
         $coordinates = $lat . ',' . $lng;
+        $district = $data['district'];
+        $taluka = $data['taluka'];
+        $village = $data['village'];
+        $survey_number = $data['survey_number'];
+        $username = $data['username'];
 
-        // Update the user_login table to store the coordinates
-        $sql = "UPDATE user_login SET coordinates = :coordinates WHERE user_id = :user_id AND id = :login_record_id";
+        // Insert the coordinates into survey_data table
+        $sql = "INSERT INTO survey_data (district, taluka, village, survey_number, username, coordinates) 
+                VALUES (:district, :taluka, :village, :survey_number, :username, :coordinates)";
         $stmt = $pdo->prepare($sql);
 
         // Bind parameters
+        $stmt->bindParam(':district', $district, PDO::PARAM_STR);
+        $stmt->bindParam(':taluka', $taluka, PDO::PARAM_STR);
+        $stmt->bindParam(':village', $village, PDO::PARAM_STR);
+        $stmt->bindParam(':survey_number', $survey_number, PDO::PARAM_STR);
+        $stmt->bindParam(':username', $username, PDO::PARAM_STR);
         $stmt->bindParam(':coordinates', $coordinates, PDO::PARAM_STR);
-        $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
-        $stmt->bindParam(':login_record_id', $_SESSION['login_record_id'], PDO::PARAM_INT);
 
         // Execute the statement
         if ($stmt->execute()) {

@@ -1,4 +1,6 @@
 <?php
+
+// //live databse
 $host = "157.173.222.9";
 $port = "5432";
 $dbname = "Mojani_new";
@@ -6,11 +8,12 @@ $user = "postgres";
 $password = "Mojani@992101";
 
 
-// $host = "rr.c01x1jtcm1ms.ap-south-1.rds.amazonaws.com";
+// test database
+// $host = "157.173.222.9";
 // $port = "5432";
-// $dbname = "Mojani";
+// $dbname = "Mojani_test";
 // $user = "postgres";
-// $password = "Pmc992101";
+// $password = "Mojani@992101";
 
 
 try {

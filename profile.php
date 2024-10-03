@@ -25,12 +25,14 @@ if (!$user) {
     die("User not found.");
 }
 
+
 // Fetch upload history
-$uploads_sql = "SELECT sd.*, au.file_path 
+$uploads_sql = "SELECT sd.*, au.file_path, sd.coordinates  -- Add sd.coordinates or appropriate column name
                 FROM public.survey_data sd
                 LEFT JOIN public.admin_uploads au ON sd.id = au.survey_id
                 WHERE sd.username = $1 
                 ORDER BY sd.timestamp DESC";
+
 $uploads_result = pg_query_params($conn, $uploads_sql, array($username));
 
 if (!$uploads_result) {
@@ -86,10 +88,15 @@ if (!$uploads_result) {
         </div>
     </header>
 
-    <a href="index.html" class="back-button">
+    <!-- <a href="index.html" class="back-button">
     <i class="fa fa-angle-left mt-5"></i> Dashboard
      
-     </a>
+     </a> -->
+
+     <a href="index.html" class="back-button" id="dashboardLink">
+        <i class="fa fa-angle-left"></i> Dashboard
+    </a>
+
     <div class="container-fluid ">
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -141,6 +148,7 @@ if (!$uploads_result) {
                                 <th>District</th>
                                 <th>Taluka</th>
                                 <th>Village</th>
+                                <th>Coordinates</th> 
                                 <th>Survey Map Pdf</th>
                                 <th>Village Map Pdf</th>
                                 <th>7/12 Pdf</th>
@@ -155,6 +163,8 @@ if (!$uploads_result) {
                                     <td><?php echo htmlspecialchars($upload['district']); ?></td>
                                     <td><?php echo htmlspecialchars($upload['taluka']); ?></td>
                                     <td><?php echo htmlspecialchars($upload['village']); ?></td>
+                                    <td><?php echo htmlspecialchars($upload['coordinates']); ?></td>
+            
                                     <td>
                                         <?php
                                         $surveyMapFilePath = 'uploads/' . $upload['survey_map_filename'];
@@ -307,6 +317,11 @@ if (!$uploads_result) {
 
     </script>
 
+<script>
+    document.getElementById('dashboardLink').addEventListener('click', function(event) {
+            console.log('Dashboard button clicked');
+        });
+</script>
 </body>
 
 </html>

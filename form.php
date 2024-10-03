@@ -434,14 +434,15 @@ $logged_in_user = $_SESSION['username'];
         }
 
         // JavaScript code for Leaflet map
-        map.on('click', function(e) {
-            var lat = e.latlng.lat;
-            var lng = e.latlng.lng;
+       // JavaScript code for Leaflet map
+map.on('click', function(e) {
+    var lat = e.latlng.lat;
+    var lng = e.latlng.lng;
 
-            // Define popup content with Save and Cancel buttons
-            var popupContent = `
+    // Define popup content with Save and Cancel buttons
+    var popupContent = `
         <div style="text-align: center;">
-            <p>Coordinates: ${lat.toFixed(6)}, ${lng.toFixed(6)}</p>
+            <p>Upload your location coordinates: <br> ${lat.toFixed(6)}, ${lng.toFixed(6)}</p>
             <button id="saveButton" style="padding: 5px 10px; background-color: #0077DA; color: white; border: none; border-radius: 4px; cursor: pointer;">
                 Save
             </button>
@@ -451,51 +452,56 @@ $logged_in_user = $_SESSION['username'];
         </div>
     `;
 
-            // Display the popup with custom content
-            L.popup({
-                    className: 'custom-popup'
+    // Display the popup with custom content
+    L.popup({
+        className: 'custom-popup'
+    })
+    .setLatLng(e.latlng)
+    .setContent(popupContent)
+    .openOn(map);
+
+    // Handle Save button click
+    document.getElementById('saveButton').addEventListener('click', function() {
+        // Show confirmation message
+        var confirmSave = confirm("Do you want to save these coordinates?");
+        if (confirmSave) {
+            // Send coordinates to server
+            fetch('save_coordinates.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    lat: lat.toFixed(6),
+                    lng: lng.toFixed(6),
+                    district: "District Name",  // Add relevant data
+                    taluka: "Taluka Name",  // Add relevant data
+                    village: "Village Name",  // Add relevant data
+                    survey_number: "Survey Number",  // Add relevant data
+                    username: "<?php echo $_SESSION['username']; ?>" // Assuming username is stored in session
                 })
-                .setLatLng(e.latlng)
-                .setContent(popupContent)
-                .openOn(map);
-
-            // Handle Save button click
-            document.getElementById('saveButton').addEventListener('click', function() {
-                // Show confirmation message
-                var confirmSave = confirm("Do you want to save these coordinates?");
-                if (confirmSave) {
-                    // Send coordinates to server
-                    fetch('save_coordinates.php', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify({
-                                lat: lat.toFixed(6),
-                                lng: lng.toFixed(6),
-                                user_id: <?php echo $_SESSION['user_id']; ?> // Pass user ID from PHP session
-                            })
-                        })
-                        .then(response => response.json())
-                        .then(data => {
-                            if (data.success) {
-                                alert('Coordinates saved successfully.');
-                                map.closePopup();
-                            } else {
-                                alert('Error saving coordinates.');
-                            }
-                        })
-                        .catch(error => console.error('Error:', error));
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Coordinates saved successfully.');
+                    map.closePopup();
+                } else {
+                    alert('Error saving coordinates.');
                 }
-            });
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    });
 
-            // Handle Cancel button click
-            document.getElementById('cancelButton').addEventListener('click', function() {
-                // Show cancel confirmation message
-                alert('Coordinate saving canceled.');
-                map.closePopup(); // Close the popup
-            });
-        });
+    // Handle Cancel button click
+    document.getElementById('cancelButton').addEventListener('click', function() {
+        // Show cancel confirmation message
+        alert('Coordinate saving canceled.');
+        map.closePopup(); // Close the popup
+    });
+});
+
     </script>
 </body>
 
