@@ -2,7 +2,7 @@
 include('db.php');
 
 // Connect to the database
-$conn = pg_connect("host=157.173.222.9 dbname=Mojani_test user=postgres password=Mojani@992101");
+$conn = pg_connect("host=157.173.222.9 dbname=Mojani_new user=postgres password=Mojani@992101");
 
 if (!$conn) {
     die("Connection failed: " . pg_last_error());
@@ -25,14 +25,12 @@ if (!$user) {
     die("User not found.");
 }
 
-
 // Fetch upload history
-$uploads_sql = "SELECT sd.*, au.file_path, sd.coordinates  -- Add sd.coordinates or appropriate column name
+$uploads_sql = "SELECT sd.*, au.file_path 
                 FROM public.survey_data sd
                 LEFT JOIN public.admin_uploads au ON sd.id = au.survey_id
                 WHERE sd.username = $1 
                 ORDER BY sd.timestamp DESC";
-
 $uploads_result = pg_query_params($conn, $uploads_sql, array($username));
 
 if (!$uploads_result) {
@@ -143,7 +141,6 @@ if (!$uploads_result) {
                                 <th>District</th>
                                 <th>Taluka</th>
                                 <th>Village</th>
-                                <th>Coordinates</th> 
                                 <th>Survey Map Pdf</th>
                                 <th>Village Map Pdf</th>
                                 <th>7/12 Pdf</th>
@@ -158,8 +155,6 @@ if (!$uploads_result) {
                                     <td><?php echo htmlspecialchars($upload['district']); ?></td>
                                     <td><?php echo htmlspecialchars($upload['taluka']); ?></td>
                                     <td><?php echo htmlspecialchars($upload['village']); ?></td>
-                                    <td><?php echo htmlspecialchars($upload['coordinates']); ?></td>
-            
                                     <td>
                                         <?php
                                         $surveyMapFilePath = 'uploads/' . $upload['survey_map_filename'];
